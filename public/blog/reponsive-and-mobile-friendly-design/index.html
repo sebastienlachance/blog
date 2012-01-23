@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Reponsive and Mobile-Friendly Design with Skeleton - Sebastien Lachance</title>
+  <meta name="author" content="Sebastien Lachance">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+  <link rel="canonical" href="http://sebastienlachance.com/blog/reponsive-and-mobile-friendly-design/"/>
+  <link href="/favicon.png" rel="shortcut icon" />
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="http://s3.amazonaws.com/ender-js/jeesh.min.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Sebastien Lachance" type="application/atom+xml"/>
+  <!--Fonts from Google's Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body  >
+  <header><hgroup>
+  <h1><a href="/">Sebastien Lachance</a></h1>
+  
+    <h2>Learning new things everyday</h2>
+  
+</hgroup>
+
+</header>
+  <nav role=navigation><ul role=subscription data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="site-search">
+    <input type="hidden" name="q" value="site:sebastienlachance.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul role=main-navigation>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry">
+  
+  <header>
+    
+      <h1 class="entry-title">Reponsive and Mobile-Friendly Design With Skeleton</h1>
+    
+    
+      <p class="meta">
+
+
+
+
+
+  
+
+
+
+<time datetime="2012-01-13T10:16:00-05:00" pubdate  data-updated="true" >Jan 13<span>th</span>, 2012</time></p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img class="left" src="/images/skeleton.jpg" title="skeleton" ></p>
+
+<p>When we first made the <a href="http://www.guidedescommercesdebeauce.com" title="Guide des Commerces">Guide des Commerces</a>, we didn&#8217;t anticipated we would need to adapt to other devices so soon. In fact, it we know it was for this year but we though it would be a completely different application for iPhone, Android or a new website.</p>
+
+<p>A month ago we had a discussion with a Facebook expert and talked about adding the Guide to our existing <a href="http://www.facebook.com/pages/Guide-des-Commerces-de-Beauce/190606624290004">page</a> (just an iframe with the app). The problem is that we use fixed width everywhere and Facebook iframe has only 520px. It would not be wise to develop another site only for Facebook and another one only for mobile device. We needed another solution.</p>
+
+<p>It occured to me that we could hit three birds with one stone (a lot more actually). We only have to use a responsive desig&lt;</p>
+
+<p>I tried various css framework and settled down for <a href="getskeleton.com" title="Skeleton framework">Skeleton</a>. It provided me with everything I needed and I can almost use it as-is without any modification. It use Media Queries (link here) to adapt to various screen size (tablet, mobile, iOS, etc.).</p>
+
+<p>If you don&#8217;t know Skeleton, it&#8217;s basically a grid framework with sixteen column totally a width of 960 pixel.</p>
+
+<p>Suppose you have a div that you want to take 100% of the page.</p>
+
+<pre><code>&lt;div class="sixteen columns"&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>You can also have a three column layout very easily:</p>
+
+<pre><code>&lt;div class="one-third column"&gt;
+&lt;/div&gt;
+
+&lt;div class="one-third column"&gt;
+&lt;/div&gt;
+
+&lt;div class="one-third column"&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>When you resize your browser, everything just resize nicely.</p>
+
+<p>I am almost 5 hours in now, and I&#8217;ve struggled a little but the result is amazing. And I frankly don&#8217;t regret the framework choice at all.</p>
+
+<p>Stay tuned for more&#8230;</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Sebastien Lachance</span></span>
+
+      
+
+
+
+
+
+  
+
+
+
+<time datetime="2012-01-13T10:16:00-05:00" pubdate  data-updated="true" >Jan 13<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/design/'>design</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sebastienlachance.com/blog/reponsive-and-mobile-friendly-design/" data-via="slachance" data-counturl="http://sebastienlachance.com/blog/reponsive-and-mobile-friendly-design/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+</div>
+
+    
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread"><div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'sebastienlachance';
+  var disqus_identifier = 'http://sebastienlachance.com/blog/reponsive-and-mobile-friendly-design/';
+  var disqus_url = 'http://sebastienlachance.com/blog/reponsive-and-mobile-friendly-design/';
+  //var disqus_developer = 1;
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside role=sidebar>
+  
+    <section>
+  <h1>About Me</h1>
+  <img src="/images/me.png" />
+  <p>Sebastien Lachance, programmer since 2003.</p>
+  <p>I am an entrepreneur and consultant. I have launched the <a href="http://www.guidedescommercesdebeauce.com">Guide des Commerces</a> in 2011, a project with great potential and had a lot of fun making it. 
+  </p>
+  <p>
+    I'm a web developer specialized in Rails and ASP.NET MVC. I have a background in business applications but I really enjoy making any kind of software. 
+  </p>
+  <p>
+    I do believe in the power of twitter, but I dont use it as much as I would.
+    But feel free to follow me anyway :).
+  </p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/reponsive-and-mobile-friendly-design/">Reponsive and Mobile-Friendly Design with Skeleton</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/couldnt-parse-yaml-at-line-x-column-x-psych-syntaxerror/">Couldn't Parse YAML at Line X Column X (Psych::SyntaxError)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/a-circular-reference-was-detected-while-serializing-an-object-to-type-code-dot-models-dot-category/">A Circular Reference Was Detected While Serializing an Object to Type Code.Models.Category</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/fluenthibernate-how-to-deal-with-a-reserved-word-column/">FluentHibernate - How to Deal With a Reserved Word Column</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/everyday-stuff-rails-and-partials/">Everyday Stuff : Rails and Partials</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/sebastienlachance">@sebastienlachance</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'sebastienlachance',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("slachance", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/slachance" class="twitter-follow-button" data-width="208px" data-show-count="false">Follow @slachance</a>
+  
+</section>
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer><p>
+  Copyright &copy; 2012 - Sebastien Lachance -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+  
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+</body>
+</html>

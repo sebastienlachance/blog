@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Everyday Stuff : Rails and Partials - Sebastien Lachance</title>
+  <meta name="author" content="Sebastien Lachance">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+  <link rel="canonical" href="http://sebastienlachance.com/blog/everyday-stuff-rails-and-partials/"/>
+  <link href="/favicon.png" rel="shortcut icon" />
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="http://s3.amazonaws.com/ender-js/jeesh.min.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Sebastien Lachance" type="application/atom+xml"/>
+  <!--Fonts from Google's Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body  >
+  <header><hgroup>
+  <h1><a href="/">Sebastien Lachance</a></h1>
+  
+    <h2>Learning new things everyday</h2>
+  
+</hgroup>
+
+</header>
+  <nav role=navigation><ul role=subscription data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="site-search">
+    <input type="hidden" name="q" value="site:sebastienlachance.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul role=main-navigation>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry">
+  
+  <header>
+    
+      <h1 class="entry-title">Everyday Stuff : Rails and Partials</h1>
+    
+    
+      <p class="meta">
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-09-07T12:56:00-04:00" pubdate  data-updated="true" >Sep 7<span>th</span>, 2011</time></p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Too often I don&#8217;t remember how to render a partial and assign a model to it or a collection to it.</p>
+
+<p>So this is a reminder for me.</p>
+
+<h2>Creating a partial</h2>
+
+<p>In the view directory create a _filename.html.erb (or haml if you use it).</p>
+
+<p>Create it in the views directory that ressemble it the most or put it in the app/views/shared or anything else you want folder  if it will be used by another view outside the current view directory.</p>
+
+<h2>Rendering a partial</h2>
+
+<pre><code>&lt;%= render :partial =&gt; "entry" %&gt;
+</code></pre>
+
+<p>This is the same name as the partial we created earlier but without the _.
+If the partial is located elsewhere like in the shared folder, prefix the partial name with the folder name.</p>
+
+<pre><code>&lt;%= render :partial =&gt; "shared/entry" %&gt;
+</code></pre>
+
+<h3>Giving data to a partial</h3>
+
+<pre><code>&lt;%= render :partial =&gt; "entry", :locals =&gt; { :entry =&gt; @entry } %&gt;
+</code></pre>
+
+<p>In this case @entry is a variable that is passed to the partial view which he can access it like this :</p>
+
+<pre><code>&lt;%= entry.title %&gt;
+</code></pre>
+
+<p>Another neat feature is that the partial already create a local variable that has the same name as the partial minus the _. You can assign a value directly to this variable like this :</p>
+
+<pre><code>&lt;%= render :partial =&gt; "entry", :object =&gt; @entry %&gt;
+</code></pre>
+
+<p>Or even better</p>
+
+<pre><code>&lt;%= render @entry %&gt;
+</code></pre>
+
+<p>It will look into the type of the instance and decide on the correct partial to use and assign the local variable directly</p>
+
+<p>&lt;% @entries.each do |entry| %></p>
+
+<pre><code> &lt;%= render partial =&gt; 'entry', :locals =&gt; { :entry =&gt; entry } %&gt;
+</code></pre>
+
+<p>&lt;% end %></p>
+
+<p>Can now be written as :</p>
+
+<pre><code>&lt;% @entries.each do |entry| %&gt;
+    &lt;%= render entry %&gt;
+&lt;% end %
+</code></pre>
+
+<p>Eliminating the loop</p>
+
+<p>&lt;%= render partial => &#8216;entry&#8217;, :collection => @entries %></p>
+
+<p>Each partial will receive the local variable that is the singularize version of the collection name.</p>
+
+<p>Even better again :</p>
+
+<p>&lt;%= render @entries %></p>
+
+<p>spacer template??</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Sebastien Lachance</span></span>
+
+      
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-09-07T12:56:00-04:00" pubdate  data-updated="true" >Sep 7<span>th</span>, 2011</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sebastienlachance.com/blog/everyday-stuff-rails-and-partials/" data-via="slachance" data-counturl="http://sebastienlachance.com/blog/everyday-stuff-rails-and-partials/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+</div>
+
+    
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread"><div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'sebastienlachance';
+  var disqus_identifier = 'http://sebastienlachance.com/blog/everyday-stuff-rails-and-partials/';
+  var disqus_url = 'http://sebastienlachance.com/blog/everyday-stuff-rails-and-partials/';
+  //var disqus_developer = 1;
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside role=sidebar>
+  
+    <section>
+  <h1>About Me</h1>
+  <img src="/images/me.png" />
+  <p>Sebastien Lachance, programmer since 2003.</p>
+  <p>I am an entrepreneur and consultant. I have launched the <a href="http://www.guidedescommercesdebeauce.com">Guide des Commerces</a> in 2011, a project with great potential and had a lot of fun making it. 
+  </p>
+  <p>
+    I'm a web developer specialized in Rails and ASP.NET MVC. I have a background in business applications but I really enjoy making any kind of software. 
+  </p>
+  <p>
+    I do believe in the power of twitter, but I dont use it as much as I would.
+    But feel free to follow me anyway :).
+  </p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/reponsive-and-mobile-friendly-design/">Reponsive and Mobile-Friendly Design with Skeleton</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/couldnt-parse-yaml-at-line-x-column-x-psych-syntaxerror/">Couldn't Parse YAML at Line X Column X (Psych::SyntaxError)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/a-circular-reference-was-detected-while-serializing-an-object-to-type-code-dot-models-dot-category/">A Circular Reference Was Detected While Serializing an Object to Type Code.Models.Category</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/fluenthibernate-how-to-deal-with-a-reserved-word-column/">FluentHibernate - How to Deal With a Reserved Word Column</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/everyday-stuff-rails-and-partials/">Everyday Stuff : Rails and Partials</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/sebastienlachance">@sebastienlachance</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'sebastienlachance',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("slachance", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/slachance" class="twitter-follow-button" data-width="208px" data-show-count="false">Follow @slachance</a>
+  
+</section>
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer><p>
+  Copyright &copy; 2012 - Sebastien Lachance -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+  
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+</body>
+</html>
