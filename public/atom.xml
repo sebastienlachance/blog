@@ -1,16 +1,213 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
-  <link href="http://yoursite.com/atom.xml" rel="self"/>
-  <link href="http://yoursite.com/"/>
-  <updated>2012-01-23T12:13:02-05:00</updated>
-  <id>http://yoursite.com/</id>
+  <title>Sebastien Lachance</title>
+  <link href="http://sebastienlachance.com/atom.xml" rel="self"/>
+  <link href="http://sebastienlachance.com/"/>
+  <updated>2012-01-23T12:31:24-05:00</updated>
+  <id>http://sebastienlachance.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name>Sebastien Lachance</name>
     
   </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title>Reponsive and Mobile-Friendly Design with Skeleton</title>
+    <link href="http://sebastienlachance.com/blog/reponsive-and-mobile-friendly-design/"/>
+    <updated>2012-01-13T10:16:00-05:00</updated>
+    <id>http://sebastienlachance.com/blog/reponsive-and-mobile-friendly-design</id>
+    <content type="html">&lt;p&gt;&lt;img class=&quot;left&quot; src=&quot;http://sebastienlachance.com/images/skeleton.jpg&quot; title=&quot;skeleton&quot; &gt;&lt;/p&gt;
+
+&lt;p&gt;When we first made the &lt;a href=&quot;http://www.guidedescommercesdebeauce.com&quot; title=&quot;Guide des Commerces&quot;&gt;Guide des Commerces&lt;/a&gt;, we didn&amp;#8217;t anticipated we would need to adapt to other devices so soon. In fact, it we know it was for this year but we though it would be a completely different application for iPhone, Android or a new website.&lt;/p&gt;
+
+&lt;p&gt;A month ago we had a discussion with a Facebook expert and talked about adding the Guide to our existing &lt;a href=&quot;http://www.facebook.com/pages/Guide-des-Commerces-de-Beauce/190606624290004&quot;&gt;page&lt;/a&gt; (just an iframe with the app). The problem is that we use fixed width everywhere and Facebook iframe has only 520px. It would not be wise to develop another site only for Facebook and another one only for mobile device. We needed another solution.&lt;/p&gt;
+
+&lt;p&gt;It occured to me that we could hit three birds with one stone (a lot more actually). We only have to use a responsive desig&amp;lt;&lt;/p&gt;
+
+&lt;p&gt;I tried various css framework and settled down for &lt;a href=&quot;getskeleton.com&quot; title=&quot;Skeleton framework&quot;&gt;Skeleton&lt;/a&gt;. It provided me with everything I needed and I can almost use it as-is without any modification. It use Media Queries (link here) to adapt to various screen size (tablet, mobile, iOS, etc.).&lt;/p&gt;
+
+&lt;p&gt;If you don&amp;#8217;t know Skeleton, it&amp;#8217;s basically a grid framework with sixteen column totally a width of 960 pixel.&lt;/p&gt;
+
+&lt;p&gt;Suppose you have a div that you want to take 100% of the page.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&quot;sixteen columns&quot;&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can also have a three column layout very easily:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&quot;one-third column&quot;&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;div class=&quot;one-third column&quot;&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;div class=&quot;one-third column&quot;&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When you resize your browser, everything just resize nicely.&lt;/p&gt;
+
+&lt;p&gt;I am almost 5 hours in now, and I&amp;#8217;ve struggled a little but the result is amazing. And I frankly don&amp;#8217;t regret the framework choice at all.&lt;/p&gt;
+
+&lt;p&gt;Stay tuned for more&amp;#8230;&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Couldn&#8217;t Parse YAML at Line X Column X (Psych::SyntaxError)</title>
+    <link href="http://sebastienlachance.com/blog/couldnt-parse-yaml-at-line-x-column-x-psych-syntaxerror/"/>
+    <updated>2011-09-14T07:50:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/couldnt-parse-yaml-at-line-x-column-x-psych-syntaxerror</id>
+    <content type="html">&lt;p&gt;I am using Rails 3.0.3 and got this error :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;couldn&#8217;t parse YAML at line 182 column 9 (Psych::SyntaxError)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As I understand it, there is an issue with the locale file (locale/en.yml) of ActiveSupport.&lt;/p&gt;
+
+&lt;p&gt;Just by adding&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;require &#8216;yaml&#8217;
+YAML::ENGINE.yamler= &#8216;syck&#8217;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;at the beginning of the boot.rb file should take care of this issue.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://rails.lighthouseapp.com/projects/8994/tickets/6354-psych-does-not-handle-symbols-in-yaml-used-in-activesupport&quot;&gt;More info here&lt;/a&gt; &lt;a href=&quot;http://stackoverflow.com/questions/4980877/rails-error-couldnt-parse-yaml&quot;&gt;and here&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>A Circular Reference Was Detected While Serializing an Object to Type Code.Models.Category</title>
+    <link href="http://sebastienlachance.com/blog/a-circular-reference-was-detected-while-serializing-an-object-to-type-code-dot-models-dot-category/"/>
+    <updated>2011-09-12T10:38:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/a-circular-reference-was-detected-while-serializing-an-object-to-type-code-dot-models-dot-category</id>
+    <content type="html">&lt;p&gt;I have an NHibernate class with the following properties :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public class Category
+{
+    public virtual int Id { get; set; }
+    public virtual string Name { get;set; }
+    public virtual Category Parent { get;set; }
+    public virtual IList&amp;lt;Category&amp;gt; Childs { get;set; }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And an action that return a list of categories as JSON :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public JsonResult Categories 
+{
+    return Json(GetCategories(), JsonRequestBehavior.AllowGet);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I know that it&amp;#8217;s not pefect to use an NHibernate class instead of a view model, but it&amp;#8217;s a very very small application and I&amp;#8217;m trying to keep things clean.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Solution : &lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;return Json(GetCategories().Select(c =&amp;gt; new { c.Id, c.Name }), JsonRequestBehavior.AllowGet);
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>FluentHibernate - How to Deal With a Reserved Word Column</title>
+    <link href="http://sebastienlachance.com/blog/fluenthibernate-how-to-deal-with-a-reserved-word-column/"/>
+    <updated>2011-09-09T16:06:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/fluenthibernate-how-to-deal-with-a-reserved-word-column</id>
+    <content type="html">&lt;p&gt;Suppose you have a class with an Order property. Any sql operation will throw an error because Order is a reserved word. To prevent this from happening, specify the column name yourself and enclose it with back ticks.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public class MessageMap : ClassMap&amp;lt;Message&amp;gt;
+{
+    public MessageMap()
+    {
+        Table(&quot;messages&quot;);
+        Id(x =&amp;gt; x.Id);
+        &#8230;
+        Map(x =&amp;gt; x.Order, &quot;`Order`&quot;);
+        &#8230;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Everyday Stuff : Rails and Partials</title>
+    <link href="http://sebastienlachance.com/blog/everyday-stuff-rails-and-partials/"/>
+    <updated>2011-09-07T12:56:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/everyday-stuff-rails-and-partials</id>
+    <content type="html">&lt;p&gt;Too often I don&amp;#8217;t remember how to render a partial and assign a model to it or a collection to it.&lt;/p&gt;
+
+&lt;p&gt;So this is a reminder for me.&lt;/p&gt;
+
+&lt;h2&gt;Creating a partial&lt;/h2&gt;
+
+&lt;p&gt;In the view directory create a _filename.html.erb (or haml if you use it).&lt;/p&gt;
+
+&lt;p&gt;Create it in the views directory that ressemble it the most or put it in the app/views/shared or anything else you want folder  if it will be used by another view outside the current view directory.&lt;/p&gt;
+
+&lt;h2&gt;Rendering a partial&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;%= render :partial =&amp;gt; &quot;entry&quot; %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is the same name as the partial we created earlier but without the _.
+If the partial is located elsewhere like in the shared folder, prefix the partial name with the folder name.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;%= render :partial =&amp;gt; &quot;shared/entry&quot; %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Giving data to a partial&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;%= render :partial =&amp;gt; &quot;entry&quot;, :locals =&amp;gt; { :entry =&amp;gt; @entry } %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In this case @entry is a variable that is passed to the partial view which he can access it like this :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;%= entry.title %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Another neat feature is that the partial already create a local variable that has the same name as the partial minus the _. You can assign a value directly to this variable like this :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;%= render :partial =&amp;gt; &quot;entry&quot;, :object =&amp;gt; @entry %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or even better&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;%= render @entry %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It will look into the type of the instance and decide on the correct partial to use and assign the local variable directly&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;% @entries.each do |entry| %&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; &amp;lt;%= render partial =&amp;gt; &#8216;entry&#8217;, :locals =&amp;gt; { :entry =&amp;gt; entry } %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;lt;% end %&gt;&lt;/p&gt;
+
+&lt;p&gt;Can now be written as :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;% @entries.each do |entry| %&amp;gt;
+    &amp;lt;%= render entry %&amp;gt;
+&amp;lt;% end %
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Eliminating the loop&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;%= render partial =&gt; &amp;#8216;entry&amp;#8217;, :collection =&gt; @entries %&gt;&lt;/p&gt;
+
+&lt;p&gt;Each partial will receive the local variable that is the singularize version of the collection name.&lt;/p&gt;
+
+&lt;p&gt;Even better again :&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;%= render @entries %&gt;&lt;/p&gt;
+
+&lt;p&gt;spacer template??&lt;/p&gt;
+</content>
+  </entry>
   
 </feed>
