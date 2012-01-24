@@ -1,0 +1,17 @@
+---
+layout: post
+title: "My top 3 Mix10 presentations"
+date: 2010-04-07 09:16:00
+comments: true
+categories: 
+---
+
+<p><strong>Edit: I&rsquo;m ashamed of myself for letting this post slipped my mind. I have completely forgotten to post it here. </strong></p>
+<p>I have been watching some Mix presentation this week and found some of them to be very interesting.</p>
+<ul>
+<li><a href="http://live.visitmix.com/MIX10/Sessions/DS13">The elephant in the room</a></li>
+<li><a href="http://live.visitmix.com/MIX10/Sessions/EX39">The Tale of JavaScript. I Mean ECMAScript.</a></li>
+<li><a href="http://live.visitmix.com/MIX10/Sessions/FT09">Pumping "Iron" on the Web: IronRuby and IronPython</a></li>
+</ul>
+<p>&nbsp;</p>
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:9286c2b2-fc6b-4d89-b519-893db8760074" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/ECMAScript">ECMAScript</a>,<a rel="tag" href="http://technorati.com/tags/Mix2010">Mix2010</a>,<a rel="tag" href="http://technorati.com/tags/IronPython">IronPython</a>,<a rel="tag" href="http://technorati.com/tags/IronRuby">IronRuby</a></div>

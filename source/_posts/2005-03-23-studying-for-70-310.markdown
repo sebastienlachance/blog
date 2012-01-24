@@ -1,0 +1,9 @@
+---
+layout: post
+title: "Studying for 70-310"
+date: 2005-03-23 10:06:00
+comments: true
+categories: 
+---
+
+<p>The big difference between the <a href="http://www.microsoft.com/learning/exams/70-305.asp">70-305</a> (ASP.NET) and <a href="http://www.microsoft.com/learning/exams/70-310.asp"><strong>70-310</strong></a> (XML Web Service) is the lack of interest. I liked to study the ASP.NET certification because I was using it everyday. I've learned so much in so little time that I (I think) became very efficient with web development. When I say web development I do not talk about design and stuff, because this is where I lack some interest in these times. Generally, I try to learn as much as I can, in my spare time, but this domain I try to stay out at this time. I really enjoy writing object-oriented code and since I’m just beginning I’m learning almost all of the time. Maybe some days, I will be interested more with HTML and XHTML and CSS.</p>  <p></p>  <p>So for the<strong> </strong><a href="http://www.microsoft.com/learning/exams/70-310.asp"><strong>70-310</strong></a>, my current advice is to get through every aspect of XML files. How to query SQL Server to return XML, W3C specifications, synchronizing XMLDataDocument with DataSet, navigating through node. And almost as important of knowing how to write the code, know the xml terms! There is so much term for everything, it can be a pain to read documentation and still don't understand anything.</p>  <p>Oh, and I just got Gran Turismo 4 on Playstation 2. Really great game. But it stills not a subject I will get into.</p>

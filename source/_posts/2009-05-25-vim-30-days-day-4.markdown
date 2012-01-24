@@ -1,0 +1,10 @@
+---
+layout: post
+title: "Vim 30 days - Day 4"
+date: 2009-05-25 13:09:00
+comments: true
+categories: 
+---
+
+<p>Today I had real opportunity to use gVim so I decided to install <a href="http://www.viemu.com/">ViEmu for Visual Studio</a> and give it a try. A had a lot of code to write on a recent application I'm working on so why not.</p>
+<p>I'm starting to get a hand on basic navigation and on inserting/appending removing/deleting characters. It's too soon to know I it had improved my productivity yet, but I'm still learning so let's see in a couple of days how it goes.</p>

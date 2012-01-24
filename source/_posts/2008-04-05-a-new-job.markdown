@@ -1,0 +1,10 @@
+---
+layout: post
+title: "A new job"
+date: 2008-04-05 11:10:00
+comments: true
+categories: 
+---
+
+<p>Last week, I have left my job at bxsystems. I had an opportunity that I could not refuse. I have worked for 3 years and 8 months with the most talented peoples I ever encountered. They are great professionals and I am sure they will continue to be successful in their careers. This is where all started for me, where I started to get passionate about programming. I had a lot of freedom and a lot of learning opportunities.</p>
+<p>I am very grateful for everything. For a beginner, it could not be a better place. Thank you!</p>

@@ -1,0 +1,15 @@
+---
+layout: post
+title: "Moving to an Agile Team"
+date: 2009-09-30 09:45:00
+comments: true
+categories: 
+---
+
+<p>Let me start by telling you that I strongly believe in agile software development. Agile for me is about rapid feedback, improvement and a chance for all team members to give their opinions (and a lot more). Far too often I have seen developers only following wishes and desires of their lead programmer and never been asked for their opinions (it&rsquo;s not a personal experience but this is what I have heard many times). And I don&rsquo;t think it works.</p>
+<p>Recently, I have been assigned to help a team that just got started on the agile path. They want to do it with Scrum and XP. I have not been sent specifically to help them with the agile transition but since I got some experience I think I could be of some help.</p>
+<p>The new team has a great willingness to learn and improve themselves and finding a better team and a better project would have been possible for this transition. If there is a team that will successfully make it happen, it&rsquo;s them. Our Scrum master is using the &ldquo;<a href="http://www.infoq.com/minibooks/scrum-xp-from-the-trenches" target="_blank">Scrum and XP from the Trenches</a>&rdquo; book written by <a href="http://blog.crisp.se/" target="_blank">Henri Kniberg</a> as a reference and so far, it&rsquo;s working amazingly. I did not had time to read it yet, but I plan to purchase the book as soon as I have some free time (I&rsquo;m getting married and having a baby).</p>
+<p>We are experimenting different things and and seeing by ourselves what works and what is not. So far we already implemented the daily meeting, user stories and an integration server. We also make use of &ldquo;story point&rdquo;, but for us, one point is one hour. We also use a burndown chart to track the effort we make (as I said: rapid feedback).</p>
+<p>It&rsquo;s also a learning experience for me. I got to read a lot more and have been asked frequently to give feedback. So I&rsquo;m not letting myself go with the flow and only live the experience, but I am asked to participate actively. In the past, I have been on an agile team but as a remote worker (and a lot of distraction at the time, read : new house) and did not fully lived the experience. I also tried by myself on a lot of one-person project but, it&rsquo;s not just the same.</p>
+<p>We have configured a build server and now we are trying to write more tests (just me for the moment, since I got &ldquo;extensive&rdquo; experience with that (3-4 years, wow time goes fast)).&nbsp; One thing I would like to apply as soon as possible is the use of TDD or BDD. But this one will be a lot harder to be approved since it&rsquo;s a considerable overhead when the team have no experience and a lot harder to get started correctly.</p>
+<p>Happy to be back on the Agile train.</p>

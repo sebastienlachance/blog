@@ -1,0 +1,10 @@
+---
+layout: post
+title: "Thank you!"
+date: 2008-01-08 08:22:00
+comments: true
+categories: 
+---
+
+<p>I want to thank everybody who has been visiting my blog. I have now reach 6000 hits with an average of 60 hits per day. I will keep raising my bar to deliver you some great content over the next few months. Thank you very much!!!</p>
+<p>P.S. I'll keep working on my writing skills, don't worry!</p>

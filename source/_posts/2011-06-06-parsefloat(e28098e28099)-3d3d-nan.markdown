@@ -1,0 +1,11 @@
+---
+layout: post
+title: "(parseFloat || parseInt) && NaN"
+date: 2011-06-06 10:31:58
+comments: true
+categories: 
+---
+
+<p>Little reminder for later :&#160; </p>  <pre>parseInt(‘’) == NaN //return false</pre>
+
+<pre>isNaN(parseInt(‘’)) //return true</pre>

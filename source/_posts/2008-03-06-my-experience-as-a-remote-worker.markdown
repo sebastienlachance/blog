@@ -1,0 +1,12 @@
+---
+layout: post
+title: "My experience as a remote worker"
+date: 2008-03-06 10:58:00
+comments: true
+categories: 
+---
+
+<p>You may not know, but I am a full time web worker since February 2007 and I am loving it. I followed my girlfriend to his new job in mechanical engineering located in the "Beauce" area in the province of Qu&eacute;bec (1 hour from Qu&eacute;bec City). But let's make a point clear. It was not as easy as it sounds. It takes a lot of discipline and you may find that you just can't do it. I have had many friends who were not able to work from home. For me, it was easy since it's a childhood dream. I have gone through 3 phases.</p>
+<p>The first one is the "That's easy" phase. During the first 2 months, everything seemed so easy. I was very productive and enjoyed every minutes working from home. This is also the phase were you work more than you are supposed and keep no free time. You have the impression you can achieve anything.</p>
+<p>I called the second phase : "I need to check everything around the house to be sure nothing changed.". In this phase, everything disturbed me. I started to feel lonely and was wondering if I made the right choice. During this 6 months phase I had a hard time concentrating on my job. It's also the time we were building our new home. During that time, I never took a day off except the day we moved in. I was exhausted, stressed and lost. We had problems with contractors. The price we anticipated was a bit higher due to the angle of the lot we bought. To make things worst, I started working on a new project requiring me to work with <a href="http://sebastienlachance.com/2008/01/07/nightmare-platform/">Microsoft Dynamics</a> (until you used the supplied API you can't imagine how frustrating of an experience it is). But I have gone through it.</p>
+<p>Now, I am in the third phase. I called it the "Rebirth phase". I restarted my old habit of learning as much as I can. I have solved my concentration problem. I feel a lot more happier and a lot more in health. I started to really enjoy working remotely and I am sure I am as productive as I was before. I am now fully happy with it. And I have new projects for my region...</p>

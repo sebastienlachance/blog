@@ -59,7 +59,7 @@ twitter_user: slachance
 twitter_tweet_count: 4
 twitter_show_replies: false
 twitter_follow_button: true
-twitter_show_follower_count: false
+twitter_show_follower_count: true
 twitter_tweet_button: true
 
 # Google Plus
@@ -78,4 +78,4 @@ delicious_count: 3
 disqus_short_name: sebastienlachance
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-10165653-1

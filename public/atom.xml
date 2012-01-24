@@ -1,213 +1,560 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title>Sebastien Lachance</title>
+  <title><![CDATA[Sebastien Lachance]]></title>
   <link href="http://sebastienlachance.com/atom.xml" rel="self"/>
   <link href="http://sebastienlachance.com/"/>
-  <updated>2012-01-23T12:31:24-05:00</updated>
+  <updated>2012-01-24T11:38:43-05:00</updated>
   <id>http://sebastienlachance.com/</id>
   <author>
-    <name>Sebastien Lachance</name>
+    <name><![CDATA[Sebastien Lachance]]></name>
     
   </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
   <entry>
-    <title>Reponsive and Mobile-Friendly Design with Skeleton</title>
+    <title type="html"><![CDATA[Reponsive and Mobile-Friendly Design with Skeleton]]></title>
     <link href="http://sebastienlachance.com/blog/reponsive-and-mobile-friendly-design/"/>
     <updated>2012-01-13T10:16:00-05:00</updated>
     <id>http://sebastienlachance.com/blog/reponsive-and-mobile-friendly-design</id>
-    <content type="html">&lt;p&gt;&lt;img class=&quot;left&quot; src=&quot;http://sebastienlachance.com/images/skeleton.jpg&quot; title=&quot;skeleton&quot; &gt;&lt;/p&gt;
+    <content type="html"><![CDATA[<p><img class="left" src="http://sebastienlachance.com/images/skeleton.jpg" title="skeleton" ></p>
 
-&lt;p&gt;When we first made the &lt;a href=&quot;http://www.guidedescommercesdebeauce.com&quot; title=&quot;Guide des Commerces&quot;&gt;Guide des Commerces&lt;/a&gt;, we didn&amp;#8217;t anticipated we would need to adapt to other devices so soon. In fact, it we know it was for this year but we though it would be a completely different application for iPhone, Android or a new website.&lt;/p&gt;
+<p>When we first made the <a href="http://www.guidedescommercesdebeauce.com" title="Guide des Commerces">Guide des Commerces</a>, we didn&#8217;t anticipated we would need to adapt to other devices so soon. In fact, it we know it was for this year but we though it would be a completely different application for iPhone, Android or a new website.</p>
 
-&lt;p&gt;A month ago we had a discussion with a Facebook expert and talked about adding the Guide to our existing &lt;a href=&quot;http://www.facebook.com/pages/Guide-des-Commerces-de-Beauce/190606624290004&quot;&gt;page&lt;/a&gt; (just an iframe with the app). The problem is that we use fixed width everywhere and Facebook iframe has only 520px. It would not be wise to develop another site only for Facebook and another one only for mobile device. We needed another solution.&lt;/p&gt;
+<p>A month ago we had a discussion with a Facebook expert and talked about adding the Guide to our existing <a href="http://www.facebook.com/pages/Guide-des-Commerces-de-Beauce/190606624290004">page</a> (just an iframe with the app). The problem is that we use fixed width everywhere and Facebook iframe has only 520px. It would not be wise to develop another site only for Facebook and another one only for mobile device. We needed another solution.</p>
 
-&lt;p&gt;It occured to me that we could hit three birds with one stone (a lot more actually). We only have to use a responsive desig&amp;lt;&lt;/p&gt;
+<p>It occured to me that we could hit three birds with one stone (a lot more actually). We only have to use a responsive desig&lt;</p>
 
-&lt;p&gt;I tried various css framework and settled down for &lt;a href=&quot;getskeleton.com&quot; title=&quot;Skeleton framework&quot;&gt;Skeleton&lt;/a&gt;. It provided me with everything I needed and I can almost use it as-is without any modification. It use Media Queries (link here) to adapt to various screen size (tablet, mobile, iOS, etc.).&lt;/p&gt;
+<p>I tried various css framework and settled down for <a href="getskeleton.com" title="Skeleton framework">Skeleton</a>. It provided me with everything I needed and I can almost use it as-is without any modification. It use Media Queries (link here) to adapt to various screen size (tablet, mobile, iOS, etc.).</p>
 
-&lt;p&gt;If you don&amp;#8217;t know Skeleton, it&amp;#8217;s basically a grid framework with sixteen column totally a width of 960 pixel.&lt;/p&gt;
+<p>If you don&#8217;t know Skeleton, it&#8217;s basically a grid framework with sixteen column totally a width of 960 pixel.</p>
 
-&lt;p&gt;Suppose you have a div that you want to take 100% of the page.&lt;/p&gt;
+<p>Suppose you have a div that you want to take 100% of the page.</p>
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&quot;sixteen columns&quot;&amp;gt;
-&amp;lt;/div&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>&lt;div class="sixteen columns"&gt;
+&lt;/div&gt;
+</code></pre>
 
-&lt;p&gt;You can also have a three column layout very easily:&lt;/p&gt;
+<p>You can also have a three column layout very easily:</p>
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&quot;one-third column&quot;&amp;gt;
-&amp;lt;/div&amp;gt;
+<pre><code>&lt;div class="one-third column"&gt;
+&lt;/div&gt;
 
-&amp;lt;div class=&quot;one-third column&quot;&amp;gt;
-&amp;lt;/div&amp;gt;
+&lt;div class="one-third column"&gt;
+&lt;/div&gt;
 
-&amp;lt;div class=&quot;one-third column&quot;&amp;gt;
-&amp;lt;/div&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class="one-third column"&gt;
+&lt;/div&gt;
+</code></pre>
 
-&lt;p&gt;When you resize your browser, everything just resize nicely.&lt;/p&gt;
+<p>When you resize your browser, everything just resize nicely.</p>
 
-&lt;p&gt;I am almost 5 hours in now, and I&amp;#8217;ve struggled a little but the result is amazing. And I frankly don&amp;#8217;t regret the framework choice at all.&lt;/p&gt;
+<p>I am almost 5 hours in now, and I&#8217;ve struggled a little but the result is amazing. And I frankly don&#8217;t regret the framework choice at all.</p>
 
-&lt;p&gt;Stay tuned for more&amp;#8230;&lt;/p&gt;
-</content>
+<p>Stay tuned for more&#8230;</p>
+]]></content>
   </entry>
   
   <entry>
-    <title>Couldn&#8217;t Parse YAML at Line X Column X (Psych::SyntaxError)</title>
+    <title type="html"><![CDATA[How I Started Loving Javascript]]></title>
+    <link href="http://sebastienlachance.com/blog/how-i-started-loving-javascript/"/>
+    <updated>2011-11-07T12:44:00-05:00</updated>
+    <id>http://sebastienlachance.com/blog/how-i-started-loving-javascript</id>
+    <content type="html"><![CDATA[<p>When I first started programming, I hated javascript (and hated web development i general, I wanted to go Windows Forms). As the years goes, I finally started to see something beautifull doint web. I really started to love it, really. But that&#8217;s not the point.</p>
+
+<p>Javascript was hard and a lot of bugs where always hauting me doing maintenance or bug fixes. When Ajax was starting to go mainstream and we started to do it with the .Net UpdatePanel. I was afraid.</p>
+
+<p>The jQuery came up. JQuery seemed to make everything easy and I started slowly to use it more in my projects. I was careful. Then I heard that some people were trying to do unit test on it and well, how could you do that.</p>
+
+<p>Then Rails and ASP.NET MVC entered my life. This is a separate topic, but I think the mvc paradigm is the way to go until something really better take the place. It was a lot more easy to use javascript with your app (No automatic naming, grrrr ASP.NET WebForms).</p>
+
+<p>The reality really struck me earlier this year. Javascript is great and if you forget some of the bad stuff, there is something pretty great to be done with it. I started going all the way with it.</p>
+
+<p>I still use jQuery a lot, but the exciting thing happening, is that I start to use it less and less for simple things that could be achieved without it. And starting to go OO with it (I still think I have a hell of a long way to be able to use that.)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Couldn't Parse YAML at Line X Column X (Psych::SyntaxError)]]></title>
     <link href="http://sebastienlachance.com/blog/couldnt-parse-yaml-at-line-x-column-x-psych-syntaxerror/"/>
     <updated>2011-09-14T07:50:00-04:00</updated>
     <id>http://sebastienlachance.com/blog/couldnt-parse-yaml-at-line-x-column-x-psych-syntaxerror</id>
-    <content type="html">&lt;p&gt;I am using Rails 3.0.3 and got this error :&lt;/p&gt;
+    <content type="html"><![CDATA[<p>I am using Rails 3.0.3 and got this error :</p>
 
-&lt;pre&gt;&lt;code&gt;couldn&#8217;t parse YAML at line 182 column 9 (Psych::SyntaxError)
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>couldn't parse YAML at line 182 column 9 (Psych::SyntaxError)
+</code></pre>
 
-&lt;p&gt;As I understand it, there is an issue with the locale file (locale/en.yml) of ActiveSupport.&lt;/p&gt;
+<p>As I understand it, there is an issue with the locale file (locale/en.yml) of ActiveSupport.</p>
 
-&lt;p&gt;Just by adding&lt;/p&gt;
+<p>Just by adding</p>
 
-&lt;pre&gt;&lt;code&gt;require &#8216;yaml&#8217;
-YAML::ENGINE.yamler= &#8216;syck&#8217;
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>require 'yaml'
+YAML::ENGINE.yamler= 'syck'
+</code></pre>
 
-&lt;p&gt;at the beginning of the boot.rb file should take care of this issue.&lt;/p&gt;
+<p>at the beginning of the boot.rb file should take care of this issue.</p>
 
-&lt;p&gt;&lt;a href=&quot;https://rails.lighthouseapp.com/projects/8994/tickets/6354-psych-does-not-handle-symbols-in-yaml-used-in-activesupport&quot;&gt;More info here&lt;/a&gt; &lt;a href=&quot;http://stackoverflow.com/questions/4980877/rails-error-couldnt-parse-yaml&quot;&gt;and here&lt;/a&gt;&lt;/p&gt;
-</content>
+<p><a href="https://rails.lighthouseapp.com/projects/8994/tickets/6354-psych-does-not-handle-symbols-in-yaml-used-in-activesupport">More info here</a> <a href="http://stackoverflow.com/questions/4980877/rails-error-couldnt-parse-yaml">and here</a></p>
+]]></content>
   </entry>
   
   <entry>
-    <title>A Circular Reference Was Detected While Serializing an Object to Type Code.Models.Category</title>
+    <title type="html"><![CDATA[A Circular Reference Was Detected While Serializing an Object to Type Code.Models.Category]]></title>
     <link href="http://sebastienlachance.com/blog/a-circular-reference-was-detected-while-serializing-an-object-to-type-code-dot-models-dot-category/"/>
     <updated>2011-09-12T10:38:00-04:00</updated>
     <id>http://sebastienlachance.com/blog/a-circular-reference-was-detected-while-serializing-an-object-to-type-code-dot-models-dot-category</id>
-    <content type="html">&lt;p&gt;I have an NHibernate class with the following properties :&lt;/p&gt;
+    <content type="html"><![CDATA[<p>I have an NHibernate class with the following properties :</p>
 
-&lt;pre&gt;&lt;code&gt;public class Category
+<pre><code>public class Category
 {
     public virtual int Id { get; set; }
     public virtual string Name { get;set; }
     public virtual Category Parent { get;set; }
-    public virtual IList&amp;lt;Category&amp;gt; Childs { get;set; }
+    public virtual IList&lt;Category&gt; Childs { get;set; }
 }
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;p&gt;And an action that return a list of categories as JSON :&lt;/p&gt;
+<p>And an action that return a list of categories as JSON :</p>
 
-&lt;pre&gt;&lt;code&gt;public JsonResult Categories 
+<pre><code>public JsonResult Categories 
 {
     return Json(GetCategories(), JsonRequestBehavior.AllowGet);
 }
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;p&gt;I know that it&amp;#8217;s not pefect to use an NHibernate class instead of a view model, but it&amp;#8217;s a very very small application and I&amp;#8217;m trying to keep things clean.&lt;/p&gt;
+<p>I know that it&#8217;s not pefect to use an NHibernate class instead of a view model, but it&#8217;s a very very small application and I&#8217;m trying to keep things clean.</p>
 
-&lt;p&gt;&lt;strong&gt;Solution : &lt;/strong&gt;&lt;/p&gt;
+<p><strong>Solution : </strong></p>
 
-&lt;pre&gt;&lt;code&gt;return Json(GetCategories().Select(c =&amp;gt; new { c.Id, c.Name }), JsonRequestBehavior.AllowGet);
-&lt;/code&gt;&lt;/pre&gt;
-</content>
+<pre><code>return Json(GetCategories().Select(c =&gt; new { c.Id, c.Name }), JsonRequestBehavior.AllowGet);
+</code></pre>
+]]></content>
   </entry>
   
   <entry>
-    <title>FluentHibernate - How to Deal With a Reserved Word Column</title>
+    <title type="html"><![CDATA[FluentHibernate - How to Deal With a Reserved Word Column]]></title>
     <link href="http://sebastienlachance.com/blog/fluenthibernate-how-to-deal-with-a-reserved-word-column/"/>
     <updated>2011-09-09T16:06:00-04:00</updated>
     <id>http://sebastienlachance.com/blog/fluenthibernate-how-to-deal-with-a-reserved-word-column</id>
-    <content type="html">&lt;p&gt;Suppose you have a class with an Order property. Any sql operation will throw an error because Order is a reserved word. To prevent this from happening, specify the column name yourself and enclose it with back ticks.&lt;/p&gt;
+    <content type="html"><![CDATA[<p>Suppose you have a class with an Order property. Any sql operation will throw an error because Order is a reserved word. To prevent this from happening, specify the column name yourself and enclose it with back ticks.</p>
 
-&lt;pre&gt;&lt;code&gt;public class MessageMap : ClassMap&amp;lt;Message&amp;gt;
+<pre><code>public class MessageMap : ClassMap&lt;Message&gt;
 {
     public MessageMap()
     {
-        Table(&quot;messages&quot;);
-        Id(x =&amp;gt; x.Id);
-        &#8230;
-        Map(x =&amp;gt; x.Order, &quot;`Order`&quot;);
-        &#8230;
+        Table("messages");
+        Id(x =&gt; x.Id);
+        ...
+        Map(x =&gt; x.Order, "`Order`");
+        ...
     }
 }
-&lt;/code&gt;&lt;/pre&gt;
-</content>
+</code></pre>
+]]></content>
   </entry>
   
   <entry>
-    <title>Everyday Stuff : Rails and Partials</title>
+    <title type="html"><![CDATA[Everyday Stuff : Rails and Partials]]></title>
     <link href="http://sebastienlachance.com/blog/everyday-stuff-rails-and-partials/"/>
     <updated>2011-09-07T12:56:00-04:00</updated>
     <id>http://sebastienlachance.com/blog/everyday-stuff-rails-and-partials</id>
-    <content type="html">&lt;p&gt;Too often I don&amp;#8217;t remember how to render a partial and assign a model to it or a collection to it.&lt;/p&gt;
+    <content type="html"><![CDATA[<p>Too often I don&#8217;t remember how to render a partial and assign a model to it or a collection to it.</p>
 
-&lt;p&gt;So this is a reminder for me.&lt;/p&gt;
+<p>So this is a reminder for me.</p>
 
-&lt;h2&gt;Creating a partial&lt;/h2&gt;
+<h2>Creating a partial</h2>
 
-&lt;p&gt;In the view directory create a _filename.html.erb (or haml if you use it).&lt;/p&gt;
+<p>In the view directory create a _filename.html.erb (or haml if you use it).</p>
 
-&lt;p&gt;Create it in the views directory that ressemble it the most or put it in the app/views/shared or anything else you want folder  if it will be used by another view outside the current view directory.&lt;/p&gt;
+<p>Create it in the views directory that ressemble it the most or put it in the app/views/shared or anything else you want folder  if it will be used by another view outside the current view directory.</p>
 
-&lt;h2&gt;Rendering a partial&lt;/h2&gt;
+<h2>Rendering a partial</h2>
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;%= render :partial =&amp;gt; &quot;entry&quot; %&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>&lt;%= render :partial =&gt; "entry" %&gt;
+</code></pre>
 
-&lt;p&gt;This is the same name as the partial we created earlier but without the _.
-If the partial is located elsewhere like in the shared folder, prefix the partial name with the folder name.&lt;/p&gt;
+<p>This is the same name as the partial we created earlier but without the _.
+If the partial is located elsewhere like in the shared folder, prefix the partial name with the folder name.</p>
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;%= render :partial =&amp;gt; &quot;shared/entry&quot; %&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>&lt;%= render :partial =&gt; "shared/entry" %&gt;
+</code></pre>
 
-&lt;h3&gt;Giving data to a partial&lt;/h3&gt;
+<h3>Giving data to a partial</h3>
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;%= render :partial =&amp;gt; &quot;entry&quot;, :locals =&amp;gt; { :entry =&amp;gt; @entry } %&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>&lt;%= render :partial =&gt; "entry", :locals =&gt; { :entry =&gt; @entry } %&gt;
+</code></pre>
 
-&lt;p&gt;In this case @entry is a variable that is passed to the partial view which he can access it like this :&lt;/p&gt;
+<p>In this case @entry is a variable that is passed to the partial view which he can access it like this :</p>
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;%= entry.title %&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>&lt;%= entry.title %&gt;
+</code></pre>
 
-&lt;p&gt;Another neat feature is that the partial already create a local variable that has the same name as the partial minus the _. You can assign a value directly to this variable like this :&lt;/p&gt;
+<p>Another neat feature is that the partial already create a local variable that has the same name as the partial minus the _. You can assign a value directly to this variable like this :</p>
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;%= render :partial =&amp;gt; &quot;entry&quot;, :object =&amp;gt; @entry %&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>&lt;%= render :partial =&gt; "entry", :object =&gt; @entry %&gt;
+</code></pre>
 
-&lt;p&gt;Or even better&lt;/p&gt;
+<p>Or even better</p>
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;%= render @entry %&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>&lt;%= render @entry %&gt;
+</code></pre>
 
-&lt;p&gt;It will look into the type of the instance and decide on the correct partial to use and assign the local variable directly&lt;/p&gt;
+<p>It will look into the type of the instance and decide on the correct partial to use and assign the local variable directly</p>
 
-&lt;p&gt;&amp;lt;% @entries.each do |entry| %&gt;&lt;/p&gt;
+<p>&lt;% @entries.each do |entry| %></p>
 
-&lt;pre&gt;&lt;code&gt; &amp;lt;%= render partial =&amp;gt; &#8216;entry&#8217;, :locals =&amp;gt; { :entry =&amp;gt; entry } %&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code> &lt;%= render partial =&gt; 'entry', :locals =&gt; { :entry =&gt; entry } %&gt;
+</code></pre>
 
-&lt;p&gt;&amp;lt;% end %&gt;&lt;/p&gt;
+<p>&lt;% end %></p>
 
-&lt;p&gt;Can now be written as :&lt;/p&gt;
+<p>Can now be written as :</p>
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;% @entries.each do |entry| %&amp;gt;
-    &amp;lt;%= render entry %&amp;gt;
-&amp;lt;% end %
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>&lt;% @entries.each do |entry| %&gt;
+    &lt;%= render entry %&gt;
+&lt;% end %
+</code></pre>
 
-&lt;p&gt;Eliminating the loop&lt;/p&gt;
+<p>Eliminating the loop</p>
 
-&lt;p&gt;&amp;lt;%= render partial =&gt; &amp;#8216;entry&amp;#8217;, :collection =&gt; @entries %&gt;&lt;/p&gt;
+<p>&lt;%= render partial => &#8216;entry&#8217;, :collection => @entries %></p>
 
-&lt;p&gt;Each partial will receive the local variable that is the singularize version of the collection name.&lt;/p&gt;
+<p>Each partial will receive the local variable that is the singularize version of the collection name.</p>
 
-&lt;p&gt;Even better again :&lt;/p&gt;
+<p>Even better again :</p>
 
-&lt;p&gt;&amp;lt;%= render @entries %&gt;&lt;/p&gt;
+<p>&lt;%= render @entries %></p>
 
-&lt;p&gt;spacer template??&lt;/p&gt;
-</content>
+<p>spacer template??</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[no such file to load -- cucumber/rails/active_record (LoadError)]]></title>
+    <link href="http://sebastienlachance.com/blog/no-such-file-to-load-cucumberrailsactive_record-%28loaderror%29/"/>
+    <updated>2011-06-14T13:06:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/no-such-file-to-load-cucumberrailsactive_record-(loaderror)</id>
+    <content type="html"><![CDATA[<p>This morning I have updated cucumber on my rails application and I have been greeted by this error message :&nbsp;</p>
+
+
+<pre>no such file to load -- cucumber/rails/active_record (LoadError)
+</pre>
+
+
+<p>A simple fix is to simply reinstall cucumber :</p>
+
+
+<pre>rails generate cucumber:install
+</pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[(parseFloat || parseInt) && NaN]]></title>
+    <link href="http://sebastienlachance.com/blog/parsefloat%28e28098e28099%29-3d3d-nan/"/>
+    <updated>2011-06-06T06:31:58-04:00</updated>
+    <id>http://sebastienlachance.com/blog/parsefloat(e28098e28099)-3d3d-nan</id>
+    <content type="html"><![CDATA[<p>Little reminder for later :&#160; </p>
+
+
+<p>  <pre>parseInt(‘’) == NaN //return false</pre></p>
+
+<pre>isNaN(parseInt(‘’)) //return true</pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Learning Rails : Using jQuery instead of Prototype]]></title>
+    <link href="http://sebastienlachance.com/blog/learning-rails-using-jquery-instead-of-prototype/"/>
+    <updated>2011-05-02T05:20:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/learning-rails-using-jquery-instead-of-prototype</id>
+    <content type="html"><![CDATA[<p>gem &#8220;jquery-rails&#8221;</p>
+
+
+<p>bundle install</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SQL Server Error : failed to retrieve text for this error. Reason 1815]]></title>
+    <link href="http://sebastienlachance.com/blog/sql-server-error-failed-to-retrieve-text-for-this-error-reason-1815/"/>
+    <updated>2011-05-02T03:15:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/sql-server-error-failed-to-retrieve-text-for-this-error-reason-1815</id>
+    <content type="html"><![CDATA[<p>[No text]</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Learning Rails : SanitizeHelper]]></title>
+    <link href="http://sebastienlachance.com/blog/learning-rails-sanitizehelper/"/>
+    <updated>2011-05-02T01:36:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/learning-rails-sanitizehelper</id>
+    <content type="html"><![CDATA[<h2>SanitizeHelper&nbsp;</h2>
+
+
+<p>I need to start somewhere and while it may not be the most informative post ever, I&#8217;ll try to cover this feature as much as I can. Everything here is already described in the Rails Api so it should be a great idea to keep it as a reference. I&#8217;ll also try to add what I have learned&nbsp;</p>
+
+
+<p>There are 4 methods in the sanitize helper.</p>
+
+
+<h3>strip_tags</h3>
+
+
+<p>Remove any html tags from your the input provided. If you truncate, you may see &lt;a. strip_tags before you truncate.</p>
+
+
+<h3>strip_links</h3>
+
+
+<p>Remove any links from your markup and return only the text of the link</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Problem Downloading files using GeckoFX and XULRunner]]></title>
+    <link href="http://sebastienlachance.com/blog/problem-downloading-files-using-geckofx-and-xulrunner/"/>
+    <updated>2010-12-06T02:50:04-05:00</updated>
+    <id>http://sebastienlachance.com/blog/problem-downloading-files-using-geckofx-and-xulrunner</id>
+    <content type="html"><![CDATA[<p><a title="GeckoFX Homepage" href="http://geckofx.org/">GeckoFX</a> is a component to reduce the complexity of embedding Firefox (XULRunner)onto a Windows Forms application to replace the default WebBrowser control.</p>
+
+
+<p>  <p>But while trying to download a file though it, I have encountered this error : </p>  <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E6:9f3b8763-e6ca-4e78-81bd-7da63413577c" class="wlWriterEditableSmartContent"><pre style="background-color:White;overflow: auto;"><span style="color: #000000;">XML Parsing Error: undefined entity
+Location: chrome://mozapps/content/downloads/unknownContentType.xul
+Line Number </span><span style="color: #000000;">30</span><span style="color: #000000;">,</span><span style="color: #000000;"> Column </span><span style="color: #000000;">18</span><span style="color: #000000;">:    &lt;description&gt;&amp;intro.label</span><span style="color: #008000;">;</span><span style="color: #008000;">&lt;/description</span></pre><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div></p>
+
+<p>After a lot of googling I have managed to resolve this issue. This is what I have done : </p>
+
+
+
+
+<h3>1. Use XULRunner 1.9.0.4 or newer</h3>
+
+
+
+
+<p>If you’ve followed some tutorials you may have ended up using 1.9.0.0. Use <a title="XULRunner 1.9.0.4 download location" href="ftp://ftp.mozilla.org/pub/xulrunner/releases/1.9.0.4/runtimes/xulrunner-1.9.0.4.en-US.win32.zip">1.9.0.4</a></p>
+
+
+
+
+<h3>2. Use the Profile Directory</h3>
+
+
+
+
+<div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E6:eab0600a-7232-4ad0-afbf-b7e03b970933" class="wlWriterEditableSmartContent"><pre style="background-color:#FFFFFF;overflow: auto;"><span style="color: #000000;">var profileDirectory </span><span style="color: #000000;">=</span><span style="color: #000000;"> Application.StartupPath </span><span style="color: #000000;">+</span><span style="color: #000000;"> </span><span style="color: #800000;">@"</span><span style="color: #800000;">\EmbeddedFirefoxProfile</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+</span><span style="color: #0000FF;">if</span><span style="color: #000000;"> (</span><span style="color: #000000;">!</span><span style="color: #000000;">Directory.Exists(profileDirectory))
+{
+    Directory.CreateDirectory(profileDirectory);
+}
+Skybound.Gecko.Xpcom.ProfileDirectory </span><span style="color: #000000;">=</span><span style="color: #000000;"> profileDirectory;</span></pre><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
+
+
+
+
+<h3>3. Copy the chrome folder from the GeckoFX package into the chrome directory of XULRunner.</h3>
+
+
+
+
+<p>This will add 2 files to the existing chrome folder.</p>
+
+
+
+
+<h3>4. Add a bunch of preferences to greprefs/all.js</h3>
+
+
+
+
+<div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:DFDE9937-D816-47f4-A306-7B60D5CE5AC0:b65e1539-3745-4255-a994-a429d654c4ee" class="wlWriterEditableSmartContent"><pre class="brush: jscript; gutter: false; first-line: 1; tab-size: 4;  toolbar: true; ">pref(&quot;browser.download.useDownloadDir&quot;, true);
+pref(&quot;browser.download.folderList&quot;, 0);
+pref(&quot;browser.download.manager.showAlertOnComplete&quot;, true);
+pref(&quot;browser.download.manager.showAlertInterval&quot;, 2000);
+pref(&quot;browser.download.manager.retention&quot;, 2);
+pref(&quot;browser.download.manager.showWhenStarting&quot;, true);
+pref(&quot;browser.download.manager.useWindow&quot;, true);
+pref(&quot;browser.download.manager.closeWhenDone&quot;, true);
+pref(&quot;browser.download.manager.openDelay&quot;, 0);
+pref(&quot;browser.download.manager.focusWhenStarting&quot;, false);
+pref(&quot;browser.download.manager.flashCount&quot;, 2);
+//
+pref(&quot;alerts.slideIncrement&quot;, 1);
+pref(&quot;alerts.slideIncrementTime&quot;, 10);
+pref(&quot;alerts.totalOpenTime&quot;, 4000);
+pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
+
+
+
+
+<h3>Conclusion</h3>
+
+
+
+
+<p>I hope it works for you. Happy GeckoFX programming!</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[APPSUMO and The Bad Ass Developer Bundle]]></title>
+    <link href="http://sebastienlachance.com/blog/appsumo-and-the-bad-ass-developer-bundle/"/>
+    <updated>2010-11-11T01:24:00-05:00</updated>
+    <id>http://sebastienlachance.com/blog/appsumo-and-the-bad-ass-developer-bundle</id>
+    <content type="html"><![CDATA[<p>In case you don&#8217;t know APPSUMO, subscribe to their notifications. They offers deals that are pretty hard to beat&#8230; Look at this one :&#160; </p>
+
+
+<p>  <p>For $47 you get : </p>  <ul>   <li>60$ at Heroku </li>    <li>30$ at twilio </li>    <li>6 months of SendGrid&#8217;s Silver package (479$) </li>    <li>75$ credit at Recurly </li>    <li>4 months at HopToad </li>    <li>2 month at New Relic (400$) </li>    <li>60$ credit at MongoHQ </li>    <li>20 free hours of testing at SauceLabs </li>    <li>4 months at Infochimps </li>    <li>And the best one : 60$ credit at Linode (which I buyed a subscription 2 days ago) </li> </ul>  <div><a title="APPSUMO - Great deals on web apps" href="http://www.appsumo.com/">More details</a></div></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[My Clojure tutorial failure]]></title>
+    <link href="http://sebastienlachance.com/blog/my-clojure-tutorial-failure/"/>
+    <updated>2010-11-10T06:26:00-05:00</updated>
+    <id>http://sebastienlachance.com/blog/my-clojure-tutorial-failure</id>
+    <content type="html"><![CDATA[<p>I intended to write a full series of posts to help learn Clojure. While I was really enthusiasm about this, my recent change of plans has left me no choice but to abandon the idea of mastering this language. I didn&#8217;t knew at that time that I&#8217;ll had to learn Ruby for my new project and I have no more time to learn anything else right now. <strong>So, goodbye Clojure!</strong></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Evernote 4 is better than ever]]></title>
+    <link href="http://sebastienlachance.com/blog/evernote-4-is-better-than-ever/"/>
+    <updated>2010-11-10T06:11:00-05:00</updated>
+    <id>http://sebastienlachance.com/blog/evernote-4-is-better-than-ever</id>
+    <content type="html"><![CDATA[<p>
+<p>I am a big fan of <strong><a title="Evernote's website" href="http://www.evernote.com/">Evernote</a></strong>. I used to put everything from personal notes to ebook in it. But, it became so slow it was a pain to open it just to add a little something.</p>
+<p>But they released version 4 with a very BIG performance improvement. I will now be able to resume my Evernote&#8217;s normal usage.</p>
+<div><br /></div>
+</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Linode is my new VPS]]></title>
+    <link href="http://sebastienlachance.com/blog/linode-is-my-new-vps/"/>
+    <updated>2010-11-09T07:03:00-05:00</updated>
+    <id>http://sebastienlachance.com/blog/linode-is-my-new-vps</id>
+    <content type="html"><![CDATA[<p>I needed to find an hosting company for our new product, and after a lot of though and hard decisions, we decided to go with <a href="http://www.linode.com/index.cfm">Linode</a>.&nbsp;</p>
+
+
+<p>I choose a Linode 512 (with Ubuntu 10.04 LTS) because we are not ready for full-scale deployment yet and did not wanted to pay for something we will not use fully for some time. The beautiful things is that we will be able to upgrade with no problems later on.</p>
+
+
+<p>Installing everything and got everything running in less than 2 hours. And I was pretty new to deploying a Rails application with mysql on linux.</p>
+
+
+<p>&nbsp;</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Searching for specific text in PHP files]]></title>
+    <link href="http://sebastienlachance.com/blog/find-in-php-files/"/>
+    <updated>2010-11-08T09:53:00-05:00</updated>
+    <id>http://sebastienlachance.com/blog/find-in-php-files</id>
+    <content type="html"><![CDATA[<p>While working on a <a title="Drupal's website" href="http://drupal.org/">Drupal</a> project, I had to search for a specific string contained in one of a lots of PHP code files. My first search led me to no result. I assumed that the little something I searched for might be embedded in a dynamic web page (Drupal allows this). I spent some time searching and found nothing. Today, as I worked on another feature, I came across the exact thing I searched for. Humm what could I have done wrong?&nbsp;</p>
+
+
+<p>XP has a known issue when you are searching for text contained in files. Hopefully, there is a solution:&nbsp;<a href="http://support.microsoft.com/default.aspx?scid=KB;EN-US;309173">http://support.microsoft.com/default.aspx?scid=KB;EN-US;309173</a></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Finally, the time has come...]]></title>
+    <link href="http://sebastienlachance.com/blog/finally-the-time-has-come/"/>
+    <updated>2010-11-01T05:46:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/finally-the-time-has-come</id>
+    <content type="html"><![CDATA[<p>&nbsp;</p>
+
+
+<p>Time has come for me to finally announce that I now have launched my own company: <strong>Creatiom</strong>. Well, launched <strong>2 companies</strong>, but I can&#8217;t talk about the other one yet.</p>
+
+
+<p>I&#8217;m probably very late on this, but I am now an almost fulltime consultant working for with a large company in North America.</p>
+
+
+<p>I always had this dream to start my own business and provide something useful. I felt that I can have more impact and a whole lot more fun in the process. When the occasion presented itself I jumped on it.</p>
+
+
+<p>But why did I start 2 companies? I have my one-person company which I started right off when I started consulting, but a month ago, 2 friends of mine had an interesting idea and asked me to join them. And I can say that I am really thrilled by this startup. It&#8217;s a great opportunity and a real challenge. I&#8217;ll still work on my own one-person product but for now, I concentrate everything I can on this opportunity.&nbsp;</p>
+
+
+<p>But as a second big change, I may be minimizing my ASP.NET development to a minimum. I recently started doing everything with Ruby and Rails. And after 4 months, I can confidently say that I cannot imagine returning fulltime with ASP.NET. As much as I love .NET, Ruby has this little something that makes programming a lot more enjoyable. It&#8217;s a refreshing change, even though I&rsquo;ll need to work with linux (ubuntu) for now (I need a Mac!!).</p>
+
+
+<p>I will mainly do web development and contracting for now. If you need work done, you can contact me, but I will only accept little projects (but try anyway, we never know).</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Seeing the good side of tight deadlines]]></title>
+    <link href="http://sebastienlachance.com/blog/tight-deadlines/"/>
+    <updated>2010-10-06T09:09:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/tight-deadlines</id>
+    <content type="html"><![CDATA[<p>For the last 3 weeks, I have been under enormous stress to deliver a critical piece of software. I wasn&#8217;t even sure that I could complete it under the remaining time, but I had to try and do my best.&nbsp;</p>
+
+
+<p>But I am not here to talk about how things can get wrong, but what I have learned in that short time.&nbsp;</p>
+
+
+<p>In those 3 weeks, I learned about:&nbsp;</p>
+
+
+<p>&nbsp;</p>
+
+
+<ul>
+<li>Database synchronization</li>
+<li>Microsoft Sync Framework</li>
+<li>WCF</li>
+<li>WCF Data Services</li>
+<li>OData</li>
+<li>Entity Framework</li>
+<li>Windows Forms</li>
+<li>Running a standalone web application on an standalone web server</li>
+<li>xulrunner (embedded Firefox)</li>
+<li>XPO (DevExpress ORM)</li>
+<li>SQL Server CE</li>
+<li>SQLite</li>
+<li>Updating application via Microsoft Application Updater</li>
+<li>Basic Authentication and SSL</li>
+<li>Fast unit testing (I haven&#8217;t considered putting them aside, even on a situation like this, I&#8217;ve already done that and regret it so much)</li>
+<li>And that I need to sleep more than I think I need</li>
+</ul>
+
+
+<div>It&#8217;s a lot of stuff. But the next part will be to summarize everything I learned in a document if I want to retain some of this stuff.</div>
+
+
+<p>&nbsp;</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The surprising science of motivation by Dan Pink]]></title>
+    <link href="http://sebastienlachance.com/blog/the-surprising-science-of-motivation-by-dan-pink/"/>
+    <updated>2010-07-28T05:26:40-04:00</updated>
+    <id>http://sebastienlachance.com/blog/the-surprising-science-of-motivation-by-dan-pink</id>
+    <content type="html"><![CDATA[<p>Motivation can be hard to understand. Someday you are and the next day you’re not. While cleaning my bookmarks, I came across this talk by Dan Pink on <strong>The surprising science of motivation </strong>on TED.</p>
+
+
+<p>  <p>It applies to us (Knowledge worker) and he demonstrate why it can be so hard to motivate us and how everyone knows how to, but it’s never applied. </p>  <p>&#160;</p>  <p style="text-align: center"><object width="446" height="326"><param name="movie" value="http://video.ted.com/assets/player/swf/EmbedPlayer.swf"></param><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="wmode" value="transparent"></param><param name="bgColor" value="#ffffff"></param> <param name="flashvars" value="vu=http://video.ted.com/talks/dynamic/DanielPink_2009G-medium.flv&amp;su=http://images.ted.com/images/ted/tedindex/embed-posters/DanielPink-2009G.embed_thumbnail.jpg&amp;vw=432&amp;vh=240&amp;ap=0&amp;ti=618&amp;introDuration=15330&amp;adDuration=4000&amp;postAdDuration=830&amp;adKeys=talk=dan_pink_on_motivation;year=2009;theme=not_business_as_usual;theme=speaking_at_tedglobal2009;theme=the_creative_spark;event=TEDGlobal+2009;&amp;preAdTag=tconf.ted/embed;tile=1;sz=512x288;" /><embed src="http://video.ted.com/assets/player/swf/EmbedPlayer.swf" pluginspace="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" wmode="transparent" bgColor="#ffffff" width="446" height="326" allowFullScreen="true" allowScriptAccess="always" flashvars="vu=http://video.ted.com/talks/dynamic/DanielPink_2009G-medium.flv&su=http://images.ted.com/images/ted/tedindex/embed-posters/DanielPink-2009G.embed_thumbnail.jpg&vw=432&vh=240&ap=0&ti=618&introDuration=15330&adDuration=4000&postAdDuration=830&adKeys=talk=dan_pink_on_motivation;year=2009;theme=not_business_as_usual;theme=speaking_at_tedglobal2009;theme=the_creative_spark;event=TEDGlobal+2009;"></embed></object></p>  <p>&#160;</p>  <p>There is also an animate version of this talk done by <a title="The RSA youtube channel" href="http://www.youtube.com/user/theRSAorg" target="_blank">RSA</a>. If you are more visual check this one out. </p>  <p style="text-align: center; width: 100%"><embed src="http://www.youtube.com/v/u6XAPnuFjJc&amp;hl=en_US&amp;fs=1" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed> </p>  <p><a title="Dan Pink&#39;s website" href="http://www.danpink.com/" target="_blank">Daniel H. Pink</a>&#160; is a writer, blogger and speaker with 4 books under his belt.</p>  <p>&#160;</p>  <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:41822afe-66a4-4b70-ae1c-e2aaff72821a" class="wlWriterEditableSmartContent">Technorati Tags: <a href="http://technorati.com/tags/motivation" rel="tag">motivation</a>,<a href="http://technorati.com/tags/talk" rel="tag">talk</a>,<a href="http://technorati.com/tags/ted" rel="tag">ted</a></div></p>
+]]></content>
   </entry>
   
 </feed>

@@ -1,0 +1,783 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Sebastien Lachance</title>
+  <meta name="author" content="Sebastien Lachance">
+
+  
+  <meta name="description" content="Hummm, I love this unclear exception message. I just can&#8217;t believe there is not a condition somewhere to return whether the row was not found &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://sebastienlachance.com/blog/page/9">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Sebastien Lachance" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-10165653-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Sebastien Lachance</a></h1>
+  
+    <h2>Learning new things everyday</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:sebastienlachance.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/systemdatalinqchangeconflictexception-row-not-found-or-changed/">ChangeConflictException: Row not found or changed</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-07-08T08:01:00-04:00" pubdate data-updated="true">Jul 8<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Hummm, I love this unclear exception message. I just can&#8217;t believe there is not a condition somewhere to return whether the row was not found or just changed. It would be a lot easier to diagnose problems.</p>
+
+
+<p>Anyway, after reading several article on concurrency regarding Linq to SQL and making sure the date field was sent correctly (like suggested everywhere), I finally pin-pointed the problem when I remembered that I had changed a NOT NULL column to a NULL column. Et voila. Problem solved!</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/visual-studio-2008-wcf-templates/">Visual Studio 2008 - WCF Templates</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-21T08:19:00-04:00" pubdate data-updated="true">May 21<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When you want to create a new WCF project, you are presented with 4 different templates to use :</p>
+
+
+<ul>
+<li>Sequential Workflow Service Library </li>
+<li>Syndication Service Library </li>
+<li>State Machine Workflow Service Library </li>
+<li>WCF Service Library</li>
+</ul>
+
+
+<p>Each one has it&#8217;s own particularities. It&#8217;s important to know which one to choose but you should know that the template only generate things you need to get started. You can always start from an empty WCF Service Library and build on top of it. Anyway, here is an explanation for each one.</p>
+
+
+<h3>Sequential Workflow Service Library</h3>
+
+
+<p>You basically create a sequential workflow project that made operations available by WCF. I have no experience with Workflow Foundation so I will not go further into details.</p>
+
+
+<h3>Syndication Service Library</h3>
+
+
+<p>This template is great. It present you a way to expose an RSS or Atom feed via a WCF Service contract. This is built-in stuff already present in the framework.</p>
+
+
+<p>To expose a feed, you need an operation that return a&nbsp; <strong>SyndicationFeedFormatter</strong> (in the System.ServiceModel.Syndication namespace). Then create a <strong>SyndicationFeed</strong> and add <strong>SyndicationItem</strong> to it. Finally, create a <strong>Atom10FeedFormatter</strong> or <strong>Rss20FeedFormatter</strong> and return it.</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">SyndicationFeed feed = <span style="color: #0000ff;">new</span> SyndicationFeed(<span style="color: #006080;">"Feed Title"</span>, <span style="color: #006080;">"A WCF Syndication Feed"</span>, <span style="color: #0000ff;">null</span>);<br />List&lt;SyndicationItem&gt; items = <span style="color: #0000ff;">new</span> List&lt;SyndicationItem&gt;();<br /><br /><span style="color: #008000;">// Create a new Syndication Item.</span><br />SyndicationItem item = <span style="color: #0000ff;">new</span> SyndicationItem(<span style="color: #006080;">"An item"</span>, <span style="color: #006080;">"Item content"</span>, <span style="color: #0000ff;">null</span>);<br />items.Add(item);<br />feed.Items = items;<br /><br /><span style="color: #008000;">// Return ATOM or RSS based on query string</span><br /><span style="color: #008000;">// rss -&gt; http://localhost:8731/Design_Time_Addresses/SyndicationServiceLibrary1/Feed1/</span><br /><span style="color: #008000;">// atom -&gt; http://localhost:8731/Design_Time_Addresses/SyndicationServiceLibrary1/Feed1/?format=atom</span><br /><span style="color: #0000ff;">string</span> query = WebOperationContext.Current.IncomingRequest.UriTemplateMatch.QueryParameters[<span style="color: #006080;">"format"</span>];<br />SyndicationFeedFormatter formatter = <span style="color: #0000ff;">null</span>;<br /><span style="color: #0000ff;">if</span> (query == <span style="color: #006080;">"atom"</span>)<br />{<br />   formatter = <span style="color: #0000ff;">new</span> Atom10FeedFormatter(feed);<br />}<br /><span style="color: #0000ff;">else</span><br />{<br />   formatter = <span style="color: #0000ff;">new</span> Rss20FeedFormatter(feed);<br />}<br /><br /><span style="color: #0000ff;">return</span> formatter;</pre>
+</div>
+
+
+<h2>&nbsp;</h2>
+
+
+<h3>State Machine Workflow Service Library</h3>
+
+
+<p>Another template that expose a Windows Workflow as a Service. This time the type of Workflow is a State Machine. A state machine workflow contrary to a sequential workflow is driven by external events. Transition between states are based on certain events until it reach the final state.</p>
+
+
+<p>&nbsp;</p>
+
+
+<h3>WCF Service Library</h3>
+
+
+<p>The most basic project to create a WCF service. You can use it to do everything you want with the most control.</p>
+
+
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:30a47706-c5e7-4cb1-ac8e-cb066919747b" class="wlWriterSmartContent" style="display: inline; margin: 0; padding: 0;">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/WCF">WCF</a></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/ohhh-thats-why-i-should-make-a-testrepository/">Ohhh, that&#8217;s why I should make a TestRepository&#8230;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-14T08:17:00-04:00" pubdate data-updated="true">May 14<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Listening to the <a href="http://blog.wekeroad.com/mvc-storefront/mvcstore-part-10/">last screencast of Rob Conery (MVC Storefront)</a> made me realize something that I haven&#8217;t really understood before.</p>
+
+
+<p>Suppose you have the interface of a repository, let&#8217;s say IEntryRepository. Then you have the actual SqlEntryRepository and TestEntryRepository. When I am doing TDD, I am testing the TestEntryRepository. But it will not be used in production. Why bothering with testing it then?</p>
+
+
+<p>Because TDD is a design process. Even if I am testing my code, I am also designing it. The SqlEntryRepository will benefits from the actual design of the repository we use for testing.</p>
+
+
+<p>&nbsp;</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/altnet-podcast/">Alt.NET Podcast</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-14T08:17:00-04:00" pubdate data-updated="true">May 14<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I have just finished listening to the <a href="http://altnetpodcast.com/episodes/1-continuous-improvement">first episode of a new podcast</a>. It&#8217;s a discussion about self-improvement for developer with Chad Myers, David Laribee and Jeremy D. Miller. It&#8217;s very inspiring and I recommend that you listen to it if you are serious about software development.</p>
+
+
+<p><a href="http://altnetpodcast.com/">Alt.NET Podcast</a></p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/new-code-drop-to-the-aspnet-project-on-codeplex/">New code drop to the ASP.NET project on Codeplex</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-13T08:14:00-04:00" pubdate data-updated="true">May 13<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><blockquote>
+<ul>
+<li><strong>05/12 Source code release of the ASP.NET AJAX Script Profiler helper control:</strong> To support the ASP.NET AJAX script combining feature which shipped in the .NET Framework 3.5 SP1 Beta release, we&#8217;ve added the ASP.NET AJAX Script Profiler helper control source and binaries to this project. This control helps you to identify the scriptreferences used in your ASP.NET AJAX page to use with ASP.NET AJAX script combining. You can find this release here: <a href="http://www.codeplex.com/aspnet/Release/ProjectReleases.aspx?ReleaseId=13356">ScriptReferenceProfiler Source and Binary Release</a>. In addition this control is used in a Screencast for ASP.NET AJAX script combining on the ASP.NET site. </li>
+</ul>
+<ul>
+<li><strong>05/12 Release of the ADO Data Service AJAX Client :</strong> The ADO Data Service AJAX Client Library enables you to consume an ADO.NET Data Service from client script in an ASP.NET AJAX Web page. </li>
+</ul>
+</blockquote>
+
+
+<p>Read more <a href="http://www.codeplex.com/aspnet">on the codeplex page</a>.</p>
+
+
+<p>I&#8217;m really wondering how I can keep up with all these new things to try. Well, I guess I will really need a pill to stop sleeping someday.</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/my-solution-node-does-not-appear-in-visual-studio-20052008/">My solution node does not appear in Visual Studio 2005/2008</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-13T08:13:00-04:00" pubdate data-updated="true">May 13<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://tinyurl.com/3l74od">A reader asked me</a> <strong>how we can display the solution node in Visual Studio</strong> when you have only one project. This feature is turned off by default. What you need to do is to go in your Tools/Options menu and click on <strong>Projects and Solutions</strong>. Then you need to check the Always Show Solution checkbox.</p>
+
+
+<p><a title="AlwaysShowSolution" href="http://www.flickr.com/photos/63483657@N00/2488713675/"><img src="http://static.flickr.com/2375/2488713675_88fe6a6b3a.jpg" border="0" alt="AlwaysShowSolution" /></a></p>
+
+
+<p>Feel free to ask me any questions.</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/mocking-the-httpcontext-in-aspnet-mvc/">Mocking the HttpContext in ASP.NET MVC</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-08T08:12:00-04:00" pubdate data-updated="true">May 8<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I just got a hard time figuring how I could be mocking the HttpContext so that I would be able to mock HttpRequest. But once you understand the principle, it is fairly easy.</p>
+
+
+<p>First thing we need to know is that the HttpContext is held inside a <strong>ControllerContext</strong> object. Once we have instantiated one, we can then put it inside our controller.</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">controller.ControllerContext = <span style="color: #0000ff;">new</span> ControllerContext(mockedhttpContext, <span style="color: #0000ff;">new</span> RouteData(), controller);</pre>
+</div>
+
+
+<div>&nbsp;</div>
+
+
+<div>Where mockedHttpContext is your mocked <strong>HttpContextBase</strong> object.</div>
+
+
+<div>&nbsp;</div>
+
+
+<div>Inside the HttpContextBase object reside a lot of useful stuff that can replace with our mocks. By example, the HttpRequest, HttpServer, HttpApplication, etc, are all contained inside. So, getting familiar with this basic knowledge is a must to do testing usefully.</div>
+
+
+<div>&nbsp;</div>
+
+
+<div>Next post : Mocking HttpRequest.Form to return what we want.</div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/testing-controllers-in-aspnet-mvc-aka-actionresult/">Testing controllers in ASP.NET MVC aka ActionResult</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-06T08:09:00-04:00" pubdate data-updated="true">May 6<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I haven&#8217;t really done any testing in ASP.NET MVC until now. I started the development of a more serious application and decided to do it TDD. My first test was to make sure the Index action render the Index view. So as an informed developer, I started reading some blog posts to discover that in order to test a controller you need to mock a lot of things. I followed the screencast of Scott Hanselman and implemented his MvcMockHelper. It didn&#8217;t worked. The ViewContext on the view engine remained null, resulting in an NullReferenceException. I downloaded the source of the last build to see for myself what was wrong. Surely I don&#8217;t understand, because nowhere in the source they are setting the ViewContext on the ViewEngine. They just fill a RenderViewResult object and return it back.</p>
+
+
+<p>This is how I figured out how we can now test controllers. With the new Interim build of the 04/16, we don&#8217;t have to mock the HttpContext, HttpRequest and so on anymore. No need to do a fake view engine and no more mocking needed to test the RenderView method.</p>
+
+
+<div>
+<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">[Test]<br /><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> Index_Should_Set_The_Index_View()<br />{<br />    EntryController controller = <span style="color: #0000ff;">new</span> EntryController();<br />    var result = (RenderViewResult)controller.Index();<br /><br />    Assert.That(result.ViewName, Is.EqualTo(<span style="color: #006080;">"Index"</span>));<br />}</pre>
+</div>
+
+
+<p>So if you have any other operations (RedirectToAction and Redirect for example), it will return an object of type ActionResult that you can cast to the appropriate inheritor (RenderViewResult, ActionRedirectResult, HttpRedirectResult) to get a lot of information that you would have to retrieve manually with a mock.</p>
+
+
+<p>I really like the simplicity of it and can&#8217;t wait to see more improvement. This is an immense opportunity to learn a great deal of different things.</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/quick-start-with-aspnet-mvc-interim-source-code/">Quick Start with ASP.NET MVC Interim Source Code</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-06T07:43:00-04:00" pubdate data-updated="true">May 6<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This is intended to be a quick start for anyone who want to start playing with the latest version of ASP.NET MVC without going through the origin and goals of the MVC pattern. I will use the ASP.NET 0416 MVC Interim Source Code Release for this. Keep in mind, that this will probably all change in a near future.</p>
+
+
+<p>First step, download and build the <a href="http://www.codeplex.com/aspnet/Release/ProjectReleases.aspx?ReleaseId=12640">source</a>. You will need to have the <a href="http://code.google.com/p/moq/">Moq</a> library (more about this mocking framework in a future post).</p>
+
+
+<p>Second, download and install the <a href="http://www.codeplex.com/aspnet/Release/ProjectReleases.aspx?ReleaseId=12640">Visual Studio MVC Templates</a> (execute the vsi file).</p>
+
+
+<p>Third, start an ASP.NET MVC project.</p>
+
+
+<p>I have two useful resources to share with you. I believe they will give you a head start.</p>
+
+
+<p>You have the <a href="http://www.asp.net/mvc">Scott Hanselman&#8217;s screencast series</a> on the ASP.NET web site. And you have the <a href="http://blog.wekeroad.com/category/mvc-storefront/">MVC Storefront series from Rob Conery</a>.</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/top-5-most-influential-peoples-on-my-career/">Top 5 most influential peoples on my career</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-04-30T07:41:00-04:00" pubdate data-updated="true">Apr 30<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I was thinking about this for a while. If I have to choose five peoples who have influenced me the most concerning my career, who would that be?</p>
+
+
+<p><strong>1. My first supervisor when I was a wielder.</strong></p>
+
+
+<p><em>This guy once said to me that I would never do anything more than wielding in my life and if it wasn&#8217;t for my father, he would have fired me for nothing. I promised him that It will not happen. Four years later, I was the leader of a small team in the company. Take that&#8230;</em></p>
+
+
+<p><strong>2. <a href="http://www.bernard-voyer.com/index_en.html">Bernard Voyer.</a></strong></p>
+
+
+<p><em>A famous explorator that I met when I was in school. He believed in his dream and have conquered the Everest, South Pole, North Pole and a lot of hard to reach places. He his just a normal person who gave everything he had to make his dream true.</em></p>
+
+
+<p><strong>3. The ASP.NET guy.</strong></p>
+
+
+<p><em>I don&#8217;t remember his name , but it&#8217;s shortly after I finished school. He had just completed a Microsoft Certification in ASP.NET. This is where I first heard the term MCSD and I promised myself I would be one (even though I had no idea what it was at that time). 2 years later, February 7 2006 at almost 9:00 PM, I was one. I learned all by myself with the help of some books and the requirement list on MSDN. It just felt incredible. Even if I&#8217;m no longer in the world of certification, I&#8217;m still very proud of it.</em></p>
+
+
+<p><strong>4. <a href="http://www.hanselman.com/blog/">Scott Hanselman</a>.</strong></p>
+
+
+<p><em>First blog ever that I have put in my RSS aggregator. I&#8217;m following him since a long time and he inspired me a lot. It&#8217;s because of him that I am a blogger. He&#8217;s coming to the .NET User Group of Qu&eacute;bec next week and I can&#8217;t wait to meet him.</em></p>
+
+
+<p><strong>5. <a href="http://www.jpboodhoo.com/blog/">Jean-Paul Boodhoo</a></strong></p>
+
+
+<p><em>Never met the man. I first heard of him in an episode on DnrTv about design patterns. It seem he has a lot passion&#8230; If you have never heard of him, head here. I wish I was as passionate as him. I am, but he his more :).</em></p>
+
+
+<p>This was my top 5 of the peoples who had the most impact on me. But I want to talk about a 6th person. He probably don&#8217;t want me to talk about him so I will not give any name. Before meeting him, I was already into Agile development. But he taught me a lot about other aspect of the methodology. Everything that can&#8217;t be learn in a book to be more precise. But thing haven&#8217;t got very well at some point and after a lot of different events we lost touch. Anyway, I am very recognizing to have worked with him.</p>
+
+
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:1bf27263-ce38-4b0e-88e6-5e9d6a2dcf00" class="wlWriterSmartContent" style="display: inline; margin: 0; padding: 0;">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/Scott%20Hanselman">Scott Hanselman</a>,<a rel="tag" href="http://technorati.com/tags/JP%20Boodhoo">JP Boodhoo</a>,<a rel="tag" href="http://technorati.com/tags/Bernard%20Voyer">Bernard Voyer</a>,<a rel="tag" href="http://technorati.com/tags/Top%205">Top 5</a></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/10/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/8/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <img src="/images/me.png" />
+  <p>Sebastien Lachance, programmer since 2003.</p>
+  <p>I am an entrepreneur and consultant. I have launched the <a href="http://www.guidedescommercesdebeauce.com">Guide des Commerces</a> in 2011, a project with great potential and had a lot of fun making it. 
+  </p>
+  <p>
+    I&#8217;m a web developer specialized in Rails and ASP.NET MVC. I have a background in business applications but I really enjoy making any kind of software. 
+  </p>
+  <p>
+    I do believe in the power of twitter, but I dont use it as much as I would.
+    But feel free to follow me anyway :).
+  </p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/reponsive-and-mobile-friendly-design/">Reponsive and Mobile-Friendly Design with Skeleton</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/how-i-started-loving-javascript/">How I Started Loving Javascript</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/couldnt-parse-yaml-at-line-x-column-x-psych-syntaxerror/">Couldn&#8217;t Parse YAML at Line X Column X (Psych::SyntaxError)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/a-circular-reference-was-detected-while-serializing-an-object-to-type-code-dot-models-dot-category/">A Circular Reference Was Detected While Serializing an Object to Type Code.Models.Category</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/fluenthibernate-how-to-deal-with-a-reserved-word-column/">FluentHibernate - How to Deal With a Reserved Word Column</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/sebastienlachance">@sebastienlachance</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'sebastienlachance',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("slachance", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/slachance" class="twitter-follow-button" data-show-count="true">Follow @slachance</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Sebastien Lachance -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'sebastienlachance';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

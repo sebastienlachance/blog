@@ -1,0 +1,10 @@
+---
+layout: post
+title: "ScummVM"
+date: 2007-07-31 14:51:00
+comments: true
+categories: 
+---
+
+<p>Do you remember Sam &amp; Max, Full Throttle and Day of the Tentacle (Dott!)? <a href="http://www.scummvm.org/" target="_blank">ScummVM</a> allow you to replay these "point and click" adventure games. You need to have the data file for them and you are ready to go. There are also different port: Nintendo DS, Dreamcast, PlayStation 2, etc... I think I'm gonna give it a try on the DS as soon as I have all the component. I would really like to play Monkey Island in the bus.</p>
+<p><a href="http://sourceforge.net/community/index.php/landing-pages/cca07/" target="_blank">ScummVM is the winner of the <strong>Best Project for Gamers</strong> award on the SourceForge 2007 Community Choice Awards</a>.</p>
