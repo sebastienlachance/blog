@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="This is an interesting pattern. I was using it without giving it a name. I encountered this pattern while reading the Jimmy&nbsp;Nilsson&#8217;s book &hellip;">
+  <meta name="description" content="What is TeamCity? It&#8217;s a software that you would use to do continuous integration. Continuous integration is very important and it should &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,55 +76,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/unit-of-work/">Unit Of Work</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-02-22T05:47:00-05:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This is an interesting pattern. I was using it without giving it a name. I encountered this pattern while reading the <a class="v1" target="_new">Jimmy&nbsp;Nilsson</a>&#8217;s book : Applying Domain-Driven Design and Patterns - With Examples in C# and .NET. The Unit Of Work is a way to create a logical group of object. The most basic example I can think of is the example of an Order. An order contains OrderLines. The Order and the OrderLines are part of the same logical group. We say that this is an Unit Of Work. I tend to think of it at the way I&#8217;ll save the Order. Do I call a service to insert the Order and another to save the OrderLines? Or do I call a single service that will persist it all at the same time (maybe using a transaction)? I will use a single service that will save the Order, the OrderLines and all other related information. Everything that must be persisted at the same time is said to be an Unit Of Work.</p>
-
-
-<p>In the RecipeHelper project (the personnal project I am working on), I have a single Unit Or Work (at the moment). The Recipe is the root and contains a list of steps to follow and a list of ingredients. When I persist a recipe, I persist everything in the object graph.</p>
-
-
-<p>Here is some resources from experts that can help you more with applying this pattern :</p>
-
-
-<ul>
-<li><a title="http://www.martinfowler.com/eaaCatalog/unitOfWork.html" href="http://www.martinfowler.com/eaaCatalog/unitOfWork.html">P of EAA: Unit of Work</a></li>
-<li><a href="http://www.hibernate.org/42.html">NHibernate and Unit Of Work</a></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -751,6 +702,46 @@
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/thank-you%21/">Thank you!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-08T03:22:00-05:00" pubdate data-updated="true">Jan 8<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I want to thank everybody who has been visiting my blog. I have now reach 6000 hits with an average of 60 hits per day. I will keep raising my bar to deliver you some great content over the next few months. Thank you very much!!!</p>
+
+
+<p>P.S. I&#8217;ll keep working on my writing skills, don&#8217;t worry!</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/12/">&larr; Older</a>
@@ -786,10 +777,6 @@
       </li>
     
       <li class="post">
-        <a href="/blog/how-i-started-loving-javascript/">How I Started Loving Javascript</a>
-      </li>
-    
-      <li class="post">
         <a href="/blog/couldnt-parse-yaml-at-line-x-column-x-psych-syntaxerror/">Couldn&#8217;t Parse YAML at Line X Column X (Psych::SyntaxError)</a>
       </li>
     
@@ -799,6 +786,10 @@
     
       <li class="post">
         <a href="/blog/fluenthibernate-how-to-deal-with-a-reserved-word-column/">FluentHibernate - How to Deal With a Reserved Word Column</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/everyday-stuff-rails-and-partials/">Everyday Stuff : Rails and Partials</a>
       </li>
     
   </ul>

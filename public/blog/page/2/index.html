@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="SanitizeHelper&nbsp; I need to start somewhere and while it may not be the most informative post ever, I&#8217;ll try to cover this feature as much &hellip;">
+  <meta name="description" content="GeckoFX is a component to reduce the complexity of embedding Firefox (XULRunner)onto a Windows Forms application to replace the default WebBrowser &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,61 +76,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learning-rails-sanitizehelper/">Learning Rails : SanitizeHelper</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-05-02T01:36:00-04:00" pubdate data-updated="true">May 2<span>nd</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>SanitizeHelper&nbsp;</h2>
-
-
-<p>I need to start somewhere and while it may not be the most informative post ever, I&#8217;ll try to cover this feature as much as I can. Everything here is already described in the Rails Api so it should be a great idea to keep it as a reference. I&#8217;ll also try to add what I have learned&nbsp;</p>
-
-
-<p>There are 4 methods in the sanitize helper.</p>
-
-
-<h3>strip_tags</h3>
-
-
-<p>Remove any html tags from your the input provided. If you truncate, you may see &lt;a. strip_tags before you truncate.</p>
-
-
-<h3>strip_links</h3>
-
-
-<p>Remove any links from your markup and return only the text of the link</p>
-
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -615,6 +560,89 @@ pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's W
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/functional-programming-starting-to-learn-clojure/">Functional programming : Starting to learn Clojure</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-07-23T01:15:21-04:00" pubdate data-updated="true">Jul 23<span>rd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>&#160;</p>
+
+
+<p>  <p>The time has come for me to add another language into my toolbox and I decided to look at a functional language : <strong><a title="Clojure&#39;s website" href="http://clojure.org/" target="_blank">Clojure</a></strong>. I have the <a title="Programming Clojure book" href="http://pragprog.com/titles/shcloj/programming-clojure" target="_blank">Programming Clojure</a> book, so why not?</p>  <h3>Clojure is a modern Lisp language.</h3>  <p> Yes, Lisp (LISt Processing). I never thought I would have been near or around it. I heard so many bad things about his complexity and how it would not useful in real life scenarios. But I have heard sometime about programmers who expended their mind to new programming concept with it. The following comment seems to be universal from programmers who knows it well.</p>  <blockquote>   <p>     <br />I struggled to learn it, but once I finally get a grasp on it, it made me a better developer. </p> </blockquote>  <h3>Why?</h3>  <p>In our imperative language (Java, C#, Ruby, etc.) there is really no support for multi-core processing. That is, your program will only run on one core. Clojure is designed to support multi-core in mind and had support for dealing with concurrency really well.</p>  <h3>What is Lisp?</h3>  <p>   <br />From Wikipedia : </p>  <blockquote>   <p>Lisp was originally created as a practical mathematical notation for computer programs, influenced by the notation of Alonzo Church&#8217;s lambda calculus. It quickly became the favoured programming language for artificial intelligence (AI) research. As one of the earliest programming languages, Lisp pioneered many ideas in computer science, including tree data structures, automatic storage management, dynamic typing, and the self-hosting&#160; compiler.</p> </blockquote>  <p>Just that. And I would like to add that it had a lot of parentheses. A lot.</p>  <h3>Clojure is emitting JVM bytecode and goes hand in hand with Java but maybe not.</h3>  <p>   <br />I was afraid of that. I know Java, but not the whole library. Since Clojure can and will use the library, you better know where you are heading. But again, if you want to learn fast, just jump in the shark pool. But, Java is absolutely not required to program with it if you don’t want to.</p>  <h3>Clojure Code</h3>  <p>   <br />Let&#8217;s look at an example :     <br /></p>  <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E6:a41312cd-13d0-4502-b5a3-9079603e6e25" class="wlWriterEditableSmartContent"><pre style="background-color:#FFFFFF;white-space:-moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; white-space: pre-wrap; word-wrap: break-word;overflow: auto;"><span style="color: #000000;">(loop [result [] x </span><span style="color: #800080;">5</span><span style="color: #000000;">]</p>
+
+<pre><code>(&lt;/span&gt;&lt;span style="color: #0000FF;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (zero&lt;/span&gt;&lt;span style="color: #000000;"&gt;?&lt;/span&gt;&lt;span style="color: #000000;"&gt; x)
+    result
+    (recur (conj result x) (dec x))))&lt;/span&gt;&lt;/pre&gt;&lt;!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --&gt;&lt;/div&gt;
+</code></pre>
+
+<p>
+  <br />Output : [5 4 3 2 1] </p>
+
+
+
+
+<p>This snippet of code is actually a loop from 5 to 1 and appending each time the current index to an array</p>
+
+
+
+
+<p>This is not a tutorial but let’s dig deeper at (zero? x). In Clojure, a function that evaluate a condition have the name of it appended of an ?. So zero? is the function name and x is the argument. Yes, you read right, you don’t supply function’s argument like other programming language where it would look like : </p>
+
+
+
+
+<div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:DFDE9937-D816-47f4-A306-7B60D5CE5AC0:bcaad55b-8b3b-4d8c-8d5d-17419d286f29" class="wlWriterEditableSmartContent"><pre class="brush: csharp; gutter: false; first-line: 1; tab-size: 4;  toolbar: false; ">bool isZero = IsZero(x);</pre><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
+
+
+
+
+<h3>Conclusion</h3>
+
+
+
+
+<p>I tried to present a little introduction to Clojure without going into too much details. I am not yet comfortable with every concept and what would be the advantages in real life. But, It will be an interesting trip. After a little more than three weeks now, and almost 10 hours of playing around and I can already say that I will need to see things differently.Very differently.</p>
+
+
+
+
+<p>&#160;</p>
+
+
+
+
+<div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:a9e9955f-ab4c-44e5-bdb5-a9c57a7a8f3e" class="wlWriterEditableSmartContent">Technorati Tags: <a href="http://technorati.com/tags/clojure" rel="tag">clojure</a>,<a href="http://technorati.com/tags/programming" rel="tag">programming</a></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -650,10 +678,6 @@ pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's W
       </li>
     
       <li class="post">
-        <a href="/blog/how-i-started-loving-javascript/">How I Started Loving Javascript</a>
-      </li>
-    
-      <li class="post">
         <a href="/blog/couldnt-parse-yaml-at-line-x-column-x-psych-syntaxerror/">Couldn&#8217;t Parse YAML at Line X Column X (Psych::SyntaxError)</a>
       </li>
     
@@ -663,6 +687,10 @@ pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's W
     
       <li class="post">
         <a href="/blog/fluenthibernate-how-to-deal-with-a-reserved-word-column/">FluentHibernate - How to Deal With a Reserved Word Column</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/everyday-stuff-rails-and-partials/">Everyday Stuff : Rails and Partials</a>
       </li>
     
   </ul>
