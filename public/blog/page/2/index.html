@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="GeckoFX is a component to reduce the complexity of embedding Firefox (XULRunner)onto a Windows Forms application to replace the default WebBrowser &hellip;">
+  <meta name="description" content="In case you don&#8217;t know APPSUMO, subscribe to their notifications. They offers deals that are pretty hard to beat&#8230; Look at this one :&#160 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,120 +76,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/problem-downloading-files-using-geckofx-and-xulrunner/">Problem Downloading files using GeckoFX and XULRunner</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-12-06T02:50:04-05:00" pubdate data-updated="true">Dec 6<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a title="GeckoFX Homepage" href="http://geckofx.org/">GeckoFX</a> is a component to reduce the complexity of embedding Firefox (XULRunner)onto a Windows Forms application to replace the default WebBrowser control.</p>
-
-
-<p>  <p>But while trying to download a file though it, I have encountered this error : </p>  <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E6:9f3b8763-e6ca-4e78-81bd-7da63413577c" class="wlWriterEditableSmartContent"><pre style="background-color:White;overflow: auto;"><span style="color: #000000;">XML Parsing Error: undefined entity
-Location: chrome://mozapps/content/downloads/unknownContentType.xul
-Line Number </span><span style="color: #000000;">30</span><span style="color: #000000;">,</span><span style="color: #000000;"> Column </span><span style="color: #000000;">18</span><span style="color: #000000;">:    &lt;description&gt;&amp;intro.label</span><span style="color: #008000;">;</span><span style="color: #008000;">&lt;/description</span></pre><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div></p>
-
-<p>After a lot of googling I have managed to resolve this issue. This is what I have done : </p>
-
-
-
-
-<h3>1. Use XULRunner 1.9.0.4 or newer</h3>
-
-
-
-
-<p>If you’ve followed some tutorials you may have ended up using 1.9.0.0. Use <a title="XULRunner 1.9.0.4 download location" href="ftp://ftp.mozilla.org/pub/xulrunner/releases/1.9.0.4/runtimes/xulrunner-1.9.0.4.en-US.win32.zip">1.9.0.4</a></p>
-
-
-
-
-<h3>2. Use the Profile Directory</h3>
-
-
-
-
-<div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E6:eab0600a-7232-4ad0-afbf-b7e03b970933" class="wlWriterEditableSmartContent"><pre style="background-color:#FFFFFF;overflow: auto;"><span style="color: #000000;">var profileDirectory </span><span style="color: #000000;">=</span><span style="color: #000000;"> Application.StartupPath </span><span style="color: #000000;">+</span><span style="color: #000000;"> </span><span style="color: #800000;">@"</span><span style="color: #800000;">\EmbeddedFirefoxProfile</span><span style="color: #800000;">"</span><span style="color: #000000;">;
-</span><span style="color: #0000FF;">if</span><span style="color: #000000;"> (</span><span style="color: #000000;">!</span><span style="color: #000000;">Directory.Exists(profileDirectory))
-{
-    Directory.CreateDirectory(profileDirectory);
-}
-Skybound.Gecko.Xpcom.ProfileDirectory </span><span style="color: #000000;">=</span><span style="color: #000000;"> profileDirectory;</span></pre><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
-
-
-
-
-<h3>3. Copy the chrome folder from the GeckoFX package into the chrome directory of XULRunner.</h3>
-
-
-
-
-<p>This will add 2 files to the existing chrome folder.</p>
-
-
-
-
-<h3>4. Add a bunch of preferences to greprefs/all.js</h3>
-
-
-
-
-<div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:DFDE9937-D816-47f4-A306-7B60D5CE5AC0:b65e1539-3745-4255-a994-a429d654c4ee" class="wlWriterEditableSmartContent"><pre class="brush: jscript; gutter: false; first-line: 1; tab-size: 4;  toolbar: true; ">pref(&quot;browser.download.useDownloadDir&quot;, true);
-pref(&quot;browser.download.folderList&quot;, 0);
-pref(&quot;browser.download.manager.showAlertOnComplete&quot;, true);
-pref(&quot;browser.download.manager.showAlertInterval&quot;, 2000);
-pref(&quot;browser.download.manager.retention&quot;, 2);
-pref(&quot;browser.download.manager.showWhenStarting&quot;, true);
-pref(&quot;browser.download.manager.useWindow&quot;, true);
-pref(&quot;browser.download.manager.closeWhenDone&quot;, true);
-pref(&quot;browser.download.manager.openDelay&quot;, 0);
-pref(&quot;browser.download.manager.focusWhenStarting&quot;, false);
-pref(&quot;browser.download.manager.flashCount&quot;, 2);
-//
-pref(&quot;alerts.slideIncrement&quot;, 1);
-pref(&quot;alerts.slideIncrementTime&quot;, 10);
-pref(&quot;alerts.totalOpenTime&quot;, 4000);
-pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
-
-
-
-
-<h3>Conclusion</h3>
-
-
-
-
-<p>I hope it works for you. Happy GeckoFX programming!</p>
-
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -643,6 +529,70 @@ pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's W
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/i-was-a-gamer/">I was a gamer</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-06-01T05:35:00-04:00" pubdate data-updated="true">Jun 1<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Back when I was young (I&rsquo;m 28), I was a gamer. I could play for hours and get almost no sleep just to play games. Every games and only good rated games. I could complete several ones in just one week. I was at one point a really big fan of the Warcraft series (not WoW by the way) and got ranked really high on Battle.Net. But life goes on and I reduced my average playing time to the minimum (and I am a new father, so it&rsquo;s really not that much). Now I only play games that fit into the kind I love and that I know will not be crappy.</p>
+
+
+<p>I could say the same thing to the time I now spend learning new programming stuff. I&rsquo;m more picky at what I choose and tend to ignore a lot of thing that I would have found interesting if I had time to read them. So I need to choose really carefully what I decide to involve myself into, and spend the less possible time on learning anything that I could find easily with some googling.. I also ignore stuff that come and go quickly (Cardspace?). I understand the inner plumbing, but the implementation details are not so important unless it&rsquo;s something I really need to (example : I needed to create a secure WCF service, but It&rsquo;s not something I use daily and will probably not use it again in the next year, so why should I choose to learn everything about securing a wcf services?).</p>
+
+
+<p>But in my early years of programming I would have done it. I mean, learn all that I can and purchase new books every weeks. But the reality kick-in quickly and it&rsquo;s just not possible anymore.</p>
+
+
+<h2>How do I keep up to date and not become crazy trying to learn everything ?</h2>
+
+
+<p>1. I read blog. No, I read blog title and choose only what I think will be interesting for me.</p>
+
+
+<p>2. I read books. But only great books. Other people already done the job of finding good ones. So I am not loosing my time on less than average book.</p>
+
+
+<p>3. I work on my own project on my own time. I find it to be great to feel involved in all the stage of creating an application. UI, architecture, design, deployment, redaction, marketing, etc&hellip;</p>
+
+
+<p>4. Watch screencasts. <a title="Dime Casts.Net -- Inform and Educate in ~10 Minutes or Less" href="http://dimecasts.net/">Dime Casts.Net</a> and <a title="TekPub - High-quality screencasts for programmers." href="http://tekpub.com/">TekPub</a> (maybe someday, I will buy a subscription).</p>
+
+
+<p>So the question is: what do you do to keep up to date with everything and not let yourself become a programming zombie?</p>
+
+
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:adf0ce80-838c-4caf-8845-0cecce804467" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/blogging">blogging</a>,<a rel="tag" href="http://technorati.com/tags/career">career</a>,<a rel="tag" href="http://technorati.com/tags/time">time</a></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -690,7 +640,7 @@ pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's W
       </li>
     
       <li class="post">
-        <a href="/blog/everyday-stuff-rails-and-partials/">Everyday Stuff : Rails and Partials</a>
+        <a href="/blog/no-such-file-to-load-cucumberrailsactive_record-%28loaderror%29/">no such file to load &#8211; cucumber/rails/active_record (LoadError)</a>
       </li>
     
   </ul>

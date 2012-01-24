@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="I have been using NDepend on various project I am working on and there is so much to say that I can&rsquo;t wait to do a full review because I will &hellip;">
+  <meta name="description" content="I&rsquo;m way too late to post the conclusion of the trial, but for all of you who wanted to know here are the results. Will I continue to use vi/Vim &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,92 +76,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/ndepend-small-review/">NDepend - Small review</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-08-10T09:07:00-04:00" pubdate data-updated="true">Aug 10<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I have been using <a href="http://www.ndepend.com/">NDepend</a> on various project I am working on and there is so much to say that I can&rsquo;t wait to do a full review because I will make you wait too long. I got a free license and wanted you to know what the tool can do and what were my impression.</p>
-
-
-<p>First of all NDepend is a tool that analyse your code. It&rsquo;s huge! Definitely not a tool you can learn in an hour or two. Simply give the tool a solution or project file and start analyzing. You are first presented with a a complete map of your application. By default it shows all your code sorted by the number of lines but you can quickly switch by different kinds of metrics (LOC, Cyclomatic Complexity, IL instructions, Efferent coupling, etc.).</p>
-
-
-<p><a title="ndependcomplete" href="http://www.flickr.com/photos/63483657@N00/3724199730/"><img src="http://static.flickr.com/3439/3724199730_0127dffd0b.jpg" border="0" alt="ndependcomplete" width="680" height="516" /></a></p>
-
-
-<p>The best part is that you can write query against your code. This feature is called CQL (custom query language). Need to know which method have more than 200 lines of code? No problem. Really. It looks like SQL and is easy to write (I haven&rsquo;t written any yet, but I&rsquo;m sure it will prove useful later).</p>
-
-
-<p>Take a look at this :</p>
-
-
-<div id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E6:42d5c7d5-dae6-4381-bb88-43e02dd5509e" class="wlWriterSmartContent" style="display:inline;float:none;margin:0;padding:0;">
-<pre style="background-color:White;white-space:-moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; white-space: pre-wrap; word-wrap: break-word;overflow: auto;"><span style="color: #008000;">//</span><span style="color: #008000;"> &lt;Name&gt;Methods with too many local variables (NbVariables)&lt;/Name&gt;</span><span style="color: #008000;">
-</span><span style="color: #000000;">WARN IF Count </span><span style="color: #000000;">&gt;</span><span style="color: #000000;"> </span><span style="color: #800080;">0</span><span style="color: #000000;"> IN SELECT TOP </span><span style="color: #800080;">10</span><span style="color: #000000;"> METHODS WHERE NbVariables </span><span style="color: #000000;">&gt;</span><span style="color: #000000;"> </span><span style="color: #800080;">15</span><span style="color: #000000;"> ORDER BY NbVariables DESC</span></pre>
-<!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
-
-
-<p>Out of the box, NDepend provide around 200 CQL queries. It has queries to find unused or dead code, find which method are not test covered, naming convention not respected, types with too many methods, ect. Each rules has a short description on what it does and even provide links to more complete documentation if needed. It also has intellisence as if this wasn&rsquo;t enough.</p>
-
-
-<p>A cool feature is the dependency matrix. It&rsquo;s easy to see where is your dependencies.</p>
-
-
-<p><a title="ndependmatrix" href="http://www.flickr.com/photos/63483657@N00/3723410225/"><img src="http://static.flickr.com/3420/3723410225_31dfb32f18.jpg" border="0" alt="ndependmatrix" /></a></p>
-
-
-<p>The tools itself is beautiful, it make us want to play more with it (it does not use WPF, but it appears to).</p>
-
-
-<p>A lot of features that I haven&rsquo;t used yet are :</p>
-
-
-<ul>
-<li>Compare assemblies</li>
-<li>Code Coverage</li>
-<li>Writing complex&nbsp; custom rules</li>
-</ul>
-
-
-<p>I recently came across this post entry by <a href="http://codebetter.com/blogs/patricksmacchia/">Patrick Smacchia</a> (creator of NDepend) that used the tools to spot bugs in an existing code base (<a href="http://codebetter.com/blogs/patricksmacchia/archive/2009/06/21/agile-behavior-nurture-knowledge-database.aspx">http://codebetter.com/blogs/patricksmacchia/archive/2009/06/21/agile-behavior-nurture-knowledge-database.aspx</a>). I don&rsquo;t know why but this has really struck me and kept it in my favourites. I could write custom query to spot bad practices and potential bugs.</p>
-
-
-<p>But there is a downside. On a project I worked last year. Every query that has been executed had a warning on it, almost every single one. That&rsquo;s sad. I almost cried. But I&rsquo;m fine now. NDepend will help me.</p>
-
-
-<p>There is so much to say, that it&rsquo;s almost impossible to cover it all in one single post. I&rsquo;ll continue to use it and post any relevant information and features that I really enjoyed in the next couple of weeks.</p>
-
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -642,6 +556,45 @@
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/book-review-of-dont-make-me-think-a-common-sense-approach-to-web-usability-par-steve-krug/">Book review of Don&#8217;t Make Me Think by Steve Krug</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-26T09:13:00-04:00" pubdate data-updated="true">Mar 26<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div style="float:right;"><a href="http://www.amazon.com/gp/product/0321344758?ie=UTF8&amp;tag=sebastlachan-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321344758"><img border="0" src="http://static.flickr.com/3294/2967499049_09f68d8188.jpg" alt="Image of the book Don't make me think"></a></div>
+
+
+<p> <p>Here is, like a promised, my review of <strong>Don&#8217;t Make Me Think: A Common Sense Approach to Web Usability</strong> by <strong>Steve Krug</strong>.</p> <p>First, I know some reader don&#8217;t like long post, so I begin with the conclusion.</p> <p>This book is a gold mine. It will be useful for web developer. He will be useful to anyone who is in contact with the development of a web site. And I risk myself to say that it should be useful for anyone who has to design something in any field for an end-user. This is really a great book to read.</p> <p>And now, the review.</p> <h2>Presentation</h2> <p>First of all, the book is short (201 pages). But it&#8217;s a good thing. It goes right to the point. And if a ratio existed for the number of pages versus the quantity of valuable contents, it would be a top performer!</p> <p>The author use already existing web sites to explain his points and use the &#8220;dialog style&#8221; where we can read a conversation between peoples. It&#8217;s illustrated and some part are like a comic book.</p> <h2>Content</h2> <p>In the first chapters, he wrote about the way to get a design right. Where the various element should be positioned to make the user think less and enjoy his experience more, the visual hierarchy, etc. We are scanning and not reading a web page. Important stuff to remember in fact.</p> <p>And then, he is describing the problem we already (or will) have with home pages. He guide us through the challenge of getting it right and useful for any users. He talk about the way the user think and common misconceptions about it. One part that really hit me, is where he mention that the real person it should benefit is the user. We often forgot about this simple fact. No matter how great we think the web site his, he may not be perfect for the end user.</p> <p>The chapter in which he explains how to do usability testing with real user is one of my favorites. How to choose users, where the test should be, which equipment is necessary, what to test and which procedures to follow. He even talk about the way to make user feel comfortable. There is no need to spend a lot of money, where we conduct extensive tests with various users. Sometimes, the most basic stuff we can do is right. That does not mean we should not have test, they definitely are necessary. He does a great job at proving the real value of those tests. I really enjoyed this chapter.</p> <p>Near the end of the book, he discuss the experience for people with disabilities. He points to various references that every web developer should read and why it&#8217;s important to respect guidelines that would help them. He kind of reminded me that we should not forget about them because it&#8217;s a lot more work for us.</p> <h2>Conclusion</h2> <p>In conclusion, I believe that this book should be one the classic book every developer should read. I will put in in the same category as Code Complete.</p></p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/7/">&larr; Older</a>
@@ -689,7 +642,7 @@
       </li>
     
       <li class="post">
-        <a href="/blog/everyday-stuff-rails-and-partials/">Everyday Stuff : Rails and Partials</a>
+        <a href="/blog/no-such-file-to-load-cucumberrailsactive_record-%28loaderror%29/">no such file to load &#8211; cucumber/rails/active_record (LoadError)</a>
       </li>
     
   </ul>
