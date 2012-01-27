@@ -12,9 +12,6 @@ use Rack::ShowStatus      # Nice looking 404s and other messages
 use Rack::ShowExceptions  # Nice looking errors
 
 use Rack::Rewrite do
-  r301 %r{^/post/Visual-Studio-20052008-Adding-projects-to-your-solution.aspx?$}, '/blog/visual_studio_20052008_adding_projects_to_your_solution'
-  r301 %r{^/post/Setting-up-a-basic-continuous-integration-server-with-TeamCity.aspx?$}, '/blog/setting_up_a_basic_continuous_integration_server_with_teamcity/'
-  r301 %r{^/post/Adding-a-MIME-map-in-IIS.aspx?$}, '/blog/adding_a_mime_map_in_iss/'
 
 r301 %r{^/post/The-surprising-science-of-motivation-by-Dan-Pink.aspx?$}, '/blog/the-surprising-science-of-motivation-by-dan-pink'
     r301 %r{^/post/Building-a-new-application-Introduction.aspx?$}, '/blog/building-a-new-application-introduction'
