@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="My desire to explore Delegates and Anonymous Methods came from my next exploration, which will be the the Lambda feature. So, I will probably do an &hellip;">
+  <meta name="description" content="If you are like me and installed the nightly build of Resharper 4, you might have seen the recommendation it made to use the keyword &#8220;var&#8221 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,72 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/var-keyword-%28or-implicitly-typed-local-variables%29/">var keyword (or Implicitly Typed Local Variables)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-04-17T07:14:00-04:00" pubdate data-updated="true">Apr 17<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you are like me and installed the nightly build of Resharper 4, you might have seen the recommendation it made to use the keyword &#8220;var&#8221; almost everywhere. But why?</p>
+
+
+<p>Here is my answer :</p>
+
+
+<p>First of all, you must know that the keyword var is not like &#8220;Variant&#8221;. It is not late-bound or loosely typed. The compiler will be able to infer the type from the right side of the expression. In many case, it&#8217;s optional, but sometime you don&#8217;t have a choice. It&#8217;s the case with Anonymous Types :</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">var customer = <span style="color: #0000ff;">new</span> {ID = 1, Name = <span style="color: #006080;">"Sebastien"</span>, CreditCardNumber = <span style="color: #006080;">"You can dream!"</span>};</pre>
+</div>
+
+
+<div>&nbsp;</div>
+
+
+<div>It is also often seen with LINQ.</div>
+
+
+<div>&nbsp;</div>
+
+
+<div>Should you use it everywhere you can? Well, it&#8217;s a matter of preferences. Mine is to use it only when necessary. If the code is harder to understand when using var, then declare the variable explicitly.</div>
+
+
+<div>&nbsp;</div>
+
+
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:b7c2d5ae-e385-40c6-8caf-548521011400" class="wlWriterSmartContent" style="display: inline; margin: 0; padding: 0;"><a rel="tag" href="http://technorati.com/tags/Resharper"></a></div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -714,55 +780,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/unit-of-work/">Unit Of Work</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-02-22T05:47:00-05:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This is an interesting pattern. I was using it without giving it a name. I encountered this pattern while reading the <a class="v1" target="_new">Jimmy&nbsp;Nilsson</a>&#8217;s book : Applying Domain-Driven Design and Patterns - With Examples in C# and .NET. The Unit Of Work is a way to create a logical group of object. The most basic example I can think of is the example of an Order. An order contains OrderLines. The Order and the OrderLines are part of the same logical group. We say that this is an Unit Of Work. I tend to think of it at the way I&#8217;ll save the Order. Do I call a service to insert the Order and another to save the OrderLines? Or do I call a single service that will persist it all at the same time (maybe using a transaction)? I will use a single service that will save the Order, the OrderLines and all other related information. Everything that must be persisted at the same time is said to be an Unit Of Work.</p>
-
-
-<p>In the RecipeHelper project (the personnal project I am working on), I have a single Unit Or Work (at the moment). The Recipe is the root and contains a list of steps to follow and a list of ingredients. When I persist a recipe, I persist everything in the object graph.</p>
-
-
-<p>Here is some resources from experts that can help you more with applying this pattern :</p>
-
-
-<ul>
-<li><a title="http://www.martinfowler.com/eaaCatalog/unitOfWork.html" href="http://www.martinfowler.com/eaaCatalog/unitOfWork.html">P of EAA: Unit of Work</a></li>
-<li><a href="http://www.hibernate.org/42.html">NHibernate and Unit Of Work</a></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/11/">&larr; Older</a>
@@ -794,6 +811,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/mastering-backbone-day-1-impressions/">Mastering Backbone - Day 1 impressions and basic concepts</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/mastering-backbone-day-0/">Mastering Backbone - Day 0</a>
       </li>
     
@@ -807,10 +828,6 @@
     
       <li class="post">
         <a href="/blog/a-circular-reference-was-detected-while-serializing-an-object-to-type-code-dot-models-dot-category/">A Circular Reference Was Detected While Serializing an Object to Type Code.Models.Category</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/fluenthibernate-how-to-deal-with-a-reserved-word-column/">FluentHibernate - How to Deal With a Reserved Word Column</a>
       </li>
     
   </ul>
