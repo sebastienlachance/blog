@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="All about Strong Naming in .NET. This is my attempt to explain Strong Name to myself. All the stuff here come from Patterns &amp; Practices : &hellip;">
+  <meta name="description" content="Every time I set the SelectedValue of a DropdownList in ASP.NET, I was checking if the value existed in the control and if it doesn&#8217;t, I &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,49 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/how-to-remove-the-need-to-check-if-an-item-is-present-in-the-list-of-items-on-a-listcontrol/">Easier check if an item is in the list of items on a ListControl</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-10-12T01:50:00-04:00" pubdate data-updated="true">Oct 12<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Every time I set the SelectedValue of a DropdownList in ASP.NET, I was checking if the value existed in the control and if it doesn&#8217;t, I usually set a default one (creating a new item with a SelectedIndex of -1). I realized that if you set the FormattingEnabled to true, the SelectedIndex will be set to -1. Thus removing the need for the this check.</p>
+
+
+<p>This property is found on the ListControl class, with the Dropdownlist inherit.</p>
+
+
+<p>Happy coding !</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -428,6 +471,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/startup-camp-quebec/">Startup Camp Quebec</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/mastering-backbone-day-1-impressions/">Mastering Backbone - Day 1 impressions and basic concepts</a>
       </li>
     
@@ -441,10 +488,6 @@
     
       <li class="post">
         <a href="/blog/couldnt-parse-yaml-at-line-x-column-x-psych-syntaxerror/">Couldn&#8217;t Parse YAML at Line X Column X (Psych::SyntaxError)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/a-circular-reference-was-detected-while-serializing-an-object-to-type-code-dot-models-dot-category/">A Circular Reference Was Detected While Serializing an Object to Type Code.Models.Category</a>
       </li>
     
   </ul>

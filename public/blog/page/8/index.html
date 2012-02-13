@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="If you are using the Resharper&#8217;s TestRunner and have put your tests directly inside your web application assembly, you may ran across the &hellip;">
+  <meta name="description" content="Very common scenario. There is probably a better way to do this, but this one get the job done. var mockedView = MockRepository.GenerateMock&lt; &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,53 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/how-to-test-if-someone-subscribed-to-an-event-with-rhino-mocks/">How to test if someone subscribed to an event with Rhino Mocks</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-11-10T04:26:00-05:00" pubdate data-updated="true">Nov 10<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Very common scenario. There is probably a better way to do this, but this one get the job done.</p>
+
+
+<div>
+<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas, 'Courier New', courier, monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">var mockedView = MockRepository.GenerateMock&lt;ICustomerView&gt;();
+mockedView.Expect(v=&gt;v.Save += <span style="color: #0000ff">null</span>).IgnoreArguments();
+mockedView.Expect(v=&gt;v.Delete += <span style="color: #0000ff">null</span>).IgnoreArguments();
+mockedView.Expect(v=&gt;v.Load += <span style="color: #0000ff">null</span>).IgnoreArguments();
+<span style="color: #0000ff">new</span> CustomerPresenter(mockedView); <span style="color: #008000">//Subscribtion to events </span>
+mockedView.VerifyAllExpectations();</pre>
+</div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -582,45 +629,6 @@ requestRepository.VerifyAllExpectations();</pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/thoughts-about-google-chrome/">Thoughts about Google Chrome</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-09-05T01:43:00-04:00" pubdate data-updated="true">Sep 5<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Like everyone else, I tried the new browser from Google. So far so good. As of today, I had no problem at all, except for some site that I could not log into. The major improvement I can see out of the box is the maximization of all the possible space and added an integrated html inspector. </p>
-
-
-<p>  <p>They also added the search functionality right into the address bar. It makes only one shortcut to reminder. For a non-official version, it really is amazing. I expect a great future for Google Chrome.</p></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/9/">&larr; Older</a>
@@ -652,6 +660,10 @@ requestRepository.VerifyAllExpectations();</pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/startup-camp-quebec/">Startup Camp Quebec</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/mastering-backbone-day-1-impressions/">Mastering Backbone - Day 1 impressions and basic concepts</a>
       </li>
     
@@ -665,10 +677,6 @@ requestRepository.VerifyAllExpectations();</pre>
     
       <li class="post">
         <a href="/blog/couldnt-parse-yaml-at-line-x-column-x-psych-syntaxerror/">Couldn&#8217;t Parse YAML at Line X Column X (Psych::SyntaxError)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/a-circular-reference-was-detected-while-serializing-an-object-to-type-code-dot-models-dot-category/">A Circular Reference Was Detected While Serializing an Object to Type Code.Models.Category</a>
       </li>
     
   </ul>

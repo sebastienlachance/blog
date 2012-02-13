@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="This is an interesting pattern. I was using it without giving it a name. I encountered this pattern while reading the Jimmy&nbsp;Nilsson&#8217;s book &hellip;">
+  <meta name="description" content="Problem : I have a collection of entities in my repository. Those entities are not supposed to be visible to the outside world. But, In a test I am &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,65 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/readonlycollection3ct3e/">Create a read-only collection with ReadOnlyCollection<T></a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-02-26T04:18:00-05:00" pubdate data-updated="true">Feb 26<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><span style="text-decoration: underline;"><strong>Problem :</strong> </span></p>
+
+
+<p>I have a collection of entities in my repository. Those entities are not supposed to be visible to the outside world. But, In a test I am supposed to see if all objects are still there and I can&#8217;t use the GetAll method because it goes to the database and return everything, not just the collection of entities in my repository.</p>
+
+
+<p><span style="text-decoration: underline;"><strong>Solution :</strong></span></p>
+
+
+<p>I could expose the collection but how can I be sure that nothing will be changed. I could create a copy of the collection but that would not reflect the &#8220;Entity&#8221; concept. I know that Java has support for returning a read-only collection. A little bit of search and I found the class <strong>ReadOnlyCollection&lt;T&gt;.</strong> This is thread-safe and any changes to the original collection will be reflected in it since it is only a wrapper.</p>
+
+
+<div>
+<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas, 'Courier New', courier, monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> IList&lt;IRecipe&gt; _identityMap = <span style="color: #0000ff">new</span> List&lt;IRecipe&gt;();
+
+  <span style="color: #0000ff">public</span> IList&lt;IRecipe&gt; IdentityMap
+  {
+      get { <span style="color: #0000ff">return</span> <span style="color: #0000ff">new</span> ReadOnlyCollection&lt;IRecipe&gt;(_identityMap); }
+  }</pre>
+</div>
+
+
+<p>Could not be easier!</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -714,43 +773,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/mind-shift/">Mind shift</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-01-14T04:13:00-05:00" pubdate data-updated="true">Jan 14<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>&lt;p&gt;I was wondering when this day would come. When I&#8217;d start thinking in term of object. This change in paradigm was not easy. I started programming using the data-centric way and was submerged by it. I was struggling to get rid on this kind of thinking. I&#8217;ve read multiple book before : Agile Software Development, Object Thinking, Refactoring, etc. But this was hard to me. However, 6 months ago, I finally landed on an Agile team. I got a hard time changing the way I was thinking because I was sure that I was understanding object-oriented development.&lt;/p&gt;<br /><br />&lt;p&gt;For me, the revelation occurred in this team. There I was introduced to my first test-driven project. One of the team members and a consultant for the company was previously working for Object Mentor. I needed to be up to the task, and immerged myself completely into it. I was reading the code of the project regularly and tried to do the same thing. I made mistakes, lots of mistakes, but I learned from them (even if I was not being directed in the right way after making them, but this is another story). Unfortunately the project was put to an halt and I had to get back to the old project, the one that became so complicated that I had abandoned all hope of doing something right with it. I was wrong, this was a wonderful opportunity and this is where the mind shift occurred. I started doing some unit tests and when I was comfortable with the coverage of a certain part, refactor to reflect a more object-oriented and easier to understand ways. I learned about Inversion Of Control (IoC), Dependency Injection, Mocking, Domain-Driven Design and Design Pattern. I also started to read my books back. I re-read Code Complete, Refactor and Object-Design Heuristics, and I am planning to read a lot more. I also adopted many of the Agile practices. This was not hard, since I had worked on project that had big upfront design, and after every release, we were deploying every week a new versions because of the bugs we had found or enhancements the clients wanted. This was just the natural thing to do and I firmly believe this is a good road to follow.&lt;/p&gt;<br /><br />&lt;p&gt;Now, If I could only get a new challenge to push my limits and learn more!&lt;/p&gt;</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/12/">&larr; Older</a>
@@ -782,6 +804,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/startup-camp-quebec/">Startup Camp Quebec</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/mastering-backbone-day-1-impressions/">Mastering Backbone - Day 1 impressions and basic concepts</a>
       </li>
     
@@ -795,10 +821,6 @@
     
       <li class="post">
         <a href="/blog/couldnt-parse-yaml-at-line-x-column-x-psych-syntaxerror/">Couldn&#8217;t Parse YAML at Line X Column X (Psych::SyntaxError)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/a-circular-reference-was-detected-while-serializing-an-object-to-type-code-dot-models-dot-category/">A Circular Reference Was Detected While Serializing an Object to Type Code.Models.Category</a>
       </li>
     
   </ul>

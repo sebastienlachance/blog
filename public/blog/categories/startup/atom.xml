@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: startup | Sebastien Lachance]]></title>
+  <link href="http://sebastienlachance.com/blog/categories/startup/atom.xml" rel="self"/>
+  <link href="http://sebastienlachance.com/"/>
+  <updated>2012-02-13T12:29:02-05:00</updated>
+  <id>http://sebastienlachance.com/</id>
+  <author>
+    <name><![CDATA[Sebastien Lachance]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Startup Camp Quebec]]></title>
+    <link href="http://sebastienlachance.com/blog/startup-camp-quebec/"/>
+    <updated>2012-02-13T12:11:00-05:00</updated>
+    <id>http://sebastienlachance.com/blog/startup-camp-quebec</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/images/startupcampquebec.jpg" title="Startup Camp Québec" ></p>
+
+<p>Jeudi dernier, avait lieu l'événement <a href="http://www.startupcampquebec.com">Startup Camp Québec</a>.</p>
+
+<p>Je ne suis pas un habitué de ces événements même si j'ai <a href="http://www.guidedescommercesdebeauce.com">ma propre compagnie</a> et ait participé à quelques coktails et diners aux homards (j'aime pas le homard). C'était quand un monde nouveau avec de nouvelles personnes.</p>
+
+<p>Il y avait 8 startups qui présentaient leur produits. J'ai bien aimé les présentations, et j'ai beaucoup accroché sur quelques projets. Particulièrement le projet Trapèze École de <a href="http://mx4.yolasite.com/">MX4</a>. Ils ont créer une manière de gérer les horaires dans les écoles, et ca, c'est ce que j'appelle trouver des solutions à un problème.</p>
+
+<p>Mais le grand gagnant de cette édition est <a href="http://theriansaga.fatecraft.com/">FateCraft</a>, qui développe des jeux sociaux.</p>
+
+<p>Je n'ai malheureusement pu rester jusqu'à la fin et voir la remise des prix. Mais je souhaite quand même bonne chance à toutes ces jeunes entreprises et puissent-elles continuer malgré toutes les embuches qui peuvent se présenter devant elles.</p>
+]]></content>
+  </entry>
+  
+</feed>
