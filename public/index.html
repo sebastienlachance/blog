@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Jeudi dernier, avait lieu l&#8217;événement Startup Camp Québec. Je ne suis pas un habitué de ces événements même si j&#8217;ai ma propre compagnie &hellip;">
+  <meta name="description" content="This is how my Gemfile looks like at the moment. Continuous feedback with Guard and metrics to keep track on defects and best practices not used. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,88 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/my-starting-gemfile/">My starting Gemfile</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-17T15:08:00-05:00" pubdate data-updated="true">Feb 17<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This is how my Gemfile looks like at the moment. Continuous feedback with Guard and metrics to keep track on defects and best practices not used.</p>
+
+<div><script src='https://gist.github.com/1855201.js?file='></script>
+<noscript><pre><code>source 'https://rubygems.org'
+
+gem 'rails', '3.2.1'
+gem 'pg'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-identity'
+
+group :assets do
+  gem 'sass-rails',   '~&gt; 3.2.3'
+  gem 'coffee-rails', '~&gt; 3.2.1'
+  gem 'uglifier',     '&gt;= 1.0.3'
+end
+
+gem 'jquery-rails'
+gem 'skeleton-rails'
+gem 'rails-backbone'
+gem 'jasminerice'
+
+gem 'rspec-rails', :group =&gt; [:development, :test]
+
+group :development do 
+  gem 'heroku'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-jasmine'
+  gem 'growl'
+  gem 'metrical'
+  gem 'fattr'         # for Metric_fu
+  gem 'arrayfields'   # for Metric_fu
+  gem 'map'           # for Metric_fu
+  gem 'annotate', :git =&gt; 'git://github.com/ctran/annotate_models.git'
+end
+
+group :test do
+  gem 'database_cleaner', :group =&gt; :test
+  gem 'factory_girl_rails', :group =&gt; :test
+end
+
+gem 'bcrypt-ruby', '~&gt; 3.0.0'</code></pre></noscript></div>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -737,46 +819,6 @@ YAML::ENGINE.yamler= 'syck'
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learning-rails-using-jquery-instead-of-prototype/">Learning Rails : Using jQuery instead of Prototype</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-05-02T05:20:00-04:00" pubdate data-updated="true">May 2<span>nd</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>gem &#8220;jquery-rails&#8221;</p>
-
-
-<p>bundle install</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -806,6 +848,10 @@ YAML::ENGINE.yamler= 'syck'
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/my-starting-gemfile/">My starting Gemfile</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/startup-camp-quebec/">Startup Camp Quebec</a>
       </li>
     
@@ -819,10 +865,6 @@ YAML::ENGINE.yamler= 'syck'
     
       <li class="post">
         <a href="/blog/reponsive-and-mobile-friendly-design/">Reponsive and Mobile-Friendly Design with Skeleton</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/couldnt-parse-yaml-at-line-x-column-x-psych-syntaxerror/">Couldn&#8217;t Parse YAML at Line X Column X (Psych::SyntaxError)</a>
       </li>
     
   </ul>

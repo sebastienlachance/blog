@@ -4,7 +4,7 @@
   <title><![CDATA[Sebastien Lachance]]></title>
   <link href="http://sebastienlachance.com/atom.xml" rel="self"/>
   <link href="http://sebastienlachance.com/"/>
-  <updated>2012-02-13T12:29:02-05:00</updated>
+  <updated>2012-02-17T15:18:19-05:00</updated>
   <id>http://sebastienlachance.com/</id>
   <author>
     <name><![CDATA[Sebastien Lachance]]></name>
@@ -12,6 +12,61 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[My starting Gemfile]]></title>
+    <link href="http://sebastienlachance.com/blog/my-starting-gemfile/"/>
+    <updated>2012-02-17T15:08:00-05:00</updated>
+    <id>http://sebastienlachance.com/blog/my-starting-gemfile</id>
+    <content type="html"><![CDATA[<p>This is how my Gemfile looks like at the moment. Continuous feedback with Guard and metrics to keep track on defects and best practices not used.</p>
+
+<div><script src='https://gist.github.com/1855201.js?file='></script>
+<noscript><pre><code>source 'https://rubygems.org'
+
+gem 'rails', '3.2.1'
+gem 'pg'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-identity'
+
+group :assets do
+  gem 'sass-rails',   '~&gt; 3.2.3'
+  gem 'coffee-rails', '~&gt; 3.2.1'
+  gem 'uglifier',     '&gt;= 1.0.3'
+end
+
+gem 'jquery-rails'
+gem 'skeleton-rails'
+gem 'rails-backbone'
+gem 'jasminerice'
+
+gem 'rspec-rails', :group =&gt; [:development, :test]
+
+group :development do 
+  gem 'heroku'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-jasmine'
+  gem 'growl'
+  gem 'metrical'
+  gem 'fattr'         # for Metric_fu
+  gem 'arrayfields'   # for Metric_fu
+  gem 'map'           # for Metric_fu
+  gem 'annotate', :git =&gt; 'git://github.com/ctran/annotate_models.git'
+end
+
+group :test do
+  gem 'database_cleaner', :group =&gt; :test
+  gem 'factory_girl_rails', :group =&gt; :test
+end
+
+gem 'bcrypt-ruby', '~&gt; 3.0.0'</code></pre></noscript></div>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Startup Camp Quebec]]></title>
@@ -660,51 +715,6 @@ pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's W
 
 
 <p>I will mainly do web development and contracting for now. If you need work done, you can contact me, but I will only accept little projects (but try anyway, we never know).</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Seeing the good side of tight deadlines]]></title>
-    <link href="http://sebastienlachance.com/blog/tight-deadlines/"/>
-    <updated>2010-10-06T09:09:00-04:00</updated>
-    <id>http://sebastienlachance.com/blog/tight-deadlines</id>
-    <content type="html"><![CDATA[<p>For the last 3 weeks, I have been under enormous stress to deliver a critical piece of software. I wasn&#8217;t even sure that I could complete it under the remaining time, but I had to try and do my best.&nbsp;</p>
-
-
-<p>But I am not here to talk about how things can get wrong, but what I have learned in that short time.&nbsp;</p>
-
-
-<p>In those 3 weeks, I learned about:&nbsp;</p>
-
-
-<p>&nbsp;</p>
-
-
-<ul>
-<li>Database synchronization</li>
-<li>Microsoft Sync Framework</li>
-<li>WCF</li>
-<li>WCF Data Services</li>
-<li>OData</li>
-<li>Entity Framework</li>
-<li>Windows Forms</li>
-<li>Running a standalone web application on an standalone web server</li>
-<li>xulrunner (embedded Firefox)</li>
-<li>XPO (DevExpress ORM)</li>
-<li>SQL Server CE</li>
-<li>SQLite</li>
-<li>Updating application via Microsoft Application Updater</li>
-<li>Basic Authentication and SSL</li>
-<li>Fast unit testing (I haven&#8217;t considered putting them aside, even on a situation like this, I&#8217;ve already done that and regret it so much)</li>
-<li>And that I need to sleep more than I think I need</li>
-</ul>
-
-
-<div>It&#8217;s a lot of stuff. But the next part will be to summarize everything I learned in a document if I want to retain some of this stuff.</div>
-
-
-<p>&nbsp;</p>
 
 ]]></content>
   </entry>
