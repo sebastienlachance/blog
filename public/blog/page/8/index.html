@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="I got this strange error when adding a database to the App_Data folder of a web application project : &nbsp; Failed to generate a user instance of &hellip;">
+  <meta name="description" content="I have a basic scenario which i&#8217;m required to display a page where an user can change his user information, including his password. I decided &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,54 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/set-a-value-on-an-textbox-with-his-textmode-set-to-password/">Set a value on an Textbox with his TextMode set to Password</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-29T04:23:00-05:00" pubdate data-updated="true">Jan 29<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I have a basic scenario which i&#8217;m required to display a page where an user can change his user information, including his password. I decided to use an ASP.NET Textbox control which have a TextMode of password. But,&nbsp; when I put the password in the Text property, nothing will be displayed. The value will also be cleared after a postback event.</p>
+
+
+<p>There is an easy workaround, you can add the &#8220;value&#8221; attribute with the password as your value.</p>
+
+
+<div>
+<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas, 'Courier New', courier, monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">txtPassword.Attributes.Add(<span style="color: #006080">"value"</span>, "strongPassword");</pre>
+</div>
+
+
+<p>But why can&#8217;t we just set the value the normal way? Basically, it&#8217;s for security reasons. The password will be set as clear text in the HTML and malicious user could have access to it. This is why you need to stay away from this method if you store sensitive information.</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -528,116 +576,6 @@ db.Connection.Close();</pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/converting-a-test-to-rhino-mocks-35-and-the-problem-i-had/">Convert a test to Rhino Mocks 3.5 and the number of constraints</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-10-01T01:56:00-04:00" pubdate data-updated="true">Oct 1<span>st</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I decided to convert a test to Rhino Mocks 3.5 to &#8220;enhance readability&#8221;. This test was using constraints to make sure that properties of a supplied object was changed during the execution of the tested method.</p>
-
-
-<p><strong>Original Code :</strong></p>
-
-
-<div>
-<pre style="font-size: 8pt; overflow: visible; width: 100%; color: black; line-height: 12pt; font-family: consolas, 'Courier New', courier, monospace; background-color: #f4f4f4; border-style: none; margin: 0; padding: 0;">var mockery = <span style="color:#0000ff;">new</span> MockRepository();
-var mockedRequestRepository = mockery.DynamicMock&lt;IRequestRepository&gt;();
-var sut = <span style="color:#0000ff;">new</span> RequestService(mockedPreviewRequestRepository, <span style="color:#0000ff;">null</span>);
-
-Expect.Call(mockedRequestRepository.GetByID(1)).Return(<span style="color:#0000ff;">new</span> Request { ID = 1 });
-mockedRequestRepository.Update(<span style="color:#0000ff;">null</span>);
-LastCall.Constraints(Property.Value(<span style="color:#006080;">"RequestState"</span>, RequestState.BeingProcessed));
-
-mockery.ReplayAll();
-
-sut.MarkAsBeingProcessed(1);
-
-mockery.VerifyAll();</pre>
-</div>
-
-
-<p><strong></strong>&nbsp;</p>
-
-
-<p><strong>Converted Code (Rhino Mocks 3.5) :</strong></p>
-
-
-<div>
-<pre style="font-size: 8pt; overflow: visible; width: 100%; color: black; line-height: 12pt; font-family: consolas, 'Courier New', courier, monospace; background-color: #f4f4f4; border-style: none; margin: 0; padding: 0;">var requestRepository = MockRepository.GenerateMock&lt;IPreviewRequestRepository&gt;();
-
-var sut = <span style="color:#0000ff;">new</span> RequestService(requestRepository, <span style="color:#0000ff;">null</span>);
-
-requestRepository.Expect(rr =&gt; rr.GetByID(1)).Return(<span style="color:#0000ff;">new</span> Request {ID = 1});
-requestRepository.Expect(rr =&gt; rr.Update(<span style="color:#0000ff;">null</span>)).IgnoreArguments().Constraints(
-    Property.Value(<span style="color:#006080;">"RequestState"</span>, RequestState.BeingProcessed), Property.Value(<span style="color:#006080;">"ID"</span>, 1));
-
-sut.MarkAsBeingProcessed(1);
-
-requestRepository.VerifyAllExpectations();</pre>
-</div>
-
-
-<p>&nbsp;</p>
-
-
-<p>However, on the converted test, I got this nasty exception :</p>
-
-
-<p><em>System.InvalidOperationException: The number of constraints is not the same as the number of the method&#8217;s parameters!</em></p>
-
-
-<p>After playing around with different combinations of constraints I found out that you can supply a predicate to the Is.Matching constraint. So I ended up modifying my constraint a little.</p>
-
-
-<div>
-<pre style="font-size: 8pt; overflow: visible; width: 100%; color: black; line-height: 12pt; font-family: consolas, 'Courier New', courier, monospace; background-color: #f4f4f4; border-style: none; margin: 0; padding: 0;">requestRepository.Expect(rr =&gt; rr.Update(<span style="color:#0000ff;">null</span>)).IgnoreArguments().Constraints(
-         Rhino.Mocks.Constraints.Is.Matching(
-             (IRequest request) =&gt; request.ID == 1 &amp;&amp; request.RequestState == RequestState.BeingProcessed));</pre>
-</div>
-
-
-<p>&nbsp;</p>
-
-
-<p>Et voila! Everything works fine. However, I would like to hear how you got to get rid of this message if there is another way.</p>
-
-
-<p>&nbsp;</p>
-
-
-<div id="scid:d7bf807d-7bb0-458a-811f-90c51817d5c2:71ec4516-d034-4edb-8cc5-597562dadbeb" class="wlWriterSmartContent" style="display:inline;margin:0;padding:0;">
-</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/9/">&larr; Older</a>
@@ -669,6 +607,10 @@ requestRepository.VerifyAllExpectations();</pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/converting-a-blogengine-dot-net-blog-to-octopress/">Converting a BlogEngine.Net blog to Octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/my-starting-gemfile/">My starting Gemfile</a>
       </li>
     
@@ -682,10 +624,6 @@ requestRepository.VerifyAllExpectations();</pre>
     
       <li class="post">
         <a href="/blog/mastering-backbone-day-0/">Mastering Backbone - Day 0</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/reponsive-and-mobile-friendly-design/">Reponsive and Mobile-Friendly Design with Skeleton</a>
       </li>
     
   </ul>

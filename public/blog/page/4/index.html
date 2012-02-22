@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Thoughts on Flash I read through this article this morning and found it interesting. At first I was considering strange the fact that the IPad was &hellip;">
+  <meta name="description" content="{&#8220;ExceptionDetail&#8221;:{&#8220;HelpLink&#8221;:null,&#8221;InnerException&#8221;:null,&#8221;Message&#8221;:&#8221;The token &#8216;&#34;&# &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,71 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/ajax-wcf-and-deserialization-problem/">Ajax, Wcf and deserialization problem</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-05-10T05:36:00-04:00" pubdate data-updated="true">May 10<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>{&#8220;ExceptionDetail&#8221;:{&#8220;HelpLink&#8221;:null,&#8221;InnerException&#8221;:null,&#8221;Message&#8221;:&#8221;The token &#8216;&#34;&#8217; was expected but found &#8221;&#8217;.&#8221;,&#8221;StackTrace&#8221;:&#8221; at</strong></p>
+
+
+<p>I was getting this error when doing an Ajax call to a WCF service with jQuery.</p>
+
+
+<p>There could be many reasons for this, but one possible fix is to use double quote instead of single quote. So changing :</p>
+
+
+<div id="scid:DFDE9937-D816-47f4-A306-7B60D5CE5AC0:5c639bc1-bdb1-47c7-af57-bd3496c27954" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">
+<pre class="brush: jscript; gutter: false; first-line: 1; tab-size: 4;  toolbar: true; ">data: "{'Id': '12'}"</pre>
+<!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
+
+
+<p>&nbsp;</p>
+
+
+<p>to</p>
+
+
+<div id="scid:DFDE9937-D816-47f4-A306-7B60D5CE5AC0:f69063d0-fe8e-4b3f-93bf-06105913373e" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">
+<pre class="brush: jscript; gutter: false; first-line: 1; tab-size: 4;  toolbar: true; ">data: '{"Id": "12"}'</pre>
+<!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
+
+
+<p>will most likely resolve your problem.</p>
+
+
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:f04d88f2-a34c-4f8f-b6c0-fcf669f2d8a1" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/jquery">jquery</a>,<a rel="tag" href="http://technorati.com/tags/ajax">ajax</a>,<a rel="tag" href="http://technorati.com/tags/wcf">wcf</a></div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -691,109 +756,6 @@ $('#clickMeButton').click(me.blogging); //will display :Button is blogging</pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009-retrospective/">2009 Retrospective</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-01-18T05:02:00-05:00" pubdate data-updated="true">Jan 18<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>2009 has been a big year. A lot happened. Professionally and in my life in general.</p>
-
-
-<h2>What went well</h2>
-
-
-<h3>Reading other books than technical books</h3>
-
-
-<p>I have been reading a lot of books that had nothing to do with the technical aspect of my job, but with other challenges in mind. I&rsquo;ve read about business development, learning process, design (not software design) and project management. I&rsquo;ve also came in contact with the Pragmatic Thinking and Learning book which gave me a lot of great tools to learn more effectively.</p>
-
-
-<h3>Agile</h3>
-
-
-<p>I&rsquo;ve been working with an Agile Team for half a year now, going back where I really belong. I liked the experience and hope we (the team) can get even more benefits from this methodology this year. I&rsquo;ve also assisted to some of the conferences of the Agile Tour 2009 which was a fantastic event.</p>
-
-
-<h3>Web Development and Javascript</h3>
-
-
-<p>I&rsquo;ve always been a developer with a little knowledge of web design but no deep knowledge. I&rsquo;ve always had design supplied to me and been able to hack through it and get thing done. This year, I&rsquo;ve gone deeply in web design and CSS, so deeply that I now really hate browsers differences :). And I&rsquo;m now an expert in Javascript, thanks to jQuery. Seriously, I made really big improvement on this side.</p>
-
-
-<h3>SEO</h3>
-
-
-<p>Search Engine Optimization that his. I was expected to increase visitors from the US on a website. I&rsquo;ve started with no real knowledge on how Google was indexing content. So I geared myself, watched videos and read everything I could for this. It&rsquo;s not always easy but it was a fun learning experience. One tool worth mentioning is the IIS SEO toolkit. The first analysis with this extensions showed me that I had a lot of problems with missing descriptions, keywords, titles, broken links, etc, on my blog, and it provided a great experience in allowing me to resolve them and understand what I did wrong.</p>
-
-
-<h3>Wedding</h3>
-
-
-<p>I&rsquo;m now married. Since October 17. What an intense ride it was. And we are now waiting for our first child to be born (due February 2010).</p>
-
-
-<h3>Consulting</h3>
-
-
-<p>I&rsquo;ve done some consulting work at the beginning of the year and it was really fun. Delivered on time and exactly what they wanted. Great experience. Great customer.</p>
-
-
-<h2>What could have been better</h2>
-
-
-<h3>Lack of time to post on my blog and the migration to BlogEngine.</h3>
-
-
-<p>I have missed a lot of opportunity to blog and I intend to get back on track this year. I also migrated my blog from Wordpress to BlogEngine.Net this summer and seen a drop of more than 50% in traffic. I blame myself for my lack of migration strategy.</p>
-
-
-<h3>Technical Reading</h3>
-
-
-<p>I read some technical books in 2009, but not as many as the other years. In fact, aside from Clean Code, CSS Web Design and ASP.NET MVC in action, I had read no other technical book.</p>
-
-
-<h3>A contract</h3>
-
-
-<p>A situation has occurred in which I was unable to deliver a project on time. Some deadline were too thigh and a last minute change (technology switch at the last minute) made the situation goes havoc and the project was abandoned (by me).</p>
-
-
-<h3>Skullcandy headphones</h3>
-
-
-<p>I had a pair of Skullcandy headphones that broke unexpectedly. But due to the formidable warranty (complete replacement or half-price on another pair), I had sent them to be replaced in October. I&rsquo;m still waiting and all my attempt to contact them has failed. The problem is that I would have been able to repair them myself and now I&rsquo;ve just lost them.<br /><strong>Update 1 (January 14, 2010 : It seems the package never arrived&hellip;</strong>). <br /><strong>Update 2 (January 19, 2010 : Now they found it and the new headphones are being returned to me.</strong><br /><strong>Update 3 (February 11, 2010) : 3 weeks now and still haven&#8217;t received them (Canada Post is slow or &#8230;).</strong></p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -825,6 +787,10 @@ $('#clickMeButton').click(me.blogging); //will display :Button is blogging</pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/converting-a-blogengine-dot-net-blog-to-octopress/">Converting a BlogEngine.Net blog to Octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/my-starting-gemfile/">My starting Gemfile</a>
       </li>
     
@@ -838,10 +804,6 @@ $('#clickMeButton').click(me.blogging); //will display :Button is blogging</pre>
     
       <li class="post">
         <a href="/blog/mastering-backbone-day-0/">Mastering Backbone - Day 0</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/reponsive-and-mobile-friendly-design/">Reponsive and Mobile-Friendly Design with Skeleton</a>
       </li>
     
   </ul>

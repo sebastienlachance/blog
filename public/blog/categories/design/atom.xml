@@ -4,7 +4,7 @@
   <title><![CDATA[Category: design | Sebastien Lachance]]></title>
   <link href="http://sebastienlachance.com/blog/categories/design/atom.xml" rel="self"/>
   <link href="http://sebastienlachance.com/"/>
-  <updated>2012-02-17T15:18:19-05:00</updated>
+  <updated>2012-02-22T07:54:44-05:00</updated>
   <id>http://sebastienlachance.com/</id>
   <author>
     <name><![CDATA[Sebastien Lachance]]></name>
@@ -18,7 +18,7 @@
     <link href="http://sebastienlachance.com/blog/reponsive-and-mobile-friendly-design/"/>
     <updated>2012-01-13T10:16:00-05:00</updated>
     <id>http://sebastienlachance.com/blog/reponsive-and-mobile-friendly-design</id>
-    <content type="html"><![CDATA[<p><img class="left" src="/images/skeleton.jpg" title="skeleton" ></p>
+    <content type="html"><![CDATA[<p>{% img left /images/skeleton.jpg skeleton %}</p>
 
 <p>When we first made the <a href="http://www.guidedescommercesdebeauce.com" title="Guide des Commerces">Guide des Commerces</a>, we didn't anticipated we would need to adapt to other devices so soon. In fact, it we know it was for this year but we though it would be a completely different application for iPhone, Android or a new website.</p>
 

@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="(Index of the whole series) This is really easy on a new project! I think that the success on setting up a build file is going a step at a time. &hellip;">
+  <meta name="description" content="(Index of the whole series) I have completely forgotten to show you the basic folder hierarchy of my solution. I invite you to try once to make a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,45 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/basic-layout-of-my-solution/">Basic Layout of my solution</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-06T09:57:00-05:00" pubdate data-updated="true">Dec 6<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://sebastienlachance.com/building-a-new-application-series/">(Index of the whole series)</a></p>
+
+
+<p> <p>I have completely forgotten to show you the basic folder hierarchy of my solution. I invite you to try once to make a completely different folder hierarchy instead of the one Visual Studio suggest. Not that Visual Studio is a bad tool for this, not at all. I have learned that letting a tool do the folder management can lead on to unnecessarily complexity. Let me explain myself. There is an adage that say you should program into a language instead of programming in a language. Make Visual Studio work with your layout instead of using the default. I find interesting what you can learn when you organize yourself the layout of the solution.</p> <p>Anyway, let&#8217;s see my folder structure :</p> <p><a title="solutionstructure" href="http://www.flickr.com/photos/63483657@N00/2089612716/"><img alt="solutionstructure" src="http://static.flickr.com/2313/2089612716_99787760e2.jpg" border="0"></a></p> <p>The <strong>build</strong> folder is where the compiled application will reside. When doing automated testing I will use this version.</p> <p>The <strong>config </strong>folder is where all the configuration files will be. I&#8217;ll probably get rid of it real soon as I have probably found a way that work better for me.</p> <p>The <strong>lib</strong> folder contains library that are necessary for the project to be executed correctly.</p> <p>The <strong>sql</strong> folder will contains all the sql script. This is also considered to be removed.</p> <p>The<strong> src</strong> folder is composed of the <strong>app </strong>folder and the <strong>test</strong> folder. Each one contains a subset of all the projects (tests projects in the test folder and application in the app folder).</p> <p>The <strong>tools</strong> folder contains any tools that are not necessary to execute the solution but are needed for the development.</p> <p>It&#8217;s basically all I need for now to begin iterating on my application (using User Stories of course). I must mention that I doing this in an iterative way and a lot of things are subject to change. Any comments are greatly appreciated and will be read and considered. </p> <p>I&#8217;m also considering to put all source file into Google Code. Stay tuned!</p></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -920,64 +959,6 @@ I strongly suggest that you apply this law. You&#8217;ll thank me later.
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/visual-studio-20052008-reference-path/">Visual Studio 2005/2008 : Reference Path</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-10-15T08:05:00-04:00" pubdate data-updated="true">Oct 15<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>When I came across this feature, my world changed forever. When you are in a multi-user scenario and your assemblies are stored in a different folder from your peer, then you have this solution.</p>
-
-
-<p>Suppose you get the latest version from the project you are working on and the reference to AssemblyA is broken because the path of the assembly is C:\dev\lib. But you know that you have it in a folder somewhere else and you don&#8217;t want to duplicate that assembly. Then the reference path will come to the rescue. Adding a reference path will add a place that will be looked when checking for references.</p>
-
-
-<p>This is how you do it :</p>
-
-
-<p><span style="text-decoration: underline;">Step 1. In the solution explorer, right-click on the project with a broken reference.</span></p>
-
-
-<p><span style="text-decoration: underline;">Step 2. Click <strong>Reference Paths</strong> tab</span></p>
-
-
-<p><span style="text-decoration: underline;">Step 3. Enter the folder in which your assembly is located.</span></p>
-
-
-<p><span style="text-decoration: underline;">Step 4. Click the <strong>Add Folder</strong> button.</span> This is what it should look like :<br /><br /> <a title="Reference" href="http://www.flickr.com/photos/63483657@N00/1579443132/"><img src="http://static.flickr.com/2029/1579443132_68a5d255ec.jpg" border="0" alt="Reference" /></a></p>
-
-
-<p>Notice that you can also <strong>Update</strong> and <strong>Delete</strong> reference in this page.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/14/">&larr; Older</a>
@@ -1009,6 +990,10 @@ I strongly suggest that you apply this law. You&#8217;ll thank me later.
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/converting-a-blogengine-dot-net-blog-to-octopress/">Converting a BlogEngine.Net blog to Octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/my-starting-gemfile/">My starting Gemfile</a>
       </li>
     
@@ -1022,10 +1007,6 @@ I strongly suggest that you apply this law. You&#8217;ll thank me later.
     
       <li class="post">
         <a href="/blog/mastering-backbone-day-0/">Mastering Backbone - Day 0</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/reponsive-and-mobile-friendly-design/">Reponsive and Mobile-Friendly Design with Skeleton</a>
       </li>
     
   </ul>

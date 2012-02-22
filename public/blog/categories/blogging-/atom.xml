@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: blogging, | Sebastien Lachance]]></title>
+  <link href="http://sebastienlachance.com/blog/categories/blogging-/atom.xml" rel="self"/>
+  <link href="http://sebastienlachance.com/"/>
+  <updated>2012-02-22T07:54:44-05:00</updated>
+  <id>http://sebastienlachance.com/</id>
+  <author>
+    <name><![CDATA[Sebastien Lachance]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Converting a BlogEngine.Net blog to Octopress]]></title>
+    <link href="http://sebastienlachance.com/blog/converting-a-blogengine-dot-net-blog-to-octopress/"/>
+    <updated>2012-02-21T12:52:00-05:00</updated>
+    <id>http://sebastienlachance.com/blog/converting-a-blogengine-dot-net-blog-to-octopress</id>
+    <content type="html"><![CDATA[<p>Some months ago, I moved my BlogEngine.net blog (hosted on GoDaddy) to Octopress hosted on Heroku. I needed a tool to migrate all my posts and found nothing that could apply to my case (I'm pretty sure there is something out there, but I didn't look very far and wanted to code the tool myself anyway).</p>
+
+<p>Octopress blog post format look like this:</p>
+
+<pre><code>---
+layout: post
+title: "Setting ComVisible"
+date: 2005-01-19 14:46:00
+comments: true
+categories: 
+---
+
+** This is my post using Markdown **
+</code></pre>
+
+<p>My BlogEngine.Net was configured to use xml files to store posts. Which look like this:</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?&gt;
+&lt;post&gt;
+  &lt;author&gt;SebastienLachance&lt;/author&gt;
+  &lt;title&gt;Building a new app - Introduction&lt;/title&gt;
+  &lt;description&gt;The introduction&lt;/description&gt;
+  &lt;content&gt;This is ...
+</code></pre>
+
+<p>At first, I wanted to move each post individually whenever I could. After a week and pretty much nothing converted, I created a little .Net tool to make the conversion/migration much easier.</p>
+
+<p>It's a pretty basic windows form application that takes a path and output a bundle of simili-markdown (because the original posts are html, but, since markdown accept html, it's fine) files that are compatible with the Octopress format.</p>
+
+<p>It's also generating a <strong>redirection.rb</strong> file that contains necessary code to be used by rack-rewrite to make necessary 301 redirection. It can be useful if you don't want to write it all manually.</p>
+
+<pre><code>use Rack::Rewrite do
+
+    r301 %r{^/post/The-surprising-science-of-motivation-by-Dan-Pink.aspx?$}, '/blog/the-surprising-science-of-motivation-by-dan-pink'
+    r301 %r{^/post/Building-a-new-application-Introduction.aspx?$}, '/blog/building-a-new-application-introduction'
+    r301 %r{^/post/tight-deadlines.aspx?$}, '/blog/tight-deadlines'
+    r301 %r{^/post/no-such-file-to-load-cucumberrailsactive_record-(LoadError).aspx?$}, '/blog/no-such-file-to-load-cucumberrailsactive_record-(loaderror)'
+    r301 %r{^/post/Buying-games-on-Steam.aspx?$}, '/blog/buying-games-on-steam'
+    r301 %r{^/post/AlternativeToNet-review.aspx?$}, '/blog/alternativetonet-review'
+    r301 %r{^/post/Excellent-post-by-Uncle-Bob.aspx?$}, '/blog/excellent-post-by-uncle-bob'
+</code></pre>
+
+<p>You can grab the source here : <a href="https://github.com/sebastienlachance/BlogEngineToOctopress">BlogEngineToOctopres</a></p>
+]]></content>
+  </entry>
+  
+</feed>
