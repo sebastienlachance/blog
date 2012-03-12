@@ -190,3 +190,27 @@ body.sidebar-footer {
     ul, ol { margin-left: 0; }
   }
 }
+
+
+/* resume */
+
+div.resume {
+
+  h2 {
+    font-size:34px;
+  }
+
+  h3 {
+    margin-top:20px;
+    margin-bottom:2px;
+  }
+  div.time {
+    font-size: 18px;
+    margin-bottom:5px;
+  }
+  div.description {
+    margin-bottom:35px;
+    margin-left:15px;
+    font-size: 17px;
+  }
+}
