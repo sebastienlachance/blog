@@ -4,7 +4,7 @@
   <title><![CDATA[Sebastien Lachance]]></title>
   <link href="http://sebastienlachance.com/atom.xml" rel="self"/>
   <link href="http://sebastienlachance.com/"/>
-  <updated>2012-03-11T20:58:25-04:00</updated>
+  <updated>2012-03-13T12:22:11-04:00</updated>
   <id>http://sebastienlachance.com/</id>
   <author>
     <name><![CDATA[Sebastien Lachance]]></name>
@@ -12,6 +12,18 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Filling a select from an array on javascript object]]></title>
+    <link href="http://sebastienlachance.com/blog/filling-a-select-from-an-array-on-javascript-object/"/>
+    <updated>2012-03-13T12:11:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/filling-a-select-from-an-array-on-javascript-object</id>
+    <content type="html"><![CDATA[<p>As a reminder for my future self, here is how I fill a select from an array of javascript object.</p>
+
+<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/SgPUA/embedded/js,resources,html,css,result/light/"></iframe>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Converting a BlogEngine.Net blog to Octopress]]></title>
@@ -725,19 +737,6 @@ pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's W
 
 
 <p>&nbsp;</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Searching for specific text in PHP files]]></title>
-    <link href="http://sebastienlachance.com/blog/find-in-php-files/"/>
-    <updated>2010-11-08T09:53:00-05:00</updated>
-    <id>http://sebastienlachance.com/blog/find-in-php-files</id>
-    <content type="html"><![CDATA[<p>While working on a <a title="Drupal's website" href="http://drupal.org/">Drupal</a> project, I had to search for a specific string contained in one of a lots of PHP code files. My first search led me to no result. I assumed that the little something I searched for might be embedded in a dynamic web page (Drupal allows this). I spent some time searching and found nothing. Today, as I worked on another feature, I came across the exact thing I searched for. Humm what could I have done wrong?&nbsp;</p>
-
-
-<p>XP has a known issue when you are searching for text contained in files. Hopefully, there is a solution:&nbsp;<a href="http://support.microsoft.com/default.aspx?scid=KB;EN-US;309173">http://support.microsoft.com/default.aspx?scid=KB;EN-US;309173</a></p>
 
 ]]></content>
   </entry>

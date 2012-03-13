@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Here is a list of common errors I had while working with the System.Diagnostics.Process class. I listed all solutions that worked for me. Couldn&# &hellip;">
+  <meta name="description" content="To be honest, I believe that we have reached a point where we can&rsquo;t allow ourselves to deliver untested software. I lived through a lot of &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,76 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/why-unit-testing/">Why I’m doing unit testing</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-23T05:52:00-04:00" pubdate data-updated="true">Sep 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>To be honest, I believe that we have reached a point where we can&rsquo;t allow ourselves to deliver untested software. I lived through a lot of maintenance work and debugging that were so time consuming that It took more time to debug than it took to actually develop. And it&rsquo;s for that reason that I believe that unit tests are essentials and should belong to every developer toolbox.</p>
+
+
+<h3>Easy to get started</h3>
+
+
+<p>It&rsquo;s actually not so hard to learn and a lot of resources already exists to get you started rapidly (<a title="Roy Osherove blog" href="http://weblogs.asp.net/ROsherove/" target="_blank">Roy Osherove</a> and <a title="Art of unit testing" href="http://www.artofunittesting.com/" target="_blank">his book</a> are a must).</p>
+
+
+<h3>Unit test and design</h3>
+
+
+<p>I also believe that unit tests have a strong positive impact to the design of the code. Doing correctly, TDD (test-driven-design or test-driven development) is a powerful tool. I&rsquo;m talking with experience here and it&rsquo;s very impressive. I worked on two almost identical project and one was driven by test and the other was not. The quality of the design was much much better on the project that was test driven than the other one. But what was way more impressive was the number of changes made to the structure of the project. Code with tests has evolved tremendously and untested code had a static structure that stayed the same over the course of it&rsquo;s development.</p>
+
+
+<h3>Unit test as a learning tool</h3>
+
+
+<p>And a great one it is. I recently had to create regular expression to find email in some large text file. Instead of rapidly hitting google for a rapid solution, I created a class library, added the nUnit framework and started writing tests. This way, I could test assumptions and learn some aspect of writing regular expressions. I learned a lot.</p>
+
+
+<h3>I can&rsquo;t believe!</h3>
+
+
+<p>Today, I can&rsquo;t believe myself when I see a method that contains logical code, and no tests. Tests are so easy to do (when you actually know how to do them) that it&rsquo;s almost a shame to forget about them.</p>
+
+
+<h3>My answer</h3>
+
+
+<p>And here is my answer to the &ldquo;we don&rsquo;t do test because our organization don&rsquo;t want to&rdquo; argument : Don&rsquo;t tell them. You are responsible for the quality of your code and it&rsquo;s very unprofessional to leave code go in production that you knew would have been much better and feel more confident if it was tested. I believe the advantages outweigh the disadvantages in this particular case.</p>
+
+
+<p>This is my point of view.&nbsp;</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -553,49 +623,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/vivim-30-days-day-3/">Vi/Vim 30 days - Day 3</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-05-22T09:10:00-04:00" pubdate data-updated="true">May 22<span>nd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Not been typing much today, but I wanted at least to clear something. How do I cut/paste <strong>inside</strong> gVim.</p>
-
-
-<p>First you need to enter the selection mode by hitting &#8220;v&#8221;. Then move the cursor to select text using h, j, k, l, w, e, etc. When the text is selected, hit &#8220;d&#8221;. This will cut the text. Now hit &#8220;p&#8221; to put the line back.</p>
-
-
-<p>On another note, I talked about vi/vim to some of my colleagues and friends and everyone is just laughing at me. Everyone seems to agree that there is no points in learning this and should stick with &#8220;what everyone do&#8221;. I do hope to show them what it&#8217;s really about.&nbsp;&nbsp;</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/7/">&larr; Older</a>
@@ -627,6 +654,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/filling-a-select-from-an-array-on-javascript-object/">Filling a select from an array on javascript object</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/converting-a-blogengine-dot-net-blog-to-octopress/">Converting a BlogEngine.Net blog to Octopress</a>
       </li>
     
@@ -640,10 +671,6 @@
     
       <li class="post">
         <a href="/blog/mastering-backbone-day-1-impressions/">Mastering Backbone - Day 1 impressions and basic concepts</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/mastering-backbone-day-0/">Mastering Backbone - Day 0</a>
       </li>
     
   </ul>

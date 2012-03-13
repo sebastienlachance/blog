@@ -4,7 +4,7 @@
   <title><![CDATA[Category: rails | Sebastien Lachance]]></title>
   <link href="http://sebastienlachance.com/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://sebastienlachance.com/"/>
-  <updated>2012-03-11T21:00:12-04:00</updated>
+  <updated>2012-03-13T12:22:11-04:00</updated>
   <id>http://sebastienlachance.com/</id>
   <author>
     <name><![CDATA[Sebastien Lachance]]></name>
@@ -20,7 +20,49 @@
     <id>http://sebastienlachance.com/blog/my-starting-gemfile</id>
     <content type="html"><![CDATA[<p>This is how my Gemfile looks like at the moment. Continuous feedback with Guard and metrics to keep track on defects and best practices not used.</p>
 
-<p>{% gist 1855201 %}</p>
+<p><div><script src='https://gist.github.com/1855201.js?file='></script>
+<noscript><pre><code>source 'https://rubygems.org'
+
+gem 'rails', '3.2.1'
+gem 'pg'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-identity'
+
+group :assets do
+  gem 'sass-rails',   '~&gt; 3.2.3'
+  gem 'coffee-rails', '~&gt; 3.2.1'
+  gem 'uglifier',     '&gt;= 1.0.3'
+end
+
+gem 'jquery-rails'
+gem 'skeleton-rails'
+gem 'rails-backbone'
+gem 'jasminerice'
+
+gem 'rspec-rails', :group =&gt; [:development, :test]
+
+group :development do 
+  gem 'heroku'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-jasmine'
+  gem 'growl'
+  gem 'metrical'
+  gem 'fattr'         # for Metric_fu
+  gem 'arrayfields'   # for Metric_fu
+  gem 'map'           # for Metric_fu
+  gem 'annotate', :git =&gt; 'git://github.com/ctran/annotate_models.git'
+end
+
+group :test do
+  gem 'database_cleaner', :group =&gt; :test
+  gem 'factory_girl_rails', :group =&gt; :test
+end
+
+gem 'bcrypt-ruby', '~&gt; 3.0.0'</code></pre></noscript></div>
+</p>
 ]]></content>
   </entry>
   

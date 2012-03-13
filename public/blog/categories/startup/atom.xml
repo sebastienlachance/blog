@@ -4,7 +4,7 @@
   <title><![CDATA[Category: startup | Sebastien Lachance]]></title>
   <link href="http://sebastienlachance.com/blog/categories/startup/atom.xml" rel="self"/>
   <link href="http://sebastienlachance.com/"/>
-  <updated>2012-03-11T21:00:12-04:00</updated>
+  <updated>2012-03-13T12:22:11-04:00</updated>
   <id>http://sebastienlachance.com/</id>
   <author>
     <name><![CDATA[Sebastien Lachance]]></name>
@@ -18,7 +18,7 @@
     <link href="http://sebastienlachance.com/blog/startup-camp-quebec/"/>
     <updated>2012-02-13T12:11:00-05:00</updated>
     <id>http://sebastienlachance.com/blog/startup-camp-quebec</id>
-    <content type="html"><![CDATA[<p>{% img left /images/startupcampquebec.jpg Startup Camp Québec %}</p>
+    <content type="html"><![CDATA[<p><img class="left" src="/images/startupcampquebec.jpg" title="Startup Camp Québec" ></p>
 
 <p>Jeudi dernier, avait lieu l'événement <a href="http://www.startupcampquebec.com">Startup Camp Québec</a>.</p>
 

@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="I decided to convert a test to Rhino Mocks 3.5 to &#8220;enhance readability&#8221;. This test was using constraints to make sure that properties of &hellip;">
+  <meta name="description" content="Due to the recent announcement of JQuery being shipped with Visual Studio and a new interest in web development, I decided to verify what all the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,53 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/currently-reading-jquery-in-action/">Currently reading : JQuery in Action</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-10-08T01:55:00-04:00" pubdate data-updated="true">Oct 8<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><table style="width: 626px;" border="0" cellspacing="0" cellpadding="2">
+<tbody>
+<tr>
+<td width="133" valign="top"><a href="http://www.amazon.com/gp/product/1933988355?ie=UTF8&amp;tag=sebastlachan-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1933988355"><img src="http://farm4.static.flickr.com/3128/2924670183_3c8d7746e4.jpg?v=0" border="0" alt="" /></a></td>
+<td width="489" valign="top">Due to the recent announcement of <a href="http://jquery.com/" target="_blank">JQuery</a> being shipped with Visual Studio and a new interest in web development, I decided to verify what all the hype is about. I&#8217;ll do a resume after I am done reading it.</td>
+</tr>
+</tbody>
+</table>
+
+
+<br />
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -572,69 +619,6 @@ requestRepository.VerifyAllExpectations();</pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/mocking-the-httpcontext-in-aspnet-mvc/">Mocking the HttpContext in ASP.NET MVC</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-05-08T08:12:00-04:00" pubdate data-updated="true">May 8<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I just got a hard time figuring how I could be mocking the HttpContext so that I would be able to mock HttpRequest. But once you understand the principle, it is fairly easy.</p>
-
-
-<p>First thing we need to know is that the HttpContext is held inside a <strong>ControllerContext</strong> object. Once we have instantiated one, we can then put it inside our controller.</p>
-
-
-<div>
-<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">controller.ControllerContext = <span style="color: #0000ff;">new</span> ControllerContext(mockedhttpContext, <span style="color: #0000ff;">new</span> RouteData(), controller);</pre>
-</div>
-
-
-<div>&nbsp;</div>
-
-
-<div>Where mockedHttpContext is your mocked <strong>HttpContextBase</strong> object.</div>
-
-
-<div>&nbsp;</div>
-
-
-<div>Inside the HttpContextBase object reside a lot of useful stuff that can replace with our mocks. By example, the HttpRequest, HttpServer, HttpApplication, etc, are all contained inside. So, getting familiar with this basic knowledge is a must to do testing usefully.</div>
-
-
-<div>&nbsp;</div>
-
-
-<div>Next post : Mocking HttpRequest.Form to return what we want.</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/10/">&larr; Older</a>
@@ -666,6 +650,10 @@ requestRepository.VerifyAllExpectations();</pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/filling-a-select-from-an-array-on-javascript-object/">Filling a select from an array on javascript object</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/converting-a-blogengine-dot-net-blog-to-octopress/">Converting a BlogEngine.Net blog to Octopress</a>
       </li>
     
@@ -679,10 +667,6 @@ requestRepository.VerifyAllExpectations();</pre>
     
       <li class="post">
         <a href="/blog/mastering-backbone-day-1-impressions/">Mastering Backbone - Day 1 impressions and basic concepts</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/mastering-backbone-day-0/">Mastering Backbone - Day 0</a>
       </li>
     
   </ul>

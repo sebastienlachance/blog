@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="I haven&#8217;t really done any testing in ASP.NET MVC until now. I started the development of a more serious application and decided to do it TDD. &hellip;">
+  <meta name="description" content="I just got a hard time figuring how I could be mocking the HttpContext so that I would be able to mock HttpRequest. But once you understand the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,69 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/mocking-the-httpcontext-in-aspnet-mvc/">Mocking the HttpContext in ASP.NET MVC</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-08T08:12:00-04:00" pubdate data-updated="true">May 8<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I just got a hard time figuring how I could be mocking the HttpContext so that I would be able to mock HttpRequest. But once you understand the principle, it is fairly easy.</p>
+
+
+<p>First thing we need to know is that the HttpContext is held inside a <strong>ControllerContext</strong> object. Once we have instantiated one, we can then put it inside our controller.</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">controller.ControllerContext = <span style="color: #0000ff;">new</span> ControllerContext(mockedhttpContext, <span style="color: #0000ff;">new</span> RouteData(), controller);</pre>
+</div>
+
+
+<div>&nbsp;</div>
+
+
+<div>Where mockedHttpContext is your mocked <strong>HttpContextBase</strong> object.</div>
+
+
+<div>&nbsp;</div>
+
+
+<div>Inside the HttpContextBase object reside a lot of useful stuff that can replace with our mocks. By example, the HttpRequest, HttpServer, HttpApplication, etc, are all contained inside. So, getting familiar with this basic knowledge is a must to do testing usefully.</div>
+
+
+<div>&nbsp;</div>
+
+
+<div>Next post : Mocking HttpRequest.Form to return what we want.</div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -736,52 +799,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/my-experience-as-a-remote-worker/">My experience as a remote worker</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-03-06T05:58:00-05:00" pubdate data-updated="true">Mar 6<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>You may not know, but I am a full time web worker since February 2007 and I am loving it. I followed my girlfriend to his new job in mechanical engineering located in the &#8220;Beauce&#8221; area in the province of Qu&eacute;bec (1 hour from Qu&eacute;bec City). But let&#8217;s make a point clear. It was not as easy as it sounds. It takes a lot of discipline and you may find that you just can&#8217;t do it. I have had many friends who were not able to work from home. For me, it was easy since it&#8217;s a childhood dream. I have gone through 3 phases.</p>
-
-
-<p>The first one is the &#8220;That&#8217;s easy&#8221; phase. During the first 2 months, everything seemed so easy. I was very productive and enjoyed every minutes working from home. This is also the phase were you work more than you are supposed and keep no free time. You have the impression you can achieve anything.</p>
-
-
-<p>I called the second phase : &#8220;I need to check everything around the house to be sure nothing changed.&#8221;. In this phase, everything disturbed me. I started to feel lonely and was wondering if I made the right choice. During this 6 months phase I had a hard time concentrating on my job. It&#8217;s also the time we were building our new home. During that time, I never took a day off except the day we moved in. I was exhausted, stressed and lost. We had problems with contractors. The price we anticipated was a bit higher due to the angle of the lot we bought. To make things worst, I started working on a new project requiring me to work with <a href="http://sebastienlachance.com/2008/01/07/nightmare-platform/">Microsoft Dynamics</a> (until you used the supplied API you can&#8217;t imagine how frustrating of an experience it is). But I have gone through it.</p>
-
-
-<p>Now, I am in the third phase. I called it the &#8220;Rebirth phase&#8221;. I restarted my old habit of learning as much as I can. I have solved my concentration problem. I feel a lot more happier and a lot more in health. I started to really enjoy working remotely and I am sure I am as productive as I was before. I am now fully happy with it. And I have new projects for my region&#8230;</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/11/">&larr; Older</a>
@@ -813,6 +830,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/filling-a-select-from-an-array-on-javascript-object/">Filling a select from an array on javascript object</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/converting-a-blogengine-dot-net-blog-to-octopress/">Converting a BlogEngine.Net blog to Octopress</a>
       </li>
     
@@ -826,10 +847,6 @@
     
       <li class="post">
         <a href="/blog/mastering-backbone-day-1-impressions/">Mastering Backbone - Day 1 impressions and basic concepts</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/mastering-backbone-day-0/">Mastering Backbone - Day 0</a>
       </li>
     
   </ul>
