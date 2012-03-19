@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="I have a huge list of feeds and sometime there is some really long post and some excellent links. And I don&#8217;t always have the time to go &hellip;">
+  <meta name="description" content="Suppose you have 2 assembly, called ProjectA and ProjectB. And each one of the assembly have a corresponding ClassA and ClassB class. In the ClassA &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,68 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/the-problem-with-constant-and-versioning/">The problem with Constant and Versioning</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-09-20T04:06:00-04:00" pubdate data-updated="true">Sep 20<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Suppose you have 2 assembly, called ProjectA and ProjectB. And each one of the assembly have a corresponding ClassA and ClassB class. In the ClassA class, you have a constant.</p>
+
+
+
+
+<p>Example :</p>
+
+
+
+
+<pre>public const string SPNAME = "SP_Insert_Something";</pre>
+
+
+
+
+<p>Then the ClassB class use the constant in his code. You compile, everything work as expected. After a while, you change the value of the SPNAME constant for &#8220;SP_Insert_Another_Thing&#8221;. You recompile, but the problem is that the ClassB (which is in another assembly not recompiled) will still use the old value. At compile-time, the value of the constant is added to the IL (Intermediate Language) and no reference at all is made to the constant field of the ClassA class in the ProjectA assembly. You should consider using a readonly field. When using the readonly keyword, the value will not be inserted into the IL code and the code will instead check the value stored in the ProjectA assembly.</p>
+
+
+
+
+<pre>public readonly string spname= "SP_Insert_Something";</pre>
+
+
+
+
+<br />
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -641,46 +703,6 @@ childForm.Owner = <span style="color:#0000ff;">this</span>; <span style="color:#
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/scummvm/">ScummVM</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-07-31T10:51:00-04:00" pubdate data-updated="true">Jul 31<span>st</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Do you remember Sam &amp; Max, Full Throttle and Day of the Tentacle (Dott!)? <a href="http://www.scummvm.org/" target="_blank">ScummVM</a> allow you to replay these &#8220;point and click&#8221; adventure games. You need to have the data file for them and you are ready to go. There are also different port: Nintendo DS, Dreamcast, PlayStation 2, etc&#8230; I think I&#8217;m gonna give it a try on the DS as soon as I have all the component. I would really like to play Monkey Island in the bus.</p>
-
-
-<p><a href="http://sourceforge.net/community/index.php/landing-pages/cca07/" target="_blank">ScummVM is the winner of the <strong>Best Project for Gamers</strong> award on the SourceForge 2007 Community Choice Awards</a>.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/16/">&larr; Older</a>
@@ -712,6 +734,10 @@ childForm.Owner = <span style="color:#0000ff;">this</span>; <span style="color:#
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/help-needed-a-backbone-blog/">Help needed, A Backbone blog</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/filling-a-select-from-an-array-on-javascript-object/">Filling a select from an array on javascript object</a>
       </li>
     
@@ -725,10 +751,6 @@ childForm.Owner = <span style="color:#0000ff;">this</span>; <span style="color:#
     
       <li class="post">
         <a href="/blog/startup-camp-quebec/">Startup Camp Quebec</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/mastering-backbone-day-1-impressions/">Mastering Backbone - Day 1 impressions and basic concepts</a>
       </li>
     
   </ul>

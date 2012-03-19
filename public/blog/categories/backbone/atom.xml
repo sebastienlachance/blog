@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: backbone | Sebastien Lachance]]></title>
+  <link href="http://sebastienlachance.com/blog/categories/backbone/atom.xml" rel="self"/>
+  <link href="http://sebastienlachance.com/"/>
+  <updated>2012-03-19T12:40:22-04:00</updated>
+  <id>http://sebastienlachance.com/</id>
+  <author>
+    <name><![CDATA[Sebastien Lachance]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Help needed, A Backbone blog]]></title>
+    <link href="http://sebastienlachance.com/blog/help-needed-a-backbone-blog/"/>
+    <updated>2012-03-19T12:39:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/help-needed-a-backbone-blog</id>
+    <content type="html"><![CDATA[<p>I'm currently doing my best to learn Backbone and his best practices. I have set up a demo blog application on GitHub (<a href="https://github.com/sebastienlachance/backbone-rails-blog">Backbone-rails-blog</a>).</p>
+
+<p>So, if you are interested to give me some feedback, tips or check out the development progress, just watch the project to see where things are going and I'll blog the important parts as I move forward.</p>
+]]></content>
+  </entry>
+  
+</feed>

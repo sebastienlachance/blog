@@ -4,7 +4,7 @@
   <title><![CDATA[Sebastien Lachance]]></title>
   <link href="http://sebastienlachance.com/atom.xml" rel="self"/>
   <link href="http://sebastienlachance.com/"/>
-  <updated>2012-03-13T12:22:11-04:00</updated>
+  <updated>2012-03-19T12:40:22-04:00</updated>
   <id>http://sebastienlachance.com/</id>
   <author>
     <name><![CDATA[Sebastien Lachance]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Help needed, A Backbone blog]]></title>
+    <link href="http://sebastienlachance.com/blog/help-needed-a-backbone-blog/"/>
+    <updated>2012-03-19T12:39:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/help-needed-a-backbone-blog</id>
+    <content type="html"><![CDATA[<p>I&#8217;m currently doing my best to learn Backbone and his best practices. I have set up a demo blog application on GitHub (<a href="https://github.com/sebastienlachance/backbone-rails-blog">Backbone-rails-blog</a>).</p>
+
+<p>So, if you are interested to give me some feedback, tips or check out the development progress, just watch the project to see where things are going and I&#8217;ll blog the important parts as I move forward.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Filling a select from an array on javascript object]]></title>
@@ -718,25 +729,6 @@ pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's W
 <p>But they released version 4 with a very BIG performance improvement. I will now be able to resume my Evernote&#8217;s normal usage.</p>
 <div><br /></div>
 </p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Linode is my new VPS]]></title>
-    <link href="http://sebastienlachance.com/blog/linode-is-my-new-vps/"/>
-    <updated>2010-11-09T07:03:00-05:00</updated>
-    <id>http://sebastienlachance.com/blog/linode-is-my-new-vps</id>
-    <content type="html"><![CDATA[<p>I needed to find an hosting company for our new product, and after a lot of though and hard decisions, we decided to go with <a href="http://www.linode.com/index.cfm">Linode</a>.&nbsp;</p>
-
-
-<p>I choose a Linode 512 (with Ubuntu 10.04 LTS) because we are not ready for full-scale deployment yet and did not wanted to pay for something we will not use fully for some time. The beautiful things is that we will be able to upgrade with no problems later on.</p>
-
-
-<p>Installing everything and got everything running in less than 2 hours. And I was pretty new to deploying a Rails application with mysql on linux.</p>
-
-
-<p>&nbsp;</p>
 
 ]]></content>
   </entry>
