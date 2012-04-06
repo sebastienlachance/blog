@@ -4,7 +4,7 @@
   <title><![CDATA[Sebastien Lachance]]></title>
   <link href="http://sebastienlachance.com/atom.xml" rel="self"/>
   <link href="http://sebastienlachance.com/"/>
-  <updated>2012-04-06T10:47:55-04:00</updated>
+  <updated>2012-04-06T10:50:54-04:00</updated>
   <id>http://sebastienlachance.com/</id>
   <author>
     <name><![CDATA[Sebastien Lachance]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Rerun all Guards]]></title>
-    <link href="http://sebastienlachance.comrerun-all-guards"/>
+    <link href="http://sebastienlachance.com/blog/rerun-all-guards/"/>
     <updated>2012-03-30T15:16:00-04:00</updated>
-    <id>http://sebastienlachance.com./return-all-guards</id>
+    <id>http://sebastienlachance.com/blog/rerun-all-guards</id>
     <content type="html"><![CDATA[<p>I have been searching this feature for a while and never realized it was built-in into Guard. Whenever I tried to rerun all with pressing enter, nothing happened. I didn&#8217;t realized I was because of an old gem version.</p>
 
 <pre><code>Ctrl-r if you are on Guard version &lt; 7
