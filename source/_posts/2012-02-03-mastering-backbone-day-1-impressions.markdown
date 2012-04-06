@@ -31,7 +31,7 @@ In the spec/javascripts/spec.js.coffee, add the following:
     #= require backbone_rails_sync
     #= require backbone_datalink
 
-#  Creating a model
+## Creating a model
 
 I created a todo.js file in the app/assets/javascript/backbone/models directory.
 
@@ -40,13 +40,13 @@ I created a todo.js file in the app/assets/javascript/backbone/models directory.
 
 Pretty straightforward.
 
-# Creating a collection 
+## Creating a collection 
 
     window.TodoList = Backbone.Collection.extend({
         model: Todo 
     });
 
-# Testing to ensure everything is fine
+## Testing to ensure everything is fine
 
 To use **jasminerice**, start the rails server.
 
@@ -56,7 +56,7 @@ Go to localhost:3000/jasmine.
 
 {% gist 1751477 %}
 
-# Creating a view
+## Creating a view
 
 To define a view, you call the extend method on Backbone.View.
 

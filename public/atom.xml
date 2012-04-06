@@ -4,7 +4,7 @@
   <title><![CDATA[Sebastien Lachance]]></title>
   <link href="http://sebastienlachance.com/atom.xml" rel="self"/>
   <link href="http://sebastienlachance.com/"/>
-  <updated>2012-04-06T10:11:17-04:00</updated>
+  <updated>2012-04-06T10:15:45-04:00</updated>
   <id>http://sebastienlachance.com/</id>
   <author>
     <name><![CDATA[Sebastien Lachance]]></name>
@@ -210,7 +210,7 @@ rails g backbone:install
 #= require backbone_datalink
 </code></pre>
 
-<h1>Creating a model</h1>
+<h2>Creating a model</h2>
 
 <p>I created a todo.js file in the app/assets/javascript/backbone/models directory.</p>
 
@@ -219,14 +219,14 @@ rails g backbone:install
 
 <p>Pretty straightforward.</p>
 
-<h1>Creating a collection</h1>
+<h2>Creating a collection</h2>
 
 <pre><code>window.TodoList = Backbone.Collection.extend({
     model: Todo 
 });
 </code></pre>
 
-<h1>Testing to ensure everything is fine</h1>
+<h2>Testing to ensure everything is fine</h2>
 
 <p>To use <strong>jasminerice</strong>, start the rails server.</p>
 
@@ -285,7 +285,7 @@ describe(&quot;Todo List&quot;, function() {
 });</code></pre></noscript></div>
 
 
-<h1>Creating a view</h1>
+<h2>Creating a view</h2>
 
 <p>To define a view, you call the extend method on Backbone.View.</p>
 
