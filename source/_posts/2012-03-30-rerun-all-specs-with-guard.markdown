@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Rerun all specs with Guard"
+title: "Rerun all Guards"
 date: 2012-03-30 15:16
 comments: true
 categories: 
