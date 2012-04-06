@@ -9,7 +9,8 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Suppose you have a class with an Order property. Any sql operation will throw an error because Order is a reserved word. To prevent this from &hellip;">
+  <meta name="description" content="I have an NHibernate class with the following properties : public class Category
+{ public virtual int Id { get; set; } public virtual string Name { &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -49,8 +50,6 @@
   <header role="banner"><hgroup>
   <h1><a href="/">Sebastien Lachance</a></h1>
   
-    <h2>Learning new things everyday</h2>
-  
 </hgroup>
 
 </header>
@@ -77,6 +76,66 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/a-circular-reference-was-detected-while-serializing-an-object-to-type-code-dot-models-dot-category/">A Circular Reference Was Detected While Serializing an Object to Type Code.Models.Category</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-12T10:38:00-04:00" pubdate data-updated="true">Sep 12<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I have an NHibernate class with the following properties :</p>
+
+<pre><code>public class Category
+{
+    public virtual int Id { get; set; }
+    public virtual string Name { get;set; }
+    public virtual Category Parent { get;set; }
+    public virtual IList&lt;Category&gt; Childs { get;set; }
+}
+</code></pre>
+
+<p>And an action that return a list of categories as JSON :</p>
+
+<pre><code>public JsonResult Categories 
+{
+    return Json(GetCategories(), JsonRequestBehavior.AllowGet);
+}
+</code></pre>
+
+<p>I know that it&#8217;s not pefect to use an NHibernate class instead of a view model, but it&#8217;s a very very small application and I&#8217;m trying to keep things clean.</p>
+
+<p><strong>Solution : </strong></p>
+
+<pre><code>return Json(GetCategories().Select(c =&gt; new { c.Id, c.Name }), JsonRequestBehavior.AllowGet);
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -539,47 +598,6 @@ pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's W
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/evernote-4-is-better-than-ever/">Evernote 4 is better than ever</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-11-10T06:11:00-05:00" pubdate data-updated="true">Nov 10<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>
-<p>I am a big fan of <strong><a title="Evernote's website" href="http://www.evernote.com/">Evernote</a></strong>. I used to put everything from personal notes to ebook in it. But, it became so slow it was a pain to open it just to add a little something.</p>
-<p>But they released version 4 with a very BIG performance improvement. I will now be able to resume my Evernote&#8217;s normal usage.</p>
-<div><br /></div>
-</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -611,6 +629,10 @@ pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's W
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/rerun-all-specs-with-guard/">Rerun all specs with Guard</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/help-needed-a-backbone-blog/">Help needed, A Backbone blog</a>
       </li>
     
@@ -624,10 +646,6 @@ pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's W
     
       <li class="post">
         <a href="/blog/my-starting-gemfile/">My starting Gemfile</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/startup-camp-quebec/">Startup Camp Quebec</a>
       </li>
     
   </ul>

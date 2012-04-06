@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Error 1 Build failed due to validation errors in C:\projects\webapp1\Database.dbml. Open the file and resolve the issues in the Error List, then try &hellip;">
+  <meta name="description" content="The solution is to set the SQLServerCompactEditionUnderWebHosting&nbsp; property of the current application domain to true. &nbsp; Technorati Tags: &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -49,8 +49,6 @@
   <header role="banner"><hgroup>
   <h1><a href="/">Sebastien Lachance</a></h1>
   
-    <h2>Learning new things everyday</h2>
-  
 </hgroup>
 
 </header>
@@ -77,6 +75,49 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/sql-server-compact-is-not-intended-for-aspnet-development/">SQL Server Compact is not intended for ASP.NET development.</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-05-10T05:56:00-04:00" pubdate data-updated="true">May 10<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The solution is to set the <strong>SQLServerCompactEditionUnderWebHosting</strong>&nbsp; property of the current application domain to <strong>true</strong>.</p>
+
+
+<p>&nbsp;</p>
+
+
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:55fee95d-39da-4374-ad87-fbcd766f6f41" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/sqlce">sqlce</a></div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -607,114 +648,6 @@ Response.End();</pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/jquery-proxy/">Understanding $.proxy on jQuery 1.4</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-01-23T02:33:00-05:00" pubdate data-updated="true">Jan 23<span>rd</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>One of my great resolution of the year is to learn by teaching. Today I watched the <a title="Day 9 of the 14 days of jQuery" href="http://jquery14.com/day-09" target="_blank">Day 9</a> videos of the <a title="14 days of jQuery" href="http://jquery14.com/" target="_blank">14 days of jQuery</a>. In one of them, Paul Irish talked about $.proxy() and I did not totally understood what was going on.</p>
-
-
-<p>The <a title="jQuery proxy API definition" href="http://api.jquery.com/jQuery.proxy/" target="_blank">jQuery API definition</a> is :<em><strong> Takes a function and returns a new one that will always have a particular scope</strong></em>. Well, I could read this all day long and I am sure It couldn&rsquo;t be clearer without an example.</p>
-
-
-<p>Here is the problem the &ldquo;proxy&rdquo; function is trying to solve.</p>
-
-
-<div id="scid:DFDE9937-D816-47f4-A306-7B60D5CE5AC0:6bd2546f-1137-486f-bb42-2a8f002f6540" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">
-<pre class="brush: jscript; gutter: true; first-line: 1; tab-size: 4;  toolbar: true; "> var me = {
-            name: "Sebastien",
-            blogging: function () {alert(this.name + " is blogging") }
-        };
-
-$(function () {
-    me.blogging(); //will display : Sebastien is blogging
-    $('#clickMeButton').click(me.blogging); //will display : is blogging
-});</pre>
-<!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
-
-
-<p>&nbsp;</p>
-
-
-<p>As we can see, on line 7, the function is called inside <strong>me </strong>(now that I think of it, this instance name is not perfect). But when called as the button click handler, the <strong>this</strong> keyword is now representing the button. And as the name property is not set on the button, nothing is displayed. Easily provable with :</p>
-
-
-<p>&nbsp;</p>
-
-
-<div id="scid:DFDE9937-D816-47f4-A306-7B60D5CE5AC0:2e74f1a8-e570-42b5-a25e-60753e02d3ee" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">
-<pre class="brush: jscript; gutter: true; first-line: 1; tab-size: 4;  toolbar: false; ">$('#clickMeButton')[0].name = "Button"; 
-$('#clickMeButton').click(me.blogging); //will display :Button is blogging</pre>
-<!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
-
-
-<p>&nbsp;</p>
-
-
-<p>This could be awkward if not the desired behaviour. Let&rsquo;s see how the jQuery team resolved that problem.</p>
-
-
-<div id="scid:DFDE9937-D816-47f4-A306-7B60D5CE5AC0:445e3eb5-35f0-47d6-b5ab-1706cbd8ffca" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">
-<pre class="brush: jscript; gutter: true; first-line: 1; tab-size: 4;  toolbar: true; ">$(function () {
-    me.blogging(); //will display : Sebastien is blogging
-    $('#clickMeButton').click($.proxy(me, "blogging")); //will display :Sebastien is blogging
-});</pre>
-<!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
-
-
-<p>&nbsp;</p>
-
-
-<p>By calling the proxy method with the instance and the desired function, the context is now set to that instance. Resolving that particular problem. The method takes the instance and the name of the function as a string or could also be called by using :</p>
-
-
-<div id="scid:DFDE9937-D816-47f4-A306-7B60D5CE5AC0:b2112f19-ec3e-43f4-8883-1e608179ce72" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">
-<pre class="brush: jscript; gutter: true; first-line: 1; tab-size: 4;  toolbar: true; ">$('#clickMeButton').click($.proxy(me.blogging, me));</pre>
-<!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
-
-
-<p>I hope It helped you understand $.proxy(). I can already see where I can apply this knowledge right now.</p>
-
-
-<p>&nbsp;</p>
-
-
-<p>&nbsp;</p>
-
-
-<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:3ee6135c-decf-4883-9846-eca2a406e737" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/jquery">jquery</a>,<a rel="tag" href="http://technorati.com/tags/javascript">javascript</a></div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -746,6 +679,10 @@ $('#clickMeButton').click(me.blogging); //will display :Button is blogging</pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/rerun-all-specs-with-guard/">Rerun all specs with Guard</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/help-needed-a-backbone-blog/">Help needed, A Backbone blog</a>
       </li>
     
@@ -759,10 +696,6 @@ $('#clickMeButton').click(me.blogging); //will display :Button is blogging</pre>
     
       <li class="post">
         <a href="/blog/my-starting-gemfile/">My starting Gemfile</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/startup-camp-quebec/">Startup Camp Quebec</a>
       </li>
     
   </ul>

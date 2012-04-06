@@ -4,7 +4,7 @@
   <title><![CDATA[Sebastien Lachance]]></title>
   <link href="http://sebastienlachance.com/atom.xml" rel="self"/>
   <link href="http://sebastienlachance.com/"/>
-  <updated>2012-03-19T12:40:22-04:00</updated>
+  <updated>2012-04-06T10:11:17-04:00</updated>
   <id>http://sebastienlachance.com/</id>
   <author>
     <name><![CDATA[Sebastien Lachance]]></name>
@@ -12,6 +12,23 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rerun all specs with Guard]]></title>
+    <link href="http://sebastienlachance.com/blog/rerun-all-specs-with-guard/"/>
+    <updated>2012-03-30T15:16:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/rerun-all-specs-with-guard</id>
+    <content type="html"><![CDATA[<p>I have been searching this feature for a while and never realized it was built-in into Guard. Whenever I tried to rerun all with pressing enter, nothing happened. I didn&#8217;t realized I was because of an old gem version.</p>
+
+<pre><code>Ctrl-r if you are on Guard version &lt; 7
+</code></pre>
+
+<p>and</p>
+
+<pre><code>enter if you are on a more recent version
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Help needed, A Backbone blog]]></title>
@@ -715,20 +732,6 @@ pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's W
     <updated>2010-11-10T06:26:00-05:00</updated>
     <id>http://sebastienlachance.com/blog/my-clojure-tutorial-failure</id>
     <content type="html"><![CDATA[<p>I intended to write a full series of posts to help learn Clojure. While I was really enthusiasm about this, my recent change of plans has left me no choice but to abandon the idea of mastering this language. I didn&#8217;t knew at that time that I&#8217;ll had to learn Ruby for my new project and I have no more time to learn anything else right now. <strong>So, goodbye Clojure!</strong></p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Evernote 4 is better than ever]]></title>
-    <link href="http://sebastienlachance.com/blog/evernote-4-is-better-than-ever/"/>
-    <updated>2010-11-10T06:11:00-05:00</updated>
-    <id>http://sebastienlachance.com/blog/evernote-4-is-better-than-ever</id>
-    <content type="html"><![CDATA[<p>
-<p>I am a big fan of <strong><a title="Evernote's website" href="http://www.evernote.com/">Evernote</a></strong>. I used to put everything from personal notes to ebook in it. But, it became so slow it was a pain to open it just to add a little something.</p>
-<p>But they released version 4 with a very BIG performance improvement. I will now be able to resume my Evernote&#8217;s normal usage.</p>
-<div><br /></div>
-</p>
 
 ]]></content>
   </entry>

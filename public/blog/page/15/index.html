@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Suppose you have 2 assembly, called ProjectA and ProjectB. And each one of the assembly have a corresponding ClassA and ClassB class. In the ClassA &hellip;">
+  <meta name="description" content="I&#8217;m almost through my first 3 books, Head First Design Patterns, Windows Forms 2.0 &nbsp;and CLR via C#. I am not reading as much as I would &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -49,8 +49,6 @@
   <header role="banner"><hgroup>
   <h1><a href="/">Sebastien Lachance</a></h1>
   
-    <h2>Learning new things everyday</h2>
-  
 </hgroup>
 
 </header>
@@ -77,6 +75,45 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/becoming-a-better-developer-second-update/">Becoming a better developer :  Second Update</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-09-21T08:23:00-04:00" pubdate data-updated="true">Sep 21<span>st</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;m almost through my first 3 books, Head First Design Patterns, Windows Forms 2.0 &nbsp;and CLR via C#. I am not reading as much as I would want because of the construction of my new house, but starting Monday in 2 weeks I should be back on track with a more normal life (I really hope so).</p>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -646,63 +683,6 @@ I highly encourage you to check <em><a href="http://www.hanselman.com/Tools">&#8
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/windows-forms-owner-and-owned-forms/">Windows Forms : Owner and Owned Forms</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-07-31T10:53:00-04:00" pubdate data-updated="true">Jul 31<span>st</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Since I&#8217;m pretty new to Windows Forms I learned a lot this weel (I have a lot more experience in ASP.NET development). I came across this feature and found it really interesting, Owner and Owned Forms. We can say that for the user it&#8217;s the same thing as the <strong>ShowDialog()</strong> method (grayed parent form, etc&#8230;). However, with <strong>ShowDialog </strong>there is no built-in way to make a link between the parent and the child form.</p>
-
-
-<p>There is 2 way we can make this relation and making the child window aware of the parent:</p>
-
-
-<p><strong><span style="text-decoration: underline;">1. As a parameter in the Show() method</span></strong></p>
-
-
-<pre><span style="color:#2b91af;">Form1</span> childForm = <span style="color:#0000ff;">new</span> <span style="color:#2b91af;">Form1</span>();
-childForm.Show(<span style="color:#0000ff;">this</span>); <span style="color:#008000;">//this is the parent form</span></pre>
-
-
-<p><br /> <strong><span style="text-decoration: underline;">2. Using the properties</span></strong></p>
-
-
-<pre><span style="color:#2b91af;">Form1</span> childForm = <span style="color:#0000ff;">new</span> <span style="color:#2b91af;">Form1</span>();
-childForm.Owner = <span style="color:#0000ff;">this</span>; <span style="color:#008000;">//this is the parent form</span></pre>
-
-
-<p><br /> And you can iterate through the child form of the parent form with the <strong>OwnedForms </strong>property.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/16/">&larr; Older</a>
@@ -734,6 +714,10 @@ childForm.Owner = <span style="color:#0000ff;">this</span>; <span style="color:#
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/rerun-all-specs-with-guard/">Rerun all specs with Guard</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/help-needed-a-backbone-blog/">Help needed, A Backbone blog</a>
       </li>
     
@@ -747,10 +731,6 @@ childForm.Owner = <span style="color:#0000ff;">this</span>; <span style="color:#
     
       <li class="post">
         <a href="/blog/my-starting-gemfile/">My starting Gemfile</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/startup-camp-quebec/">Startup Camp Quebec</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="I&#8217;m currently doing my best to learn Backbone and his best practices. I have set up a demo blog application on GitHub (Backbone-rails-blog). So &hellip;">
+  <meta name="description" content="I have been searching this feature for a while and never realized it was built-in into Guard. Whenever I tried to rerun all with pressing enter, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -49,8 +49,6 @@
   <header role="banner"><hgroup>
   <h1><a href="/">Sebastien Lachance</a></h1>
   
-    <h2>Learning new things everyday</h2>
-  
 </hgroup>
 
 </header>
@@ -77,6 +75,50 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/rerun-all-specs-with-guard/">Rerun all specs with Guard</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-30T15:16:00-04:00" pubdate data-updated="true">Mar 30<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I have been searching this feature for a while and never realized it was built-in into Guard. Whenever I tried to rerun all with pressing enter, nothing happened. I didn&#8217;t realized I was because of an old gem version.</p>
+
+<pre><code>Ctrl-r if you are on Guard version &lt; 7
+</code></pre>
+
+<p>and</p>
+
+<pre><code>enter if you are on a more recent version
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -776,66 +818,6 @@ YAML::ENGINE.yamler= 'syck'
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/a-circular-reference-was-detected-while-serializing-an-object-to-type-code-dot-models-dot-category/">A Circular Reference Was Detected While Serializing an Object to Type Code.Models.Category</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-09-12T10:38:00-04:00" pubdate data-updated="true">Sep 12<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I have an NHibernate class with the following properties :</p>
-
-<pre><code>public class Category
-{
-    public virtual int Id { get; set; }
-    public virtual string Name { get;set; }
-    public virtual Category Parent { get;set; }
-    public virtual IList&lt;Category&gt; Childs { get;set; }
-}
-</code></pre>
-
-<p>And an action that return a list of categories as JSON :</p>
-
-<pre><code>public JsonResult Categories 
-{
-    return Json(GetCategories(), JsonRequestBehavior.AllowGet);
-}
-</code></pre>
-
-<p>I know that it&#8217;s not pefect to use an NHibernate class instead of a view model, but it&#8217;s a very very small application and I&#8217;m trying to keep things clean.</p>
-
-<p><strong>Solution : </strong></p>
-
-<pre><code>return Json(GetCategories().Select(c =&gt; new { c.Id, c.Name }), JsonRequestBehavior.AllowGet);
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -865,6 +847,10 @@ YAML::ENGINE.yamler= 'syck'
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/rerun-all-specs-with-guard/">Rerun all specs with Guard</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/help-needed-a-backbone-blog/">Help needed, A Backbone blog</a>
       </li>
     
@@ -878,10 +864,6 @@ YAML::ENGINE.yamler= 'syck'
     
       <li class="post">
         <a href="/blog/my-starting-gemfile/">My starting Gemfile</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/startup-camp-quebec/">Startup Camp Quebec</a>
       </li>
     
   </ul>
