@@ -8,4 +8,4 @@ categories: javascript
 
 As a reminder for my future self, here is how I fill a select from an array of javascript object.
 
-{% jsfiddle SgPUA/1  %}
+{% jsfiddle SgPUA/2  %}
