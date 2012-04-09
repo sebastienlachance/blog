@@ -4,7 +4,7 @@
   <title><![CDATA[Category: javascript | Sebastien Lachance]]></title>
   <link href="http://sebastienlachance.com/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://sebastienlachance.com/"/>
-  <updated>2012-04-09T13:57:49-04:00</updated>
+  <updated>2012-04-09T14:06:50-04:00</updated>
   <id>http://sebastienlachance.com/</id>
   <author>
     <name><![CDATA[Sebastien Lachance]]></name>
@@ -20,7 +20,7 @@
     <id>http://sebastienlachance.com/blog/filling-a-select-from-an-array-on-javascript-object</id>
     <content type="html"><![CDATA[<p>As a reminder for my future self, here is how I fill a select from an array of javascript object.</p>
 
-<p><iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/SgPUA/embedded/js,resources,html,css,result/light/"></iframe></p>
+<p><iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/z9Q4R/embedded/js,resources,html,css,result/light/"></iframe></p>
 ]]></content>
   </entry>
   
