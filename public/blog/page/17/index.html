@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="I have completed configuring my first continuous integration server for an ASP.NET Web Application. Here is the workflow: Get the latest source from &hellip;">
+  <meta name="description" content="For a month now, I have been trying to learn ruby and the Ruby On Rails framework. The biggest difficulty so far was programming without intellisense &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,86 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/getting-rid-of-intellisense-addiction/">Getting rid of intellisense addiction</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-07-15T11:15:00-04:00" pubdate data-updated="true">Jul 15<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>For a month now, I have been trying to learn ruby and the Ruby On Rails framework. The biggest difficulty so far was programming without intellisense. Honestly, I&#8217;m loving this difficulty. I reading a lot more the documentation that before and find this really helpful for learning more rapidly. But the coding is a lot more slower. But, this is a personal project and I have no deadline (and you can get a project done really quick with Rails, believe me !).</p>
+
+
+<p>Now, if only I can get rid of the mouse &#8230;</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/i-will-use-windows-live-writer/">I will use Windows Live Writer</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-07-15T11:14:00-04:00" pubdate data-updated="true">Jul 15<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Some months ago (when I was blogging on WDevs) I was using Windows Live Writer a lot. The only problem I had, was to configure it to actually see my blog. And today I have decided to give it a second try. And, wow, no problem at all. Everything is working perfectly. There is also some interesting plug-in that will enhance my experience (ex : Syntax Highlighting and Flicker4Writer).</p>
+
+
+<p>This, has made my day. :)  <a href="http://windowslivewriter.spaces.live.com/" title="Windows Live writer" target="_blank">Windows Live Writer</a></p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -581,113 +661,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/select-a-number-of-rows-based-on-a-parameter-using-t-sql/">Select a number of rows based on a parameter using T-SQL</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2005-02-02T00:35:00-05:00" pubdate data-updated="true">Feb 2<span>nd</span>, 2005</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Today I was trying to select a predetermined number of rows in a table using a parameter&#8230; Syntax Error.</p>
-
-
-<p><em><span style="font-size: x-small;">SELECT TOP @n ID FROM TableName</span></em></p>
-
-
-<p>After a small research I found two solutions to this problem. First, the SET ROWCOUNT :</p>
-
-
-<p><em><span style="font-size: x-small;">SET ROWCOUNT @n</span></em></p>
-
-
-<p><em><span style="font-size: x-small;">SELECT ID FROM TableName</span></em></p>
-
-
-<p><em><span style="font-size: x-small;">SET ROWCOUNT 0</span></em></p>
-
-
-<p>&nbsp;</p>
-
-
-<p>The second solution is with dynamic SQL :</p>
-
-
-<p><span style="font-size: x-small;"><em>declare @a int, @str varchar(100)</em></span></p>
-
-
-<p><span style="font-size: x-small;"><em>set @a = 10</em></span></p>
-
-
-<p><span style="font-size: x-small;"><em>set @str = &#8216;select top &#8217; + cast(@a as varchar(100)) + &#8217; * from Orders&#8217;exec (@str)</em></span></p>
-
-
-<p>A little more complex, but worth to take a look at it. Oh and also, on the new SQL Server that will be coming soon, this problem is solved and you can pass parameter to the TOP operator.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/setting-comvisible/">Setting ComVisible</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2005-01-19T09:46:00-05:00" pubdate data-updated="true">Jan 19<span>th</span>, 2005</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Today, I have tried FxCop from <a href="http://www.gotdotnet.com/">GotDotNet</a>, and the first warning was about the assembly not marked with the ComVisible attribute. What this attribute does in fact is to limit access to components from Vb6. Here is how you can do that:<br /><br />Step 1: Open AssemblyInfo (cs or vb extension) file.<br />Step 2: Add this [assembly: ComVisible(false)] or remove it if needed.)<br /><br />So it&#8217;s all. I hope this is a worthy advice.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/18/">&larr; Older</a>
@@ -719,6 +692,14 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/available/">Available</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/disponible/">Disponible pour mandat de développement</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/rerun-all-guards/">Rerun all Guards</a>
       </li>
     
@@ -728,14 +709,6 @@
     
       <li class="post">
         <a href="/blog/filling-a-select-from-an-array-on-javascript-object/">Filling a select from an array on javascript object</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/converting-a-blogengine-dot-net-blog-to-octopress/">Converting a BlogEngine.Net blog to Octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/my-starting-gemfile/">My starting Gemfile</a>
       </li>
     
   </ul>

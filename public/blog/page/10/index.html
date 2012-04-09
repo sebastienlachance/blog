@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="05/12 Source code release of the ASP.NET AJAX Script Profiler helper control: To support the ASP.NET AJAX script combining feature which shipped in &hellip;">
+  <meta name="description" content="Listening to the last screencast of Rob Conery (MVC Storefront) made me realize something that I haven&#8217;t really understood before. Suppose you &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,92 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/ohhh-thats-why-i-should-make-a-testrepository/">Ohhh, that&#8217;s why I should make a TestRepository&#8230;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-14T08:17:00-04:00" pubdate data-updated="true">May 14<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Listening to the <a href="http://blog.wekeroad.com/mvc-storefront/mvcstore-part-10/">last screencast of Rob Conery (MVC Storefront)</a> made me realize something that I haven&#8217;t really understood before.</p>
+
+
+<p>Suppose you have the interface of a repository, let&#8217;s say IEntryRepository. Then you have the actual SqlEntryRepository and TestEntryRepository. When I am doing TDD, I am testing the TestEntryRepository. But it will not be used in production. Why bothering with testing it then?</p>
+
+
+<p>Because TDD is a design process. Even if I am testing my code, I am also designing it. The SqlEntryRepository will benefits from the actual design of the repository we use for testing.</p>
+
+
+<p>&nbsp;</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/altnet-podcast/">Alt.NET Podcast</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-14T08:17:00-04:00" pubdate data-updated="true">May 14<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I have just finished listening to the <a href="http://altnetpodcast.com/episodes/1-continuous-improvement">first episode of a new podcast</a>. It&#8217;s a discussion about self-improvement for developer with Chad Myers, David Laribee and Jeremy D. Miller. It&#8217;s very inspiring and I recommend that you listen to it if you are serious about software development.</p>
+
+
+<p><a href="http://altnetpodcast.com/">Alt.NET Podcast</a></p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -609,146 +695,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/refreshing-my-memory-delegates-in-c/">Refreshing my memory : Delegates in C#</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-04-09T07:12:00-04:00" pubdate data-updated="true">Apr 9<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I haven&#8217;t really used delegates since I was programming with the .NET Framework 1.0. Since I have some spare time left, I decided to &#8216;&#8220;refresh my memory&#8221;. I have prepared a little cheat-sheet that you can use as a reminder for the delegates functionalities in the .NET Framework 3.0.</p>
-
-
-<p><strong>1. What is a delegate?</strong></p>
-
-
-<p>A delegate is a data structure that refers to one or multiples static methods and/or instance methods. You can use this when you have a dynamic list of methods to be called that you don&#8217;t know ahead of time.</p>
-
-
-<p><strong>2. How to create a delegate?</strong></p>
-
-
-<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> TestClass<br />{<br />    <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">delegate</span> <span style="color: #0000ff;">void</span> myDelegate(<span style="color: #0000ff;">string</span> name);<br />}</pre>
-
-
-<p>The signature of the declaration is very important! The methods that will be contained in the delegate must perfectly match the declaration. In this case, the methods that will be allowed must be void and take a single string as a parameter.</p>
-
-
-<p>When using the delegate keyword, you are actually creating a <strong>System.MulticastDelegate</strong>.</p>
-
-
-<p>&nbsp;</p>
-
-
-<p><strong>3. How do I instantiate a delegate?</strong></p>
-
-
-<div>
-<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> TestMethod()<br />{<br />    ClassTest test = <span style="color: #0000ff;">new</span> ClassTest();<br /><br />    <span style="color: #008000;">//Instantiating a delegate with an instance method</span><br />    var del1 = <span style="color: #0000ff;">new</span> myDelegate(test.InstanceMethod);<br /><br />    <span style="color: #008000;">//Instantiating a delegate with a static method</span><br />    var del2 = <span style="color: #0000ff;">new</span> myDelegate(ClassTest.StaticMethod)<br />}</pre>
-</div>
-
-
-<p>&nbsp;</p>
-
-
-<p><strong>4. How do I call the method contained in the delegate?</strong></p>
-
-
-<div>
-<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">del1.Invoke(<span style="color: #006080;">"This is a test."</span>);</pre>
-</div>
-
-
-<p>The <strong>Invoke method</strong> will actually have the same signature as your delegate signature. So you benefit of a strongly-typed way to use the delegate feature. There is also a BeginInvoke and an EndInvoke method to program asynchronously.</p>
-
-
-<p><strong>5. But you said that you can have more than one method in the delegate?</strong></p>
-
-
-<p>Actually yes. There is several ways to add more methods, but the easiest way is :</p>
-
-
-<div>
-<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">del1 += ClassTest.StaticMethod;</pre>
-</div>
-
-
-<p>When calling Invoke (or BeginInvoke) each one will be executed in the order that they were added to the delegate. If an exception occurs at any point, the execution is canceled and the remaining methods will not be called. And you will get an exception of course.</p>
-
-
-<p><strong>5. Anything else?</strong></p>
-
-
-<p>Yes, a delegate is immutable. Each time you add a method entry point, a new delegate is created for you.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/a-new-job/">A new job</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-04-05T07:10:00-04:00" pubdate data-updated="true">Apr 5<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Last week, I have left my job at bxsystems. I had an opportunity that I could not refuse. I have worked for 3 years and 8 months with the most talented peoples I ever encountered. They are great professionals and I am sure they will continue to be successful in their careers. This is where all started for me, where I started to get passionate about programming. I had a lot of freedom and a lot of learning opportunities.</p>
-
-
-<p>I am very grateful for everything. For a beginner, it could not be a better place. Thank you!</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/11/">&larr; Older</a>
@@ -780,6 +726,14 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/available/">Available</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/disponible/">Disponible pour mandat de développement</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/rerun-all-guards/">Rerun all Guards</a>
       </li>
     
@@ -789,14 +743,6 @@
     
       <li class="post">
         <a href="/blog/filling-a-select-from-an-array-on-javascript-object/">Filling a select from an array on javascript object</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/converting-a-blogengine-dot-net-blog-to-octopress/">Converting a BlogEngine.Net blog to Octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/my-starting-gemfile/">My starting Gemfile</a>
       </li>
     
   </ul>

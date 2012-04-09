@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Talk only to your close friends. This is a object-oriented design guidelines. This law state that your object should know as little as possible of &hellip;">
+  <meta name="description" content="I am working a lot right now with WCF (Windows Communication Foundation). I am doing the service side of the architecture. The problem we faced this &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,145 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/reality-of-type-sharing-in-wcf/">Reality of type sharing in WCF</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-13T07:40:00-05:00" pubdate data-updated="true">Nov 13<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I am working a lot right now with WCF (Windows Communication Foundation). I am doing the service side of the architecture. The problem we faced this week was with type sharing. Suppose you have a customer class and an address class as data contract. The customer have an address list. Then we have two services who use those types, CustomerService and AddressService. One of the service do operation with the customer and the second on the address. All this one one assembly. On a real world scenario we had to take the address of the customer we just got with the customer&#8217;s service and provide it to the address&#8217;s services.</p>
+
+
+
+
+<p>We used Visual Studio to generate the proxies for those services. Since CustomerService and AddressService are each one aware of the 2 data contracts (Address and Customer) the call made to svcutil from Visual Studio does not generate proxies with type sharing. You have yourself two times the address class and then can&#8217;t be passed from one service to another.</p>
+
+
+
+
+<p>
+But fortunately, a solution exist!
+</p>
+
+
+
+
+<p>
+1. I had to separate the data contracts from the services contracts and puts them in a new assembly.
+</p>
+
+
+
+
+<p>
+2. Do not ever use Visual Studio to add service reference (this is what will get you 2 times the same class in 2 different namespaces ).
+</p>
+
+
+
+
+<p>
+3. Learn to use svcutil. Then learn about the /r: switch. When using this switch, you can specify which assembly to use when resolving reference.
+</p>
+
+
+
+
+<p>
+The 2 downside I see, is that you can&#8217;t use Visual Studio anymore to generate proxies and that you need to control both side (service and client). Or at least the service side and provide the data contracts assembly to your client.
+</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/becoming-a-better-developer-third-update/">Becoming a better developer : Third update</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-12T07:38:00-05:00" pubdate data-updated="true">Nov 12<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Things are finally getting smoothly. I have been really busy with the construction of the new house and haven&#8217;t been able to get up to speed with my goals. I am a the second book of 12, and the challenge end in two months. There is some good news at least, I am now able to concentrate fully on my objectives. But I have reduced the number of books to 4&#8230;</p>
+
+
+
+
+<p>This is the new list :</p>
+
+
+<ul>
+    <li><a href="http://www.amazon.com/gp/product/0596007124?ie=UTF8&amp;tag=sebastlachan-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0596007124">Head First Design Patterns (Head First)</a> (<a href="http://sebastienlachance.com/2007/10/23/book-review-head-first-design-patterns/">Review</a>)</li>
+    <li><a href="http://www.amazon.com/gp/product/0735619654?ie=UTF8&amp;tag=sebastlachan-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0735619654">Object Thinking (DV-Microsoft Professional)</a></li>
+    <li><a href="http://www.amazon.com/gp/product/0201485672?ie=UTF8&amp;tag=sebastlachan-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0201485672">Refactoring: Improving the Design of Existing Code</a></li>
+    <li><a href="http://www.amazon.com/gp/product/0135974445?ie=UTF8&amp;tag=sebastlachan-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0135974445">Agile Software Development, Principles, Patterns, and Practices</a></li>
+</ul>
+
+
+<p>
+I am also on the way of regaining my health back. At least 15 minutes a day of workout.
+</p>
+
+
+
+
+<p>
+And finally, for the small project, I am working really hard on this. I am planning something real soon.
+</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -888,101 +1027,6 @@ This binary file contains information about what files were currently in edition
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/the-last-lecture-by-randy-pausch/">The Last Lecture by Randy Pausch</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-09-26T08:26:00-04:00" pubdate data-updated="true">Sep 26<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Watch and cry (of course I&#8217;m not crying for real).</p>
-
-
-
-
-<p><a title="The Last Lecture by Randy Pausch" href="http://link.brightcove.com/services/link/bcpid452319854/bctid1199157902" title="http://link.brightcove.com/services/link/bcpid452319854/bctid1199157902">The Last Lecture | Randy Pausch</a></p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/adding-an-element-to-an-array-in-c/">Adding an element to an array in C#</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-09-26T07:54:00-04:00" pubdate data-updated="true">Sep 26<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>It&#8217;s probably the same thing in VB.NET but the example here is in C#.  <p style="border:1px solid gray;overflow:auto;font-size:8pt;width:97.5%;cursor:text;max-height:200px;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;margin:20px 0 10px;padding:4px;"> <p style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;padding:0;"> <pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;"><span style="color:#606060;">   1:</span> Address[] addresses = customer.AddressList;</pre></p>
-
-<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;"><span style="color:#606060;">   2:</span></pre>
-
-
-<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;"><span style="color:#606060;">   3:</span> Array.Resize(<span style="color:#0000ff;">ref</span> addresses, addresses.Length + 1);</pre>
-
-
-<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;"><span style="color:#606060;">   4:</span></pre>
-
-
-<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;"><span style="color:#606060;">   5:</span> addresses[addresses.Length - 1] = address;</pre>
-
-
-<p> </p></p>
-
-<pre><code>        &lt;/p&gt;
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/15/">&larr; Older</a>
@@ -1014,6 +1058,14 @@ This binary file contains information about what files were currently in edition
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/available/">Available</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/disponible/">Disponible pour mandat de développement</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/rerun-all-guards/">Rerun all Guards</a>
       </li>
     
@@ -1023,14 +1075,6 @@ This binary file contains information about what files were currently in edition
     
       <li class="post">
         <a href="/blog/filling-a-select-from-an-array-on-javascript-object/">Filling a select from an array on javascript object</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/converting-a-blogengine-dot-net-blog-to-octopress/">Converting a BlogEngine.Net blog to Octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/my-starting-gemfile/">My starting Gemfile</a>
       </li>
     
   </ul>

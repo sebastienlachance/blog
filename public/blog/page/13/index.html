@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Let&#8217;s not go on too much complicated stuff. This is an easy step-by-step to add a coverage report to your automated builds. Andrew Stopford&# &hellip;">
+  <meta name="description" content="Following the definition of a nightmare platform, I officially declare Microsoft Dynamics GP to be one of them. Sorry Dynamics GP guys, but I need an &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,123 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/nightmare-platform/">Nightmare platform</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-07T03:09:00-05:00" pubdate data-updated="true">Jan 7<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Following the <a href="http://www.ayende.com/Blog/archive/2007/11/11/A-definition-of-a-nightmare-platform.aspx" target="_blank">definition of a nightmare platform</a>, I officially declare Microsoft Dynamics GP to be one of them. Sorry Dynamics GP guys, but I need an explanation for why I have spent half a day trying to figure out how this can be possible.</p>
+
+
+<p>Consider this example :</p>
+
+
+<p>&nbsp;</p>
+
+
+<pre>salesItem.StandardCost = <span style="color: #2b91af;">new</span><span style="color: #000000;"> </span><span style="color: #a31515;">MoneyAmount</span><span style="color: #000000;">();<br />salesItem.StandardCost.Value = 1;<br /></span><span style="color: #000000;">salesItem.StandardCost.DecimalDigits = 2;<br /><br /></span><span style="color: #000000;">salesItem.UofMScheduleKey = </span><span style="color: #2b91af;">new</span><span style="color: #000000;"> </span><span style="color: #a31515;">UofMScheduleKey</span><span style="color: #000000;">();<br />salesItem.UofMScheduleKey.Id = </span><span style="color: #a31515;">"EACH"</span><span style="color: #000000;">;<br /></span><span style="color: #000000;"><br /></span><span style="color: #a31515;">Policy</span><span style="color: #000000;"> policy = DynamicsWebService.GetPolicyByOperation(</span><span style="color: #a31515;">"CreateSalesItem"</span><span style="color: #000000;">, DynamicsWebServiceContext);<br />DynamicsWebService.CreateSalesItem(salesItem, DynamicsWebServiceContext, policy);<p>&nbsp;</p></span></pre>
+
+
+<p>And here is the error message :</p>
+
+
+<blockquote>
+<p>A validation exception has occurred.<br />Validation Errors:<br />- StandardCost cannot be less than 0.</p>
+</blockquote>
+
+
+<p>I&#8217;m still trying to figure out what amount should I put when the item has a cost&#8230;</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/screencast-goodness-monorail-extjs-and-net-35/">Screencast goodness : Monorail, ExtJS and .NET 3.5</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-23T10:35:00-05:00" pubdate data-updated="true">Dec 23<span>rd</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Here is the bests screencasts I have watched this week :</p>
+
+
+<p><a href="http://joeydotnet.com/blog/archive/2007/12/08/monorail-quickly---screencast.aspx" target="_blank">Monorail Quickly</a>: A screencast made by Joey Beninghove (joeyDotNet). I have quite enjoyed this one. He has done a template project for quickly starting up a solution for Monorail.</p>
+
+
+<p>A series of screencasts from <a href="http://colinramsay.co.uk/" target="_blank">colinramsay.co.uk</a> :</p>
+
+
+<ul>
+<li><a href="http://colinramsay.co.uk/2007/04/17/getting-started-with-monorail-screencast-one/" target="_blank">Getting Started With Monorail - Part 1</a></li>
+<li><a href="http://colinramsay.co.uk/2007/04/18/using-monorail-screencast-two/" target="_blank">Getting Started With Monorail - Part 2</a></li>
+<li><a href="http://colinramsay.co.uk/2007/04/19/databinding-and-activerecord-screencast-three/" target="_blank">Getting Started With Monorail - Part 3</a></li>
+<li><a href="http://colinramsay.co.uk/2007/04/20/validation-and-much-more-screencast-four/" target="_blank">Getting Started With Monorail - Part 4</a></li>
+<li><a href="http://colinramsay.co.uk/2007/04/23/castle-contrib-screencast-five/" target="_blank">Getting Started With Monorail - Part 5</a></li>
+<li><a href="http://colinramsay.co.uk/2007/09/23/hotswap-for-monorail-in-action/" target="_blank">HotSwap for Monorail in action</a></li>
+<li><a href="http://colinramsay.co.uk/2007/10/08/i-love-it-when-a-plan-comes-together-a-tale-of-monorail-activerecord-and-extjs/" target="_blank">ExtJS (a grid)</a></li>
+</ul>
+
+
+<p>A ton of new screencasts about <a href="http://www.hanselman.com/blog/HowToNewASPNET35ExtensionsVideoScreencasts.aspx" target="_blank">ASP.NET 3.5 Extensions</a>.</p>
+
+
+<p>And I wish you a merry Christmas!</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1089,145 +1206,6 @@ This is what the NAnt section look like:
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/reality-of-type-sharing-in-wcf/">Reality of type sharing in WCF</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-11-13T07:40:00-05:00" pubdate data-updated="true">Nov 13<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I am working a lot right now with WCF (Windows Communication Foundation). I am doing the service side of the architecture. The problem we faced this week was with type sharing. Suppose you have a customer class and an address class as data contract. The customer have an address list. Then we have two services who use those types, CustomerService and AddressService. One of the service do operation with the customer and the second on the address. All this one one assembly. On a real world scenario we had to take the address of the customer we just got with the customer&#8217;s service and provide it to the address&#8217;s services.</p>
-
-
-
-
-<p>We used Visual Studio to generate the proxies for those services. Since CustomerService and AddressService are each one aware of the 2 data contracts (Address and Customer) the call made to svcutil from Visual Studio does not generate proxies with type sharing. You have yourself two times the address class and then can&#8217;t be passed from one service to another.</p>
-
-
-
-
-<p>
-But fortunately, a solution exist!
-</p>
-
-
-
-
-<p>
-1. I had to separate the data contracts from the services contracts and puts them in a new assembly.
-</p>
-
-
-
-
-<p>
-2. Do not ever use Visual Studio to add service reference (this is what will get you 2 times the same class in 2 different namespaces ).
-</p>
-
-
-
-
-<p>
-3. Learn to use svcutil. Then learn about the /r: switch. When using this switch, you can specify which assembly to use when resolving reference.
-</p>
-
-
-
-
-<p>
-The 2 downside I see, is that you can&#8217;t use Visual Studio anymore to generate proxies and that you need to control both side (service and client). Or at least the service side and provide the data contracts assembly to your client.
-</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/becoming-a-better-developer-third-update/">Becoming a better developer : Third update</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-11-12T07:38:00-05:00" pubdate data-updated="true">Nov 12<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Things are finally getting smoothly. I have been really busy with the construction of the new house and haven&#8217;t been able to get up to speed with my goals. I am a the second book of 12, and the challenge end in two months. There is some good news at least, I am now able to concentrate fully on my objectives. But I have reduced the number of books to 4&#8230;</p>
-
-
-
-
-<p>This is the new list :</p>
-
-
-<ul>
-    <li><a href="http://www.amazon.com/gp/product/0596007124?ie=UTF8&amp;tag=sebastlachan-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0596007124">Head First Design Patterns (Head First)</a> (<a href="http://sebastienlachance.com/2007/10/23/book-review-head-first-design-patterns/">Review</a>)</li>
-    <li><a href="http://www.amazon.com/gp/product/0735619654?ie=UTF8&amp;tag=sebastlachan-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0735619654">Object Thinking (DV-Microsoft Professional)</a></li>
-    <li><a href="http://www.amazon.com/gp/product/0201485672?ie=UTF8&amp;tag=sebastlachan-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0201485672">Refactoring: Improving the Design of Existing Code</a></li>
-    <li><a href="http://www.amazon.com/gp/product/0135974445?ie=UTF8&amp;tag=sebastlachan-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0135974445">Agile Software Development, Principles, Patterns, and Practices</a></li>
-</ul>
-
-
-<p>
-I am also on the way of regaining my health back. At least 15 minutes a day of workout.
-</p>
-
-
-
-
-<p>
-And finally, for the small project, I am working really hard on this. I am planning something real soon.
-</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/14/">&larr; Older</a>
@@ -1259,6 +1237,14 @@ And finally, for the small project, I am working really hard on this. I am plann
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/available/">Available</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/disponible/">Disponible pour mandat de développement</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/rerun-all-guards/">Rerun all Guards</a>
       </li>
     
@@ -1268,14 +1254,6 @@ And finally, for the small project, I am working really hard on this. I am plann
     
       <li class="post">
         <a href="/blog/filling-a-select-from-an-array-on-javascript-object/">Filling a select from an array on javascript object</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/converting-a-blogengine-dot-net-blog-to-octopress/">Converting a BlogEngine.Net blog to Octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/my-starting-gemfile/">My starting Gemfile</a>
       </li>
     
   </ul>

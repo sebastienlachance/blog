@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Important note&nbsp; : I am using ReSharper 2.x / IDEA keyboard mapping. CTRL-F12 With this shortcut you can navigate and search the list of methods &hellip;">
+  <meta name="description" content="I watched the review of the unit tests of the ASP.NET MVC framework done by Roy Osherove and it was interesting. It’s great to have someone going &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,118 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/great-unit-tests-review-by-roy-osherove/">Great unit tests review by Roy Osherove</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-23T09:15:00-04:00" pubdate data-updated="true">Mar 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I watched the review of the unit tests of the ASP.NET MVC framework done by <a href="http://weblogs.asp.net/rosherove/default.aspx" target="_blank">Roy Osherove</a> and it was interesting. It’s great to have someone going through unit tests and explaining what they done right or wrong.</p>
+
+
+<p> <p>Here is some points he made in the review:</p> <ul> <li>No dynamic values in assert. </li> <li>Empty string tests. </li> <li>Emphasis on readability. </li> <li>Multiple assert on one test is bad. </li> <li>Only one mock object per test. </li> <li>Verify only what you need to. </li> <li>Mocks that should be stubs. </li> </ul> <p>Watch it yourself <a href="http://weblogs.asp.net/rosherove/archive/2009/03/21/test-review-2-asp-net-mvc-unit-tests.aspx" target="_blank">on the Roy Osherove blog</a>.</p> <div class="wlWriterSmartContent" id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:9a048b0d-8718-41b5-8eca-716cc06f1ef9" style="display:inline;float:none;margin:0;padding:0;">Technorati Tags: <a href="http://technorati.com/tags/ASP.NET+MVC" rel="tag">ASP.NET MVC</a>,<a href="http://technorati.com/tags/Unit+Tests" rel="tag">Unit Tests</a>,<a href="http://technorati.com/tags/Roy+Osherove" rel="tag">Roy Osherove</a></div></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/top-5-shortcuts-you-need-to-know-to-be-a-resharper-padawan/">Top 5 shortcuts you need to know to be a ReSharper Padawan</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-05T08:15:00-05:00" pubdate data-updated="true">Mar 5<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>Important note&nbsp; : I am using ReSharper 2.x / IDEA keyboard mapping.</strong></p>
+
+
+<p>This is the last post about shortcuts, next one will be about creating <strong>Live Templates.</strong></p>
+
+
+<h3><strong>Alt-F7</strong></h3>
+
+
+<p>Find usage of anything, everywhere it is used.<a title="compact_keyboard" href="http://www.flickr.com/photos/63483657@N00/3331954380/"><img src="http://static.flickr.com/3647/3331954380_b353f3fdcb.jpg" border="0" alt="compact_keyboard" width="335" height="274" align="right" /></a></p>
+
+
+<h3><strong>Ctrl-J</strong></h3>
+
+
+<p>Browse the list live templates and allow you to select one.</p>
+
+
+<h3><strong>Alt-F12/Shift-Alt-F12</strong></h3>
+
+
+<p>Respectively move to the next and previous error in your solution. Forget about the error windows.</p>
+
+
+<h3><strong>Ctrl-Alt-M</strong></h3>
+
+
+<p><strong>Refactoring shortcut. </strong>Extract a piece of code and make a method with it.</p>
+
+
+<h3><strong>F2</strong></h3>
+
+
+<p>Rename anything your cursor is one. And it&#8217;s an intelligent renaming, meaning it will search for every usages of it and rename accordingly.</p>
+
+
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:cb1cd07e-5e18-4a87-af26-67203f249fd1" class="wlWriterSmartContent" style="display:inline;margin:0;padding:0;">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/Resharper">Resharper</a>,<a rel="tag" href="http://technorati.com/tags/Vs2008">Vs2008</a>,<a rel="tag" href="http://technorati.com/tags/Productivity">Productivity</a></div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -520,134 +632,6 @@ mockedView.VerifyAllExpectations();</pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/unit-testing-linqtosql-and-createdatabase/">Unit Testing, LinqToSql and CreateDatabase</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-10-27T01:47:00-04:00" pubdate data-updated="true">Oct 27<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>When using LinqToSql and unit testing in your application, you can benefit from two handy method calls that will make your life a lot easier.</p>
-
-
-<div>
-<pre style="font-size: 8pt; overflow: visible; width: 100%; color: black; line-height: 12pt; font-family: consolas, 'Courier New', courier, monospace; background-color: #f4f4f4; border-style: none; margin: 0; padding: 0;">var db = <span style="color:#0000ff;">new</span> DatabaseDataContext();
-db.DeleteDatabase();
-db.CreateDatabase();</pre>
-</div>
-
-
-<p>&nbsp;</p>
-
-
-<p>You won&#8217;t need to worry about putting the database in a correct state before each of your test. I call them in my setup part of each unit tests that make use of the database.</p>
-
-
-<p>If you need to insert some test data, so I used the ExecuteCommand method to execute a sql script.</p>
-
-
-<div>
-<pre style="font-size: 8pt; overflow: visible; width: 100%; color: black; line-height: 12pt; font-family: consolas, 'Courier New', courier, monospace; background-color: #f4f4f4; border-style: none; margin: 0; padding: 0;">db.ExecuteCommand(File.ReadAllText(<span style="color:#006080;">@"..\..\..\..\db\referencedata.sql"</span>));</pre>
-</div>
-
-
-<div>&nbsp;</div>
-
-
-<div>And if you have more than one test that will use this code at a time, you may need to close the connection after the setup.</div>
-
-
-<div>&nbsp;</div>
-
-
-<div>Putting it all together look like this :</div>
-
-
-<div>
-<pre style="font-size: 8pt; overflow: visible; width: 100%; color: black; line-height: 12pt; font-family: consolas, 'Courier New', courier, monospace; background-color: #f4f4f4; border-style: none; margin: 0; padding: 0;">var db = <span style="color:#0000ff;">new</span> DatabaseDataContext();
-db.DeleteDatabase();
-db.CreateDatabase();
-db.ExecuteCommand(File.ReadAllText(<span style="color:#006080;">@"..\..\..\..\db\referencedata.sql"</span>));
-db.Connection.Close();</pre>
-</div>
-
-
-<p>&nbsp;</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/currently-reading-dont-make-me-think/">Currently reading : Don&#8217;t make me think</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-10-24T01:48:00-04:00" pubdate data-updated="true">Oct 24<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>&nbsp;</p>
-
-
-<div style="float:left; margin:10px"><a href="http://www.amazon.com/gp/product/0321344758?ie=UTF8&amp;tag=sebastlachan-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321344758"><img src="http://farm4.static.flickr.com/3294/2967499049_09f68d8188.jpg?v=0" border="0" alt="" /></a></div>
-
-
-<p>I know that I haven&#8217;t posted the <a href="http://sebastienlachance.com/2008/10/08/currently-reading-jquery-in-action/" target="_blank">JQuery in Action</a> review yet, but I couldn&#8217;t resist to finally read this book. In fact, I have the electronic version of it, but I needed a &#8220;real&#8221; book for long trip . <strong>Don&#8217;t make me think</strong> by Steve Krug discuss usability problems and solutions. I first heard of this book by reading the <a href="http://www.codinghorror.com/blog/archives/000020.html" target="_blank">Recommended Reading for Developers list</a>&nbsp;of Jeff Atwood. It&#8217;s only about 200 pages but it&#8217;s supposed to be filled with valuable content. Short reading time + Lot of new knowledge = Good for me!</p>
-
-
-<p><br style="clear:both" /></p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/9/">&larr; Older</a>
@@ -679,6 +663,14 @@ db.Connection.Close();</pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/available/">Available</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/disponible/">Disponible pour mandat de développement</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/rerun-all-guards/">Rerun all Guards</a>
       </li>
     
@@ -688,14 +680,6 @@ db.Connection.Close();</pre>
     
       <li class="post">
         <a href="/blog/filling-a-select-from-an-array-on-javascript-object/">Filling a select from an array on javascript object</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/converting-a-blogengine-dot-net-blog-to-octopress/">Converting a BlogEngine.Net blog to Octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/my-starting-gemfile/">My starting Gemfile</a>
       </li>
     
   </ul>

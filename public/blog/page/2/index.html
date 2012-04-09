@@ -9,8 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="I have an NHibernate class with the following properties : public class Category
-{ public virtual int Id { get; set; } public virtual string Name { &hellip;">
+  <meta name="description" content="When we first made the Guide des Commerces, we didn&#8217;t anticipated we would need to adapt to other devices so soon. In fact, it we know it was &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +75,127 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/reponsive-and-mobile-friendly-design/">Reponsive and Mobile-Friendly Design with Skeleton</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-13T10:16:00-05:00" pubdate data-updated="true">Jan 13<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img class="left" src="/images/skeleton.jpg" title="skeleton" ></p>
+
+<p>When we first made the <a href="http://www.guidedescommercesdebeauce.com" title="Guide des Commerces">Guide des Commerces</a>, we didn&#8217;t anticipated we would need to adapt to other devices so soon. In fact, it we know it was for this year but we though it would be a completely different application for iPhone, Android or a new website.</p>
+
+<p>A month ago we had a discussion with a Facebook expert and talked about adding the Guide to our existing <a href="http://www.facebook.com/pages/Guide-des-Commerces-de-Beauce/190606624290004">page</a> (just an iframe with the app). The problem is that we use fixed width everywhere and Facebook iframe has only 520px. It would not be wise to develop another site only for Facebook and another one only for mobile device. We needed another solution.</p>
+
+<p>It occured to me that we could hit three birds with one stone (a lot more actually). We only have to use a responsive desig&lt;</p>
+
+<p>I tried various css framework and settled down for <a href="getskeleton.com" title="Skeleton framework">Skeleton</a>. It provided me with everything I needed and I can almost use it as-is without any modification. It use Media Queries (link here) to adapt to various screen size (tablet, mobile, iOS, etc.).</p>
+
+<p>If you don&#8217;t know Skeleton, it&#8217;s basically a grid framework with sixteen column totally a width of 960 pixel.</p>
+
+<p>Suppose you have a div that you want to take 100% of the page.</p>
+
+<pre><code>&lt;div class="sixteen columns"&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>You can also have a three column layout very easily:</p>
+
+<pre><code>&lt;div class="one-third column"&gt;
+&lt;/div&gt;
+
+&lt;div class="one-third column"&gt;
+&lt;/div&gt;
+
+&lt;div class="one-third column"&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>When you resize your browser, everything just resize nicely.</p>
+
+<p>I am almost 5 hours in now, and I&#8217;ve struggled a little but the result is amazing. And I frankly don&#8217;t regret the framework choice at all.</p>
+
+<p>Stay tuned for more&#8230;</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/couldnt-parse-yaml-at-line-x-column-x-psych-syntaxerror/">Couldn&#8217;t Parse YAML at Line X Column X (Psych::SyntaxError)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-14T07:50:00-04:00" pubdate data-updated="true">Sep 14<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I am using Rails 3.0.3 and got this error :</p>
+
+<pre><code>couldn't parse YAML at line 182 column 9 (Psych::SyntaxError)
+</code></pre>
+
+<p>As I understand it, there is an issue with the locale file (locale/en.yml) of ActiveSupport.</p>
+
+<p>Just by adding</p>
+
+<pre><code>require 'yaml'
+YAML::ENGINE.yamler= 'syck'
+</code></pre>
+
+<p>at the beginning of the boot.rb file should take care of this issue.</p>
+
+<p><a href="https://rails.lighthouseapp.com/projects/8994/tickets/6354-psych-does-not-handle-symbols-in-yaml-used-in-activesupport">More info here</a> <a href="http://stackoverflow.com/questions/4980877/rails-error-couldnt-parse-yaml">and here</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -522,82 +642,6 @@ pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's W
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/appsumo-and-the-bad-ass-developer-bundle/">APPSUMO and The Bad Ass Developer Bundle</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-11-11T01:24:00-05:00" pubdate data-updated="true">Nov 11<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In case you don&#8217;t know APPSUMO, subscribe to their notifications. They offers deals that are pretty hard to beat&#8230; Look at this one :&#160; </p>
-
-
-<p>  <p>For $47 you get : </p>  <ul>   <li>60$ at Heroku </li>    <li>30$ at twilio </li>    <li>6 months of SendGrid&#8217;s Silver package (479$) </li>    <li>75$ credit at Recurly </li>    <li>4 months at HopToad </li>    <li>2 month at New Relic (400$) </li>    <li>60$ credit at MongoHQ </li>    <li>20 free hours of testing at SauceLabs </li>    <li>4 months at Infochimps </li>    <li>And the best one : 60$ credit at Linode (which I buyed a subscription 2 days ago) </li> </ul>  <div><a title="APPSUMO - Great deals on web apps" href="http://www.appsumo.com/">More details</a></div></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/my-clojure-tutorial-failure/">My Clojure tutorial failure</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-11-10T06:26:00-05:00" pubdate data-updated="true">Nov 10<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I intended to write a full series of posts to help learn Clojure. While I was really enthusiasm about this, my recent change of plans has left me no choice but to abandon the idea of mastering this language. I didn&#8217;t knew at that time that I&#8217;ll had to learn Ruby for my new project and I have no more time to learn anything else right now. <strong>So, goodbye Clojure!</strong></p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -629,6 +673,14 @@ pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's W
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/available/">Available</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/disponible/">Disponible pour mandat de développement</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/rerun-all-guards/">Rerun all Guards</a>
       </li>
     
@@ -638,14 +690,6 @@ pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's W
     
       <li class="post">
         <a href="/blog/filling-a-select-from-an-array-on-javascript-object/">Filling a select from an array on javascript object</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/converting-a-blogengine-dot-net-blog-to-octopress/">Converting a BlogEngine.Net blog to Octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/my-starting-gemfile/">My starting Gemfile</a>
       </li>
     
   </ul>

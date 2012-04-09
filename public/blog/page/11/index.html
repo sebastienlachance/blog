@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="2-3 months ago, I have deployed the application I was working on the client. Since then a lot of changes have been made and I did not work on this &hellip;">
+  <meta name="description" content="I haven&#8217;t really used delegates since I was programming with the .NET Framework 1.0. Since I have some spare time left, I decided to &#8216;&# &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,146 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/refreshing-my-memory-delegates-in-c/">Refreshing my memory : Delegates in C#</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-04-09T07:12:00-04:00" pubdate data-updated="true">Apr 9<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I haven&#8217;t really used delegates since I was programming with the .NET Framework 1.0. Since I have some spare time left, I decided to &#8216;&#8220;refresh my memory&#8221;. I have prepared a little cheat-sheet that you can use as a reminder for the delegates functionalities in the .NET Framework 3.0.</p>
+
+
+<p><strong>1. What is a delegate?</strong></p>
+
+
+<p>A delegate is a data structure that refers to one or multiples static methods and/or instance methods. You can use this when you have a dynamic list of methods to be called that you don&#8217;t know ahead of time.</p>
+
+
+<p><strong>2. How to create a delegate?</strong></p>
+
+
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> TestClass<br />{<br />    <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">delegate</span> <span style="color: #0000ff;">void</span> myDelegate(<span style="color: #0000ff;">string</span> name);<br />}</pre>
+
+
+<p>The signature of the declaration is very important! The methods that will be contained in the delegate must perfectly match the declaration. In this case, the methods that will be allowed must be void and take a single string as a parameter.</p>
+
+
+<p>When using the delegate keyword, you are actually creating a <strong>System.MulticastDelegate</strong>.</p>
+
+
+<p>&nbsp;</p>
+
+
+<p><strong>3. How do I instantiate a delegate?</strong></p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> TestMethod()<br />{<br />    ClassTest test = <span style="color: #0000ff;">new</span> ClassTest();<br /><br />    <span style="color: #008000;">//Instantiating a delegate with an instance method</span><br />    var del1 = <span style="color: #0000ff;">new</span> myDelegate(test.InstanceMethod);<br /><br />    <span style="color: #008000;">//Instantiating a delegate with a static method</span><br />    var del2 = <span style="color: #0000ff;">new</span> myDelegate(ClassTest.StaticMethod)<br />}</pre>
+</div>
+
+
+<p>&nbsp;</p>
+
+
+<p><strong>4. How do I call the method contained in the delegate?</strong></p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">del1.Invoke(<span style="color: #006080;">"This is a test."</span>);</pre>
+</div>
+
+
+<p>The <strong>Invoke method</strong> will actually have the same signature as your delegate signature. So you benefit of a strongly-typed way to use the delegate feature. There is also a BeginInvoke and an EndInvoke method to program asynchronously.</p>
+
+
+<p><strong>5. But you said that you can have more than one method in the delegate?</strong></p>
+
+
+<p>Actually yes. There is several ways to add more methods, but the easiest way is :</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">del1 += ClassTest.StaticMethod;</pre>
+</div>
+
+
+<p>When calling Invoke (or BeginInvoke) each one will be executed in the order that they were added to the delegate. If an exception occurs at any point, the execution is canceled and the remaining methods will not be called. And you will get an exception of course.</p>
+
+
+<p><strong>5. Anything else?</strong></p>
+
+
+<p>Yes, a delegate is immutable. Each time you add a method entry point, a new delegate is created for you.</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/a-new-job/">A new job</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-04-05T07:10:00-04:00" pubdate data-updated="true">Apr 5<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Last week, I have left my job at bxsystems. I had an opportunity that I could not refuse. I have worked for 3 years and 8 months with the most talented peoples I ever encountered. They are great professionals and I am sure they will continue to be successful in their careers. This is where all started for me, where I started to get passionate about programming. I had a lot of freedom and a lot of learning opportunities.</p>
+
+
+<p>I am very grateful for everything. For a beginner, it could not be a better place. Thank you!</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -645,209 +785,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/setting-up-a-basic-continuous-integration-server-with-teamcity/">Setting up a basic continuous integration server with TeamCity</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-02-08T06:21:00-05:00" pubdate data-updated="true">Feb 8<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>What is TeamCity? It&#8217;s a software that you would use to do <a href="http://martinfowler.com/articles/continuousIntegration.html" target="_blank">continuous integration</a>. Continuous integration is very important and it should never be an option on a serious project (that&#8217;s is my opinion and I strongly believe in the values it provide).</p>
-
-
-<p>If you have followed the <a href="http://sebastienlachance.com/building-a-new-application-series/" target="_blank">Building A New Application Series</a>, you may be wondering why I would want to do that after setting up a complete integration server with CruiseControl.NET. Well, I was skeptical when I first heard about all the fuss surrounding this <a href="http://www.jetbrains.com/" target="_blank">JetBrains</a> project. After all, CruiseControl.NET was doing everything I wanted and more.</p>
-
-
-<p>So the reason I made the switch is because of the time it take to set it up : 20 minutes. Everything was fully functional in under 20 minutes. I absolutely got no error at all. I just got through all the step of the wizard and then : done. Unit testing, code coverage, build, reports, etc&#8230; And it&#8217;s absolutely free for small team.</p>
-
-
-<p>The big downside for me was the lack of support out of the box for other unit testing framework (other than NUnit and MSTest). My project is using MbUnit so I will need to do some more research to integrate it in my build process. But it is possible if you want to invest time in doing so.</p>
-
-
-<p>So let&#8217;s get started with this little tutorial :</p>
-
-
-<p>1. Download <a href="http://www.jetbrains.com/teamcity/" target="_blank">TeamCity</a>.</p>
-
-
-<p>2. Start the installation.</p>
-
-
-<p>Just follow all the steps. I encountered a slight problem due to something already on port 80, so I used the port 8080.</p>
-
-
-<p><a title="TeamCity_001" href="http://www.flickr.com/photos/63483657@N00/2246121387/"><img src="http://static.flickr.com/2295/2246121387_bf1eaae094.jpg" border="0" alt="TeamCity_001" /></a></p>
-
-
-<p><a title="TeamCity_002" href="http://www.flickr.com/photos/63483657@N00/2246121389/"><img src="http://static.flickr.com/2366/2246121389_06f17f5d5e.jpg" border="0" alt="TeamCity_002" /></a></p>
-
-
-<p><a title="TeamCity_003" href="http://www.flickr.com/photos/63483657@N00/2246121395/"><img src="http://static.flickr.com/2391/2246121395_a81b1d955c.jpg" border="0" alt="TeamCity_003" /></a></p>
-
-
-<p><a title="TeamCity_004" href="http://www.flickr.com/photos/63483657@N00/2246121397/"><img src="http://static.flickr.com/2266/2246121397_d27ffa9754.jpg" border="0" alt="TeamCity_004" /></a></p>
-
-
-<p><a title="TeamCity_005" href="http://www.flickr.com/photos/63483657@N00/2246121399/"><img src="http://static.flickr.com/2164/2246121399_a18dd1cc62.jpg" border="0" alt="TeamCity_005" /></a></p>
-
-
-<p><a title="TeamCity_006" href="http://www.flickr.com/photos/63483657@N00/2246121401/"><img src="http://static.flickr.com/2345/2246121401_5db16b8ce5.jpg" border="0" alt="TeamCity_006" /></a></p>
-
-
-<p><a title="TeamCity_007" href="http://www.flickr.com/photos/63483657@N00/2246123377/"><img src="http://static.flickr.com/2175/2246123377_676d0d312b.jpg" border="0" alt="TeamCity_007" /></a></p>
-
-
-<p>I left everything intact in this screen, but this is where you specify some default folder used bu the build agents. The <strong>tempDir </strong>and<strong> workDir</strong> will be used to store your application artifacts and even your source file before the compilation if you don&#8217;t give it one in the configuration (later).</p>
-
-
-<p><a title="TeamCity_008" href="http://www.flickr.com/photos/63483657@N00/2246123379/"><img src="http://static.flickr.com/2064/2246123379_b4b8438c38.jpg" border="0" alt="TeamCity_008" /></a></p>
-
-
-<p><a title="TeamCity_009" href="http://www.flickr.com/photos/63483657@N00/2246123381/"><img src="http://static.flickr.com/2389/2246123381_34aa922d4a.jpg" border="0" alt="TeamCity_009" /></a></p>
-
-
-<p><a title="TeamCity_010" href="http://www.flickr.com/photos/63483657@N00/2246123385/"><img src="http://static.flickr.com/2295/2246123385_74a8416c54.jpg" border="0" alt="TeamCity_010" /></a></p>
-
-
-<p>That&#8217;s it, you have installed TeamCity. Now let&#8217;s add our project to it.</p>
-
-
-<p>3. Open TeamCity !!!</p>
-
-
-<p><a title="TeamCity_011" href="http://www.flickr.com/photos/63483657@N00/2246123387/"><img src="http://static.flickr.com/2410/2246123387_81dfdba0b9.jpg" border="0" alt="TeamCity_011" /></a></p>
-
-
-<p><a title="TeamCity_012" href="http://www.flickr.com/photos/63483657@N00/2246123391/"><img src="http://static.flickr.com/2087/2246123391_e1d68c0e3f.jpg" border="0" alt="TeamCity_012" /></a></p>
-
-
-<p>Nothing too complicated here, just enter the username/password you want for the administrator account. The email will be used to sent important information the build server would want you to know..</p>
-
-
-<p><a title="TeamCity_013" href="http://www.flickr.com/photos/63483657@N00/2246920958/"><img src="http://static.flickr.com/2136/2246920958_abb96960eb.jpg" border="0" alt="TeamCity_013" /></a></p>
-
-
-<p>What I like is that you will be taken by the hannd for the rest of the steps. Click on the <strong>Create Project</strong> link.</p>
-
-
-<p><a title="TeamCity_014" href="http://www.flickr.com/photos/63483657@N00/2246920960/"><img src="http://static.flickr.com/2070/2246920960_202f0716f0.jpg" border="0" alt="TeamCity_014" /></a></p>
-
-
-<p>Name of the project and a description. It will be useful if several projects are on the same build server.</p>
-
-
-<p><a title="TeamCity_016" href="http://www.flickr.com/photos/63483657@N00/2246920966/"><img src="http://static.flickr.com/2098/2246920966_e3a40f81d3.jpg" border="0" alt="TeamCity_016" /></a></p>
-
-
-<p>Now click the <strong>Create build configuration</strong> link. You can have multiple build configuration by project.</p>
-
-
-<p><a title="TeamCity_019" href="http://www.flickr.com/photos/63483657@N00/2246989440/"><img src="http://static.flickr.com/2191/2246989440_434968e2cb.jpg" border="0" alt="TeamCity_019" /></a></p>
-
-
-<p>In the build configuration window, you can change the way the build number are generated and the default behavior when the build fail. You can also specify that you want to start with a clean project.</p>
-
-
-<p><a title="TeamCity_020" href="http://www.flickr.com/photos/63483657@N00/2246989444/"><img src="http://static.flickr.com/2210/2246989444_fdf5ddc886.jpg" border="0" alt="TeamCity_020" /></a></p>
-
-
-<p>There, you can decide how you want the project to be retrieved from the source control repository and where to put him. You can also decide when to label your build. If you do not want a label on a failed build, you can do so. Next, click on <strong>Choose build runner.</strong></p>
-
-
-<p><a title="TeamCity_021" href="http://www.flickr.com/photos/63483657@N00/2246989450/"><img src="http://static.flickr.com/2062/2246989450_83d90c26fc.jpg" border="0" alt="TeamCity_021" /></a></p>
-
-
-<p>TeamCity is not only for .NET project. Several build runner are included such as MSBuild, NAnt, sln2003, sln2005, sln2008, Ant, Maven2, etc&#8230; Because I am using MbUnit as a testing framework I have decided to stick with MSBuild. But if you are using NUnit or MSTest you may want to use sln2003, sln2005, sln2008 as they can run your unit tests and tell the coverage of your assemblies. You need to fill in the <strong>Solution File Path</strong> field with the name of your .sln, it&#8217;s relative to your project structure (if it&#8217;s in the root, enter only the name of your solution file. Fill the rest of the field if you are using NUnit or MSTest.</p>
-
-
-<p><a title="TeamCity_022" href="http://www.flickr.com/photos/63483657@N00/2246989456/"><img src="http://static.flickr.com/2237/2246989456_ca5e393444.jpg" border="0" alt="TeamCity_022" /></a></p>
-
-
-<p>Last step! Go to the <strong>Version Control Settings</strong> tab and click <strong>Create and attach new VCS root</strong>. Give it a name and choose the version control system (VCS) you want to use. Fill in the required field.</p>
-
-
-<p>Save, and you&#8217;re done!</p>
-
-
-<p>This is the most basic setup you can have. Of course, there is a lot of other things to configure to your specific needs. You can even have integration inside Visual Studio or Eclipse. As I said before the only downside I found is the lack of support for MbUnit, but I will work something to bypass that.</p>
-
-
-<p>I may do another post going more in depth if I have time. Or maybe a screencast, that would be a lot of fun. If you&#8217;re interested, just leave a comment and I will consider it.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/screencast-and-my-opinion-about-typemock/">Screencast and my opinion about TypeMock</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-01-24T05:45:00-05:00" pubdate data-updated="true">Jan 24<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I have always been told that TypeMock was too powerful, not strongly typed and for that, It shouldn&#8217;t be used. I believed that. The problem is : I should have given it a try before taking that for granted.</p>
-
-
-<p>I have watched the <a href="http://weblogs.asp.net/rosherove/archive/2008/01/21/video-typemock-basics-lesson-1-dependency-breaking-101.aspx" target="_blank">Roy Osherove screencast</a> and was impressed! I am currently working on an existing code base that was done before we went Agile and even before we were doing object-oriented development. When I need to refactor certain features I usually start writing tests and then using dependency injection to be able to mock some object. The minimum to be testable with Rhino Mocks. But with TypeMock you can mock object and don&#8217;t even need to inject them. You can also make expectation on static methods. Isn&#8217;t that just great! I believe so.</p>
-
-
-<p>However, I will stick with Rhino Mocks for now. I like the way It force me to decouple my code and in some sense, it provide me with guidance to make my work testable.</p>
-
-
-<p>P.S. : This is just my opinion and not the absolute truth.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/12/">&larr; Older</a>
@@ -879,6 +816,14 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/available/">Available</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/disponible/">Disponible pour mandat de développement</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/rerun-all-guards/">Rerun all Guards</a>
       </li>
     
@@ -888,14 +833,6 @@
     
       <li class="post">
         <a href="/blog/filling-a-select-from-an-array-on-javascript-object/">Filling a select from an array on javascript object</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/converting-a-blogengine-dot-net-blog-to-octopress/">Converting a BlogEngine.Net blog to Octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/my-starting-gemfile/">My starting Gemfile</a>
       </li>
     
   </ul>

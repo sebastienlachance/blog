@@ -791,12 +791,20 @@
         <lastmod>2012-04-06T10:50:42-04:00</lastmod>
     </url>
     <url>
+        <loc>http://sebastienlachance.com/blog/disponible/</loc>
+        <lastmod>2012-04-09T12:37:37-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://sebastienlachance.com/blog/available/</loc>
+        <lastmod>2012-04-09T12:37:17-04:00</lastmod>
+    </url>
+    <url>
         <loc>http://sebastienlachance.com/blog/archives/</loc>
-        <lastmod>2012-04-06T10:50:42-04:00</lastmod>
+        <lastmod>2012-04-09T12:37:37-04:00</lastmod>
     </url>
     <url>
         <loc>http://sebastienlachance.com/</loc>
-        <lastmod>2012-04-06T10:50:42-04:00</lastmod>
+        <lastmod>2012-04-09T12:37:37-04:00</lastmod>
     </url>
     <url>
         <loc>http://sebastienlachance.com/new-page/</loc>
@@ -804,6 +812,6 @@
     </url>
     <url>
         <loc>http://sebastienlachance.com/resume/</loc>
-        <lastmod>2012-03-11T20:52:11-04:00</lastmod>
+        <lastmod>2012-04-06T14:09:36-04:00</lastmod>
     </url>
 </urlset>
