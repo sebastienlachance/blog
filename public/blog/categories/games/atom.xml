@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: games | Sebastien Lachance]]></title>
+  <link href="http://sebastienlachance.com/blog/categories/games/atom.xml" rel="self"/>
+  <link href="http://sebastienlachance.com/"/>
+  <updated>2012-04-10T18:58:51-04:00</updated>
+  <id>http://sebastienlachance.com/</id>
+  <author>
+    <name><![CDATA[Sebastien Lachance]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Skyrim - A really awesome video]]></title>
+    <link href="http://sebastienlachance.com/blog/skyrim-a-really-awesome-video/"/>
+    <updated>2012-04-11T06:00:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/skyrim-a-really-awesome-video</id>
+    <content type="html"><![CDATA[<p>If you've played more than a few hours of Skyrim, this is for you...</p>
+
+<iframe width="853" height="480" src="http://www.youtube.com/embed/ALbQQzePzt4" frameborder="0" allowfullscreen></iframe>
+
+]]></content>
+  </entry>
+  
+</feed>
