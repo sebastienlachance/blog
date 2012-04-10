@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Last week, while I was playing and coding on my Backbone blog project (backbone-rails-blog), I started wondering if it was something I could use to &hellip;">
+  <meta name="description" content="If you&#8217;ve played more than a few hours of Skyrim, this is for you&#8230; ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,45 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/skyrim-a-really-awesome-video/">Skyrim - A really awesome video</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-11T06:00:00-04:00" pubdate data-updated="true">Apr 11<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you&#8217;ve played more than a few hours of Skyrim, this is for you&#8230;</p>
+
+<iframe width="853" height="480" src="http://www.youtube.com/embed/ALbQQzePzt4" frameborder="0" allowfullscreen></iframe>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -549,242 +588,6 @@ gem 'bcrypt-ruby', '~&gt; 3.0.0'</code></pre></noscript></div>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/mastering-backbone-day-1-impressions/">Mastering Backbone - Day 1 impressions and basic concepts</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-02-03T10:24:00-05:00" pubdate data-updated="true">Feb 3<span>rd</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="/images/backbone.png" title="backbone.js" ></p>
-
-<h2>Basics</h2>
-
-<p>Previous experience:</p>
-
-<p>I have no real hands-on experience. Only watched some screencasts.</p>
-
-<p>I decided to create a little Todo app with Rails to make sure I understand the basics concepts correctly.</p>
-
-<pre><code>gem 'rails-backbone'
-gem 'jasminerice'
-
-bundle install
-
-rails g backbone:install
-</code></pre>
-
-<p>In the spec/javascripts/spec.js.coffee, add the following:</p>
-
-<pre><code>#= require jquery
-#= require underscore
-#= require backbone
-#= require backbone_rails_sync
-#= require backbone_datalink
-</code></pre>
-
-<h2>Creating a model</h2>
-
-<p>I created a todo.js file in the app/assets/javascript/backbone/models directory.</p>
-
-<pre><code>window.Todo = Backbone.Model.extend({});
-</code></pre>
-
-<p>Pretty straightforward.</p>
-
-<h2>Creating a collection</h2>
-
-<pre><code>window.TodoList = Backbone.Collection.extend({
-    model: Todo 
-});
-</code></pre>
-
-<h2>Testing to ensure everything is fine</h2>
-
-<p>To use <strong>jasminerice</strong>, start the rails server.</p>
-
-<pre><code>rails s
-</code></pre>
-
-<p>Go to localhost:3000/jasmine.</p>
-
-<div><script src='https://gist.github.com/1751477.js?file='></script>
-<noscript><pre><code>describe(&quot;Todo Model&quot;, function() {
-  it(&quot;can be instantiated&quot;, function() {
-    var todo = new Todo();
-    expect(todo).toBeTruthy();
-  });
-
-  it(&quot;has the description property&quot;, function() {
-    var todo = new Todo();
-    todo.set({ description: &quot;this is a description&quot;});
-    expect(todo.get('description')).toEqual(&quot;this is a description&quot;);
-  });
-
-  it(&quot;has the done property&quot;,function() {
-    var todo = new Todo();
-    todo.set({ done: true});
-    expect(todo.get('done')).toBeTruthy();
-  })
-});
-
-describe(&quot;Todo List&quot;, function() {
-  it(&quot;starts out empty&quot;, function() {
-    var todoList = new TodoList();
-    var todo = new Todo();
-    expect(todoList.length).toEqual(0);
-  });
-  it(&quot;add elements as expected&quot;, function() {
-    var todoList = new TodoList();
-    var todo = new Todo();
-    todoList.add(todo);
-    expect(todoList.length).toEqual(1);
-  });
-  it(&quot;should be able to retrieve elements by index&quot;, function() {
-    var todoList = new TodoList();
-    var todo = new Todo();
-    todoList.add(todo);
-    var retrievedTodo = todoList.at(0);
-    expect(retrievedTodo).toBe(todo);
-  });
-  it(&quot;should be able to remove elements&quot;, function() {
-    var todoList = new TodoList();
-    var todo = new Todo();
-    todoList.add(todo);
-    todoList.remove(todo);
-    expect(todoList.length).toEqual(0);
-  });
-
-});</code></pre></noscript></div>
-
-
-<h2>Creating a view</h2>
-
-<p>To define a view, you call the extend method on Backbone.View.</p>
-
-<pre><code>window.TodoList = Backbone.View.extend({});
-</code></pre>
-
-<p>A view is used ot render a model so we need to override the <strong>render</strong> method.</p>
-
-<pre><code>window.TodoList = Backbone.View.extend({
-    render: function() {
-      //the interesting part happens here.
-    }
-});
-</code></pre>
-
-<p>The view is represented by an html element, I believe it&#8217;s a div you don&#8217;t specify it explicitely like this:</p>
-
-<pre><code>window.TodoList = Backbone.View.extend({
-    tagName: "section" //use a &lt;section&gt; tag
-});
-</code></pre>
-
-<p>And a test to make sure it behave like I want:</p>
-
-<pre><code>it("should be a section tag", function() {
-  var view = new TodoListView();
-  expect(view.el.nodeName).toEqual("SECTION");
-});
-</code></pre>
-
-<p><strong>el</strong> represent the current view element.</p>
-
-<p>In the render method, this is where you build the view markup, by appending one or more elements to the <strong>el</strong>.</p>
-
-<pre><code>render: function() {
-  $(el).html('&lt;h2&gt;Todos&lt;/h2&gt;');
-}
-
-//test
-
-it("should render an h2 title', function() {
-  var view = new TodoListView();
-  view.render(); 
-  expect(view.el.innerHTML).toEqual('&lt;h2&gt;Todos&lt;/h2&gt;');
-}); 
-</code></pre>
-
-<p>But this is not really doing anything really exciting. I would like to display each todo in this view. We will need a view for individual Todo model.</p>
-
-<pre><code>window.TodoView = Backbone.View.extend({
-  tagName: 'li',
-  render: function() {
-
-  }
-});
-</code></pre>
-
-<p>But how do we get a model into this view?</p>
-
-<p>When you create an instance of the view you can pass a the model you will want to display. It will automagically added to the model property on the view.</p>
-
-<pre><code>describe("TodoView", function() {
-  it("initialization accept a model", function() {
-    var todo = new Todo();
-    var view = new TodoView({ model: todo });
-    expect(view.model).toEqual(todo);
-  });
-});
-</code></pre>
-
-<p>Now I&#8217;m pretty sure I can render something in my TodoView render method.</p>
-
-<pre><code>window.TodoView = Backbone.View.extend({ 
-  tagName: 'li',
-  render: function() {
-    $(this.el).append(this.model.get('description'));
-    return this;
-  }
-});
-</code></pre>
-
-<p>Now in my TodoListView I will loop through each Todo, render a view for each and appending them to the root element.</p>
-
-<pre><code>window.TodoListView = Backbone.View.extend({
-  tagName: 'section',
-  render: function() {
-    $(this.el).html('&lt;h2&gt;Todos&lt;/h2&gt;&lt;ul class="todo-items"&gt;&lt;/ul&gt;');
-    var listContainer = $(this.el).find('.todo-items'); 
-    this.collection.each(function(todo) {
-      var view = new TodoView({model:todo}); 
-      listContainer.append(view.render().el);
-    });
-    return this;
-  }
-});
-</code></pre>
-
-<p>Next post: Adding and removing todos.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -814,6 +617,10 @@ it("should render an h2 title', function() {
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/skyrim-a-really-awesome-video/">Skyrim - A really awesome video</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a>
       </li>
     
@@ -827,10 +634,6 @@ it("should render an h2 title', function() {
     
       <li class="post">
         <a href="/blog/rerun-all-guards/">Rerun all Guards</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/help-needed-a-backbone-blog/">Help needed, A Backbone blog</a>
       </li>
     
   </ul>

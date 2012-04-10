@@ -4,7 +4,7 @@
   <title><![CDATA[Sebastien Lachance]]></title>
   <link href="http://sebastienlachance.com/atom.xml" rel="self"/>
   <link href="http://sebastienlachance.com/"/>
-  <updated>2012-04-10T07:53:42-04:00</updated>
+  <updated>2012-04-10T18:58:51-04:00</updated>
   <id>http://sebastienlachance.com/</id>
   <author>
     <name><![CDATA[Sebastien Lachance]]></name>
@@ -12,6 +12,18 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Skyrim - A really awesome video]]></title>
+    <link href="http://sebastienlachance.com/blog/skyrim-a-really-awesome-video/"/>
+    <updated>2012-04-11T06:00:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/skyrim-a-really-awesome-video</id>
+    <content type="html"><![CDATA[<p>If you&#8217;ve played more than a few hours of Skyrim, this is for you&#8230;</p>
+
+<iframe width="853" height="480" src="http://www.youtube.com/embed/ALbQQzePzt4" frameborder="0" allowfullscreen></iframe>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Completely unrealistic example - A Backbone Blog]]></title>
@@ -660,34 +672,6 @@ YAML::ENGINE.yamler= 'syck'
     <updated>2011-05-02T03:15:00-04:00</updated>
     <id>http://sebastienlachance.com/blog/sql-server-error-failed-to-retrieve-text-for-this-error-reason-1815</id>
     <content type="html"><![CDATA[<p>[No text]</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Learning Rails : SanitizeHelper]]></title>
-    <link href="http://sebastienlachance.com/blog/learning-rails-sanitizehelper/"/>
-    <updated>2011-05-02T01:36:00-04:00</updated>
-    <id>http://sebastienlachance.com/blog/learning-rails-sanitizehelper</id>
-    <content type="html"><![CDATA[<h2>SanitizeHelper&nbsp;</h2>
-
-
-<p>I need to start somewhere and while it may not be the most informative post ever, I&#8217;ll try to cover this feature as much as I can. Everything here is already described in the Rails Api so it should be a great idea to keep it as a reference. I&#8217;ll also try to add what I have learned&nbsp;</p>
-
-
-<p>There are 4 methods in the sanitize helper.</p>
-
-
-<h3>strip_tags</h3>
-
-
-<p>Remove any html tags from your the input provided. If you truncate, you may see &lt;a. strip_tags before you truncate.</p>
-
-
-<h3>strip_links</h3>
-
-
-<p>Remove any links from your markup and return only the text of the link</p>
 
 ]]></content>
   </entry>

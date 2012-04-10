@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="The letter “L”. Really, nothing more. ">
+  <meta name="description" content="Almost a month and a half now that my son is born. I could not imagine in how many ways it has changed my life (other than having no more free time : &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,55 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/hello-world-from-derek/">Hello World from Derek</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-04-06T05:19:00-04:00" pubdate data-updated="true">Apr 6<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Almost a month and a half now that my son is born. I could not imagine in how many ways it has changed my life (other than having no more free time :P).</p>
+
+
+<p>That morning was probably one of the strangest and longest day I&rsquo;ve ever seen. After being told that we were waiting for a &ldquo;big&rdquo; baby (I am 6&rsquo;1 tall), we had the surprise of seeing a perfectly &ldquo;normal&rdquo; baby, weighted at 7lb13oz and measuring 21 inch after a long 14 hours.</p>
+
+
+<p><a href="http://sebastienlachance.com/image.axd?picture=IMGP1533.jpg"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Baby Derek" src="http://sebastienlachance.com/image.axd?picture=IMGP1533_thumb.jpg" border="0" alt="Baby Derek" width="240" height="161" /></a></p>
+
+
+<p>One thing I&rsquo;ve have learned so far&hellip; I will never say again that I&rsquo;m tired because I&rsquo;m lacking one or two hours of sleep. I&rsquo;ve had 4-5 hours of sleep in 4 days after he was born. And no matter how well I was prepared, I now see that I will have a lot to learn. It&rsquo;s unimaginable how every little things he does amaze me.</p>
+
+
+<p>But it&rsquo;s really a wonderful gift of life, and I&rsquo;m planning to enjoy every moment of it.</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -766,199 +815,6 @@ $('#clickMeButton').click(me.blogging); //will display :Button is blogging</pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/revisited-going-back-to-aspnet-webforms-and-a-lot-of-pain-with-the-checkboxlist/">Back to ASP.NET WebForms and a lot of pain with the CheckBoxList</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-11-05T05:24:00-05:00" pubdate data-updated="true">Nov 5<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>Edit : This is an old post back from november 2008 on my old blog. Since I had this problem today, I though it would be a good idea to share it again with all my readers.</strong></p>
-
-
-<p>Going back to standard ASP.NET Web Forms was ridiculously hard. In the last months, I have been completely blown away by the limitless (almost) possibilities of the ASP.NET MVC framework and now I find myself struggling very hard to make a single dropdownlist works the way I wanted to. The scenario was simple, in the client page, I used the value supplied by the drowdown list item to make an AJAX query and display the incoming results somewhere else in the page. That should be very easy right? Well, no. You may not know this but the value attribute of the ASP.NET CheckBoxList&#8217;s items is not rendered at all.</p>
-
-
-<p>I know that there is multiple solutions to render it, but that&#8217;s not the point. I can&#8217;t find a single reason to not let the developer decide if he want to display it or not. I even heard on some forum (I did not test it myself) that you cannot add a custom attribute named &#8220;value&#8221; (you can add custom attributes to any controls that will be rendered in the final html) without it to be stripped by the ASP.NET WebForms engine.</p>
-
-
-<p>Anyway, let&#8217;s see the solution to this problem.</p>
-
-
-<p>First of all, we need to create a custom control that will inherit from the <strong>System.Web.UI.WebControls.CheckBoxList</strong> and that will implement the <strong>System.Web.UI.WebControls.IRepeatInfoUser</strong>. We use the base class <strong>CheckBoxList </strong>as we want to reuse existing behavior without implementing it ourselves. As for the IRepeatInfoUser interface, we use it because we are implementing a control that has list items.</p>
-
-
-<div>
-<pre style="border-style: none; margin: 0px; padding: 0px; overflow: visible; line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt;"><span style="color: #0000ff">public</span> <span style="color: #0000ff">class</span> CheckBoxListFixed : CheckBoxList, IRepeatInfoUser
-{
-    <span style="color: #0000ff">void</span> IRepeatInfoUser.RenderItem(ListItemType itemType, <span style="color: #0000ff">int</span> repeatIndex, RepeatInfo repeatInfo, HtmlTextWriter writer)
-    {
-
-    }
-}</pre>
-</div>
-
-
-<p>&nbsp;</p>
-
-
-<p>Inside the RenderItem method we will use the HtmlTextWriter to output all the wanted html.&nbsp; So we want to create an input of type checkbox:</p>
-
-
-<div>
-<pre style="border-style: none; margin: 0px; padding: 0px; overflow: visible; line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt;">writer.WriteBeginTag(<span style="color: #006080">"input"</span>);
-writer.WriteAttribute(<span style="color: #006080">"type"</span>, <span style="color: #006080">"checkbox"</span>);
-writer.Write(<span style="color: #006080">"&gt;"</span>);
-writer.Write(Items[repeatIndex].Text);
-writer.WriteEndTag(<span style="color: #006080">"input"</span>);</pre>
-</div>
-
-
-<p>&nbsp;</p>
-
-
-<p>This will render only basic checkboxes.</p>
-
-
-<div>
-<pre style="border-style: none; margin: 0px; padding: 0px; overflow: visible; line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt;"><span style="color: #0000ff">&lt;</span><span style="color: #800000">table</span> <span style="color: #ff0000">id</span><span style="color: #0000ff">="checkboxList"</span> <span style="color: #ff0000">border</span><span style="color: #0000ff">="0"</span><span style="color: #0000ff">&gt;</span>
-    <span style="color: #0000ff">&lt;</span><span style="color: #800000">tr</span><span style="color: #0000ff">&gt;</span>
-        <span style="color: #0000ff">&lt;</span><span style="color: #800000">td</span><span style="color: #0000ff">&gt;&lt;</span><span style="color: #800000">input</span> <span style="color: #ff0000">type</span><span style="color: #0000ff">="checkbox"</span><span style="color: #0000ff">&gt;</span>1<span style="color: #0000ff">&lt;/</span><span style="color: #800000">input</span><span style="color: #0000ff">&gt;&lt;/</span><span style="color: #800000">td</span><span style="color: #0000ff">&gt;</span>
-    <span style="color: #0000ff">&lt;/</span><span style="color: #800000">tr</span><span style="color: #0000ff">&gt;</span>
-    <span style="color: #0000ff">&lt;</span><span style="color: #800000">tr</span><span style="color: #0000ff">&gt;</span>
-        <span style="color: #0000ff">&lt;</span><span style="color: #800000">td</span><span style="color: #0000ff">&gt;&lt;</span><span style="color: #800000">input</span> <span style="color: #ff0000">type</span><span style="color: #0000ff">="checkbox"</span><span style="color: #0000ff">&gt;</span>2<span style="color: #0000ff">&lt;/</span><span style="color: #800000">input</span><span style="color: #0000ff">&gt;&lt;/</span><span style="color: #800000">td</span><span style="color: #0000ff">&gt;</span>
-    <span style="color: #0000ff">&lt;/</span><span style="color: #800000">tr</span><span style="color: #0000ff">&gt;</span>
-    <span style="color: #0000ff">&lt;</span><span style="color: #800000">tr</span><span style="color: #0000ff">&gt;</span>
-        <span style="color: #0000ff">&lt;</span><span style="color: #800000">td</span><span style="color: #0000ff">&gt;&lt;</span><span style="color: #800000">input</span> <span style="color: #ff0000">type</span><span style="color: #0000ff">="checkbox"</span><span style="color: #0000ff">&gt;</span>3<span style="color: #0000ff">&lt;/</span><span style="color: #800000">input</span><span style="color: #0000ff">&gt;&lt;/</span><span style="color: #800000">td</span><span style="color: #0000ff">&gt;</span>
-    <span style="color: #0000ff">&lt;/</span><span style="color: #800000">tr</span><span style="color: #0000ff">&gt;</span>
-    <span style="color: #0000ff">&lt;</span><span style="color: #800000">tr</span><span style="color: #0000ff">&gt;</span>
-        <span style="color: #0000ff">&lt;</span><span style="color: #800000">td</span><span style="color: #0000ff">&gt;&lt;</span><span style="color: #800000">input</span> <span style="color: #ff0000">type</span><span style="color: #0000ff">="checkbox"</span><span style="color: #0000ff">&gt;</span>4<span style="color: #0000ff">&lt;/</span><span style="color: #800000">input</span><span style="color: #0000ff">&gt;&lt;/</span><span style="color: #800000">td</span><span style="color: #0000ff">&gt;</span>
-    <span style="color: #0000ff">&lt;/</span><span style="color: #800000">tr</span><span style="color: #0000ff">&gt;</span>
-    <span style="color: #0000ff">&lt;</span><span style="color: #800000">tr</span><span style="color: #0000ff">&gt;</span>
-        <span style="color: #0000ff">&lt;</span><span style="color: #800000">td</span><span style="color: #0000ff">&gt;&lt;</span><span style="color: #800000">input</span> <span style="color: #ff0000">type</span><span style="color: #0000ff">="checkbox"</span><span style="color: #0000ff">&gt;</span>5<span style="color: #0000ff">&lt;/</span><span style="color: #800000">input</span><span style="color: #0000ff">&gt;&lt;/</span><span style="color: #800000">td</span><span style="color: #0000ff">&gt;</span>
-    <span style="color: #0000ff">&lt;/</span><span style="color: #800000">tr</span><span style="color: #0000ff">&gt;</span>
-<span style="color: #0000ff">&lt;</span><span style="color: #800000">table</span><span style="color: #0000ff">&gt;</span></pre>
-</div>
-
-
-<p>&nbsp;</p>
-
-
-<p>With no IDs or attributes. Let&#8217;s add those to each checkbox.</p>
-
-
-<div>
-<pre style="border-style: none; margin: 0px; padding: 0px; overflow: visible; line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt;">writer.WriteBeginTag("input");
-writer.WriteAttribute("type", "checkbox");
-writer.WriteAttribute("name", UniqueID + this.IdSeparator + repeatIndex.ToString(NumberFormatInfo.InvariantInfo));
-writer.WriteAttribute("id", ClientID + this.ClientIDSeparator + repeatIndex.ToString(NumberFormatInfo.InvariantInfo));
-           
-if (Items[repeatIndex].Selected)
-    writer.WriteAttribute("checked", "checked");
-
-System.Web.UI.AttributeCollection attrs = Items[repeatIndex].Attributes;
-foreach (string key in attrs.Keys)
-{
-    writer.WriteAttribute(key, attrs[key]);
-}
-writer.Write("<span style="color: #0000ff">&gt;</span>");
-writer.Write(Items[repeatIndex].Text);
-writer.WriteEndTag("input");</pre>
-</div>
-
-
-<div>&nbsp;</div>
-
-
-<p>We have also added the &#8220;checked&#8221; to each checkbox. Now we are ready to insert the &#8220;missing&#8221; value attribute. Adding the following line will resolve the problem.</p>
-
-
-<div>
-<pre style="border-style: none; margin: 0px; padding: 0px; overflow: visible; line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt;">writer.WriteAttribute("value", Items[repeatIndex].Value);</pre>
-</div>
-
-
-<div>&nbsp;</div>
-
-
-<p>Complete control code :</p>
-
-
-<div>
-<pre style="border-style: none; margin: 0px; padding: 0px; overflow: visible; line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt;">namespace yourNamespace
-{
-    public class CheckBoxListFixed : CheckBoxList, IRepeatInfoUser
-    {
-        void IRepeatInfoUser.RenderItem(ListItemType itemType, int repeatIndex, RepeatInfo repeatInfo, HtmlTextWriter writer)
-        {
-            writer.WriteBeginTag("input");
-            writer.WriteAttribute("type", "checkbox");
-            writer.WriteAttribute("name", UniqueID + this.IdSeparator + repeatIndex.ToString(NumberFormatInfo.InvariantInfo));
-            writer.WriteAttribute("id", ClientID + this.ClientIDSeparator + repeatIndex.ToString(NumberFormatInfo.InvariantInfo));
-            writer.WriteAttribute("value", Items[repeatIndex].Value);
-            if (Items[repeatIndex].Selected)
-                writer.WriteAttribute("checked", "checked");
-            System.Web.UI.AttributeCollection attrs = Items[repeatIndex].Attributes;
-            foreach (string key in attrs.Keys)
-            {
-                writer.WriteAttribute(key, attrs[key]);
-            }
-            writer.Write("<span style="color: #0000ff">&gt;</span>");
-            writer.Write(Items[repeatIndex].Text);
-            writer.WriteEndTag("input");
-        }
-    }
-}</pre>
-</div>
-
-
-<p>&nbsp;</p>
-
-
-<p>And here is a bonus : <strong>How to use this control in my code?</strong></p>
-
-
-<p>Supposing the control isn&#8217;t in another library and that you cannot add it to your toolbox, you can always use the Register directive inside your aspx file.</p>
-
-
-<div>
-<pre style="border-style: none; margin: 0px; padding: 0px; overflow: visible; line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt;"><span style="background-color: #ffff00">&lt;%@ Register TagPrefix="yourPrefix" Namespace="yourNamespace" %&gt;</span></pre>
-</div>
-
-
-<p>Next, you can declare your control with the format</p>
-
-
-<p><strong>&lt;<em>tagprefix:</em>CheckboxListFixed runat=&#8221;server&#8221; id=&#8221;yourID&#8221; /&gt;</strong></p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/6/">&larr; Older</a>
@@ -990,6 +846,10 @@ writer.WriteEndTag("input");</pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/skyrim-a-really-awesome-video/">Skyrim - A really awesome video</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a>
       </li>
     
@@ -1003,10 +863,6 @@ writer.WriteEndTag("input");</pre>
     
       <li class="post">
         <a href="/blog/rerun-all-guards/">Rerun all Guards</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/help-needed-a-backbone-blog/">Help needed, A Backbone blog</a>
       </li>
     
   </ul>

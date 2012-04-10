@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="I have been using NDepend on various project I am working on and there is so much to say that I can&rsquo;t wait to do a full review because I will &hellip;">
+  <meta name="description" content="Yes, it&#8217;s another meta-blogging post (see Jeff Atwood post on meta-blogging). But I think it&#8217;s a relevant one. I finally made the big &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,70 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/another-metablogging-post/">Another meta-blogging post</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-08-12T01:22:00-04:00" pubdate data-updated="true">Aug 12<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Yes, it&#8217;s another meta-blogging post (see Jeff Atwood post on <a href="http://www.codinghorror.com/blog/archives/000297.html" target="_blank">meta-blogging</a>). But I think it&#8217;s a relevant one. I finally made the big move and decided to use an hosting provider to host my blog. And more importantly, I switched from <a href="http://wordpress.com/" target="_blank">WordPress</a> to <a href="http://www.dotnetblogengine.net/" target="_blank">BlogEngine.Net</a>.</p>
+
+
+<p><strong>How I made the choice to go with BlogEngine.NET?</strong></p>
+
+
+<p>Back in July, I decided to create my own blog engine. So I began the development with exactly what I had in mind for the most fantastical blog ever. After a week and really slow progress (I was sure to finish development by the beginning of August, 1 month later), I decided to look at other blog engines to gather idea on architecture and what is needed to be implemented. I looked at Oxite and BlogEngine.NET (since they are in .NET). I had a big surprise. I haven&#8217;t realized coding your own blog was so much work. In fact, BlogEngine.NET was already doing everything that I wanted (except for extension-less url).&nbsp;</p>
+
+
+<p>And the ability to write your own theme is so easy! The BlogEngine.NET really did done a good job.</p>
+
+
+<p><strong>How was the migration?</strong></p>
+
+
+<p>Horrific. WordPress use a proprietary format and can&#8217;t be imported directly into BlogEngine.NET. But it was no big deal since I wanted to reread all post and correct spelling and bad grammar, I decided to recreate them all. I used the WordPress statistics to know which post were the most read and done them first.</p>
+
+
+<p><strong>Uploading to GoDaddy.</strong></p>
+
+
+<p>I&rsquo;m not an expert in hosting server. I guess the experience was relatively easy, if it wasn&rsquo;t for the fact that I abandoned after 2 hours and when getting back, everything was working as expected. The important thing is that it worked and it&rsquo;s fast.</p>
+
+
+<p><strong>My apologies to Wordpress.</strong></p>
+
+
+<p>I have nothing against you, really. You are a great service and a wonderful blogging platform. For 2 years you made blogging a unique experience. But my world is in .NET and you are not written in it. But again, thank you!</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -543,104 +607,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/subtle-deadly-bug/">Subtle deadly bug</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-04-28T09:12:00-04:00" pubdate data-updated="true">Apr 28<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I almost never give my opinion about code I see, but I felt this one was interesting and educative. It all started while working on a legacy project (an ASP.NET web application), I found out that most connections were not closed. So I fixed them all and making sure every connection was closed once the I finished with it, should an error occurred or not.</p>
-
-
-<div id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E6:8118b2d6-5135-47d0-b247-ef271923e7a1" class="wlWriterSmartContent" style="display:inline;float:none;margin:0;padding:0;">
-<pre style="background-color:#FFFFFF;white-space:pre-wrap;overflow:auto;"><span style="color:#0000FF;">try</span><span style="color:#000000;">
-{
-    </span><span style="color:#0000FF;">using</span><span style="color:#000000;"> (IDataReader reader </span><span style="color:#000000;">=</span><span style="color:#000000;"> SqlHelper.ExecuteReader(Sql.MainConnection, </span><span style="color:#800000;">"</span><span style="color:#800000;">sp_name</span><span style="color:#800000;">"</span><span style="color:#000000;">, paramter1, parameter2))
-    {
-        </span><span style="color:#0000FF;">while</span><span style="color:#000000;"> (dr.Read())
-        {
-            </span><span style="color:#008000;">//</span><span style="color:#008000;">do something</span><span style="color:#008000;">
-</span><span style="color:#000000;">        }
-    }
-}
-</span><span style="color:#0000FF;">finally</span><span style="color:#000000;">
-{
-    Sql.MainConnection.Close();
-}
-</span></pre>
-<p><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></p>
-</div>
-
-
-<p>&nbsp;</p>
-
-
-<p>Pretty basic stuff. Today I deployed the application to a server for some testing. After two or&nbsp; three users getting in, Boumm! SQL Server is dead. I check the activity monitor and found out that a hundred connections were still open. The reason is : I have wrongly assumed that a static class in the project was providing me with a connection that was shared between all data access class.</p>
-
-
-<p>I was sure I was closing all the connection, but I ended up closing nothing.&nbsp; Let&rsquo;s take a look at the MainConnection property of the Sql class :</p>
-
-
-<div id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E6:01969617-5143-4414-a4b7-7872c03b234f" class="wlWriterSmartContent" style="display:inline;float:none;margin:0;padding:0;">
-<pre style="background-color:#FFFFFF;overflow:auto;"><span style="color:#0000FF;">public</span><span style="color:#000000;"> </span><span style="color:#0000FF;">static</span><span style="color:#000000;"> SqlConnection GetMainConnection
-{
-    </span><span style="color:#0000FF;">get</span><span style="color:#000000;"> { </span><span style="color:#0000FF;">return</span><span style="color:#000000;"> </span><span style="color:#0000FF;">new</span><span style="color:#000000;"> SqlConnection(</span><span style="color:#800000;">"</span><span style="color:#800000;">connectionstring</span><span style="color:#800000;">"</span><span style="color:#000000;">); }
-}</span></pre>
-<p><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></p>
-</div>
-
-
-<p>Each time I was accessing the database, and it was accessed a lot (20 times per request), I ended up with a lot of open connections. Enough to make SQL Server unavailable for some time. You could argue that it was my mistake and I shouldn&rsquo;t be assuming things like this. But in my opinion, it&rsquo;s a case of bad naming. The choice of name for the property that return me a connection was inconstant. If I access a property, I assumed that if I call it five times in a row, I would have five times the same result. The best choice would have been to create a method that return a new connection and name it accordingly.</p>
-
-
-<div id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E6:bfa7123c-52b7-4563-821f-c65f85cb9f1a" class="wlWriterSmartContent" style="display:inline;float:none;margin:0;padding:0;">
-<pre style="background-color:#FFFFFF;overflow:auto;"><span style="color:#0000FF;">public</span><span style="color:#000000;"> </span><span style="color:#0000FF;">void</span><span style="color:#000000;"> SqlConnection GetNewSqlConnection()
-{
-    </span><span style="color:#0000FF;">return</span><span style="color:#000000;"> </span><span style="color:#0000FF;">new</span><span style="color:#000000;"> SqlConnection(</span><span style="color:#800000;">"</span><span style="color:#800000;">connectionString</span><span style="color:#800000;">"</span><span style="color:#000000;">);
-}</span></pre>
-<p><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></p>
-</div>
-
-
-<p>It would have reduced the ambiguity and would have been a lot more easy to read. Good naming is very important and can greatly enhance productivity on a project. Good code should be easy to read and you should not ask yourself if a calling a method would cause side-effects or not doing what it said it should.</p>
-
-
-<p>&nbsp;</p>
-
-
-<div id="scid:d7bf807d-7bb0-458a-811f-90c51817d5c2:d29c8c0a-0596-4844-956f-a942b68268e0" class="wlWriterSmartContent" style="display:inline;float:none;margin:0;padding:0;">
-<p><span class="TagSite">Technorati:</span> <a class="tag" rel="tag" href="http://technorati.com/tag/Learning">Learning</a>, <a class="tag" rel="tag" href="http://technorati.com/tag/.NET">.NET</a>, <a class="tag" rel="tag" href="http://technorati.com/tag/SQL+Server">SQL Server</a>, <a class="tag" rel="tag" href="http://technorati.com/tag/DataAccess">DataAccess</a><br /> <!-- StartInsertedTags: Learning, .NET, SQL Server, DataAccess :EndInsertedTags --></p>
-</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/8/">&larr; Older</a>
@@ -672,6 +638,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/skyrim-a-really-awesome-video/">Skyrim - A really awesome video</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a>
       </li>
     
@@ -685,10 +655,6 @@
     
       <li class="post">
         <a href="/blog/rerun-all-guards/">Rerun all Guards</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/help-needed-a-backbone-blog/">Help needed, A Backbone blog</a>
       </li>
     
   </ul>
