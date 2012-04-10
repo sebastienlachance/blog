@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Watch and cry (of course I&#8217;m not crying for real). The Last Lecture | Randy Pausch ">
+  <meta name="description" content="I&#8217;m always wondering about what should I be blogging today. But not today. I want to give back some of the stuff I&#8217;ve learned in the past &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,128 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/visual-studio-20052008-starting-a-solution-correctly/">Visual Studio 2005/2008 : Starting a solution correctly</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-10-10T08:30:00-04:00" pubdate data-updated="true">Oct 10<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;m always wondering about what should I be blogging today. But not today. I want to give back some of the stuff I&#8217;ve learned in the past years. The question was : I&#8217;m starting with what? After some time, it struck me right in the face. I know that some people would prefer using notepad over Visual Studio, but I&#8217;m not there to discuss that. I found that mastering an editor is a great to get started and will allow you more time to code and less time to wonder where is the option that will highlight the file you are in. So the first posts will be about Visual Studio 2005. And the very first is about how to start a solution correctly.</p>
+
+
+
+
+<h2>Why?</h2>
+
+
+
+
+<p>
+Given the number of people I helped with that, I think this is something you should know. You should not start be creating a project. Doing that will lead you to a messy folder hierarchy and a wrong solution name.
+</p>
+
+
+
+
+<h2>When?</h2>
+
+
+
+
+<p>
+Everytime you start a solution.
+</p>
+
+
+
+
+<h2>How?</h2>
+
+
+
+
+<p>
+You start by clicking File\New\Project&#8230; or Ctrl-Shift-N.
+</p>
+
+
+
+
+<p>
+<a href="http://www.flickr.com/photos/63483657@N00/1534280146/" title="FileNewProject"><img src="http://static.flickr.com/2107/1534280146_35c54906fc.jpg" alt="FileNewProject" border="0" /></a>
+</p>
+
+
+
+
+<p>
+In tree on the left you need to go to the Other Project Types node and select Visual Studio Solutions. You now have the choice of selecting the Blank Solution item. You should notice that the checkbox for the Create directory for solution is grayed out, this means that a directory will be created for the solution. In our case, it will be : C:\dev\dotnet\Solution1. This folder will also contains a Solution1.sln and Solution1.suo. This is exactly what we want, every project you will add will be placed in this folder. The hierarchy you see in the Solution Explorer will be the same as your solution.
+</p>
+
+
+
+
+<p>
+<a href="http://www.flickr.com/photos/63483657@N00/1534280372/" title="BlankSolution"><img src="http://static.flickr.com/2026/1534280372_70567c2cf9.jpg" alt="BlankSolution" border="0" /></a>
+</p>
+
+
+
+
+<p>
+<u><strong>.sln file</strong></u>
+</p>
+
+
+
+
+<p>
+This is the solution file that Visual Studio will use to load all project associated with the solution. As well as other options that does not need to be covered now.
+</p>
+
+
+
+
+<p>
+<strong><u>.suo file</u></strong>
+</p>
+
+
+
+
+<p>
+This binary file contains information about what files were currently in edition, collapsed nodes, etc. When you close and reopen Visual Studio 2005, it will read this file to replace it the way it was before.
+</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -595,43 +717,6 @@ I highly encourage you to check <em><a href="http://www.hanselman.com/Tools">&#8
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/back-from-my-2-weeks-vacation/">Back from my 2 weeks vacation</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-08-22T11:56:00-04:00" pubdate data-updated="true">Aug 22<span>nd</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>A lot happen in the past weeks. First of all, this blog has reached 1000 visits. I&#8217;m extremely proud of that and I will try to maintain this constant growth. Next, my house is almost done, finally. This is a <a href="http://www.profab.ca/">Profab</a> house which is in the <a href="http://oee.nrcan.gc.ca/residential/personal/new-homes/novoclimat.cfm?attr=4">NovoClimat</a> category. I expect to move in in 2 or 3 weeks.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/16/">&larr; Older</a>
@@ -663,6 +748,10 @@ I highly encourage you to check <em><a href="http://www.hanselman.com/Tools">&#8
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/available/">Available</a>
       </li>
     
@@ -676,10 +765,6 @@ I highly encourage you to check <em><a href="http://www.hanselman.com/Tools">&#8
     
       <li class="post">
         <a href="/blog/help-needed-a-backbone-blog/">Help needed, A Backbone blog</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/filling-a-select-from-an-array-on-javascript-object/">Filling a select from an array on javascript object</a>
       </li>
     
   </ul>

@@ -799,12 +799,18 @@
         <lastmod>2012-04-09T12:37:17-04:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://sebastienlachance.com/blog/completely-unrealistic-example-a-backbone-blog/
+        </loc>
+        <lastmod>2012-04-10T07:53:05-04:00</lastmod>
+    </url>
+    <url>
         <loc>http://sebastienlachance.com/blog/archives/</loc>
-        <lastmod>2012-04-09T14:03:50-04:00</lastmod>
+        <lastmod>2012-04-10T07:53:05-04:00</lastmod>
     </url>
     <url>
         <loc>http://sebastienlachance.com/</loc>
-        <lastmod>2012-04-09T14:03:50-04:00</lastmod>
+        <lastmod>2012-04-10T07:53:05-04:00</lastmod>
     </url>
     <url>
         <loc>http://sebastienlachance.com/new-page/</loc>

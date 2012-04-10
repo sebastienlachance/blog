@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: consulting | Sebastien Lachance]]></title>
+  <link href="http://sebastienlachance.com/blog/categories/consulting/atom.xml" rel="self"/>
+  <link href="http://sebastienlachance.com/"/>
+  <updated>2012-04-10T07:53:42-04:00</updated>
+  <id>http://sebastienlachance.com/</id>
+  <author>
+    <name><![CDATA[Sebastien Lachance]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Available]]></title>
+    <link href="http://sebastienlachance.com/blog/available/"/>
+    <updated>2012-04-06T15:12:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/available</id>
+    <content type="html"><![CDATA[<p>I am now available to do freelance web development. Contract or on site.</p>
+
+<p>I have experience in ASP.NET (MVC or WebForms) and Ruby On Rails. HTML, Javascript and CSS, no problem.</p>
+
+<p>You can see my CV here (<a href="/resume">CV</a>).</p>
+
+<p>I can be on site if you are in the area or work remotely (I also have experience in that).</p>
+
+<p>I am looking forward to accept new challenges and deliver WORKING solutions!</p>
+
+<p>You can contact me here (<a href="http://twitter.com/slachance">Twitter</a>), (<a href="http://www.linkedin.com/in/sebastienlachance">LinkedIn</a>) or here (at sebastien.lachance creatiom.com).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Disponible pour mandat de développement]]></title>
+    <link href="http://sebastienlachance.com/blog/disponible/"/>
+    <updated>2012-04-06T13:30:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/disponible</id>
+    <content type="html"><![CDATA[<p>Je suis maintenant disponible pour des mandats de développement Web à la pige. Contrat ou sur place.</p>
+
+<p>J'ai de l'expérience en ASP.NET (MVC ou WebForms) et Ruby On Rails. HTML, Javascript et CSS, aucun problème.</p>
+
+<p>Vous pouvez consultez mon CV ici (<a href="/resume">CV</a>).</p>
+
+<p>Je peux me déplacer si vous êtes dans la région ou travailler à distance (j'ai aussi de l'expérience dans ça).</p>
+
+<p>J'ai très hâte de relever de nouveaux défis et de livrer des solutions qui FONCTIONNENT.</p>
+
+<p>Vous pouvez me contactez ici (<a href="http://twitter.com/slachance">Twitter</a>), ici (<a href="http://www.linkedin.com/in/sebastienlachance">LinkedIn</a>) ou ici (sebastien.lachance at creatiom.com).</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="I am now available to do freelance web development. Contract or on site. I have experience in ASP.NET (MVC or WebForms) and Ruby On Rails. HTML, &hellip;">
+  <meta name="description" content="Last week, while I was playing and coding on my Backbone blog project (backbone-rails-blog), I started wondering if it was something I could use to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,60 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-10T06:00:00-04:00" pubdate data-updated="true">Apr 10<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Last week, while I was playing and coding on my Backbone blog project (<a href="https://github.com/sebastienlachance/backbone-rails-blog">backbone-rails-blog</a>), I started wondering if it was something I could use to replace this blog, since I put so much time on it lately. But at the same time I kept telling myself, <strong>is Google going to index the content?</strong> The short answer is: <strong>NO</strong>, not now anyway.</p>
+
+<p>The long answer goes like this: Facebook comments are indexed. So there should be a way to provide this content to GoogleBot. I have done my homework and this document, <a href="https://developers.google.com/webmasters/ajax-crawling/docs/getting-started">Making Ajax Applications Crawlable</a>) provides some answers. Basically, we need the <a href="http://en.wikipedia.org/wiki/Shebang_(Unix">hashbang</a>) url format. This is achieved with Backbone when we are not using pushstate.</p>
+
+<p>Hashbang url:</p>
+
+<pre><code>http://sebastienlachance.com#!blog-post
+</code></pre>
+
+<p>My urls:</p>
+
+<pre><code>http://sebastienlachacne.com/blog-post
+</code></pre>
+
+<p>And frankly, I will not pursue this path. In my case anyway, it provides no real advantages to have an Ajax-powered blog.</p>
+
+<p>In fact, I could have left Backbone and only use it on the admin backend, but as a learning tool, I didn&#8217;t want to revert back (and there is so much great blogging platform now anyway).</p>
+
+<p>Do you have any other web apps ideas (other than a todo list or blog)? In my next iteration (that is, the next app), I will be using Backbone with NodeJs and MongoDB. Sounds fun.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -731,64 +785,6 @@ it("should render an h2 title', function() {
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/mastering-backbone-day-0/">Mastering Backbone - Day 0</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-02-02T19:42:00-05:00" pubdate data-updated="true">Feb 2<span>nd</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="/images/backbone.png" title="backbone.js" ></p>
-
-<p>I have now officially started the development for my new web application. I will not go into details right now, since everything is to be made, and a lot of very important decisions are to be made.</p>
-
-<p>What I can say is that it will be a Web Application running on Rails. I&#8217;m still struggling on whether to use PostgresSQL, MySQL or MongoDB.</p>
-
-<p>One of the big design decision was the choice of the client-side framework. I know I wanted a rich and fast user experience and to use Javascript heavily. So, I decided to go with <a href="http://documentcloud.github.com/backbone/" title="Backbone.js">Backbone</a>. And I have no experience with it apart from the <a href="http://peepcode.com/products/backbone-js" title="Backbone.js on Peepcode">Peepcode screencasts</a>.</p>
-
-<p>I have no idea how to apply it to my application domain. It will be hard, but worth it.</p>
-
-<h2>What is Backbone?</h2>
-
-<p><strong>Backbone is a framework to create data-driven application in Javascript.</strong></p>
-
-<p>As much as I love CoffeeScript, I will not use it to learn Backbone.</p>
-
-<p>I will use Jasmine for testing.</p>
-
-<h2>Why Backbone and not Knockout or any other javascript framework?</h2>
-
-<p>From what I heard, Backbone is hard to learn, but from those who use it, it&#8217;s totally worth a try. And I heard so much great things from a lot of different developers. They couldn&#8217;t be all wrong.</p>
-
-<p>So let&#8217;s get coding. Expect another blog post later for the first impressions.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -818,6 +814,10 @@ it("should render an h2 title', function() {
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/available/">Available</a>
       </li>
     
@@ -831,10 +831,6 @@ it("should render an h2 title', function() {
     
       <li class="post">
         <a href="/blog/help-needed-a-backbone-blog/">Help needed, A Backbone blog</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/filling-a-select-from-an-array-on-javascript-object/">Filling a select from an array on javascript object</a>
       </li>
     
   </ul>
