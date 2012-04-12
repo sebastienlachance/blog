@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="I want to thank everybody who has been visiting my blog. I have now reach 6000 hits with an average of 60 hits per day. I will keep raising my bar to &hellip;">
+  <meta name="description" content="&lt;p&gt;I was wondering when this day would come. When I&#8217;d start thinking in term of object. This change in paradigm was not easy. I started &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,43 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/mind-shift/">Mind shift</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-14T04:13:00-05:00" pubdate data-updated="true">Jan 14<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>&lt;p&gt;I was wondering when this day would come. When I&#8217;d start thinking in term of object. This change in paradigm was not easy. I started programming using the data-centric way and was submerged by it. I was struggling to get rid on this kind of thinking. I&#8217;ve read multiple book before : Agile Software Development, Object Thinking, Refactoring, etc. But this was hard to me. However, 6 months ago, I finally landed on an Agile team. I got a hard time changing the way I was thinking because I was sure that I was understanding object-oriented development.&lt;/p&gt;<br /><br />&lt;p&gt;For me, the revelation occurred in this team. There I was introduced to my first test-driven project. One of the team members and a consultant for the company was previously working for Object Mentor. I needed to be up to the task, and immerged myself completely into it. I was reading the code of the project regularly and tried to do the same thing. I made mistakes, lots of mistakes, but I learned from them (even if I was not being directed in the right way after making them, but this is another story). Unfortunately the project was put to an halt and I had to get back to the old project, the one that became so complicated that I had abandoned all hope of doing something right with it. I was wrong, this was a wonderful opportunity and this is where the mind shift occurred. I started doing some unit tests and when I was comfortable with the coverage of a certain part, refactor to reflect a more object-oriented and easier to understand ways. I learned about Inversion Of Control (IoC), Dependency Injection, Mocking, Domain-Driven Design and Design Pattern. I also started to read my books back. I re-read Code Complete, Refactor and Object-Design Heuristics, and I am planning to read a lot more. I also adopted many of the Agile practices. This was not hard, since I had worked on project that had big upfront design, and after every release, we were deploying every week a new versions because of the bugs we had found or enhancements the clients wanted. This was just the natural thing to do and I firmly believe this is a good road to follow.&lt;/p&gt;<br /><br />&lt;p&gt;Now, If I could only get a new challenge to push my limits and learn more!&lt;/p&gt;</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1072,103 +1109,6 @@ This is what the NAnt section look like:
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/setting-up-a-subversion-server-%28using-svnserve%29/">Setting up a Subversion server (using svnserve)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-11-29T07:44:00-05:00" pubdate data-updated="true">Nov 29<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://sebastienlachance.com/building-a-new-application-series/">(Index of the whole series)</a></p>
-
-
-<p>I got hold of an old computer that I will be able to use as a continuous integration server and Subversion repository. This weekend, I got some free time and decided to set-up Subversion on it. I was surprised on how much it was easy. The documentation is all but superfluous and it was very instructive. So here is how you can do it.</p>
-
-
-<p><strong>Downloading and installing subversion</strong></p>
-
-
-<p>You can find the latest version <a href="http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91">on this page</a>. I used the <a href="http://subversion.tigris.org/files/documents/15/39559/svn-1.4.5-setup.exe">svn-1.4.5-setup.exe</a> one. Just install it like any other program, there is no additional things to modify in the setup.</p>
-
-
-<p><strong>Setting up a repository</strong></p>
-
-
-<p>You may want to create a repository right now to make sure that you can make some test later. I recommend using <a href="http://tortoisesvn.tigris.org/">TortoiseSVN</a> for that, unless you want to learn all the command to use Subversion (not so hard to do). To do that, you simply need to create a folder that you want as a repository (this folder will hold all your files and every change made to them), and right click on it. Select the <strong>TortoiseSVN\Create repository here</strong> menu items and select the Native File System (FSFS) radio button. You now have fully working repository. For a comparison of Native File System versus Berkeley Database, take a look at this : <a href="http://svn.apache.org/repos/asf/subversion/trunk/notes/fsfs">Native File System versus Berkeley Database</a>.</p>
-
-
-<p><a title="createrepository" href="http://www.flickr.com/photos/63483657@N00/2066565635/"><img src="http://static.flickr.com/2218/2066565635_122648ef83.jpg" border="0" alt="createrepository" /></a></p>
-
-
-<p><strong>svnserve</strong></p>
-
-
-<p>You then have two choices to use Subversion remotely. First one is to use the Apache HTTP server and the second one is to use svnserve. I have decided to use svnserve because it&#8217;s a lightweight server program and I don&#8217;t need encryption and logging. Also svnserve is a lot faster and it&#8217;s the best options for small teams. You may want to make sure you are able to access it. Open a command prompt and type svnserve. You should see the following :</p>
-
-
-<p><a title="svnserve-commandprompt" href="http://www.flickr.com/photos/63483657@N00/2065650429/"><img src="http://static.flickr.com/2152/2065650429_5fcea341c8.jpg" border="0" alt="svnserve-commandprompt" /></a></p>
-
-
-<p>If you still planning to use svnserve right now, you have two choices : install it as a service or open it each time you want to access a repository.</p>
-
-
-<p>If you are planning to open it each time you want to access your repository, launch a command prompt and type <strong>svnserve -d</strong>. You have access to all the repositories you may have created on the server.</p>
-
-
-<p>If, however, you decide to use it as a Windows Service (it will reopen automatically each time you start the server), Use this at a command prompt :</p>
-
-
-<p><strong>C:\&gt; sc create svn binpath= &#8220;&#34;C:\program files\svn\bin\svnserve.exe&#34; &#8211;service -r C:\nameofyourrepository&#8221; displayname= &#8220;Subversion Server&#8221; depend= Tcpip start= auto</strong></p>
-
-
-<p><strong>Controlling access</strong></p>
-
-
-<p>If you attempted to use this right now to make a check-in, you will find that you don&#8217;t have Write access. This can be changed by editing the svnserve.conf found in your repository folder. You need to find the <strong># anon-access = read</strong> and change it to <strong>anon-access = write </strong>(don&#8217;t forget to remove #)<strong>. </strong>This will grant write access to all anonymous users. This is not the ideal, but in a single programmer scenario it works perfectly. However, note that if you need a more robust authentication solution, it&#8217;s totally possible. I will not cover it right now, but the full procedure is described in the TortoiseSVN documentation (Section 3.2.4).</p>
-
-
-<p><a title="svnservedotconf" href="http://www.flickr.com/photos/63483657@N00/2066587611/"><img src="http://static.flickr.com/2232/2066587611_f8b0676611.jpg" border="0" alt="svnservedotconf" /></a></p>
-
-
-<p>&nbsp;</p>
-
-
-<p><strong>Accessing the repository remotely</strong></p>
-
-
-<p>Open the repository browser (shown below) and type <strong>svn://nameofyourserver/nameofyourrepository</strong>. Can it be more easy?</p>
-
-
-<p><a title="access" href="http://www.flickr.com/photos/63483657@N00/2067411144/"><img src="http://static.flickr.com/2126/2067411144_580c22ef46.jpg" border="0" alt="access" /></a></p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/14/">&larr; Older</a>
@@ -1200,6 +1140,10 @@ This is what the NAnt section look like:
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/asp-dot-net-mvc-actionlink-with-image/">ASP.NET MVC ActionLink with image</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/skyrim-a-really-awesome-video/">Skyrim - A really awesome video</a>
       </li>
     
@@ -1213,10 +1157,6 @@ This is what the NAnt section look like:
     
       <li class="post">
         <a href="/blog/disponible/">Disponible pour mandat de développement</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/rerun-all-guards/">Rerun all Guards</a>
       </li>
     
   </ul>

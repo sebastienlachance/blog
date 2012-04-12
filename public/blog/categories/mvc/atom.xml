@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: mvc | Sebastien Lachance]]></title>
+  <link href="http://sebastienlachance.com/blog/categories/mvc/atom.xml" rel="self"/>
+  <link href="http://sebastienlachance.com/"/>
+  <updated>2012-04-12T07:59:40-04:00</updated>
+  <id>http://sebastienlachance.com/</id>
+  <author>
+    <name><![CDATA[Sebastien Lachance]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[ASP.NET MVC ActionLink with image]]></title>
+    <link href="http://sebastienlachance.com/blog/asp-dot-net-mvc-actionlink-with-image/"/>
+    <updated>2012-04-12T07:49:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/asp-dot-net-mvc-actionlink-with-image</id>
+    <content type="html"><![CDATA[<p>It's not as hard as it seems. This is a way to create a link with an image.</p>
+
+<p><code>csharp link to action with an image
+&lt;a href="@Url.Action("Create", "LogBooks")"&gt;
+  &lt;img src="@Url.Content("~/Content/Images/create.png")" /&gt;
+&lt;/a&gt;
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>

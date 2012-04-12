@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Edit : This is an old post back from november 2008 on my old blog. Since I had this problem today, I though it would be a good idea to share it again &hellip;">
+  <meta name="description" content="HTTP Error 404.3 - Not Found The page you are requesting cannot be served because of the extension configuration. If the page is a script, add a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,64 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/adding-a-mime-map-in-iis/">Adding a MIME map in IIS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-01-13T05:16:00-05:00" pubdate data-updated="true">Jan 13<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>HTTP Error 404.3 - Not Found</strong></p>
+
+
+<p><em>The page you are requesting cannot be served because of the extension configuration. If the page is a script, add a handler. If the file should be downloaded, add a MIME map.</em></p>
+
+
+<p>I got this error when trying to let user download .dwg files in IIS 7.5 but a MIME map was not created. Any uncommon files will get you this error. Fortunately, it&rsquo;s very easy to do.</p>
+
+
+<p>Open IIS and navigate to your site. Now click on <strong>MIME Type</strong> (shown below).</p>
+
+
+<p><a href="http://sebastienlachance.com/image.axd?picture=finding-mime-type-in-iis.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="finding mime type in iis" src="http://sebastienlachance.com/image.axd?picture=finding-mime-type-in-iis_thumb.png" border="0" alt="finding mime type in iis" width="505" height="484" /></a></p>
+
+
+<p>Right click and select <strong>Add </strong>(or click Add&hellip; in the right-side menu). You are now presented with a dialog requesting you to enter your filename extension and the MIME type (<a title="A list of possible MIME types" href="http://www.webmaster-toolkit.com/mime-types.shtml" target="_blank">list of possible MIME types</a>). This will enable you to associate a file extension with a type of content.</p>
+
+
+<p><a href="http://sebastienlachance.com/image.axd?picture=adding-a-mime-type.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="adding a mime type" src="http://sebastienlachance.com/image.axd?picture=adding-a-mime-type_thumb.png" border="0" alt="adding a mime type" width="644" height="376" /></a></p>
+
+
+<p><span style="color: #222222; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; line-height: 17px;">H2R77MC2M35K&nbsp;</span></p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -725,59 +783,6 @@ writer.WriteEndTag("input");</pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/resetting-teamcity-password/">Resetting TeamCity Password</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-08-12T08:24:00-04:00" pubdate data-updated="true">Aug 12<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&rsquo;m using TeamCity Version 4.5.3 (build 9035) and today I really couldn&rsquo;t remember my password. After searching for a while and trying various solutions, I have found this one working perfectly.</p>
-
-
-<p><strong>Solution : </strong></p>
-
-
-<p>Open a command prompt and go to &lt;installation folder&gt;\webapps\ROOT\WEB-INF\lib folder. Now type the following :</p>
-
-
-<div id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E6:12750c8b-b266-435c-9f6b-a799905b3ac9" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">
-<pre style="background-color:#FFFFFF;white-space:-moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; white-space: pre-wrap; word-wrap: break-word;overflow: auto;"><span style="color: #000000;">..\..\..\..\</span><span style="color: #000000;">jre</span><span style="color: #000000;">\</span><span style="color: #000000;">bin</span><span style="color: #000000;">\</span><span style="color: #000000;">java</span><span style="color: #000000;">.</span><span style="color: #000000;">exe -cp server</span><span style="color: #000000;">.</span><span style="color: #000000;">jar</span><span style="color: #000000;">;</span><span style="color: #000000;"> common-api</span><span style="color: #000000;">.</span><span style="color: #000000;">jar</span><span style="color: #000000;">;</span><span style="color: #000000;">commons-codec-</span><span style="color: #000000;">1.3</span><span style="color: #000000;">.</span><span style="color: #000000;">jar</span><span style="color: #000000;">;</span><span style="color: #000000;">util</span><span style="color: #000000;">.</span><span style="color: #000000;">jar</span><span style="color: #000000;">;</span><span style="color: #000000;">hsqldb</span><span style="color: #000000;">.</span><span style="color: #000000;">jar ChangePassword username newpassword
-
-</span></pre>
-<!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
-
-
-<p>Notes : Change your Java.exe path accordingly. In this case I use the one located in the TeamCity folder.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/7/">&larr; Older</a>
@@ -809,6 +814,10 @@ writer.WriteEndTag("input");</pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/asp-dot-net-mvc-actionlink-with-image/">ASP.NET MVC ActionLink with image</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/skyrim-a-really-awesome-video/">Skyrim - A really awesome video</a>
       </li>
     
@@ -822,10 +831,6 @@ writer.WriteEndTag("input");</pre>
     
       <li class="post">
         <a href="/blog/disponible/">Disponible pour mandat de développement</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/rerun-all-guards/">Rerun all Guards</a>
       </li>
     
   </ul>

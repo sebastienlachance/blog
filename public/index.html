@@ -9,7 +9,10 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="If you&#8217;ve played more than a few hours of Skyrim, this is for you&#8230; ">
+  <meta name="description" content="It&#8217;s not as hard as it seems. This is a way to create a link with an image. link to action with an image1
+2
+3
+&lt;a href=&quot;@Url.Action(& &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +78,51 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/asp-dot-net-mvc-actionlink-with-image/">ASP.NET MVC ActionLink with image</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-12T07:49:00-04:00" pubdate data-updated="true">Apr 12<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It&#8217;s not as hard as it seems. This is a way to create a link with an image.</p>
+
+<figure class='code'><figcaption><span>link to action with an image</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="p">=</span><span class="s">&quot;@Url.Action(&quot;</span><span class="n">Create</span><span class="s">&quot;, &quot;</span><span class="n">LogBooks</span><span class="s">&quot;)&quot;</span><span class="p">&gt;</span>
+</span><span class='line'>  <span class="p">&lt;</span><span class="n">img</span> <span class="n">src</span><span class="p">=</span><span class="s">&quot;@Url.Content(&quot;</span><span class="p">~/</span><span class="n">Content</span><span class="p">/</span><span class="n">Images</span><span class="p">/</span><span class="n">create</span><span class="p">.</span><span class="n">png</span><span class="s">&quot;)&quot;</span> <span class="p">/&gt;</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">a</span><span class="p">&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -542,52 +590,6 @@ gem 'bcrypt-ruby', '~&gt; 3.0.0'</code></pre></noscript></div>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/startup-camp-quebec/">Startup Camp Quebec</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-02-13T12:11:00-05:00" pubdate data-updated="true">Feb 13<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img class="left" src="/images/startupcampquebec.jpg" title="Startup Camp Québec" ></p>
-
-<p>Jeudi dernier, avait lieu l&#8217;événement <a href="http://www.startupcampquebec.com">Startup Camp Québec</a>.</p>
-
-<p>Je ne suis pas un habitué de ces événements même si j&#8217;ai <a href="http://www.guidedescommercesdebeauce.com">ma propre compagnie</a> et ait participé à quelques coktails et diners aux homards (j&#8217;aime pas le homard). C&#8217;était quand un monde nouveau avec de nouvelles personnes.</p>
-
-<p>Il y avait 8 startups qui présentaient leur produits. J&#8217;ai bien aimé les présentations, et j&#8217;ai beaucoup accroché sur quelques projets. Particulièrement le projet Trapèze École de <a href="http://mx4.yolasite.com/">MX4</a>. Ils ont créer une manière de gérer les horaires dans les écoles, et ca, c&#8217;est ce que j&#8217;appelle trouver des solutions à un problème.</p>
-
-<p>Mais le grand gagnant de cette édition est <a href="http://theriansaga.fatecraft.com/">FateCraft</a>, qui développe des jeux sociaux.</p>
-
-<p>Je n&#8217;ai malheureusement pu rester jusqu&#8217;à la fin et voir la remise des prix. Mais je souhaite quand même bonne chance à toutes ces jeunes entreprises et puissent-elles continuer malgré toutes les embuches qui peuvent se présenter devant elles.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -617,6 +619,10 @@ gem 'bcrypt-ruby', '~&gt; 3.0.0'</code></pre></noscript></div>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/asp-dot-net-mvc-actionlink-with-image/">ASP.NET MVC ActionLink with image</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/skyrim-a-really-awesome-video/">Skyrim - A really awesome video</a>
       </li>
     
@@ -630,10 +636,6 @@ gem 'bcrypt-ruby', '~&gt; 3.0.0'</code></pre></noscript></div>
     
       <li class="post">
         <a href="/blog/disponible/">Disponible pour mandat de développement</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/rerun-all-guards/">Rerun all Guards</a>
       </li>
     
   </ul>

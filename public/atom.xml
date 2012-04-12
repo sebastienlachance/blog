@@ -4,7 +4,7 @@
   <title><![CDATA[Sebastien Lachance]]></title>
   <link href="http://sebastienlachance.com/atom.xml" rel="self"/>
   <link href="http://sebastienlachance.com/"/>
-  <updated>2012-04-10T18:58:51-04:00</updated>
+  <updated>2012-04-12T07:59:40-04:00</updated>
   <id>http://sebastienlachance.com/</id>
   <author>
     <name><![CDATA[Sebastien Lachance]]></name>
@@ -12,6 +12,24 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ASP.NET MVC ActionLink with image]]></title>
+    <link href="http://sebastienlachance.com/blog/asp-dot-net-mvc-actionlink-with-image/"/>
+    <updated>2012-04-12T07:49:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/asp-dot-net-mvc-actionlink-with-image</id>
+    <content type="html"><![CDATA[<p>It&#8217;s not as hard as it seems. This is a way to create a link with an image.</p>
+
+<figure class='code'><figcaption><span>link to action with an image</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="p">=</span><span class="s">&quot;@Url.Action(&quot;</span><span class="n">Create</span><span class="s">&quot;, &quot;</span><span class="n">LogBooks</span><span class="s">&quot;)&quot;</span><span class="p">&gt;</span>
+</span><span class='line'>  <span class="p">&lt;</span><span class="n">img</span> <span class="n">src</span><span class="p">=</span><span class="s">&quot;@Url.Content(&quot;</span><span class="p">~/</span><span class="n">Content</span><span class="p">/</span><span class="n">Images</span><span class="p">/</span><span class="n">create</span><span class="p">.</span><span class="n">png</span><span class="s">&quot;)&quot;</span> <span class="p">/&gt;</span>
+</span><span class='line'><span class="p">&lt;/</span><span class="n">a</span><span class="p">&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Skyrim - A really awesome video]]></title>
@@ -662,16 +680,6 @@ YAML::ENGINE.yamler= 'syck'
 
 
 <p>bundle install</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[SQL Server Error : failed to retrieve text for this error. Reason 1815]]></title>
-    <link href="http://sebastienlachance.com/blog/sql-server-error-failed-to-retrieve-text-for-this-error-reason-1815/"/>
-    <updated>2011-05-02T03:15:00-04:00</updated>
-    <id>http://sebastienlachance.com/blog/sql-server-error-failed-to-retrieve-text-for-this-error-reason-1815</id>
-    <content type="html"><![CDATA[<p>[No text]</p>
 
 ]]></content>
   </entry>
