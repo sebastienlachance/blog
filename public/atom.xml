@@ -4,7 +4,7 @@
   <title><![CDATA[Sebastien Lachance]]></title>
   <link href="http://sebastienlachance.com/atom.xml" rel="self"/>
   <link href="http://sebastienlachance.com/"/>
-  <updated>2012-04-12T07:59:40-04:00</updated>
+  <updated>2012-04-17T08:02:18-04:00</updated>
   <id>http://sebastienlachance.com/</id>
   <author>
     <name><![CDATA[Sebastien Lachance]]></name>
@@ -12,6 +12,36 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Iterate over each line of a string in C#]]></title>
+    <link href="http://sebastienlachance.com/blog/iterate-over-each-line-of-a-string-in-c-sharp/"/>
+    <updated>2012-04-17T07:53:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/iterate-over-each-line-of-a-string-in-c-sharp</id>
+    <content type="html"><![CDATA[<p>For future reference.</p>
+
+<p>Easy way to go through each line of a string.</p>
+
+<figure class='code'><figcaption><span>string iteration</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">using</span> <span class="p">(</span><span class="n">StringReader</span> <span class="n">reader</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StringReader</span><span class="p">(</span><span class="n">txt</span><span class="p">))</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="kt">string</span> <span class="n">line</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">while</span> <span class="p">((</span><span class="n">line</span> <span class="p">=</span> <span class="n">reader</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">())</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="n">Console</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&quot;do anything with the line);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ASP.NET MVC ActionLink with image]]></title>
@@ -667,19 +697,6 @@ YAML::ENGINE.yamler= 'syck'
 <p>  <pre>parseInt(‘’) == NaN //return false</pre></p>
 
 <pre>isNaN(parseInt(‘’)) //return true</pre>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Learning Rails : Using jQuery instead of Prototype]]></title>
-    <link href="http://sebastienlachance.com/blog/learning-rails-using-jquery-instead-of-prototype/"/>
-    <updated>2011-05-02T05:20:00-04:00</updated>
-    <id>http://sebastienlachance.com/blog/learning-rails-using-jquery-instead-of-prototype</id>
-    <content type="html"><![CDATA[<p>gem &#8220;jquery-rails&#8221;</p>
-
-
-<p>bundle install</p>
 
 ]]></content>
   </entry>

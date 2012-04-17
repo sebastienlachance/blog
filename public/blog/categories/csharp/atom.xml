@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: csharp | Sebastien Lachance]]></title>
+  <link href="http://sebastienlachance.com/blog/categories/csharp/atom.xml" rel="self"/>
+  <link href="http://sebastienlachance.com/"/>
+  <updated>2012-04-17T08:02:18-04:00</updated>
+  <id>http://sebastienlachance.com/</id>
+  <author>
+    <name><![CDATA[Sebastien Lachance]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Iterate over each line of a string in C#]]></title>
+    <link href="http://sebastienlachance.com/blog/iterate-over-each-line-of-a-string-in-c-sharp/"/>
+    <updated>2012-04-17T07:53:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/iterate-over-each-line-of-a-string-in-c-sharp</id>
+    <content type="html"><![CDATA[<p>For future reference.</p>
+
+<p>Easy way to go through each line of a string.</p>
+
+<p>``` csharp string iteration
+using (StringReader reader = new StringReader(txt))
+{</p>
+
+<pre><code>string line;
+while ((line = reader.ReadLine()) != null)
+{
+    Console.Log("do anything with the line);
+}
+</code></pre>
+
+<p>}
+```</p>
+]]></content>
+  </entry>
+  
+</feed>

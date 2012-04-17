@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="(Index of the whole series) I got hold of an old computer that I will be able to use as a continuous integration server and Subversion repository. &hellip;">
+  <meta name="description" content="(Index of the whole series) This is really easy on a new project! I think that the success on setting up a build file is going a step at a time. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,305 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/setting-up-a-the-build-file-for-a-new-application/">Setting up a the build file for a new application</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-04T09:52:00-05:00" pubdate data-updated="true">Dec 4<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://sebastienlachance.com/building-a-new-application-series/">(Index of the whole series)</a></p>
+
+
+
+
+<p>
+This is really easy on a new project! I think that the success on setting up a build file is going a step at a time. Unfortunately this is not always the case in some of our projects due to time constraints.
+</p>
+
+
+
+
+<p>
+I am using NAnt for this.
+</p>
+
+
+
+
+<h2>Step 1. Deciding where I wanted to put my build.</h2>
+
+
+<p>
+Going with some advices I decided to go on the classic build folder. I make sure the folder is deleted and created back at every build.
+</p>
+
+
+<p style="border:1px solid gray;overflow:auto;font-size:8pt;width:97.5%;cursor:text;max-height:200px;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;margin:20px 0 10px;padding:4px;">&nbsp;</p>
+
+
+<p style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;padding:0;">&nbsp;</p>
+
+
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;"><span style="color:#008000;">&lt;!-- Start by cleaning the build area --&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;"><span style="color:#0000ff;">&lt;</span><span style="color:#800000;">target</span> <span style="color:#ff0000;">name</span><span style="color:#0000ff;">="clean"</span><span style="color:#0000ff;">&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;">  <span style="color:#0000ff;">&lt;</span><span style="color:#800000;">delete</span> <span style="color:#ff0000;">dir</span><span style="color:#0000ff;">="build"</span> <span style="color:#ff0000;">if</span><span style="color:#0000ff;">="${directory::exists('build')}"</span> <span style="color:#0000ff;">/&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;"><span style="color:#0000ff;">&lt;/</span><span style="color:#800000;">target</span><span style="color:#0000ff;">&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;"></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;"><span style="color:#008000;">&lt;!-- Create a build area --&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;"><span style="color:#0000ff;">&lt;</span><span style="color:#800000;">target</span> <span style="color:#ff0000;">name</span><span style="color:#0000ff;">="init"</span><span style="color:#0000ff;">&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;">  <span style="color:#0000ff;">&lt;</span><span style="color:#800000;">mkdir</span> <span style="color:#ff0000;">dir</span><span style="color:#0000ff;">="build"</span><span style="color:#0000ff;">/&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;"><span style="color:#0000ff;">&lt;/</span><span style="color:#800000;">target</span><span style="color:#0000ff;">&gt;</span></pre>
+
+
+<h2>Step 2. Compiling the project.</h2>
+
+
+<p>This is where the challenge lies. The csc Nant task is not aware of the .NET 3.5 framework. To get around this problem I have download a <strong>nightly build of NAnt 0.86</strong>. Works perfectly, until&#8230;
+Remember I&#8217;m using WPF for my GUI. I was getting some strange errors about something missing in the System.Window. Full error :</p>
+
+
+<p><strong><pre>      [csc] Compiling 7 files to 'C:\dev\LogItAll\build\LogItAll.exe'.
+[csc] c:\dev\LogItAll\src\app\LogItAll.UI\App.xaml.cs(13,32): error CS0246: The type or namespace name 'Application' could not be found (are you missing a using directive or an assembly reference?)
+[csc] c:\dev\LogItAll\src\app\LogItAll.UI\Window1.xaml.cs(6,22): error CS0234: The type or namespace name 'Controls' does not exist in the namespace 'System.Windows' (are you missing an assembly reference?)
+[csc] c:\dev\LogItAll\src\app\LogItAll.UI\Window1.xaml.cs(7,22): error CS0234: The type or namespace name 'Data' does not exist in the namespace 'System.Windows' (are you missing an assembly reference?)
+[csc] c:\dev\LogItAll\src\app\LogItAll.UI\Window1.xaml.cs(8,22): error CS0234: The type or namespace name 'Documents' does not exist in the namespace 'System.Windows' (are you missing an assembly reference?)
+[csc] c:\dev\LogItAll\src\app\LogItAll.UI\Window1.xaml.cs(9,22): error CS0234: The type or namespace name 'Input' does not exist in the namespace 'System.Windows' (are you missing an assembly reference?)
+[csc] c:\dev\LogItAll\src\app\LogItAll.UI\Window1.xaml.cs(10,22): error CS0234: The type or namespace name 'Media' does not exist in the namespace 'System.Windows' (are you missing an assembly reference?)
+[csc] c:\dev\LogItAll\src\app\LogItAll.UI\Window1.xaml.cs(11,22): error CS0234: The type or namespace name 'Media' does not exist in the namespace 'System.Windows' (are you missing an assembly reference?)
+[csc] c:\dev\LogItAll\src\app\LogItAll.UI\Window1.xaml.cs(12,22): error CS0234: The type or namespace name 'Navigation' does not exist in the namespace 'System.Windows' (are you missing an assembly reference?)
+[csc] c:\dev\LogItAll\src\app\LogItAll.UI\Window1.xaml.cs(13,22): error CS0234: The type or namespace name 'Shapes' does not exist in the namespace 'System.Windows' (are you missing an assembly reference?)
+[csc] c:\dev\LogItAll\src\app\LogItAll.UI\Window1.xaml.cs(20,36): error CS0246: The type or namespace name 'Window' could not be found (are you missing ausing directive or an assembly reference?)</pre></strong></p>
+
+<p>
+Humm, why is there something so obvious that it should be there failing? The reason is that some of the libraries required on a WPF project are not in the GAC. They are located in the <strong>C:\Program Files\Reference Assemblies\Microsoft\Framework\v3.0\</strong>. Next, there is the problem that some file are generated and not always there, the InitializeComponent method is missing everywhere&#8230;.  This is strange, how can I use csc.exe to generate those files? <strong>You can&#8217;t use csc.exe, when you use XAML ! </strong>After a lot of googling, I stumbled upon <a href="http://msdn2.microsoft.com/en-us/library/aa970678.aspx">this MSDN page</a>. I had no choice but start using MSBuild for the compilation.
+</p>
+
+
+
+
+<p>
+So I changed my csc task to an exec task and called MSBuild. I was now facing the problem that the assembly are compiled and put in their respective folder. A little change to the Output path in Visual Studio 2008 did the trick. Note that I am not using it on all project. I&#8217;m only interested in the UI project and all the tests projects. They are all what I need to run the application and the unit test.
+</p>
+
+
+
+
+<p>
+<a href="http://www.flickr.com/photos/63483657@N00/2072675756/" title="outputpath"><img src="http://static.flickr.com/2325/2072675756_5219156279.jpg" alt="outputpath" border="0" /></a>
+</p>
+
+
+
+
+<p>
+This is what the NAnt section look like:
+</p>
+
+
+<p style="border:1px solid gray;overflow:auto;font-size:8pt;width:97.5%;cursor:text;max-height:200px;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;margin:20px 0 10px;padding:4px;">&nbsp;</p>
+
+
+<p style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;padding:0;">&nbsp;</p>
+
+
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;"><span style="color:#0000ff;">&lt;</span><span style="color:#800000;">target</span> <span style="color:#ff0000;">name</span><span style="color:#0000ff;">="compile"</span> <span style="color:#ff0000;">depends</span><span style="color:#0000ff;">="init"</span><span style="color:#0000ff;">&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;">    <span style="color:#0000ff;">&lt;</span><span style="color:#800000;">exec</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;">    <span style="color:#ff0000;">program</span><span style="color:#0000ff;">="C:\WINDOWS\Microsoft.NET\Framework\v3.5\msbuild.exe"</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;">    <span style="color:#ff0000;">commandline</span><span style="color:#0000ff;">="LogItAll.sln"</span><span style="color:#0000ff;">/&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;"><span style="color:#0000ff;">&lt;/</span><span style="color:#800000;">target</span><span style="color:#0000ff;">&gt;</span></pre>
+
+
+<h5><strong>3. Executing the tests.</strong></h5>
+
+
+<p style="border:1px solid gray;overflow:auto;font-size:8pt;width:97.5%;cursor:text;max-height:200px;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;margin:20px 0 10px;padding:4px;">&nbsp;</p>
+
+
+<p style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;padding:0;">&nbsp;</p>
+
+
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;"><span style="color:#0000ff;">&lt;</span><span style="color:#800000;">target</span> <span style="color:#ff0000;">name</span><span style="color:#0000ff;">="test"</span> <span style="color:#ff0000;">depends</span><span style="color:#0000ff;">="compile"</span><span style="color:#0000ff;">&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;">  <span style="color:#0000ff;">&lt;</span><span style="color:#800000;">exec</span> <span style="color:#ff0000;">basedir</span><span style="color:#0000ff;">="tools\mbunit\"</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;">    <span style="color:#ff0000;">useruntimeengine</span><span style="color:#0000ff;">="true"</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;">    <span style="color:#ff0000;">workingdir</span><span style="color:#0000ff;">="build"</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;">    <span style="color:#ff0000;">program</span><span style="color:#0000ff;">="mbunit.cons.exe"</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;">    <span style="color:#ff0000;">commandline</span><span style="color:#0000ff;">="LogItAll.Domain.Tests.dll /rt:html /rf:".""</span> <span style="color:#0000ff;">/&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;"><span style="color:#0000ff;">&lt;/</span><span style="color:#800000;">target</span><span style="color:#0000ff;">&gt;</span></pre>
+
+
+<p>I&#8217;m still trying to find a more generic way to execute all the test projects. As you can see I am using MBUnit as my unit testing tool for this application.</p>
+
+<h5><strong>4. Result</strong></h5>
+
+
+<p style="border:1px solid gray;overflow:auto;font-size:8pt;width:97.5%;cursor:text;max-height:200px;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;margin:20px 0 10px;padding:4px;">&nbsp;</p>
+
+
+<p style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;padding:0;">&nbsp;</p>
+
+
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;"><span style="color:#0000ff;">&lt;?</span><span style="color:#800000;">xml</span> <span style="color:#ff0000;">version</span><span style="color:#0000ff;">="1.0"</span>?<span style="color:#0000ff;">&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;"><span style="color:#0000ff;">&lt;</span><span style="color:#800000;">project</span> <span style="color:#ff0000;">name</span><span style="color:#0000ff;">="LogItAll"</span> <span style="color:#ff0000;">default</span><span style="color:#0000ff;">="all"</span><span style="color:#0000ff;">&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;"></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;">  <span style="color:#0000ff;">&lt;</span><span style="color:#800000;">target</span> <span style="color:#ff0000;">name</span><span style="color:#0000ff;">="all"</span><span style="color:#0000ff;">/&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;"></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;">  <span style="color:#008000;">&lt;!-- Start by cleaning the build area --&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;">  <span style="color:#0000ff;">&lt;</span><span style="color:#800000;">target</span> <span style="color:#ff0000;">name</span><span style="color:#0000ff;">="clean"</span> <span style="color:#ff0000;">description</span><span style="color:#0000ff;">="remove all build products"</span><span style="color:#0000ff;">&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;">    <span style="color:#0000ff;">&lt;</span><span style="color:#800000;">delete</span> <span style="color:#ff0000;">dir</span><span style="color:#0000ff;">="build"</span> <span style="color:#ff0000;">if</span><span style="color:#0000ff;">="${directory::exists('build')}"</span> <span style="color:#0000ff;">/&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;">  <span style="color:#0000ff;">&lt;/</span><span style="color:#800000;">target</span><span style="color:#0000ff;">&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;"></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;">  <span style="color:#008000;">&lt;!-- Create a build area --&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;">  <span style="color:#0000ff;">&lt;</span><span style="color:#800000;">target</span> <span style="color:#ff0000;">name</span><span style="color:#0000ff;">="init"</span> <span style="color:#ff0000;">depends</span><span style="color:#0000ff;">="clean"</span><span style="color:#0000ff;">&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;">    <span style="color:#0000ff;">&lt;</span><span style="color:#800000;">mkdir</span> <span style="color:#ff0000;">dir</span><span style="color:#0000ff;">="build"</span><span style="color:#0000ff;">/&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;">  <span style="color:#0000ff;">&lt;/</span><span style="color:#800000;">target</span><span style="color:#0000ff;">&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;"></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;">  <span style="color:#0000ff;">&lt;</span><span style="color:#800000;">target</span> <span style="color:#ff0000;">name</span><span style="color:#0000ff;">="compile"</span> <span style="color:#ff0000;">depends</span><span style="color:#0000ff;">="init"</span><span style="color:#0000ff;">&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;">      <span style="color:#0000ff;">&lt;</span><span style="color:#800000;">exec</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;">      <span style="color:#ff0000;">program</span><span style="color:#0000ff;">="C:\WINDOWS\Microsoft.NET\Framework\v3.5\msbuild.exe"</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;">      <span style="color:#ff0000;">commandline</span><span style="color:#0000ff;">="LogItAll.sln"</span><span style="color:#0000ff;">/&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;">  <span style="color:#0000ff;">&lt;/</span><span style="color:#800000;">target</span><span style="color:#0000ff;">&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;"></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;">  <span style="color:#0000ff;">&lt;</span><span style="color:#800000;">target</span> <span style="color:#ff0000;">name</span><span style="color:#0000ff;">="test"</span> <span style="color:#ff0000;">depends</span><span style="color:#0000ff;">="compile"</span><span style="color:#0000ff;">&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;">    <span style="color:#0000ff;">&lt;</span><span style="color:#800000;">exec</span> <span style="color:#ff0000;">basedir</span><span style="color:#0000ff;">="tools\mbunit\"</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;">      <span style="color:#ff0000;">useruntimeengine</span><span style="color:#0000ff;">="true"</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;">      <span style="color:#ff0000;">workingdir</span><span style="color:#0000ff;">="build"</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;">      <span style="color:#ff0000;">program</span><span style="color:#0000ff;">="mbunit.cons.exe"</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;">      <span style="color:#ff0000;">commandline</span><span style="color:#0000ff;">="LogItAll.Domain.Tests.dll /rt:html /rf:".""</span> <span style="color:#0000ff;">/&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;">  <span style="color:#0000ff;">&lt;/</span><span style="color:#800000;">target</span><span style="color:#0000ff;">&gt;</span></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:white;border-style:none;margin:0;padding:0;"></pre>
+
+
+<pre style="overflow:visible;font-size:8pt;width:100%;color:black;line-height:12pt;font-family:consolas,'Courier New',courier,monospace;background-color:#f4f4f4;border-style:none;margin:0;padding:0;"><span style="color:#0000ff;">&lt;/</span><span style="color:#800000;">project</span><span style="color:#0000ff;">&gt;</span></pre>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -678,214 +977,6 @@ I strongly suggest that you apply this law. You&#8217;ll thank me later.
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/visual_studio_20052008_adding_projects_to_your_solution/">Visual Studio 2005/2008 : Adding projects to your solution</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-10-11T10:38:00-04:00" pubdate data-updated="true">Oct 11<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>There is 2 ways :</p>
-
-
-<p>1. Begin by opening the New Project dialog box : File/New/Project&#8230; (or Ctrl-Shift-N). Navigate to the type of project you want. In the solution dropdown, choose Add to Solution. Failure to do that will result in the creation of a new solution. Enter the name of our project and click the OK button.</p>
-
-
-<p><a href="http://www.flickr.com/photos/63483657@N00/1533536847/"><img src="http://static.flickr.com/2358/1533536847_f3d22c1d55.jpg" border="0" alt="AddToSolution"></a></p>
-
-
-<p>2. In the Solution Explorer (Ctrl-Alt-L), right-click on the solution node and choose Add/New Project&#8230;</p>
-
-
-<p><a href="http://www.flickr.com/photos/63483657@N00/1533566953/"><img src="http://static.flickr.com/2322/1533566953_416de0abd2.jpg" border="0" alt="AddNewProject2"></a></p>
-
-
-<p>This time you don&#8217;t need to choose anything in the dropdown. Enter the name of the project and click the OK button.</p>
-
-
-<p>Each one of those 2 methods will a a new folder with the name you entered. Inside the folder you will find a project file (.csproj or .vbproj) and a .cs (or .vb). By default Visual Studio will generate a default file for the type of project you choose).</p>
-
-
-<p>Let&#8217;s look at the project file.</p>
-
-
-<p style="line-height: 12pt; background-color: #f4f4f4; margin: 20px 0px 10px; width: 97.5%; font-family: consolas,'Courier New',courier,monospace; max-height: 200px; font-size: 8pt; overflow: auto; cursor: text; border: gray 1px solid; padding: 4px;">&nbsp;</p>
-
-
-<p style="line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">&nbsp;</p>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span style="color: #0000ff">&lt;</span><span style="color: #800000">Project</span> <span style="color: #ff0000">DefaultTargets</span><span style="color: #0000ff">="Build"</span> <span style="color: #ff0000">xmlns</span><span style="color: #0000ff">="http://schemas.microsoft.com/developer/msbuild/2003"</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #0000ff">&lt;</span><span style="color: #800000">PropertyGroup</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">Configuration</span> <span style="color: #ff0000">Condition</span><span style="color: #0000ff">=" '$(Configuration)' == '' "</span><span style="color: #0000ff">&gt;</span>Debug<span style="color: #0000ff">&lt;/</span><span style="color: #800000">Configuration</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">Platform</span> <span style="color: #ff0000">Condition</span><span style="color: #0000ff">=" '$(Platform)' == '' "</span><span style="color: #0000ff">&gt;</span>AnyCPU<span style="color: #0000ff">&lt;/</span><span style="color: #800000">Platform</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">ProductVersion</span><span style="color: #0000ff">&gt;</span>8.0.50727<span style="color: #0000ff">&lt;/</span><span style="color: #800000">ProductVersion</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">SchemaVersion</span><span style="color: #0000ff">&gt;</span>2.0<span style="color: #0000ff">&lt;/</span><span style="color: #800000">SchemaVersion</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">ProjectGuid</span><span style="color: #0000ff">&gt;</span>c50693b9-547b-49f0-8850-e3c0a3b0325c<span style="color: #0000ff">&lt;/</span><span style="color: #800000">ProjectGuid</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">OutputType</span><span style="color: #0000ff">&gt;</span>Library<span style="color: #0000ff">&lt;/</span><span style="color: #800000">OutputType</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">AppDesignerFolder</span><span style="color: #0000ff">&gt;</span>Properties<span style="color: #0000ff">&lt;/</span><span style="color: #800000">AppDesignerFolder</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">RootNamespace</span><span style="color: #0000ff">&gt;</span>ClassLibrary1<span style="color: #0000ff">&lt;/</span><span style="color: #800000">RootNamespace</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">AssemblyName</span><span style="color: #0000ff">&gt;</span>ClassLibrary1<span style="color: #0000ff">&lt;/</span><span style="color: #800000">AssemblyName</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #0000ff">&lt;/</span><span style="color: #800000">PropertyGroup</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #0000ff">&lt;</span><span style="color: #800000">PropertyGroup</span> <span style="color: #ff0000">Condition</span><span style="color: #0000ff">=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' "</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">DebugSymbols</span><span style="color: #0000ff">&gt;</span>true<span style="color: #0000ff">&lt;/</span><span style="color: #800000">DebugSymbols</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">DebugType</span><span style="color: #0000ff">&gt;</span>full<span style="color: #0000ff">&lt;/</span><span style="color: #800000">DebugType</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">Optimize</span><span style="color: #0000ff">&gt;</span>false<span style="color: #0000ff">&lt;/</span><span style="color: #800000">Optimize</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">OutputPath</span><span style="color: #0000ff">&gt;</span>bin\Debug\<span style="color: #0000ff">&lt;/</span><span style="color: #800000">OutputPath</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">DefineConstants</span><span style="color: #0000ff">&gt;</span>DEBUG;TRACE<span style="color: #0000ff">&lt;/</span><span style="color: #800000">DefineConstants</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">ErrorReport</span><span style="color: #0000ff">&gt;</span>prompt<span style="color: #0000ff">&lt;/</span><span style="color: #800000">ErrorReport</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">WarningLevel</span><span style="color: #0000ff">&gt;</span>4<span style="color: #0000ff">&lt;/</span><span style="color: #800000">WarningLevel</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #0000ff">&lt;/</span><span style="color: #800000">PropertyGroup</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #0000ff">&lt;</span><span style="color: #800000">PropertyGroup</span> <span style="color: #ff0000">Condition</span><span style="color: #0000ff">=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' "</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">DebugType</span><span style="color: #0000ff">&gt;</span>pdbonly<span style="color: #0000ff">&lt;/</span><span style="color: #800000">DebugType</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">Optimize</span><span style="color: #0000ff">&gt;</span>true<span style="color: #0000ff">&lt;/</span><span style="color: #800000">Optimize</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">OutputPath</span><span style="color: #0000ff">&gt;</span>bin\Release\<span style="color: #0000ff">&lt;/</span><span style="color: #800000">OutputPath</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">DefineConstants</span><span style="color: #0000ff">&gt;</span>TRACE<span style="color: #0000ff">&lt;/</span><span style="color: #800000">DefineConstants</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">ErrorReport</span><span style="color: #0000ff">&gt;</span>prompt<span style="color: #0000ff">&lt;/</span><span style="color: #800000">ErrorReport</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">WarningLevel</span><span style="color: #0000ff">&gt;</span>4<span style="color: #0000ff">&lt;/</span><span style="color: #800000">WarningLevel</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #0000ff">&lt;/</span><span style="color: #800000">PropertyGroup</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #0000ff">&lt;</span><span style="color: #800000">ItemGroup</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">Reference</span> <span style="color: #ff0000">Include</span><span style="color: #0000ff">="System"</span> <span style="color: #0000ff">/&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">Reference</span> <span style="color: #ff0000">Include</span><span style="color: #0000ff">="System.Data"</span> <span style="color: #0000ff">/&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">Reference</span> <span style="color: #ff0000">Include</span><span style="color: #0000ff">="System.Xml"</span> <span style="color: #0000ff">/&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #0000ff">&lt;/</span><span style="color: #800000">ItemGroup</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #0000ff">&lt;</span><span style="color: #800000">ItemGroup</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">Compile</span> <span style="color: #ff0000">Include</span><span style="color: #0000ff">="Class1.cs"</span> <span style="color: #0000ff">/&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">Compile</span> <span style="color: #ff0000">Include</span><span style="color: #0000ff">="Properties\AssemblyInfo.cs"</span> <span style="color: #0000ff">/&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #0000ff">&lt;/</span><span style="color: #800000">ItemGroup</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #0000ff">&lt;</span><span style="color: #800000">Import</span> <span style="color: #ff0000">Project</span><span style="color: #0000ff">="$(MSBuildBinPath)\Microsoft.CSharp.targets"</span> <span style="color: #0000ff">/&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #008000">&lt;!-- To modify your build process, add your task inside one of the targets below and uncomment it. </span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span style="color: #008000">       Other similar extension points exist, see Microsoft.Common.targets.</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span style="color: #008000">  &lt;Target Name="BeforeBuild"&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span style="color: #008000">  &lt;/Target&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span style="color: #008000">  &lt;Target Name="AfterBuild"&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span style="color: #008000">  &lt;/Target&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span style="color: #008000">  --&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span style="color: #0000ff">&lt;/</span><span style="color: #800000">Project</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<p>As you can see, it&#8217;s an xml file. It contains informations about the assembly name, the output type, namespace, version of Visual Studio used to create the project, etc. And it also contains the information used to compile. This is a whole topic so we will not cover it now. Right under we have the reference used by the project and the files it contains . You do not need to remember all that, the important thing is to know what is the purpose of the file. And finally, if you decide to use SourceSafe, all binding information will be added to this file.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/15/">&larr; Older</a>
@@ -917,6 +1008,10 @@ I strongly suggest that you apply this law. You&#8217;ll thank me later.
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/iterate-over-each-line-of-a-string-in-c-sharp/">Iterate over each line of a string in C#</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/asp-dot-net-mvc-actionlink-with-image/">ASP.NET MVC ActionLink with image</a>
       </li>
     
@@ -930,10 +1025,6 @@ I strongly suggest that you apply this law. You&#8217;ll thank me later.
     
       <li class="post">
         <a href="/blog/available/">Available</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/disponible/">Disponible pour mandat de développement</a>
       </li>
     
   </ul>

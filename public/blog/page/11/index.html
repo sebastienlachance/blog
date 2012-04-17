@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="I was thinking about this for a while. If I have to choose five peoples who have influenced me the most concerning my career, who would that be? 1. &hellip;">
+  <meta name="description" content="This is intended to be a quick start for anyone who want to start playing with the latest version of ASP.NET MVC without going through the origin and &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,58 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/quick-start-with-aspnet-mvc-interim-source-code/">Quick Start with ASP.NET MVC Interim Source Code</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-06T07:43:00-04:00" pubdate data-updated="true">May 6<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This is intended to be a quick start for anyone who want to start playing with the latest version of ASP.NET MVC without going through the origin and goals of the MVC pattern. I will use the ASP.NET 0416 MVC Interim Source Code Release for this. Keep in mind, that this will probably all change in a near future.</p>
+
+
+<p>First step, download and build the <a href="http://www.codeplex.com/aspnet/Release/ProjectReleases.aspx?ReleaseId=12640">source</a>. You will need to have the <a href="http://code.google.com/p/moq/">Moq</a> library (more about this mocking framework in a future post).</p>
+
+
+<p>Second, download and install the <a href="http://www.codeplex.com/aspnet/Release/ProjectReleases.aspx?ReleaseId=12640">Visual Studio MVC Templates</a> (execute the vsi file).</p>
+
+
+<p>Third, start an ASP.NET MVC project.</p>
+
+
+<p>I have two useful resources to share with you. I believe they will give you a head start.</p>
+
+
+<p>You have the <a href="http://www.asp.net/mvc">Scott Hanselman&#8217;s screencast series</a> on the ASP.NET web site. And you have the <a href="http://blog.wekeroad.com/category/mvc-storefront/">MVC Storefront series from Rob Conery</a>.</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -714,85 +766,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/getting-started-with-nhibernate/">Getting started with NHibernate</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-03-03T05:48:00-05:00" pubdate data-updated="true">Mar 3<span>rd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Without digging in too much detail about NHibernate, I will presume you are familiar with what this O/R Mapper can do.</p>
-
-
-<p><span style="text-decoration: underline;"><strong>The application configuration file :</strong> </span></p>
-
-
-<div>
-<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"><span style="color: #0000ff;">&lt;?</span><span style="color: #800000;">xml</span> <span style="color: #ff0000;">version</span><span style="color: #0000ff;">="1.0"</span> <span style="color: #ff0000;">encoding</span><span style="color: #0000ff;">="utf-8"</span> ?<span style="color: #0000ff;">&gt;</span><br /><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">configuration</span><span style="color: #0000ff;">&gt;</span><br />  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">configSections</span><span style="color: #0000ff;">&gt;</span><br />    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">section</span> <span style="color: #ff0000;">name</span><span style="color: #0000ff;">="hibernate-configuration"</span> <span style="color: #ff0000;">type</span><span style="color: #0000ff;">="NHibernate.Cfg.ConfigurationSectionHandler, NHibernate"</span> <span style="color: #0000ff;">/&gt;</span><br />  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">configSections</span><span style="color: #0000ff;">&gt;</span><br />  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">hibernate-configuration</span> <span style="color: #ff0000;">xmlns</span><span style="color: #0000ff;">="urn:nhibernate-configuration-2.2"</span><span style="color: #0000ff;">&gt;</span><br />    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">session-factory</span><span style="color: #0000ff;">&gt;</span><br />      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property</span> <span style="color: #ff0000;">name</span><span style="color: #0000ff;">="connection.driver_class"</span><span style="color: #0000ff;">&gt;</span>NHibernate.Driver.SqlClientDriver<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span><br />      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property</span> <span style="color: #ff0000;">name</span><span style="color: #0000ff;">="hibernate.dialect"</span><span style="color: #0000ff;">&gt;</span>NHibernate.Dialect.MsSql2005Dialect<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span><br />      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property</span> <span style="color: #ff0000;">name</span><span style="color: #0000ff;">="hibernate.connection.provider"</span><span style="color: #0000ff;">&gt;</span>NHibernate.Connection.DriverConnectionProvider<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span><br />      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property</span> <span style="color: #ff0000;">name</span><span style="color: #0000ff;">="hibernate.connection.connection_string"</span><span style="color: #0000ff;">&gt;</span>Server=.SQLEXPRESS;Initial Catalog=RecipeHelperTest;User Id=recipeuser;Password=recipeuser;<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span><br />      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">mapping</span> <span style="color: #ff0000;">assembly</span><span style="color: #0000ff;">="RecipeHelper.Domain"</span> <span style="color: #0000ff;">/&gt;</span><br />    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">session-factory</span><span style="color: #0000ff;">&gt;</span><br />  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">hibernate-configuration</span><span style="color: #0000ff;">&gt;</span><br /><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">configuration</span><span style="color: #0000ff;">&gt;</span></pre>
-</div>
-
-
-<p>This is standard stuff that you can find in the documentation. One interesting point however is the mapping. You can specify where your domain object to be persisted are. This will allow you to not worry about specifying them in code.</p>
-
-
-<p><span style="text-decoration: underline;"><strong>Creating a mapping file :</strong></span></p>
-
-
-<p>To be able to persist your entities, you&#8217;ll need to create a mapping file. In my opinion, this is the hardest thing to learn about NHibernate. But don&#8217;t worry, it is well documented.</p>
-
-
-<p>The strategy I am using is one file per entities, in the same assembly. I also use the same name with the extension &#8220;.hbm.xml&#8221;. The trickiest part is that you need to set the <strong>Build Action</strong> to &#8221;<strong>Embedded Resource</strong>&#8221;. Once all this is completed you can now start writing your mapping information :</p>
-
-
-<div>
-<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">hibernate-mapping</span> <span style="color: #ff0000;">xmlns</span><span style="color: #0000ff;">="urn:nhibernate-mapping-2.2"</span> <span style="color: #ff0000;">assembly</span><span style="color: #0000ff;">="RecipeHelper.Domain"</span> <span style="color: #ff0000;">namespace</span><span style="color: #0000ff;">="RecipeHelper.Domain"</span> <span style="color: #ff0000;">default-lazy</span><span style="color: #0000ff;">="false"</span><span style="color: #0000ff;">&gt;</span><br />  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">class</span> <span style="color: #ff0000;">name</span><span style="color: #0000ff;">="Recipe"</span> <span style="color: #ff0000;">table</span><span style="color: #0000ff;">="Recipes"</span> <span style="color: #0000ff;">&gt;</span><br />    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">id</span> <span style="color: #ff0000;">name</span><span style="color: #0000ff;">="ID"</span> <span style="color: #ff0000;">column</span><span style="color: #0000ff;">="ID"</span> <span style="color: #ff0000;">type</span><span style="color: #0000ff;">="int"</span> <span style="color: #ff0000;">access</span><span style="color: #0000ff;">="field.lowercase-underscore"</span><span style="color: #0000ff;">&gt;</span><br />      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">generator</span> <span style="color: #ff0000;">class</span><span style="color: #0000ff;">="native"</span> <span style="color: #0000ff;">/&gt;</span><br />    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">id</span><span style="color: #0000ff;">&gt;</span><br />    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property</span> <span style="color: #ff0000;">name</span><span style="color: #0000ff;">="Name"</span> <span style="color: #ff0000;">column</span><span style="color: #0000ff;">="Name"</span> <span style="color: #ff0000;">type</span><span style="color: #0000ff;">="string"</span> <span style="color: #ff0000;">not-null</span><span style="color: #0000ff;">="false"</span><span style="color: #0000ff;">/&gt;</span><br />    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property</span> <span style="color: #ff0000;">name</span><span style="color: #0000ff;">="Reference"</span> <span style="color: #ff0000;">column</span><span style="color: #0000ff;">="Reference"</span> <span style="color: #ff0000;">type</span><span style="color: #0000ff;">="string"</span> <span style="color: #ff0000;">not-null</span><span style="color: #0000ff;">="false"</span> <span style="color: #0000ff;">/&gt;</span><br />    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property</span> <span style="color: #ff0000;">name</span><span style="color: #0000ff;">="Rating"</span> <span style="color: #ff0000;">column</span><span style="color: #0000ff;">="Rating"</span> <span style="color: #ff0000;">type</span><span style="color: #0000ff;">="int"</span> <span style="color: #ff0000;">not-null</span><span style="color: #0000ff;">="false"</span> <span style="color: #0000ff;">/&gt;</span><br />  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">class</span><span style="color: #0000ff;">&gt;</span><br /><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">hibernate-mapping</span><span style="color: #0000ff;">&gt;</span></pre>
-</div>
-
-
-<p><span style="text-decoration: underline;"><strong>Preparation for using NHibernate :</strong></span></p>
-
-
-<p>The biggest performance hit is the creation of the ISessionFactory. For this reason, it should only be instantiated once. I created a singleton that will allow me to have access to a single session factory.</p>
-
-
-<div>
-<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"><span style="color: #0000ff;">using</span> NHibernate;<br /><span style="color: #0000ff;">using</span> NHibernate.Cfg;<br /><span style="color: #0000ff;">using</span> NHibernate.Tool.hbm2ddl;<br /><br /><span style="color: #0000ff;">namespace</span> RecipeHelper.Domain<br />{<br />    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> NHibernateConfig<br />    {<br />        <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">static</span> ISessionFactory _sessionFactory;<br /><br />        <span style="color: #0000ff;">static</span> NHibernateConfig()<br />        {<br />            Configuration config = <span style="color: #0000ff;">new</span> Configuration();<br /><br />            _sessionFactory = config.Configure().BuildSessionFactory();<br />        }<br /><br />        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> ISessionFactory GetSessionFactory()<br />        {<br />            <span style="color: #0000ff;">return</span> _sessionFactory;<br />        }<br /><br />    }<br />}</pre>
-</div>
-
-
-<p><strong><span style="text-decoration: underline;">Conclusion : </span></strong></p>
-
-
-<p>This isn&#8217;t a complete tutorial to get started with NHibernate but should cover the essential steps to prepare your project to use it.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/12/">&larr; Older</a>
@@ -824,6 +797,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/iterate-over-each-line-of-a-string-in-c-sharp/">Iterate over each line of a string in C#</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/asp-dot-net-mvc-actionlink-with-image/">ASP.NET MVC ActionLink with image</a>
       </li>
     
@@ -837,10 +814,6 @@
     
       <li class="post">
         <a href="/blog/available/">Available</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/disponible/">Disponible pour mandat de développement</a>
       </li>
     
   </ul>

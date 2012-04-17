@@ -9,10 +9,15 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="It&#8217;s not as hard as it seems. This is a way to create a link with an image. link to action with an image1
+  <meta name="description" content="For future reference. Easy way to go through each line of a string. string iteration1
 2
 3
-&lt;a href=&quot;@Url.Action(& &hellip;">
+4
+5
+6
+7
+8
+using (StringReader reader = new StringReader(txt &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +83,63 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/iterate-over-each-line-of-a-string-in-c-sharp/">Iterate over each line of a string in C#</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-17T07:53:00-04:00" pubdate data-updated="true">Apr 17<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>For future reference.</p>
+
+<p>Easy way to go through each line of a string.</p>
+
+<figure class='code'><figcaption><span>string iteration</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">using</span> <span class="p">(</span><span class="n">StringReader</span> <span class="n">reader</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StringReader</span><span class="p">(</span><span class="n">txt</span><span class="p">))</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="kt">string</span> <span class="n">line</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">while</span> <span class="p">((</span><span class="n">line</span> <span class="p">=</span> <span class="n">reader</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">())</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="n">Console</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&quot;do anything with the line);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -508,88 +570,6 @@ categories:
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/my-starting-gemfile/">My starting Gemfile</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-02-17T15:08:00-05:00" pubdate data-updated="true">Feb 17<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This is how my Gemfile looks like at the moment. Continuous feedback with Guard and metrics to keep track on defects and best practices not used.</p>
-
-<div><script src='https://gist.github.com/1855201.js?file='></script>
-<noscript><pre><code>source 'https://rubygems.org'
-
-gem 'rails', '3.2.1'
-gem 'pg'
-gem 'omniauth-twitter'
-gem 'omniauth-facebook'
-gem 'omniauth-google-oauth2'
-gem 'omniauth-identity'
-
-group :assets do
-  gem 'sass-rails',   '~&gt; 3.2.3'
-  gem 'coffee-rails', '~&gt; 3.2.1'
-  gem 'uglifier',     '&gt;= 1.0.3'
-end
-
-gem 'jquery-rails'
-gem 'skeleton-rails'
-gem 'rails-backbone'
-gem 'jasminerice'
-
-gem 'rspec-rails', :group =&gt; [:development, :test]
-
-group :development do 
-  gem 'heroku'
-  gem 'guard'
-  gem 'guard-rspec'
-  gem 'guard-jasmine'
-  gem 'growl'
-  gem 'metrical'
-  gem 'fattr'         # for Metric_fu
-  gem 'arrayfields'   # for Metric_fu
-  gem 'map'           # for Metric_fu
-  gem 'annotate', :git =&gt; 'git://github.com/ctran/annotate_models.git'
-end
-
-group :test do
-  gem 'database_cleaner', :group =&gt; :test
-  gem 'factory_girl_rails', :group =&gt; :test
-end
-
-gem 'bcrypt-ruby', '~&gt; 3.0.0'</code></pre></noscript></div>
-
-
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -619,6 +599,10 @@ gem 'bcrypt-ruby', '~&gt; 3.0.0'</code></pre></noscript></div>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/iterate-over-each-line-of-a-string-in-c-sharp/">Iterate over each line of a string in C#</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/asp-dot-net-mvc-actionlink-with-image/">ASP.NET MVC ActionLink with image</a>
       </li>
     
@@ -632,10 +616,6 @@ gem 'bcrypt-ruby', '~&gt; 3.0.0'</code></pre></noscript></div>
     
       <li class="post">
         <a href="/blog/available/">Available</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/disponible/">Disponible pour mandat de développement</a>
       </li>
     
   </ul>
