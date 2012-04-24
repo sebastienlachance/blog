@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Using SourceSafe over VPN is painfully slow. There is nothing you can do about the speed. It will stay slow if you access it with the LAN mode. But &hellip;">
+  <meta name="description" content="Here is a collection of all tower defense games on the Internet. Be advised that your day will be lost if you take a look at this site. towerdefence. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,43 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/tower-defense-games-collection/">Tower Defense Games Collection</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-07-21T11:03:00-04:00" pubdate data-updated="true">Jul 21<span>st</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Here is a collection of all tower defense games on the Internet. Be advised that your day will be lost if you take a look at this site.  <a href="http://www.towerdefence.net/" target="_blank">towerdefence.net</a></p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -500,58 +537,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/sys-is-undefined/">Sys is undefined</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2006-11-25T09:22:00-05:00" pubdate data-updated="true">Nov 25<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Lastly I have got to play a lot with AJAX (ATLAS) and have been pleasantly surprised by the quality and the ease of use of the product. Really easy to use and &#8220;a lot of support&#8221; for it. For every problem there is a solution and those seem to be resolved fast by the community.</p>
-
-
-<p>The first really big error so far, is the &#8216;Sys&#8217; is undefined one. There seems to have a problem with the anonymous user being disable for the web site (in particular the script folder). Well, I&#8217;m sure that I wont allow anonymous users to access critical data, so adding a new location in the Web.Config for this specific folder with solve the problem.</p>
-
-
-<p>Here is the lines to add :</p>
-
-
-<p>&lt;location path=&#8221;ScriptResource.axd&#8221;&gt;  <br />&lt;system.web&gt;  <br />&lt;authorization&gt;  <br />&lt;allow users=&#8221;*&#8221;/&gt;  <br />&lt;/authorization&gt;  <br />&lt;/system.web&gt;  <br />&lt;/location&gt;</p>
-
-
-<p>There can be also the fact that the resource handler is not set, so adding the following line in the Web.Config, should also solve the problem :</p>
-
-
-<p>&lt;add verb=&#8221;GET&#8221; path=&#8221;ScriptResource.axd&#8221; type=&#8221;Microsoft.Web.Handlers.ScriptResourceHandler&#8221; validate=&#8221;false&#8221;/&gt;</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/18/">&larr; Older</a>
@@ -583,6 +568,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/iterate-over-each-line-of-a-string-in-c-sharp/">Iterate over each line of a string in C#</a>
       </li>
     
@@ -596,10 +585,6 @@
     
       <li class="post">
         <a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/available/">Available</a>
       </li>
     
   </ul>

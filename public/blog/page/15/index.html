@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="There is 2 ways : 1. Begin by opening the New Project dialog box : File/New/Project&#8230; (or Ctrl-Shift-N). Navigate to the type of project you &hellip;">
+  <meta name="description" content="When I came across this feature, my world changed forever. When you are in a multi-user scenario and your assemblies are stored in a different folder &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,64 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/visual-studio-20052008-reference-path/">Visual Studio 2005/2008 : Reference Path</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-10-15T08:05:00-04:00" pubdate data-updated="true">Oct 15<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When I came across this feature, my world changed forever. When you are in a multi-user scenario and your assemblies are stored in a different folder from your peer, then you have this solution.</p>
+
+
+<p>Suppose you get the latest version from the project you are working on and the reference to AssemblyA is broken because the path of the assembly is C:\dev\lib. But you know that you have it in a folder somewhere else and you don&#8217;t want to duplicate that assembly. Then the reference path will come to the rescue. Adding a reference path will add a place that will be looked when checking for references.</p>
+
+
+<p>This is how you do it :</p>
+
+
+<p><span style="text-decoration: underline;">Step 1. In the solution explorer, right-click on the project with a broken reference.</span></p>
+
+
+<p><span style="text-decoration: underline;">Step 2. Click <strong>Reference Paths</strong> tab</span></p>
+
+
+<p><span style="text-decoration: underline;">Step 3. Enter the folder in which your assembly is located.</span></p>
+
+
+<p><span style="text-decoration: underline;">Step 4. Click the <strong>Add Folder</strong> button.</span> This is what it should look like :<br /><br /> <a title="Reference" href="http://www.flickr.com/photos/63483657@N00/1579443132/"><img src="http://static.flickr.com/2029/1579443132_68a5d255ec.jpg" border="0" alt="Reference" /></a></p>
+
+
+<p>Notice that you can also <strong>Update</strong> and <strong>Delete</strong> reference in this page.</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -962,43 +1020,6 @@ And at last, a developer link.
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/i-need-advices-to-create-my-home-office/">I need advices to create my home office</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-09-05T03:58:00-04:00" pubdate data-updated="true">Sep 5<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I will soon move to my new house and I got a 13x13 room for my office. There is no windows, but I have a really big patio door. I will almost never receive any client and I want it to be a productive and fun place. Do you have any advice for me?</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/16/">&larr; Older</a>
@@ -1030,6 +1051,10 @@ And at last, a developer link.
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/iterate-over-each-line-of-a-string-in-c-sharp/">Iterate over each line of a string in C#</a>
       </li>
     
@@ -1043,10 +1068,6 @@ And at last, a developer link.
     
       <li class="post">
         <a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/available/">Available</a>
       </li>
     
   </ul>

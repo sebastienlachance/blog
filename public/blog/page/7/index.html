@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="The page you are requesting cannot be served because of the extension configuration. If the page is a script, add a handler. Out of the box, you &hellip;">
+  <meta name="description" content="Here is a list of common errors I had while working with the System.Diagnostics.Process class. I listed all solutions that worked for me. Couldn&# &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,70 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/processgetprocesses-common-errors/">Process.GetProcesses common errors</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-08-26T04:59:00-04:00" pubdate data-updated="true">Aug 26<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Here is a list of common errors I had while working with the System.Diagnostics.Process class. I listed all solutions that worked for me.</p>
+
+
+<h3>Couldn&#8217;t connect to remote machine.</h3>
+
+
+<p><strong>Solution 1</strong> : Open MMC (Start/Run/mmc), add the Services snap-in and enter the name of the machine you are trying to connect to. This should give the exact reason it&rsquo;s failing.</p>
+
+
+<p><strong>Solution 2</strong> : The inner exception could give you more information.</p>
+
+
+<p><strong>Solution 3</strong> : You need server permission.</p>
+
+
+<p><strong>Solution 4</strong> : Common on Windows 7 and Vista, start the <strong>Remote Registry</strong> service.</p>
+
+
+<h3>The RPC server is unavailable</h3>
+
+
+<p><strong>Solution </strong>: Turn on <strong>File and printer sharing </strong>and make sure the firewall is configured to allow access.</p>
+
+
+<h3>Access Is Denied</h3>
+
+
+<p><strong>Solution</strong> : In case nothing worked out of Google, try this : Open Local Security Policy and make sure the <strong>&ldquo;Set Network access: Sharing and security model for local accounts&rdquo;</strong> to <strong>Classic.</strong></p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -530,55 +594,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/vivim-30-days-day-2/">Vi/Vim 30 days - Day 2</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-05-21T09:10:00-04:00" pubdate data-updated="true">May 21<span>st</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Day 2 of the trial, I have gone through half the tutorial (up to Lesson 3.3) and I begin to see where the power of this vi/vim residing. The most annoying thing so far is the color scheme/font that is not remembered, but I&#8217;m pretty sure it will have to do with learning vi (maybe a hidden command or something :P, or maybe not and will have to modify a config file somewhere).</p>
-
-
-<p>Here is a recap of what I learned today</p>
-
-
-<p>First, I have been using the &#8220;w&#8221; and &#8220;e&#8221; key to navigate through text in &#8220;Normal mode&#8221; (Normal Mode is where you are when you are not typing, hitting ESC get you there).</p>
-
-
-<p>Next, the &#8220;x&#8221; key. Again, in normal mode, you hit the x key to delete the remaining of the words. If you are at the start of the word, it removes it completely and if you are at the second characters, it remove all remaining characters after the cursor.</p>
-
-
-<p>This is it. I learned a lot through the tutorial but haven&#8217;t used it much so it does not count. Tomorrow I will try a few new commands to keep learning it until I&#8217;m a master of vi/vim!!</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/8/">&larr; Older</a>
@@ -610,6 +625,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/iterate-over-each-line-of-a-string-in-c-sharp/">Iterate over each line of a string in C#</a>
       </li>
     
@@ -623,10 +642,6 @@
     
       <li class="post">
         <a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/available/">Available</a>
       </li>
     
   </ul>

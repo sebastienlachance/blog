@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="This is how my Gemfile looks like at the moment. Continuous feedback with Guard and metrics to keep track on defects and best practices not used. &hellip;">
+  <meta name="description" content="Some months ago, I moved my BlogEngine.net blog (hosted on GoDaddy) to Octopress hosted on Heroku. I needed a tool to migrate all my posts and found &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,84 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/converting-a-blogengine-dot-net-blog-to-octopress/">Converting a BlogEngine.Net blog to Octopress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-21T12:52:00-05:00" pubdate data-updated="true">Feb 21<span>st</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Some months ago, I moved my BlogEngine.net blog (hosted on GoDaddy) to Octopress hosted on Heroku. I needed a tool to migrate all my posts and found nothing that could apply to my case (I&#8217;m pretty sure there is something out there, but I didn&#8217;t look very far and wanted to code the tool myself anyway).</p>
+
+<p>Octopress blog post format look like this:</p>
+
+<pre><code>---
+layout: post
+title: "Setting ComVisible"
+date: 2005-01-19 14:46:00
+comments: true
+categories: 
+---
+
+** This is my post using Markdown **
+</code></pre>
+
+<p>My BlogEngine.Net was configured to use xml files to store posts. Which look like this:</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?&gt;
+&lt;post&gt;
+  &lt;author&gt;SebastienLachance&lt;/author&gt;
+  &lt;title&gt;Building a new app - Introduction&lt;/title&gt;
+  &lt;description&gt;The introduction&lt;/description&gt;
+  &lt;content&gt;This is ...
+</code></pre>
+
+<p>At first, I wanted to move each post individually whenever I could. After a week and pretty much nothing converted, I created a little .Net tool to make the conversion/migration much easier.</p>
+
+<p>It&#8217;s a pretty basic windows form application that takes a path and output a bundle of simili-markdown (because the original posts are html, but, since markdown accept html, it&#8217;s fine) files that are compatible with the Octopress format.</p>
+
+<p>It&#8217;s also generating a <strong>redirection.rb</strong> file that contains necessary code to be used by rack-rewrite to make necessary 301 redirection. It can be useful if you don&#8217;t want to write it all manually.</p>
+
+<pre><code>use Rack::Rewrite do
+
+    r301 %r{^/post/The-surprising-science-of-motivation-by-Dan-Pink.aspx?$}, '/blog/the-surprising-science-of-motivation-by-dan-pink'
+    r301 %r{^/post/Building-a-new-application-Introduction.aspx?$}, '/blog/building-a-new-application-introduction'
+    r301 %r{^/post/tight-deadlines.aspx?$}, '/blog/tight-deadlines'
+    r301 %r{^/post/no-such-file-to-load-cucumberrailsactive_record-(LoadError).aspx?$}, '/blog/no-such-file-to-load-cucumberrailsactive_record-(loaderror)'
+    r301 %r{^/post/Buying-games-on-Steam.aspx?$}, '/blog/buying-games-on-steam'
+    r301 %r{^/post/AlternativeToNet-review.aspx?$}, '/blog/alternativetonet-review'
+    r301 %r{^/post/Excellent-post-by-Uncle-Bob.aspx?$}, '/blog/excellent-post-by-uncle-bob'
+</code></pre>
+
+<p>You can grab the source here : <a href="https://github.com/sebastienlachance/BlogEngineToOctopress">BlogEngineToOctopres</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -776,48 +854,6 @@ YAML::ENGINE.yamler= 'syck'
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/parsefloat%28e28098e28099%29-3d3d-nan/">(parseFloat || parseInt) && NaN</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-06-06T06:31:58-04:00" pubdate data-updated="true">Jun 6<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Little reminder for later :&#160; </p>
-
-
-<p>  <pre>parseInt(‘’) == NaN //return false</pre></p>
-
-<pre>isNaN(parseInt(‘’)) //return true</pre>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -849,6 +885,10 @@ YAML::ENGINE.yamler= 'syck'
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/iterate-over-each-line-of-a-string-in-c-sharp/">Iterate over each line of a string in C#</a>
       </li>
     
@@ -862,10 +902,6 @@ YAML::ENGINE.yamler= 'syck'
     
       <li class="post">
         <a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/available/">Available</a>
       </li>
     
   </ul>

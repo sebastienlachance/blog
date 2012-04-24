@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="I&#8217;ve decided to give a serious try to the like of vi/vim. I have heard a lot of gossip around thoses editors and since it&#8217;s supposed to &hellip;">
+  <meta name="description" content="Day 2 of the trial, I have gone through half the tutorial (up to Lesson 3.3) and I begin to see where the power of this vi/vim residing. The most &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,55 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/vivim-30-days-day-2/">Vi/Vim 30 days - Day 2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-21T09:10:00-04:00" pubdate data-updated="true">May 21<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Day 2 of the trial, I have gone through half the tutorial (up to Lesson 3.3) and I begin to see where the power of this vi/vim residing. The most annoying thing so far is the color scheme/font that is not remembered, but I&#8217;m pretty sure it will have to do with learning vi (maybe a hidden command or something :P, or maybe not and will have to modify a config file somewhere).</p>
+
+
+<p>Here is a recap of what I learned today</p>
+
+
+<p>First, I have been using the &#8220;w&#8221; and &#8220;e&#8221; key to navigate through text in &#8220;Normal mode&#8221; (Normal Mode is where you are when you are not typing, hitting ESC get you there).</p>
+
+
+<p>Next, the &#8220;x&#8221; key. Again, in normal mode, you hit the x key to delete the remaining of the words. If you are at the start of the word, it removes it completely and if you are at the second characters, it remove all remaining characters after the cursor.</p>
+
+
+<p>This is it. I learned a lot through the tutorial but haven&#8217;t used it much so it does not count. Tomorrow I will try a few new commands to keep learning it until I&#8217;m a master of vi/vim!!</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -671,54 +720,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/set-a-value-on-an-textbox-with-his-textmode-set-to-password/">Set a value on an Textbox with his TextMode set to Password</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-01-29T04:23:00-05:00" pubdate data-updated="true">Jan 29<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I have a basic scenario which i&#8217;m required to display a page where an user can change his user information, including his password. I decided to use an ASP.NET Textbox control which have a TextMode of password. But,&nbsp; when I put the password in the Text property, nothing will be displayed. The value will also be cleared after a postback event.</p>
-
-
-<p>There is an easy workaround, you can add the &#8220;value&#8221; attribute with the password as your value.</p>
-
-
-<div>
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas, 'Courier New', courier, monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">txtPassword.Attributes.Add(<span style="color: #006080">"value"</span>, "strongPassword");</pre>
-</div>
-
-
-<p>But why can&#8217;t we just set the value the normal way? Basically, it&#8217;s for security reasons. The password will be set as clear text in the HTML and malicious user could have access to it. This is why you need to stay away from this method if you store sensitive information.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/9/">&larr; Older</a>
@@ -750,6 +751,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/iterate-over-each-line-of-a-string-in-c-sharp/">Iterate over each line of a string in C#</a>
       </li>
     
@@ -763,10 +768,6 @@
     
       <li class="post">
         <a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/available/">Available</a>
       </li>
     
   </ul>

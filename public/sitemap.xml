@@ -810,21 +810,25 @@
     </url>
     <url>
         <loc>http://sebastienlachance.com/blog/asp-dot-net-mvc-actionlink-with-image/</loc>
-        <lastmod>2012-04-12T07:56:05-04:00</lastmod>
+        <lastmod>2012-04-18T17:32:22-04:00</lastmod>
     </url>
     <url>
         <loc>
             http://sebastienlachance.com/blog/iterate-over-each-line-of-a-string-in-c-sharp/
         </loc>
-        <lastmod>2012-04-17T08:00:33-04:00</lastmod>
+        <lastmod>2012-04-18T17:32:21-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://sebastienlachance.com/blog/what-can-we-do-with-array-dot-inject/</loc>
+        <lastmod>2012-04-24T05:57:33-04:00</lastmod>
     </url>
     <url>
         <loc>http://sebastienlachance.com/blog/archives/</loc>
-        <lastmod>2012-04-17T08:00:33-04:00</lastmod>
+        <lastmod>2012-04-24T05:57:33-04:00</lastmod>
     </url>
     <url>
         <loc>http://sebastienlachance.com/</loc>
-        <lastmod>2012-04-17T08:00:33-04:00</lastmod>
+        <lastmod>2012-04-24T05:57:33-04:00</lastmod>
     </url>
     <url>
         <loc>http://sebastienlachance.com/new-page/</loc>
