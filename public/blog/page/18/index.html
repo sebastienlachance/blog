@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Lastly I have got to play a lot with AJAX (ATLAS) and have been pleasantly surprised by the quality and the ease of use of the product. Really easy &hellip;">
+  <meta name="description" content="As promised, I will return back everything I have learned about Selenium. I invite you to go the OpenQA web site for additional information. If you &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,130 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/getting-started-with-selenium-ide-part-1/">Getting started with Selenium IDE - Part 1</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-07-10T11:23:00-04:00" pubdate data-updated="true">Jul 10<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>As promised, I will return back everything I have learned about <strong>Selenium</strong>. I invite you to go the <a href="http://openqa.org" target="_blank">OpenQA web site</a> for additional information.  If you stick with me for this series of article, you will get a great quick start to create good acceptances tests.  Selenium IDE (Integrated Development Environment) is a Firefox extension that records your actions on a page. Then you can execute them back with the IDE or with other version of Selenium (Selenium Remote Control is one of them).  First step  : <a href="http://www.mozilla.com/en-US/firefox/" target="_blank">Download Firefox</a> Second step: Install Selenium IDE extension on your browser</p>
+
+
+<ul>
+<li>Start Firefox and navigate to the<a href="http://openqa.org/selenium-ide/"> Selenium IDE home page. </a></li>
+<li>Click the download link. This will install the IDE.</li>
+</ul>
+
+
+<p>(If , for some reason, the Selenium IDE can&#8217;t replay your test, switch to a previous version.)</p>
+
+
+<p>Third step : Record your first test</p>
+
+
+<ul>
+<li>In Firefox,  go to Tools\Selenium IDE.</li>
+<li>Make sure the record button is pressed.</li>
+<li>Navigate on  the web application.</li>
+<li>Press the green arrow (start button).</li>
+<li>Your first test is done.</li>
+</ul>
+
+
+<p>Now, maybe the replay has not worked and you got some errors. This will be covered in the next post when I will show you how to add others commands to your Selenium test.</p>
+
+
+<p><img src="http://farm2.static.flickr.com/1195/777401494_76d85ef4f5.jpg?v=0" alt="" width="500" height="424" /></p>
+
+
+<p>Here is some features found in the interface:</p>
+
+
+<ul>
+<li>There is the baseURL text field. Suppose you have two times the same web site, you want to have this attribute because you will avoid hard coding the path in the test. Simply specific another baseURL and the test will be performed on it.</li>
+<li>Run/Walk/Step. This is basically the speed at witch the test will be executed. However, Step will require you to press the &#8220;Step&#8221; button to go line by line. Very useful.</li>
+<li>Of course you can save the test, juste press Ctrl-S or go to File/Save Test.</li>
+<li>Table/Source tabs. Basically, a test is just an html file (not entirely true, you will see later), composed of a table element, and 3 columns (each one has a specific purpose).</li>
+<li>Play with Selenium Test Runner. This will launch a test runner for your test (will be covered later).</li>
+</ul>
+
+
+<p>A lot more is possible and this is only the beginning.  If you find missing information, just leave a comment, and I will update the post.  Selenium IDE Getting Started Series</p>
+
+
+<ul>
+<li><a href="http://sebastienlachance.com/post/Getting-started-with-Selenium-IDE-Part-2.aspx">Part  2 : Structure and commands</a></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/blog-of-the-day/">Blog of the day</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-11-28T00:25:00-05:00" pubdate data-updated="true">Nov 28<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>And this blog is : <a title="Patrick Dussud's Blog" href="http://blogs.msdn.com/patrick_dussud/">Patrick Dussud&#8217;s Blog</a></p>
+
+
+<p>Very informative! This is the kind of thing I have overlooked when learning .NET and was very important (at least to impress colleague). And who is the most appropriate to explain the birth of the CLR than the Lead Architect of the CLR (Common Language Runtime) himself.</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -561,6 +685,14 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
       </li>
     
@@ -570,14 +702,6 @@
     
       <li class="post">
         <a href="/blog/asp-dot-net-mvc-actionlink-with-image/">ASP.NET MVC ActionLink with image</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/skyrim-a-really-awesome-video/">Skyrim - A really awesome video</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a>
       </li>
     
   </ul>

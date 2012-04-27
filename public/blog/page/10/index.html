@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="I decided to convert a test to Rhino Mocks 3.5 to &#8220;enhance readability&#8221;. This test was using constraints to make sure that properties of &hellip;">
+  <meta name="description" content="It&#8217;s finally there and now come with a &#8220;go-live&#8221; license. I have been waiting for a long time for it to be enough stable (never had &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,102 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/aspnet-mvc-beta/">ASP.NET MVC Beta</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-10-17T01:54:00-04:00" pubdate data-updated="true">Oct 17<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It&#8217;s finally there and now come with a &#8220;go-live&#8221; license. I have been waiting for a long time for it to be enough stable (never had any problem before) to use it for &#8220;real&#8221; clients (not for my own personal use).</p>
+
+
+<p>I have been reading this <a href="http://weblogs.asp.net/scottgu/archive/2008/10/16/asp-net-mvc-beta-released.aspx" target="_blank">ASP.NET MVC beta post</a> by ScottGu which is describing a bunch of new features and I found 2 that I personally find great.</p>
+
+
+<p>The first one is about the new &#8220;Add View&#8221; menu. This option enable us to make a strongly typed view easily. Not that it was hard to do before. But it&#8217;s a nice feature that will improve our experience with ASP.NET MVC.</p>
+
+
+<p>The second most enjoyable feature is the addition of the FormCollection parameter to an action. Unit testing without requiring to mock anything is great.</p>
+
+
+<p>And finally, ScottGu is talking about something new for ASP.NET WebForms in the new .NET 4.0. We will noew have complete control over the ClientId property.</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/currently-reading-jquery-in-action/">Currently reading : JQuery in Action</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-10-08T01:55:00-04:00" pubdate data-updated="true">Oct 8<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><table style="width: 626px;" border="0" cellspacing="0" cellpadding="2">
+<tbody>
+<tr>
+<td width="133" valign="top"><a href="http://www.amazon.com/gp/product/1933988355?ie=UTF8&amp;tag=sebastlachan-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1933988355"><img src="http://farm4.static.flickr.com/3128/2924670183_3c8d7746e4.jpg?v=0" border="0" alt="" /></a></td>
+<td width="489" valign="top">Due to the recent announcement of <a href="http://jquery.com/" target="_blank">JQuery</a> being shipped with Visual Studio and a new interest in web development, I decided to verify what all the hype is about. I&#8217;ll do a resume after I am done reading it.</td>
+</tr>
+</tbody>
+</table>
+
+
+<br />
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -527,112 +623,6 @@ requestRepository.VerifyAllExpectations();</pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/my-solution-node-does-not-appear-in-visual-studio-20052008/">My solution node does not appear in Visual Studio 2005/2008</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-05-13T08:13:00-04:00" pubdate data-updated="true">May 13<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://tinyurl.com/3l74od">A reader asked me</a> <strong>how we can display the solution node in Visual Studio</strong> when you have only one project. This feature is turned off by default. What you need to do is to go in your Tools/Options menu and click on <strong>Projects and Solutions</strong>. Then you need to check the Always Show Solution checkbox.</p>
-
-
-<p><a title="AlwaysShowSolution" href="http://www.flickr.com/photos/63483657@N00/2488713675/"><img src="http://static.flickr.com/2375/2488713675_88fe6a6b3a.jpg" border="0" alt="AlwaysShowSolution" /></a></p>
-
-
-<p>Feel free to ask me any questions.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/mocking-the-httpcontext-in-aspnet-mvc/">Mocking the HttpContext in ASP.NET MVC</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-05-08T08:12:00-04:00" pubdate data-updated="true">May 8<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I just got a hard time figuring how I could be mocking the HttpContext so that I would be able to mock HttpRequest. But once you understand the principle, it is fairly easy.</p>
-
-
-<p>First thing we need to know is that the HttpContext is held inside a <strong>ControllerContext</strong> object. Once we have instantiated one, we can then put it inside our controller.</p>
-
-
-<div>
-<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">controller.ControllerContext = <span style="color: #0000ff;">new</span> ControllerContext(mockedhttpContext, <span style="color: #0000ff;">new</span> RouteData(), controller);</pre>
-</div>
-
-
-<div>&nbsp;</div>
-
-
-<div>Where mockedHttpContext is your mocked <strong>HttpContextBase</strong> object.</div>
-
-
-<div>&nbsp;</div>
-
-
-<div>Inside the HttpContextBase object reside a lot of useful stuff that can replace with our mocks. By example, the HttpRequest, HttpServer, HttpApplication, etc, are all contained inside. So, getting familiar with this basic knowledge is a must to do testing usefully.</div>
-
-
-<div>&nbsp;</div>
-
-
-<div>Next post : Mocking HttpRequest.Form to return what we want.</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/11/">&larr; Older</a>
@@ -664,6 +654,14 @@ requestRepository.VerifyAllExpectations();</pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
       </li>
     
@@ -673,14 +671,6 @@ requestRepository.VerifyAllExpectations();</pre>
     
       <li class="post">
         <a href="/blog/asp-dot-net-mvc-actionlink-with-image/">ASP.NET MVC ActionLink with image</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/skyrim-a-really-awesome-video/">Skyrim - A really awesome video</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a>
       </li>
     
   </ul>

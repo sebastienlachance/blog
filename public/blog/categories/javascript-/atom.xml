@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: javascript, | Sebastien Lachance]]></title>
+  <link href="http://sebastienlachance.com/blog/categories/javascript-/atom.xml" rel="self"/>
+  <link href="http://sebastienlachance.com/"/>
+  <updated>2012-04-27T08:28:12-04:00</updated>
+  <id>http://sebastienlachance.com/</id>
+  <author>
+    <name><![CDATA[Sebastien Lachance]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Large-scale Javascript Application Architecture by Addy Osmani]]></title>
+    <link href="http://sebastienlachance.com/blog/large-scale-javascript-application-architecture-by-addy-osmani/"/>
+    <updated>2012-04-27T08:18:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/large-scale-javascript-application-architecture-by-addy-osmani</id>
+    <content type="html"><![CDATA[<p>Sometime, great stuff just fall from sky. And this presentation is just what I needed. <a href="http://speakerdeck.com/u/addyosmani">Addy Osmani</a> (AOL) has made a presentation about <a href="http://speakerdeck.com/u/addyosmani/p/scaling-your-javascript-applications">large-scale javascript application architecture</a> and has made his slides public on <a href="http://speakerdeck.com/">Speaker Deck</a> (which by the way is great).</p>
+
+<script async class="speakerdeck-embed" data-id="4ec3f44095903900510005cf" data-ratio="1.3333333333333333" src="http://sebastienlachance.com//speakerdeck.com/assets/embed.js"></script>
+
+]]></content>
+  </entry>
+  
+</feed>

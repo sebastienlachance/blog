@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Some months ago, I moved my BlogEngine.net blog (hosted on GoDaddy) to Octopress hosted on Heroku. I needed a tool to migrate all my posts and found &hellip;">
+  <meta name="description" content="I&#8217;m currently doing my best to learn Backbone and his best practices. I have set up a demo blog application on GitHub (Backbone-rails-blog). So &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,83 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/help-needed-a-backbone-blog/">Help needed, A Backbone blog</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-19T12:39:00-04:00" pubdate data-updated="true">Mar 19<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;m currently doing my best to learn Backbone and his best practices. I have set up a demo blog application on GitHub (<a href="https://github.com/sebastienlachance/backbone-rails-blog">Backbone-rails-blog</a>).</p>
+
+<p>So, if you are interested to give me some feedback, tips or check out the development progress, just watch the project to see where things are going and I&#8217;ll blog the important parts as I move forward.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/filling-a-select-from-an-array-on-javascript-object/">Filling a select from an array on javascript object</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-13T12:11:00-04:00" pubdate data-updated="true">Mar 13<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>As a reminder for my future self, here is how I fill a select from an array of javascript object.</p>
+
+<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/z9Q4R/embedded/js,resources,html,css,result/light/"></iframe>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -757,103 +834,6 @@ YAML::ENGINE.yamler= 'syck'
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/fluenthibernate-how-to-deal-with-a-reserved-word-column/">FluentHibernate - How to Deal With a Reserved Word Column</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-09-09T16:06:00-04:00" pubdate data-updated="true">Sep 9<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Suppose you have a class with an Order property. Any sql operation will throw an error because Order is a reserved word. To prevent this from happening, specify the column name yourself and enclose it with back ticks.</p>
-
-<pre><code>public class MessageMap : ClassMap&lt;Message&gt;
-{
-    public MessageMap()
-    {
-        Table("messages");
-        Id(x =&gt; x.Id);
-        ...
-        Map(x =&gt; x.Order, "`Order`");
-        ...
-    }
-}
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/no-such-file-to-load-cucumberrailsactive_record-%28loaderror%29/">no such file to load &#8211; cucumber/rails/active_record (LoadError)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-06-14T13:06:00-04:00" pubdate data-updated="true">Jun 14<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This morning I have updated cucumber on my rails application and I have been greeted by this error message :&nbsp;</p>
-
-
-<pre>no such file to load -- cucumber/rails/active_record (LoadError)
-</pre>
-
-
-<p>A simple fix is to simply reinstall cucumber :</p>
-
-
-<pre>rails generate cucumber:install
-</pre>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -885,6 +865,14 @@ YAML::ENGINE.yamler= 'syck'
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
       </li>
     
@@ -894,14 +882,6 @@ YAML::ENGINE.yamler= 'syck'
     
       <li class="post">
         <a href="/blog/asp-dot-net-mvc-actionlink-with-image/">ASP.NET MVC ActionLink with image</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/skyrim-a-really-awesome-video/">Skyrim - A really awesome video</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a>
       </li>
     
   </ul>

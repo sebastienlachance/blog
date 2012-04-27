@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Little reminder for later :&#160; parseInt(‘’) == NaN //return false isNaN(parseInt(‘’)) //return true ">
+  <meta name="description" content="Suppose you have a class with an Order property. Any sql operation will throw an error because Order is a reserved word. To prevent this from &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,103 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/fluenthibernate-how-to-deal-with-a-reserved-word-column/">FluentHibernate - How to Deal With a Reserved Word Column</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-09T16:06:00-04:00" pubdate data-updated="true">Sep 9<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Suppose you have a class with an Order property. Any sql operation will throw an error because Order is a reserved word. To prevent this from happening, specify the column name yourself and enclose it with back ticks.</p>
+
+<pre><code>public class MessageMap : ClassMap&lt;Message&gt;
+{
+    public MessageMap()
+    {
+        Table("messages");
+        Id(x =&gt; x.Id);
+        ...
+        Map(x =&gt; x.Order, "`Order`");
+        ...
+    }
+}
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/no-such-file-to-load-cucumberrailsactive_record-%28loaderror%29/">no such file to load &#8211; cucumber/rails/active_record (LoadError)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-14T13:06:00-04:00" pubdate data-updated="true">Jun 14<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This morning I have updated cucumber on my rails application and I have been greeted by this error message :&nbsp;</p>
+
+
+<pre>no such file to load -- cucumber/rails/active_record (LoadError)
+</pre>
+
+
+<p>A simple fix is to simply reinstall cucumber :</p>
+
+
+<pre>rails generate cucumber:install
+</pre>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -481,92 +578,6 @@ pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's W
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/linode-is-my-new-vps/">Linode is my new VPS</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-11-09T07:03:00-05:00" pubdate data-updated="true">Nov 9<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I needed to find an hosting company for our new product, and after a lot of though and hard decisions, we decided to go with <a href="http://www.linode.com/index.cfm">Linode</a>.&nbsp;</p>
-
-
-<p>I choose a Linode 512 (with Ubuntu 10.04 LTS) because we are not ready for full-scale deployment yet and did not wanted to pay for something we will not use fully for some time. The beautiful things is that we will be able to upgrade with no problems later on.</p>
-
-
-<p>Installing everything and got everything running in less than 2 hours. And I was pretty new to deploying a Rails application with mysql on linux.</p>
-
-
-<p>&nbsp;</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/find-in-php-files/">Searching for specific text in PHP files</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-11-08T09:53:00-05:00" pubdate data-updated="true">Nov 8<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>While working on a <a title="Drupal's website" href="http://drupal.org/">Drupal</a> project, I had to search for a specific string contained in one of a lots of PHP code files. My first search led me to no result. I assumed that the little something I searched for might be embedded in a dynamic web page (Drupal allows this). I spent some time searching and found nothing. Today, as I worked on another feature, I came across the exact thing I searched for. Humm what could I have done wrong?&nbsp;</p>
-
-
-<p>XP has a known issue when you are searching for text contained in files. Hopefully, there is a solution:&nbsp;<a href="http://support.microsoft.com/default.aspx?scid=KB;EN-US;309173">http://support.microsoft.com/default.aspx?scid=KB;EN-US;309173</a></p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -598,6 +609,14 @@ pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's W
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
       </li>
     
@@ -607,14 +626,6 @@ pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's W
     
       <li class="post">
         <a href="/blog/asp-dot-net-mvc-actionlink-with-image/">ASP.NET MVC ActionLink with image</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/skyrim-a-really-awesome-video/">Skyrim - A really awesome video</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a>
       </li>
     
   </ul>

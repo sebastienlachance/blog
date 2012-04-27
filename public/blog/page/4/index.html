@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="&nbsp; Time has come for me to finally announce that I now have launched my own company: Creatiom. Well, launched 2 companies, but I can&#8217;t talk &hellip;">
+  <meta name="description" content="I needed to find an hosting company for our new product, and after a lot of though and hard decisions, we decided to go with Linode.&nbsp; I choose a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,92 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/linode-is-my-new-vps/">Linode is my new VPS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-09T07:03:00-05:00" pubdate data-updated="true">Nov 9<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I needed to find an hosting company for our new product, and after a lot of though and hard decisions, we decided to go with <a href="http://www.linode.com/index.cfm">Linode</a>.&nbsp;</p>
+
+
+<p>I choose a Linode 512 (with Ubuntu 10.04 LTS) because we are not ready for full-scale deployment yet and did not wanted to pay for something we will not use fully for some time. The beautiful things is that we will be able to upgrade with no problems later on.</p>
+
+
+<p>Installing everything and got everything running in less than 2 hours. And I was pretty new to deploying a Rails application with mysql on linux.</p>
+
+
+<p>&nbsp;</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/find-in-php-files/">Searching for specific text in PHP files</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-08T09:53:00-05:00" pubdate data-updated="true">Nov 8<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>While working on a <a title="Drupal's website" href="http://drupal.org/">Drupal</a> project, I had to search for a specific string contained in one of a lots of PHP code files. My first search led me to no result. I assumed that the little something I searched for might be embedded in a dynamic web page (Drupal allows this). I spent some time searching and found nothing. Today, as I worked on another feature, I came across the exact thing I searched for. Humm what could I have done wrong?&nbsp;</p>
+
+
+<p>XP has a known issue when you are searching for text contained in files. Hopefully, there is a solution:&nbsp;<a href="http://support.microsoft.com/default.aspx?scid=KB;EN-US;309173">http://support.microsoft.com/default.aspx?scid=KB;EN-US;309173</a></p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -530,110 +616,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/build-failed-due-to-validation-errors/">Build failed due to validation errors</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-05-10T05:53:00-04:00" pubdate data-updated="true">May 10<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>Error 1 Build failed due to validation errors in C:\projects\webapp1\Database.dbml. Open the file and resolve the issues in the Error List, then try rebuilding the project. C:\projects\webapp1\Database.dbml</strong></p>
-
-
-<p>The package Visual Studio use to build a LinqToSql database is marked to be skipped, so a quick reset of the &ldquo;skip loading list&rdquo; will resolve this issue.</p>
-
-
-<p>1. Open a command prompt and navigate to : &lt;visualstudiofolder&gt;\Common7\IDE</p>
-
-
-<p>2. Then execute : devenv.exe /resetskippkgs</p>
-
-
-<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:ffefc919-aaf0-486d-9702-17cf911cef60" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/visualstudio">visualstudio</a>,<a rel="tag" href="http://technorati.com/tags/linq">linq</a></div>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/responseredirect-in-a-page-callback/">Response.Redirect in a page callback</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-05-10T05:44:00-04:00" pubdate data-updated="true">May 10<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>Response.Redirect cannot be called in a Page callback</strong></p>
-
-
-<p>Sometime you may need to redirect the user somewhere else when doing a page callback. This is not possible with Response.Redirect but you can use Response.RedirectLocation,</p>
-
-
-<p>
-<div id="scid:DFDE9937-D816-47f4-A306-7B60D5CE5AC0:da17b2ef-4831-41ab-8f9b-3118cf273100" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">
-<pre class="brush: csharp; gutter: false; first-line: 1; tab-size: 4;  toolbar: true; ">Response.RedirectLocation = "notarealpage.aspx?i=1";</pre>
-<!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
-</p>
-
-
-<p>&nbsp;</p>
-
-
-<p>
-<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:a48ff0a4-7277-47ab-9658-dd4284e4a3d0" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/asp.net">asp.net</a></div>
-</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -665,6 +647,14 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
       </li>
     
@@ -674,14 +664,6 @@
     
       <li class="post">
         <a href="/blog/asp-dot-net-mvc-actionlink-with-image/">ASP.NET MVC ActionLink with image</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/skyrim-a-really-awesome-video/">Skyrim - A really awesome video</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a>
       </li>
     
   </ul>

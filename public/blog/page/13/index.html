@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Sometimes, you come across real treasure! This is one of them, printed and with me for a long time. I have just finished reading the &#8220; &hellip;">
+  <meta name="description" content="Applying the DataContract and DataMember attributes to my class is THE solution of this problem. Anyway, at least I didn&#8217;t loose much time. ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,94 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/why-is-my-object-losing-all-of-its-values-when-sent-through-wcf/">Why is my object losing all of it&#8217;s values when sent through WCF?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-17T04:49:00-05:00" pubdate data-updated="true">Jan 17<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Applying the DataContract and DataMember attributes to my class is <strong>THE</strong> solution of this problem. Anyway, at least I didn&#8217;t loose much time.</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/activatorcreateinstance-problem/">Activator.CreateInstance problem</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-17T04:47:00-05:00" pubdate data-updated="true">Jan 17<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>There is thing you know you should do, but with too much confidence, you will forget. This was the case this morning with the Activator.CreateInstance method.</p>
+
+
+<p>I was getting this error :</p>
+
+
+<blockquote>
+<p>Exception has been thrown by the target of an invocation.<br />&nbsp;&nbsp; at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOn<br />ly, Boolean noCheck, Boolean&amp; canBeCached, RuntimeMethodHandle&amp; ctor, Boolean&amp; b<br />NeedSecurityCheck)<br />&nbsp;&nbsp; at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean fillCach<br />e)<br />&nbsp;&nbsp; at System.RuntimeType.CreateInstanceImpl(Boolean publicOnly, Boolean skipVisi<br />bilityChecks, Boolean fillCache)<br />&nbsp;&nbsp; at System.Activator.CreateInstance(Type type, Boolean nonPublic)<br />&nbsp;&nbsp; at System.RuntimeType.CreateInstanceImpl(BindingFlags bindingAttr, Binder bin<br />der, Object[] args, CultureInfo culture, Object[] activationAttributes)<br />&nbsp;&nbsp; at System.Activator.CreateInstance(Type type, BindingFlags bindingAttr, Binde<br />r binder, Object[] args, CultureInfo culture, Object[] activationAttributes)<br />&nbsp;&nbsp; at System.Activator.CreateInstance(String assemblyName, String typeName, Bool<br />ean ignoreCase, BindingFlags bindingAttr, Binder binder, Object[] args, CultureI<br />nfo culture, Object[] activationAttributes, Evidence securityInfo, StackCrawlMar<br />k&amp; stackMark)<br />&nbsp;&nbsp; at System.Activator.CreateInstance(String assemblyName, String typeName)<br />&nbsp;&nbsp; at DynamicsGP.GPListener.Program.Main(String[] args)</p>
+</blockquote>
+
+
+<p>After double and triple checking with Reflector and outputing everything possible to the console, I wasn&#8217;t able to figure out what I did wrong.</p>
+
+
+<p>The solution was easy, I was not checking the InnerException of the exception. Turn out is was only a missing dll.</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -461,415 +549,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/congratulation-to-me%21/">Congratulation to me!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-12-11T10:02:00-05:00" pubdate data-updated="true">Dec 11<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I have just received this! The inscription is :</p>
-
-
-<blockquote>
-<p>Thank you for the lasting contribution you made to Microsoft Visual Studio. S. Somasegar</p>
-</blockquote>
-
-
-<p><a title="Vs2008" href="http://www.flickr.com/photos/63483657@N00/2105149309/"><img src="http://static.flickr.com/2045/2105149309_f0f7be36b3.jpg" border="0" alt="Vs2008" /></a></p>
-
-
-<p>I really like receiving gifts, but I would have preferred a free copy of Visual Studio 2008. :) . Anyway, It&#8217;s a nice thank you.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/setting-up-a-basic-continuous-integration-server-with-cruisecontrolnet/">Setting up a continuous integration server with CruiseControl.NET</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-12-10T10:01:00-05:00" pubdate data-updated="true">Dec 10<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://sebastienlachance.com/building-a-new-application-series/">(Index of the whole series)</a></p>
-
-
-<p>Before we go on, you need to now what is &#8220;Continuous Integration&#8221;. This is a long topic and you should probably read <a href="http://martinfowler.com/articles/continuousIntegration.html" target="_blank">Martin Fowler&#8217;s article on Continuous Integration</a>.</p>
-
-
-<p>Now that we have determined the structure of the project and put the source in the repository, we need to set up the continuous integration server. The tool we will use for that is <a href="http://confluence.public.thoughtworks.org/display/CCNET/Welcome+to+CruiseControl.NET">CruiseControl.NET</a>. The guys behind it have really done a great job. We need first to define &#8220;what we want&#8221;.</p>
-
-
-<h5><strong>What we want :</strong></h5>
-
-
-<ol>
-<li>Checking for modifications in the source repository.</li>
-<li>Get the latest version if modifications are detected.</li>
-<li>Build the project.</li>
-<li>Run the test suite.</li>
-<li>Reporting any successes of failures.</li>
-</ol>
-
-
-<p>We also want to &#8220;fail fast&#8221;. This means that at any step, if something is wrong, we won&#8217;t go further and report it.</p>
-
-
-<p>So here is the step by step approach :</p>
-
-
-<h5><strong>1. Downloading and Installing CruiseControl.NET</strong></h5>
-
-
-<p><a href="http://sourceforge.net/project/showfiles.php?group_id=71179&amp;package_id=83198" target="_blank">Download CruiseControl.NET here</a>. I&#8217;m using the version 1.3. Then double-click on the executable and follow each step. Normally, I&#8217;m leaving everything checked except the help files and examples.</p>
-
-
-<p>You will be asked if you want to use CC.NET server as a Windows Service. Basically, if you want CC.NET to always run (and in my opinion, it should), my advice is to run it as a service. But some scenario may require that you need to run it only once in while. In that case you only need to execute ccnet.exe to start the server. Next, it ask you if you want to create a virtual directory in IIS for the Web Dashboard. I&#8217;m leaving it checked as I want to use CC.NET as a service.</p>
-
-
-<h5><strong>2. Setting a basic project in ccnet.config</strong></h5>
-
-
-<p>Find your ccnet.config (in your <strong>ccnetinstallationfolder\server</strong>). Every step you want to be executed will be defined here. This require some basic knowledge in xml.</p>
-
-
-<p style="line-height: 12pt; background-color: #f4f4f4; margin: 20px 0pt 10px; width: 97.5%; font-family: consolas,'Courier New',courier,monospace; max-height: 200px; font-size: 8pt; overflow: auto; cursor: text; border: gray 1px solid; padding: 4px;">&nbsp;</p>
-
-
-<p style="line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">&nbsp;</p>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;"><span style="color: #008000;">&lt;!--&lt;ccnetconfig&gt;&lt;configurationVersion&gt;1.3&lt;/configurationVersion&gt;&lt;/ccnetconfig&gt;--&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;"><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">cruisecontrol</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">project</span> <span style="color: #ff0000;">name</span><span style="color: #0000ff;">="LogItAll"</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">project</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;"><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">cruisecontrol</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<p>I&#8217;m usually starting with an empty configuration file. The &lt;cruisecontrol&gt; tag is the root and you have one &lt;project&gt; tag per project.</p>
-
-
-<p style="line-height: 12pt; background-color: #f4f4f4; margin: 20px 0pt 10px; width: 97.5%; font-family: consolas,'Courier New',courier,monospace; max-height: 200px; font-size: 8pt; overflow: auto; cursor: text; border: gray 1px solid; padding: 4px;">&nbsp;</p>
-
-
-<p style="line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">&nbsp;</p>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;"><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">cruisecontrol</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">project</span> <span style="color: #ff0000;">name</span><span style="color: #0000ff;">="LogItAll"</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">workingDirectory</span><span style="color: #0000ff;">&gt;</span>c:\dev\logitall<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">workingDirectory</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">artifactDirectory</span><span style="color: #0000ff;">&gt;</span>c:\dev\logitall\artifact<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">artifactDirectory</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">category</span><span style="color: #0000ff;">&gt;</span>Personal application<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">category</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">modificationDelaySeconds</span><span style="color: #0000ff;">&gt;</span>10<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">modificationDelaySeconds</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">triggers</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">          <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">intervalTrigger</span> <span style="color: #ff0000;">name</span><span style="color: #0000ff;">="continuous"</span> <span style="color: #ff0000;">seconds</span><span style="color: #0000ff;">="30"</span><span style="color: #0000ff;">/&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">triggers</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">labeller</span> <span style="color: #ff0000;">type</span><span style="color: #0000ff;">="defaultlabeller"</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">          <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">prefix</span><span style="color: #0000ff;">&gt;</span>0.0.<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">prefix</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">labeller</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">   <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">project</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;"><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">cruisecontrol</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<p>The <strong>&lt;workingDirectory&gt;</strong> will serve as the root for all our operations. Instead of specifying the full path, we will use the relative path. Example : \tools\nant\nant.exe instead of C:\dev\LogItAll\tools\nant\nant.exe.</p>
-
-
-<p>The <strong>&lt;artifactDirectory&gt;</strong> is where every logs (builds, unit tests) is stored. This tag is not needed.</p>
-
-
-<p>The <strong>&lt;category&gt;</strong> is simply in which category you want the project to be. This tag is also not needed.</p>
-
-
-<p>The <strong>&lt;modificationDelaySeconds&gt;</strong> is the interval of time in which no modification must be done to the source to continue executing all remaining tasks.</p>
-
-
-<p>We then have the triggers bloc. This block contains all the reasons that we want to perform a build. I recommend using the <a href="http://confluence.public.thoughtworks.org/display/CCNET/Trigger+Blocks" target="_blank">documentation of CC.NET to learn more</a>. The <strong>&lt;intervalTrigger&gt;</strong> is, as the name imply, a trigger that will launch the build process every 30 seconds if any modifications is done to the source.</p>
-
-
-<p>Finally we have the <strong>&lt;labeller&gt;</strong> which will give a label to the project. <a href="http://confluence.public.thoughtworks.org/display/CCNET/Labeller+Blocks" target="_blank">There is a lot of different labelers to use</a>. In my case, I&#8217;m going with the default and starting the build number at 0.0.*.</p>
-
-
-<h5><strong>3. Checking if any modifications is done to the source and getting the latest version.</strong></h5>
-
-
-<p>The sourcecontrol tag is need to know if the source have changed. This will also get the latest version of the project.</p>
-
-
-<p style="line-height: 12pt; background-color: #f4f4f4; margin: 20px 0pt 10px; width: 97.5%; font-family: consolas,'Courier New',courier,monospace; max-height: 200px; font-size: 8pt; overflow: auto; cursor: text; border: gray 1px solid; padding: 4px;">&nbsp;</p>
-
-
-<p style="line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">&nbsp;</p>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;"><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">cruisecontrol</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">project</span> <span style="color: #ff0000;">name</span><span style="color: #0000ff;">="LogItAll"</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">   ...</pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">sourcecontrol</span> <span style="color: #ff0000;">type</span><span style="color: #0000ff;">="svn"</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">trunkUrl</span><span style="color: #0000ff;">&gt;</span>svn://localhost/repos/LogItAll<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">trunkUrl</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">workingDirectory</span><span style="color: #0000ff;">&gt;</span>c:\dev\logitall<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">workingDirectory</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">sourcecontrol</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">    ...</pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">project</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;"><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">cruisecontrol</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<p>I can&#8217;t go on all the details because each source control has it&#8217;s own set of properties and features.</p>
-
-
-<p><a href="http://confluence.public.thoughtworks.org/display/CCNET/Source+Control+Blocks" target="_blank">A lot of source control providers are supported (SourceSafe,CVS, etc..).</a></p>
-
-
-<h5><strong>4. Build the project and run the unit tests suite.</strong></h5>
-
-
-<p>First, we need a <strong>&lt;tasks&gt;</strong> section. This section should contains all action you want to happen in order. <a href="http://confluence.public.thoughtworks.org/display/CCNET/Welcome+to+CruiseControl.NET" target="_blank">Several tasks are available</a>.</p>
-
-
-<p>A build file will help tremendously. Since we already have the build process in our own file for development, why shouldn&#8217;t we use it to build the application on the CI server. Instead of using an MSBuild task and modifying two files each time we change something in our build process, we should use it. You can use the <a href="http://confluence.public.thoughtworks.org/display/CCNET/NAnt+Task" target="_blank">nant task</a> to run our build file.</p>
-
-
-<p style="line-height: 12pt; background-color: #f4f4f4; margin: 20px 0pt 10px; width: 97.5%; font-family: consolas,'Courier New',courier,monospace; max-height: 200px; font-size: 8pt; overflow: auto; cursor: text; border: gray 1px solid; padding: 4px;">&nbsp;</p>
-
-
-<p style="line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">&nbsp;</p>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;"><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">cruisecontrol</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">project</span> <span style="color: #ff0000;">name</span><span style="color: #0000ff;">="LogItAll"</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">    ...</pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tasks</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">nant</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">executable</span><span style="color: #0000ff;">&gt;</span>tools\nant\nant.exe<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">executable</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">buildFile</span><span style="color: #0000ff;">&gt;</span>logitall.build<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">buildFile</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">targetList</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">          <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">target</span><span style="color: #0000ff;">&gt;</span>test<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">target</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">targetList</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">      <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">nant</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tasks</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">    ...</pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">project</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;"><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">cruisecontrol</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<h5><strong>5. Integrating the results.</strong></h5>
-
-
-<p>Every log files you want to see in the Web Dashboard need to be merged. To do that you need to add the File Merge Task of the publisher task.</p>
-
-
-<p style="line-height: 12pt; background-color: #f4f4f4; margin: 20px 0pt 10px; width: 97.5%; font-family: consolas,'Courier New',courier,monospace; max-height: 200px; font-size: 8pt; overflow: auto; cursor: text; border: gray 1px solid; padding: 4px;">&nbsp;</p>
-
-
-<p style="line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">&nbsp;</p>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;"><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">cruisecontrol</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">project</span> <span style="color: #ff0000;">name</span><span style="color: #0000ff;">="LogItAll"</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">    ...</pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">publishers</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">merge</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">files</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">file</span><span style="color: #0000ff;">&gt;</span>Logs\*.xml<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">file</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">         <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">files</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">      <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">merge</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">xmllogger</span><span style="color: #0000ff;">/&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">publishers</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;">    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">project</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0pt; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0pt;"><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">cruisecontrol</span><span style="color: #0000ff;">&gt;</span></pre>
-
-
-<p>This will embed the content of all the xml files in the logs folder in an xml file that the Web Dashboard will use to render it&#8217;s content. It&#8217;s really important that you add the &lt;xmllogger&gt;. It is required for the Web Dashboard to function properly.</p>
-
-
-<p>If you are like me and you are using MbUnit as a test tool, you will need to perform some additional step to integrate your results files into the Web Dashboard. The solution is described in the <a href="http://weblogs.asp.net/astopford/archive/2007/07/04/adding-mbunit-to-ccnet.aspx" target="_blank">Andrew Stopford&#8217;s Weblog</a>. If you don&#8217;t see the report after that, verify that MbUnit genarate an xml file instead of an html file.</p>
-
-
-<h5><strong>6. The Web Dashboard</strong></h5>
-
-
-<p>The Web Dashboard is the easiest way to see every test results, builds logs, coverage statistics, etc&#8230;</p>
-
-
-<p>You can access it via the http://<em>nameofyourserver</em>/ccnet.</p>
-
-
-<h5><strong>7. CCTray</strong></h5>
-
-
-<p>CCTray is a little application that helps you monitor your build. Simply access you Web Dashboard, and it the left menu, there is an option to download CCTray.</p>
-
-
-<p><a title="CCTray" href="http://farm5.static.flickr.com/4075/4760112205_db327f5c7a.jpg"><img style="border-width: 0; border: 0;" src="http://farm5.static.flickr.com/4075/4760112205_db327f5c7a.jpg" border="0" alt="cctraydownload" width="244" height="185" /></a></p>
-
-
-<p>Then you need to add the projects you want to monitor. You do that first by entering the name of the server and then selecting the projects you want. I&#8217;m usually using the &#8220;Connect directly using .NET remoting.</p>
-
-
-<p><a title="Configuring CCTray" href="http://farm5.static.flickr.com/4121/4760747222_c132b2a7a3.jpg"><img style="border-width: 0; border: 0;" src="http://farm5.static.flickr.com/4121/4760747222_c132b2a7a3.jpg" border="0" alt="addserver" width="604" height="613" /></a></p>
-
-
-<p>Keep in mind that it is a basic tutorial and I intend to develop a little more in the following months. In the meanwhile, I will appreciate any comments, suggestion or ideas.</p>
-
-
-<p>(Put me in your feed reader ! :P)</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/14/">&larr; Older</a>
@@ -901,6 +580,14 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
       </li>
     
@@ -910,14 +597,6 @@
     
       <li class="post">
         <a href="/blog/asp-dot-net-mvc-actionlink-with-image/">ASP.NET MVC ActionLink with image</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/skyrim-a-really-awesome-video/">Skyrim - A really awesome video</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a>
       </li>
     
   </ul>

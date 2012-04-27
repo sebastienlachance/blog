@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Combine all elements of an enumerable with the supplied block (or symbol) [1, 3, 5, 10].inject { |sum, el| sum + el } What is happenning behid the &hellip;">
+  <meta name="description" content="Sometime, great stuff just fall from sky. And this presentation is just what I needed. Addy Osmani (AOL) has made a presentation about large-scale &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,116 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-27T08:18:00-04:00" pubdate data-updated="true">Apr 27<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Sometime, great stuff just fall from sky. And this presentation is just what I needed. <a href="http://speakerdeck.com/u/addyosmani">Addy Osmani</a> (AOL) has made a presentation about <a href="http://speakerdeck.com/u/addyosmani/p/scaling-your-javascript-applications">large-scale javascript application architecture</a> and has made his slides public on <a href="http://speakerdeck.com/">Speaker Deck</a> (which by the way is great).</p>
+
+<script async class="speakerdeck-embed" data-id="4ec3f44095903900510005cf" data-ratio="1.3333333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-24T07:45:00-04:00" pubdate data-updated="true">Apr 24<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>What does it looks like?</h2>
+
+<pre><code>class Book
+    class Page
+    end
+end
+</code></pre>
+
+<h2>What is the purpose of nested classes?</h2>
+
+<p>It is useful when we want to group classes together instead of trying to keep them distinct. It make no sense in this example to have a standalone Page class without the Book class.</p>
+
+<h2>How can we instantiate Page class?</h2>
+
+<p>If we try to instantiate it normally:</p>
+
+<pre><code>page = Page.new // will throw Uninitialized constant error
+</code></pre>
+
+<p>We get: Uninitialized constant Object::Page</p>
+
+<p>Instead we need to use:</p>
+
+<pre><code>page = Book::Page.new
+</code></pre>
+
+<h2>But why using :: ?</h2>
+
+<p>Using :: is a way to access constant. Does it make sense? Yes, because nested classes are stored in constant from within the class.</p>
+
+<pre><code>class A
+    B = "A constant"
+end
+</code></pre>
+
+<p>A::B will return &#8220;A constant&#8221;</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -468,83 +578,6 @@ You can see it as (((10 + 1) + 2) + 3).
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/help-needed-a-backbone-blog/">Help needed, A Backbone blog</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-03-19T12:39:00-04:00" pubdate data-updated="true">Mar 19<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&#8217;m currently doing my best to learn Backbone and his best practices. I have set up a demo blog application on GitHub (<a href="https://github.com/sebastienlachance/backbone-rails-blog">Backbone-rails-blog</a>).</p>
-
-<p>So, if you are interested to give me some feedback, tips or check out the development progress, just watch the project to see where things are going and I&#8217;ll blog the important parts as I move forward.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/filling-a-select-from-an-array-on-javascript-object/">Filling a select from an array on javascript object</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-03-13T12:11:00-04:00" pubdate data-updated="true">Mar 13<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>As a reminder for my future self, here is how I fill a select from an array of javascript object.</p>
-
-<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/z9Q4R/embedded/js,resources,html,css,result/light/"></iframe>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -574,6 +607,14 @@ You can see it as (((10 + 1) + 2) + 3).
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
       </li>
     
@@ -583,14 +624,6 @@ You can see it as (((10 + 1) + 2) + 3).
     
       <li class="post">
         <a href="/blog/asp-dot-net-mvc-actionlink-with-image/">ASP.NET MVC ActionLink with image</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/skyrim-a-really-awesome-video/">Skyrim - A really awesome video</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a>
       </li>
     
   </ul>

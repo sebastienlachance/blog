@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="I will soon move to my new house and I got a 13x13 room for my office. There is no windows, but I have a really big patio door. I will almost never &hellip;">
+  <meta name="description" content="Suppose you have 2 assembly, called ProjectA and ProjectB. And each one of the assembly have a corresponding ClassA and ClassB class. In the ClassA &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,183 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/the-problem-with-constant-and-versioning/">The problem with Constant and Versioning</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-09-20T04:06:00-04:00" pubdate data-updated="true">Sep 20<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Suppose you have 2 assembly, called ProjectA and ProjectB. And each one of the assembly have a corresponding ClassA and ClassB class. In the ClassA class, you have a constant.</p>
+
+
+
+
+<p>Example :</p>
+
+
+
+
+<pre>public const string SPNAME = "SP_Insert_Something";</pre>
+
+
+
+
+<p>Then the ClassB class use the constant in his code. You compile, everything work as expected. After a while, you change the value of the SPNAME constant for &#8220;SP_Insert_Another_Thing&#8221;. You recompile, but the problem is that the ClassB (which is in another assembly not recompiled) will still use the old value. At compile-time, the value of the constant is added to the IL (Intermediate Language) and no reference at all is made to the constant field of the ClassA class in the ProjectA assembly. You should consider using a readonly field. When using the readonly keyword, the value will not be inserted into the IL code and the code will instead check the value stored in the ProjectA assembly.</p>
+
+
+
+
+<pre>public readonly string spname= "SP_Insert_Something";</pre>
+
+
+
+
+<br />
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/bookmarks-of-the-week-1/">Bookmarks of the week 1</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-09-06T04:03:00-04:00" pubdate data-updated="true">Sep 6<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I have a huge list of feeds and sometime there is some really long post and some excellent links. And I don&#8217;t always have the time to go through this. So I hit Ctrl-D to place it in my bookmarks. So today I had some time left to clean this all up. So, here is all the bookmark that will stay bookmark.
+</p>
+
+
+<p>
+This one is the most visited by me in the last month. Lot of useful tips.
+</p>
+
+
+<ul>
+    <li><a href="http://www.problogger.net/31-days-to-building-a-better-blog/">31 Days to Building a Better Blog</a></li>
+</ul>
+
+
+<p>
+147 Tips to be better (which happens to be the theme of my blog).
+</p>
+
+
+<ul>
+    <li><a href="http://frugalist.instantcreditcard.com/2007/the-frugality-cheat-sheet-147-tiny-tips-to-live-healthier-happier-greener-and-better/">The Frugality Cheat Sheet: 147 Tiny Tips to Live Healthier, Happier, Greener and Better</a></li>
+</ul>
+
+
+<p>
+When you don&#8217;t know what to listen.
+</p>
+
+
+<ul>
+    <li><a href="http://rateyourmusic.com/lists/list_view?list_id=47106&amp;show=100&amp;start=0">Top 500 Best Songs Ever</a></li>
+</ul>
+
+
+<p>
+Tim Ferriss offers you this OCD.
+</p>
+
+
+<ul>
+    <li><a href="http://www.fourhourworkweek.com/blog/2007/08/29/5-pen-tricks-from-japan-uh-oh/">5 Pen Tricks from Japan — Uh oh…</a></li>
+</ul>
+
+
+<p>
+I have ordered the book today.
+</p>
+
+
+<ul>
+    <li><a href="http://www.scotthyoung.com/blog/2007/03/10/double-your-reading-rate/">Double your reading rate</a></li>
+</ul>
+
+
+<p>
+Finally someone answers them!
+</p>
+
+
+<ul>
+    <li><a href="http://gilesbowkett.blogspot.com/2007/09/malfunctiong-vote-counting-machines-are.html">Malfunctioning Vote-Counting Machines Are ALWAYS A Sign Of Corruption</a></li>
+</ul>
+
+
+<p>
+And at last, a developer link.
+</p>
+
+
+<ul>
+    <li><a href="http://codekata.pragprog.com/">CodeKata</a></li>
+</ul>
+
+
+
+
+<p>Let me know if you enjoy this kind of posts. Good day!</p>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -524,110 +701,6 @@ childForm.Owner = <span style="color:#0000ff;">this</span>; <span style="color:#
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/scummvm/">ScummVM</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-07-31T10:51:00-04:00" pubdate data-updated="true">Jul 31<span>st</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Do you remember Sam &amp; Max, Full Throttle and Day of the Tentacle (Dott!)? <a href="http://www.scummvm.org/" target="_blank">ScummVM</a> allow you to replay these &#8220;point and click&#8221; adventure games. You need to have the data file for them and you are ready to go. There are also different port: Nintendo DS, Dreamcast, PlayStation 2, etc&#8230; I think I&#8217;m gonna give it a try on the DS as soon as I have all the component. I would really like to play Monkey Island in the bus.</p>
-
-
-<p><a href="http://sourceforge.net/community/index.php/landing-pages/cca07/" target="_blank">ScummVM is the winner of the <strong>Best Project for Gamers</strong> award on the SourceForge 2007 Community Choice Awards</a>.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/first-experience-with-visual-studio-2008/">First experience with Visual Studio 2008</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-07-28T10:58:00-04:00" pubdate data-updated="true">Jul 28<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>Edit : This is actually some features of the new C# 3.0 compiler.</strong></p>
-
-
-<p>Yesterday I&#8217;ve downloaded the Beta 2 of Visual Studio 2008 and .NET 3.5. And I decided to start writing a little journal application. During the first hour I had not seen anything new and really started wondering what were the advantages of migrating to 2008 if you are not doing Web Application (new features concerning CSS, JavaScript, debugging, etc..). I decided to do a quick search on Google, and found the <a href="http://weblogs.asp.net/scottgu/" mce_href="http://weblogs.asp.net/scottgu/" target="_blank">ScottGu&#8217;s Blog</a> (highly recommended) which was enumerating some new features. And found 2 that was directly applicable now to my application : <strong>Automatic Properties</strong> and <strong>Query Syntax.</strong> <strong><u style="">Automatic Properties</u></strong>.  Suppose you are writing properties for a class. Don&#8217;t you find that you are creating private field for nothing. Wouldn&#8217;t it be simpler that the compiler generate it automatically for you. Check this out :</p>
-
-
-<pre><span style="color:#0000ff;" mce_style="color:#0000ff;">public</span> <span style="color:#2b91af;" mce_style="color:#2b91af;">DateTime</span>? EntryDate
-{
-   <span style="color:#0000ff;" mce_style="color:#0000ff;">get</span> { <span style="color:#0000ff;" mce_style="color:#0000ff;">return</span> _entryDate; }
-   <span style="color:#0000ff;" mce_style="color:#0000ff;">set</span> { _entryDate = <span style="color:#0000ff;" mce_style="color:#0000ff;">value</span>; }
-}</pre>
-
-
-<p><a href="http://11011.net/software/vspaste" mce_href="http://11011.net/software/vspaste"></a> become</p>
-
-
-<pre><span style="color:#0000ff;" mce_style="color:#0000ff;">public</span> <span style="color:#2b91af;" mce_style="color:#2b91af;">DateTime</span>? EntryDate { <span style="color:#0000ff;" mce_style="color:#0000ff;">get</span>; <span style="color:#0000ff;" mce_style="color:#0000ff;">set</span>; }</pre>
-
-
-<p>Less code means more time to do something else, so I&#8217;m happy! And what about&nbsp;  <u style=""><strong>Query Syntax</strong></u>?  I had a collection of JournalEntry instance and wanted to find the instance containing the date the user selected. The way I had done it at first was to iterate through the collection and check if the date was the same (I could have done it with predicate too). But the way LINQ handle it was too cool not to try it.  P.S One advice before you try this. Make sure the project is compiled using .NET 3.5 and you reference System.Core.  My little loop has became this :</p>
-
-
-<pre><span style="color:#2b91af;" mce_style="color:#2b91af;">IEnumerable</span>&lt;<span style="color:#2b91af;" mce_style="color:#2b91af;">JournalEntry</span>&gt; results = <span style="color:#0000ff;" mce_style="color:#0000ff;">from</span> j <span style="color:#0000ff;" mce_style="color:#0000ff;">in</span> Journal
-                                    <span style="color:#0000ff;" mce_style="color:#0000ff;">where</span> j.EntryDate == selectedDate
-                                    <span style="color:#0000ff;" mce_style="color:#0000ff;">select</span> j;</pre>
-
-
-<p><a href="http://11011.net/software/vspaste" mce_href="http://11011.net/software/vspaste"></a></p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/17/">&larr; Older</a>
@@ -659,6 +732,14 @@ childForm.Owner = <span style="color:#0000ff;">this</span>; <span style="color:#
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
       </li>
     
@@ -668,14 +749,6 @@ childForm.Owner = <span style="color:#0000ff;">this</span>; <span style="color:#
     
       <li class="post">
         <a href="/blog/asp-dot-net-mvc-actionlink-with-image/">ASP.NET MVC ActionLink with image</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/skyrim-a-really-awesome-video/">Skyrim - A really awesome video</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a>
       </li>
     
   </ul>

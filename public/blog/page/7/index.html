@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Here is a list of common errors I had while working with the System.Diagnostics.Process class. I listed all solutions that worked for me. Couldn&# &hellip;">
+  <meta name="description" content="Let me start by telling you that I strongly believe in agile software development. Agile for me is about rapid feedback, improvement and a chance for &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,131 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/moving-to-an-agile-team/">Moving to an Agile Team</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-30T05:45:00-04:00" pubdate data-updated="true">Sep 30<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Let me start by telling you that I strongly believe in agile software development. Agile for me is about rapid feedback, improvement and a chance for all team members to give their opinions (and a lot more). Far too often I have seen developers only following wishes and desires of their lead programmer and never been asked for their opinions (it&rsquo;s not a personal experience but this is what I have heard many times). And I don&rsquo;t think it works.</p>
+
+
+<p>Recently, I have been assigned to help a team that just got started on the agile path. They want to do it with Scrum and XP. I have not been sent specifically to help them with the agile transition but since I got some experience I think I could be of some help.</p>
+
+
+<p>The new team has a great willingness to learn and improve themselves and finding a better team and a better project would have been possible for this transition. If there is a team that will successfully make it happen, it&rsquo;s them. Our Scrum master is using the &ldquo;<a href="http://www.infoq.com/minibooks/scrum-xp-from-the-trenches" target="_blank">Scrum and XP from the Trenches</a>&rdquo; book written by <a href="http://blog.crisp.se/" target="_blank">Henri Kniberg</a> as a reference and so far, it&rsquo;s working amazingly. I did not had time to read it yet, but I plan to purchase the book as soon as I have some free time (I&rsquo;m getting married and having a baby).</p>
+
+
+<p>We are experimenting different things and and seeing by ourselves what works and what is not. So far we already implemented the daily meeting, user stories and an integration server. We also make use of &ldquo;story point&rdquo;, but for us, one point is one hour. We also use a burndown chart to track the effort we make (as I said: rapid feedback).</p>
+
+
+<p>It&rsquo;s also a learning experience for me. I got to read a lot more and have been asked frequently to give feedback. So I&rsquo;m not letting myself go with the flow and only live the experience, but I am asked to participate actively. In the past, I have been on an agile team but as a remote worker (and a lot of distraction at the time, read : new house) and did not fully lived the experience. I also tried by myself on a lot of one-person project but, it&rsquo;s not just the same.</p>
+
+
+<p>We have configured a build server and now we are trying to write more tests (just me for the moment, since I got &ldquo;extensive&rdquo; experience with that (3-4 years, wow time goes fast)).&nbsp; One thing I would like to apply as soon as possible is the use of TDD or BDD. But this one will be a lot harder to be approved since it&rsquo;s a considerable overhead when the team have no experience and a lot harder to get started correctly.</p>
+
+
+<p>Happy to be back on the Agile train.</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/why-unit-testing/">Why I’m doing unit testing</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-23T05:52:00-04:00" pubdate data-updated="true">Sep 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>To be honest, I believe that we have reached a point where we can&rsquo;t allow ourselves to deliver untested software. I lived through a lot of maintenance work and debugging that were so time consuming that It took more time to debug than it took to actually develop. And it&rsquo;s for that reason that I believe that unit tests are essentials and should belong to every developer toolbox.</p>
+
+
+<h3>Easy to get started</h3>
+
+
+<p>It&rsquo;s actually not so hard to learn and a lot of resources already exists to get you started rapidly (<a title="Roy Osherove blog" href="http://weblogs.asp.net/ROsherove/" target="_blank">Roy Osherove</a> and <a title="Art of unit testing" href="http://www.artofunittesting.com/" target="_blank">his book</a> are a must).</p>
+
+
+<h3>Unit test and design</h3>
+
+
+<p>I also believe that unit tests have a strong positive impact to the design of the code. Doing correctly, TDD (test-driven-design or test-driven development) is a powerful tool. I&rsquo;m talking with experience here and it&rsquo;s very impressive. I worked on two almost identical project and one was driven by test and the other was not. The quality of the design was much much better on the project that was test driven than the other one. But what was way more impressive was the number of changes made to the structure of the project. Code with tests has evolved tremendously and untested code had a static structure that stayed the same over the course of it&rsquo;s development.</p>
+
+
+<h3>Unit test as a learning tool</h3>
+
+
+<p>And a great one it is. I recently had to create regular expression to find email in some large text file. Instead of rapidly hitting google for a rapid solution, I created a class library, added the nUnit framework and started writing tests. This way, I could test assumptions and learn some aspect of writing regular expressions. I learned a lot.</p>
+
+
+<h3>I can&rsquo;t believe!</h3>
+
+
+<p>Today, I can&rsquo;t believe myself when I see a method that contains logical code, and no tests. Tests are so easy to do (when you actually know how to do them) that it&rsquo;s almost a shame to forget about them.</p>
+
+
+<h3>My answer</h3>
+
+
+<p>And here is my answer to the &ldquo;we don&rsquo;t do test because our organization don&rsquo;t want to&rdquo; argument : Don&rsquo;t tell them. You are responsible for the quality of your code and it&rsquo;s very unprofessional to leave code go in production that you knew would have been much better and feel more confident if it was tested. I believe the advantages outweigh the disadvantages in this particular case.</p>
+
+
+<p>This is my point of view.&nbsp;</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -511,89 +636,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/vim-30-days-day-4/">Vim 30 days - Day 4</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-05-25T09:09:00-04:00" pubdate data-updated="true">May 25<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Today I had real opportunity to use gVim so I decided to install <a href="http://www.viemu.com/">ViEmu for Visual Studio</a> and give it a try. A had a lot of code to write on a recent application I&#8217;m working on so why not.</p>
-
-
-<p>I&#8217;m starting to get a hand on basic navigation and on inserting/appending removing/deleting characters. It&#8217;s too soon to know I it had improved my productivity yet, but I&#8217;m still learning so let&#8217;s see in a couple of days how it goes.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/vivim-30-days-day-3/">Vi/Vim 30 days - Day 3</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-05-22T09:10:00-04:00" pubdate data-updated="true">May 22<span>nd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Not been typing much today, but I wanted at least to clear something. How do I cut/paste <strong>inside</strong> gVim.</p>
-
-
-<p>First you need to enter the selection mode by hitting &#8220;v&#8221;. Then move the cursor to select text using h, j, k, l, w, e, etc. When the text is selected, hit &#8220;d&#8221;. This will cut the text. Now hit &#8220;p&#8221; to put the line back.</p>
-
-
-<p>On another note, I talked about vi/vim to some of my colleagues and friends and everyone is just laughing at me. Everyone seems to agree that there is no points in learning this and should stick with &#8220;what everyone do&#8221;. I do hope to show them what it&#8217;s really about.&nbsp;&nbsp;</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/8/">&larr; Older</a>
@@ -625,6 +667,14 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
       </li>
     
@@ -634,14 +684,6 @@
     
       <li class="post">
         <a href="/blog/asp-dot-net-mvc-actionlink-with-image/">ASP.NET MVC ActionLink with image</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/skyrim-a-really-awesome-video/">Skyrim - A really awesome video</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a>
       </li>
     
   </ul>

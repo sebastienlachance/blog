@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Here is a collection of all tower defense games on the Internet. Be advised that your day will be lost if you take a look at this site. towerdefence. &hellip;">
+  <meta name="description" content="Do you remember Sam &amp; Max, Full Throttle and Day of the Tentacle (Dott!)? ScummVM allow you to replay these &#8220;point and click&#8221; &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,110 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/scummvm/">ScummVM</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-07-31T10:51:00-04:00" pubdate data-updated="true">Jul 31<span>st</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Do you remember Sam &amp; Max, Full Throttle and Day of the Tentacle (Dott!)? <a href="http://www.scummvm.org/" target="_blank">ScummVM</a> allow you to replay these &#8220;point and click&#8221; adventure games. You need to have the data file for them and you are ready to go. There are also different port: Nintendo DS, Dreamcast, PlayStation 2, etc&#8230; I think I&#8217;m gonna give it a try on the DS as soon as I have all the component. I would really like to play Monkey Island in the bus.</p>
+
+
+<p><a href="http://sourceforge.net/community/index.php/landing-pages/cca07/" target="_blank">ScummVM is the winner of the <strong>Best Project for Gamers</strong> award on the SourceForge 2007 Community Choice Awards</a>.</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/first-experience-with-visual-studio-2008/">First experience with Visual Studio 2008</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-07-28T10:58:00-04:00" pubdate data-updated="true">Jul 28<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>Edit : This is actually some features of the new C# 3.0 compiler.</strong></p>
+
+
+<p>Yesterday I&#8217;ve downloaded the Beta 2 of Visual Studio 2008 and .NET 3.5. And I decided to start writing a little journal application. During the first hour I had not seen anything new and really started wondering what were the advantages of migrating to 2008 if you are not doing Web Application (new features concerning CSS, JavaScript, debugging, etc..). I decided to do a quick search on Google, and found the <a href="http://weblogs.asp.net/scottgu/" mce_href="http://weblogs.asp.net/scottgu/" target="_blank">ScottGu&#8217;s Blog</a> (highly recommended) which was enumerating some new features. And found 2 that was directly applicable now to my application : <strong>Automatic Properties</strong> and <strong>Query Syntax.</strong> <strong><u style="">Automatic Properties</u></strong>.  Suppose you are writing properties for a class. Don&#8217;t you find that you are creating private field for nothing. Wouldn&#8217;t it be simpler that the compiler generate it automatically for you. Check this out :</p>
+
+
+<pre><span style="color:#0000ff;" mce_style="color:#0000ff;">public</span> <span style="color:#2b91af;" mce_style="color:#2b91af;">DateTime</span>? EntryDate
+{
+   <span style="color:#0000ff;" mce_style="color:#0000ff;">get</span> { <span style="color:#0000ff;" mce_style="color:#0000ff;">return</span> _entryDate; }
+   <span style="color:#0000ff;" mce_style="color:#0000ff;">set</span> { _entryDate = <span style="color:#0000ff;" mce_style="color:#0000ff;">value</span>; }
+}</pre>
+
+
+<p><a href="http://11011.net/software/vspaste" mce_href="http://11011.net/software/vspaste"></a> become</p>
+
+
+<pre><span style="color:#0000ff;" mce_style="color:#0000ff;">public</span> <span style="color:#2b91af;" mce_style="color:#2b91af;">DateTime</span>? EntryDate { <span style="color:#0000ff;" mce_style="color:#0000ff;">get</span>; <span style="color:#0000ff;" mce_style="color:#0000ff;">set</span>; }</pre>
+
+
+<p>Less code means more time to do something else, so I&#8217;m happy! And what about&nbsp;  <u style=""><strong>Query Syntax</strong></u>?  I had a collection of JournalEntry instance and wanted to find the instance containing the date the user selected. The way I had done it at first was to iterate through the collection and check if the date was the same (I could have done it with predicate too). But the way LINQ handle it was too cool not to try it.  P.S One advice before you try this. Make sure the project is compiled using .NET 3.5 and you reference System.Core.  My little loop has became this :</p>
+
+
+<pre><span style="color:#2b91af;" mce_style="color:#2b91af;">IEnumerable</span>&lt;<span style="color:#2b91af;" mce_style="color:#2b91af;">JournalEntry</span>&gt; results = <span style="color:#0000ff;" mce_style="color:#0000ff;">from</span> j <span style="color:#0000ff;" mce_style="color:#0000ff;">in</span> Journal
+                                    <span style="color:#0000ff;" mce_style="color:#0000ff;">where</span> j.EntryDate == selectedDate
+                                    <span style="color:#0000ff;" mce_style="color:#0000ff;">select</span> j;</pre>
+
+
+<p><a href="http://11011.net/software/vspaste" mce_href="http://11011.net/software/vspaste"></a></p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -413,130 +517,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/getting-started-with-selenium-ide-part-1/">Getting started with Selenium IDE - Part 1</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-07-10T11:23:00-04:00" pubdate data-updated="true">Jul 10<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>As promised, I will return back everything I have learned about <strong>Selenium</strong>. I invite you to go the <a href="http://openqa.org" target="_blank">OpenQA web site</a> for additional information.  If you stick with me for this series of article, you will get a great quick start to create good acceptances tests.  Selenium IDE (Integrated Development Environment) is a Firefox extension that records your actions on a page. Then you can execute them back with the IDE or with other version of Selenium (Selenium Remote Control is one of them).  First step  : <a href="http://www.mozilla.com/en-US/firefox/" target="_blank">Download Firefox</a> Second step: Install Selenium IDE extension on your browser</p>
-
-
-<ul>
-<li>Start Firefox and navigate to the<a href="http://openqa.org/selenium-ide/"> Selenium IDE home page. </a></li>
-<li>Click the download link. This will install the IDE.</li>
-</ul>
-
-
-<p>(If , for some reason, the Selenium IDE can&#8217;t replay your test, switch to a previous version.)</p>
-
-
-<p>Third step : Record your first test</p>
-
-
-<ul>
-<li>In Firefox,  go to Tools\Selenium IDE.</li>
-<li>Make sure the record button is pressed.</li>
-<li>Navigate on  the web application.</li>
-<li>Press the green arrow (start button).</li>
-<li>Your first test is done.</li>
-</ul>
-
-
-<p>Now, maybe the replay has not worked and you got some errors. This will be covered in the next post when I will show you how to add others commands to your Selenium test.</p>
-
-
-<p><img src="http://farm2.static.flickr.com/1195/777401494_76d85ef4f5.jpg?v=0" alt="" width="500" height="424" /></p>
-
-
-<p>Here is some features found in the interface:</p>
-
-
-<ul>
-<li>There is the baseURL text field. Suppose you have two times the same web site, you want to have this attribute because you will avoid hard coding the path in the test. Simply specific another baseURL and the test will be performed on it.</li>
-<li>Run/Walk/Step. This is basically the speed at witch the test will be executed. However, Step will require you to press the &#8220;Step&#8221; button to go line by line. Very useful.</li>
-<li>Of course you can save the test, juste press Ctrl-S or go to File/Save Test.</li>
-<li>Table/Source tabs. Basically, a test is just an html file (not entirely true, you will see later), composed of a table element, and 3 columns (each one has a specific purpose).</li>
-<li>Play with Selenium Test Runner. This will launch a test runner for your test (will be covered later).</li>
-</ul>
-
-
-<p>A lot more is possible and this is only the beginning.  If you find missing information, just leave a comment, and I will update the post.  Selenium IDE Getting Started Series</p>
-
-
-<ul>
-<li><a href="http://sebastienlachance.com/post/Getting-started-with-Selenium-IDE-Part-2.aspx">Part  2 : Structure and commands</a></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/blog-of-the-day/">Blog of the day</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2006-11-28T00:25:00-05:00" pubdate data-updated="true">Nov 28<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>And this blog is : <a title="Patrick Dussud's Blog" href="http://blogs.msdn.com/patrick_dussud/">Patrick Dussud&#8217;s Blog</a></p>
-
-
-<p>Very informative! This is the kind of thing I have overlooked when learning .NET and was very important (at least to impress colleague). And who is the most appropriate to explain the birth of the CLR than the Lead Architect of the CLR (Common Language Runtime) himself.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/18/">&larr; Older</a>
@@ -568,6 +548,14 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
       </li>
     
@@ -577,14 +565,6 @@
     
       <li class="post">
         <a href="/blog/asp-dot-net-mvc-actionlink-with-image/">ASP.NET MVC ActionLink with image</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/skyrim-a-really-awesome-video/">Skyrim - A really awesome video</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a>
       </li>
     
   </ul>

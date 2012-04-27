@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | Sebastien Lachance]]></title>
   <link href="http://sebastienlachance.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://sebastienlachance.com/"/>
-  <updated>2012-04-24T05:58:34-04:00</updated>
+  <updated>2012-04-27T08:28:12-04:00</updated>
   <id>http://sebastienlachance.com/</id>
   <author>
     <name><![CDATA[Sebastien Lachance]]></name>
@@ -12,6 +12,50 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby and nested classes]]></title>
+    <link href="http://sebastienlachance.com/blog/ruby-and-nested-classes/"/>
+    <updated>2012-04-24T07:45:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/ruby-and-nested-classes</id>
+    <content type="html"><![CDATA[<h2>What does it looks like?</h2>
+
+<pre><code>class Book
+    class Page
+    end
+end
+</code></pre>
+
+<h2>What is the purpose of nested classes?</h2>
+
+<p>It is useful when we want to group classes together instead of trying to keep them distinct. It make no sense in this example to have a standalone Page class without the Book class.</p>
+
+<h2>How can we instantiate Page class?</h2>
+
+<p>If we try to instantiate it normally:</p>
+
+<pre><code>page = Page.new // will throw Uninitialized constant error
+</code></pre>
+
+<p>We get: Uninitialized constant Object::Page</p>
+
+<p>Instead we need to use:</p>
+
+<pre><code>page = Book::Page.new
+</code></pre>
+
+<h2>But why using :: ?</h2>
+
+<p>Using :: is a way to access constant. Does it make sense? Yes, because nested classes are stored in constant from within the class.</p>
+
+<pre><code>class A
+    B = "A constant"
+end
+</code></pre>
+
+<p>A::B will return "A constant"</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[What can we do with Enumerable#Inject?]]></title>

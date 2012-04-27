@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="{&#8220;ExceptionDetail&#8221;:{&#8220;HelpLink&#8221;:null,&#8221;InnerException&#8221;:null,&#8221;Message&#8221;:&#8221;The token &#8216;&#34;&# &hellip;">
+  <meta name="description" content="Error 1 Build failed due to validation errors in C:\projects\webapp1\Database.dbml. Open the file and resolve the issues in the Error List, then try &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,110 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/build-failed-due-to-validation-errors/">Build failed due to validation errors</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-05-10T05:53:00-04:00" pubdate data-updated="true">May 10<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>Error 1 Build failed due to validation errors in C:\projects\webapp1\Database.dbml. Open the file and resolve the issues in the Error List, then try rebuilding the project. C:\projects\webapp1\Database.dbml</strong></p>
+
+
+<p>The package Visual Studio use to build a LinqToSql database is marked to be skipped, so a quick reset of the &ldquo;skip loading list&rdquo; will resolve this issue.</p>
+
+
+<p>1. Open a command prompt and navigate to : &lt;visualstudiofolder&gt;\Common7\IDE</p>
+
+
+<p>2. Then execute : devenv.exe /resetskippkgs</p>
+
+
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:ffefc919-aaf0-486d-9702-17cf911cef60" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/visualstudio">visualstudio</a>,<a rel="tag" href="http://technorati.com/tags/linq">linq</a></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/responseredirect-in-a-page-callback/">Response.Redirect in a page callback</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-05-10T05:44:00-04:00" pubdate data-updated="true">May 10<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>Response.Redirect cannot be called in a Page callback</strong></p>
+
+
+<p>Sometime you may need to redirect the user somewhere else when doing a page callback. This is not possible with Response.Redirect but you can use Response.RedirectLocation,</p>
+
+
+<p>
+<div id="scid:DFDE9937-D816-47f4-A306-7B60D5CE5AC0:da17b2ef-4831-41ab-8f9b-3118cf273100" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">
+<pre class="brush: csharp; gutter: false; first-line: 1; tab-size: 4;  toolbar: true; ">Response.RedirectLocation = "notarealpage.aspx?i=1";</pre>
+<!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
+</p>
+
+
+<p>&nbsp;</p>
+
+
+<p>
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:a48ff0a4-7277-47ab-9658-dd4284e4a3d0" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/asp.net">asp.net</a></div>
+</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -609,152 +713,6 @@ $('#clickMeButton').click(me.blogging); //will display :Button is blogging</pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/alternativetonet-review/">AlternativeTo.Net review</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-01-20T05:50:00-05:00" pubdate data-updated="true">Jan 20<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a title="AlternativeTo Web Site" href="http://alternativeto.net/" target="_blank">AlternativeTo</a> is a web site that suggests alternatives to a given application based on user recommendations. For example : TeamCity will have Hudson and CruiseControl and Windows 7 will have Windows Vista and Windows XP as an alternative. The web site is divided into 2 main category: desktop and mobile and can be further divided between OS (Windows, Mac, Linux or Online for the Desktop section and IPhone, Win Mobile, Android, Blackberry and S60 for the Mobile section).</p>
-
-
-<p>The first things that came to my attention is the ease of use and the quality of presentation. It&rsquo;s just easy to find what you need to. It really is that interesting&nbsp; and I admit I return to them often when I&rsquo;m in need of an alternative software. They have release their beta version on March 2009.</p>
-
-
-<p>Great job guys!</p>
-
-
-<p><strong>PS: I have no relation whatsoever with AlternativeTo. I just find the concept interesting.</strong></p>
-
-
-<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:d1ee98e6-62de-401b-8bcc-a64d0b188141" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/review">review</a>,<a rel="tag" href="http://technorati.com/tags/alternative">alternative</a></div>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/seo-tips-i-have-used-to-improve-my-search-engine-visibility/">SEO tips I have used to improve my search engine visibility</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-01-19T05:44:00-05:00" pubdate data-updated="true">Jan 19<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&rsquo;ve been across a couple of ways that you can increase your search engine visibility. I&rsquo;m not an SEO expert. I&rsquo;m merely exposing what I&rsquo;ve learn in the last months. If you don&rsquo;t know, <a title="Blog post where I blogged about the transition" href="http://sebastienlachance.com/post/Another-Metablogging-post.aspx" target="_blank">I had a drop of 50% of traffic from search engine when moving from Wordpress to BlogEngine.NET</a>. Mostly due because of me. I have now deployed my blog with a lot of improvements on keywords, titles and descriptions. But there is some other ways your site or blog can be affected. Here are some tips I&rsquo;ve used to optimize my search engine visibility.</p>
-
-
-<h2>Subscribe to Google Webmaster tools or other search engines and submit your sitemap</h2>
-
-
-<p><a title="Creating and submitting Sitemaps" href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&amp;answer=156184" target="_blank">Creating a sitemap for Google</a> is like telling Google everything you have on your website. Some page may not be accessible via normal crawling so it&rsquo;s a way of telling Google everything that should be indexed.</p>
-
-
-<h2>Check your website with an SEO analyser</h2>
-
-
-<p>This will help you see your site with another eye. The best online analysers I&rsquo;ve found are <a title="WebSite Grader Home Page" href="http://websitegrader.com/" target="_blank">Website Grader web site</a> and <a title="SEOmoz home page" href="http://www.seomoz.org/" target="_blank">SEOmoz</a>. Both are good looking and provide useful tips to increase your web site traffic. If you are using IIS, another tool to check out, is the <a title="Search Engine Optimization Toolkit Home Page" href="http://www.iis.net/expand/SEOToolkit" target="_blank">SEO toolkit</a>.</p>
-
-
-<h2>Launch Without Comments (and Add Them Later)</h2>
-
-
-<p>I&rsquo;ve taken this advice from the <a href="http://www.seomoz.org/blog/21-tactics-to-increase-blog-traffic" target="_blank">21 Tactics to Increase Blog Traffic post</a> and it&rsquo;s not as bad as it seems. I, myself, did fall for this one. Many times I&rsquo;ve not subscribed to a blog, because of its lack of comments.</p>
-
-
-<h2>One h1 tag by page and use the headings tag wisely</h2>
-
-
-<p>Many people think it is not as important as it appears, but I think the h1 tag is utterly important. The h1 tag should be used to put emphasis on the content of the page. I&rsquo;ve used them primary to contain a relevant title for the page. Use h1 to h6 tags wisely to properly separate the content of the page, like a book. Think about reader without a visual browser (usability).</p>
-
-
-<h2>Remove broken links</h2>
-
-
-<p>Removing broken links prove to search engine that you care about your content and their will re-crawl your site. It also means that you care about your readers and it&rsquo;s a good thing. Other that with the SEO toolkit, you can use the <a title="W3C Link Checker : Check links and anchors in Web pages or full Web sites" href="http://validator.w3.org/checklink" target="_blank">W3C Link Checker</a> to find any broken links.&nbsp;</p>
-
-
-<h2>Provide great content</h2>
-
-
-<p>Probably the greatest advice ever. Your site is nothing if you don&rsquo;t have great content that is relevant. I&rsquo;ve found this <a title="Blog SEO Tips: SEO-Friendly Content is the Key" href="http://blogsessive.com/blogging-tips/seo-friendly-content/" target="_blank">Blogsessive post</a> to be interesting. And if you need to become a better writer, check out <a title="The Day You Became A Better Writer from Scott Adams" href="http://dilbertblog.typepad.com/the_dilbert_blog/2007/06/the_day_you_bec.html" target="_blank">The Day You Became A Better Writer</a>.</p>
-
-
-<h2>Use the description meta tag</h2>
-
-
-<p>Don&rsquo;t forget to add a description meta tag. Did you ever where the description under a link from the list of results from a Google search came from? Providing accurate description will help ensure that the user won&rsquo;t be disappointed when visualizing your web page.</p>
-
-
-<h2>Verify the length of the description and title meta tags</h2>
-
-
-<p>To avoid your tile being cropped by search engines, you should have titles that have <a href="http://www.w3.org/Provider/Style/TITLE.html" target="_blank">less than 64 characters including spaces</a> and more than 5 characters. The description should be between 25 and 150 characters according to the SEO toolkit.</p>
-
-
-<h2>Use the ALT attribute on images and an accurate filename</h2>
-
-
-<p>Search engines cannot see images. If you want them to know what the image is about, you need to add an ALT attributes to your images. Even better, name your image to reflect what they really are.</p>
-
-
-<p>&nbsp;</p>
-
-
-<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:b63c07cc-db19-44ce-8067-c0e04f1f8287" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/SEO">SEO</a>,<a rel="tag" href="http://technorati.com/tags/traffic">traffic</a>,<a rel="tag" href="http://technorati.com/tags/search+engine">search engine</a>,<a rel="tag" href="http://technorati.com/tags/blogging">blogging</a></div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/6/">&larr; Older</a>
@@ -786,6 +744,14 @@ $('#clickMeButton').click(me.blogging); //will display :Button is blogging</pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
       </li>
     
@@ -795,14 +761,6 @@ $('#clickMeButton').click(me.blogging); //will display :Button is blogging</pre>
     
       <li class="post">
         <a href="/blog/asp-dot-net-mvc-actionlink-with-image/">ASP.NET MVC ActionLink with image</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/skyrim-a-really-awesome-video/">Skyrim - A really awesome video</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a>
       </li>
     
   </ul>

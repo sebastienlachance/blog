@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Ruby and nested classes - Sebastien Lachance</title>
+  <meta name="author" content="Sebastien Lachance">
+
+  
+  <meta name="description" content="What does it looks like? class Book class Page end
+end What is the purpose of nested classes? It is useful when we want to group classes together &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://sebastienlachance.com/blog/ruby-and-nested-classes">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/sebastienlachance/feed" rel="alternate" title="Sebastien Lachance" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-10165653-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Sebastien Lachance</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/sebastienlachance/feed" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:sebastienlachance.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/resume">Resume</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Ruby and nested classes</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-24T07:45:00-04:00" pubdate data-updated="true">Apr 24<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>What does it looks like?</h2>
+
+<pre><code>class Book
+    class Page
+    end
+end
+</code></pre>
+
+<h2>What is the purpose of nested classes?</h2>
+
+<p>It is useful when we want to group classes together instead of trying to keep them distinct. It make no sense in this example to have a standalone Page class without the Book class.</p>
+
+<h2>How can we instantiate Page class?</h2>
+
+<p>If we try to instantiate it normally:</p>
+
+<pre><code>page = Page.new // will throw Uninitialized constant error
+</code></pre>
+
+<p>We get: Uninitialized constant Object::Page</p>
+
+<p>Instead we need to use:</p>
+
+<pre><code>page = Book::Page.new
+</code></pre>
+
+<h2>But why using :: ?</h2>
+
+<p>Using :: is a way to access constant. Does it make sense? Yes, because nested classes are stored in constant from within the class.</p>
+
+<pre><code>class A
+    B = "A constant"
+end
+</code></pre>
+
+<p>A::B will return &#8220;A constant&#8221;</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Sebastien Lachance</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-24T07:45:00-04:00" pubdate data-updated="true">Apr 24<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ruby/'>ruby</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sebastienlachance.com/blog/ruby-and-nested-classes/" data-via="slachance" data-counturl="http://sebastienlachance.com/blog/ruby-and-nested-classes/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/what-can-we-do-with-array-dot-inject/" title="Previous Post: What can we do with Enumerable#Inject?">&laquo; What can we do with Enumerable#Inject?</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/" title="next Post: Large-scale Javascript Application Architecture by Addy Osmani">Large-scale Javascript Application Architecture by Addy Osmani &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <img src="/images/me.png" />
+  <p>Sebastien Lachance, programmer since 2003.</p>
+  <p>I am an entrepreneur and consultant. I have launched the <a href="http://www.guidedescommercesdebeauce.com">Guide des Commerces</a> in 2011, a project with great potential and had a lot of fun making it. 
+  </p>
+  <p>
+    I'm a web developer specialized in Rails and ASP.NET MVC. I have a background in business applications but I really enjoy making any kind of software. 
+  </p>
+  <p>
+    I do believe in the power of twitter, but I dont use it as much as I would.
+    But feel free to follow me anyway :).
+  </p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/iterate-over-each-line-of-a-string-in-c-sharp/">Iterate over each line of a string in C#</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/asp-dot-net-mvc-actionlink-with-image/">ASP.NET MVC ActionLink with image</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/sebastienlachance">@sebastienlachance</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'sebastienlachance',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("slachance", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/slachance" class="twitter-follow-button" data-show-count="true">Follow @slachance</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Sebastien Lachance -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'sebastienlachance';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://sebastienlachance.com/blog/ruby-and-nested-classes/';
+        var disqus_url = 'http://sebastienlachance.com/blog/ruby-and-nested-classes/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
