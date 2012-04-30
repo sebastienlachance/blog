@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="It&#8217;s finally there and now come with a &#8220;go-live&#8221; license. I have been waiting for a long time for it to be enough stable (never had &hellip;">
+  <meta name="description" content="&lt;%= Html.ActionLink&lt;EquipmentController&gt;(c=&gt;c.Show(equipment.Number, equipment.Letter), "See") %&gt; If you have converted your old ASP. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,51 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/where-did-my-strongly-typed-action-link-has-gone-in-aspnet-mvc-beta/">Where did my strongly-typed action link has gone in ASP.NET MVC?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-10-23T01:53:00-04:00" pubdate data-updated="true">Oct 23<span>rd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div>
+<pre style="font-size: 8pt; overflow: visible; width: 100%; color: black; line-height: 12pt; font-family: consolas, 'Courier New', courier, monospace; background-color: #f4f4f4; border-style: none; margin: 0; padding: 0;">&lt;%= Html.ActionLink&lt;EquipmentController&gt;(c=&gt;c.Show(equipment.Number, equipment.Letter), <span style="color:#006080;">"See"</span>) %&gt;</pre>
+</div>
+
+
+<p>If you have converted your old ASP.NET MVC Preview * application to ASP.NET MVC beta or following tutorials that were made with those old versions, you may have wondered where the strongly-typed action is gone.</p>
+
+
+<p>The reason is because of some features that can still evolve in future release of ASP.NET MVC. And since it will be fully supported in the version 1 of the product, and for backward compatibility, they cannot include it in the released assemblies. But, fear not, the feature is available in the <a href="http://www.codeplex.com/Project/Download/FileDownload.aspx?ProjectName=aspnet&amp;DownloadId=46509" target="_blank">ASP.NET MVC Futures assembly</a>.</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -573,56 +618,6 @@ requestRepository.VerifyAllExpectations();</pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/new-code-drop-to-the-aspnet-project-on-codeplex/">New code drop to the ASP.NET project on Codeplex</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-05-13T08:14:00-04:00" pubdate data-updated="true">May 13<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><blockquote>
-<ul>
-<li><strong>05/12 Source code release of the ASP.NET AJAX Script Profiler helper control:</strong> To support the ASP.NET AJAX script combining feature which shipped in the .NET Framework 3.5 SP1 Beta release, we&#8217;ve added the ASP.NET AJAX Script Profiler helper control source and binaries to this project. This control helps you to identify the scriptreferences used in your ASP.NET AJAX page to use with ASP.NET AJAX script combining. You can find this release here: <a href="http://www.codeplex.com/aspnet/Release/ProjectReleases.aspx?ReleaseId=13356">ScriptReferenceProfiler Source and Binary Release</a>. In addition this control is used in a Screencast for ASP.NET AJAX script combining on the ASP.NET site. </li>
-</ul>
-<ul>
-<li><strong>05/12 Release of the ADO Data Service AJAX Client :</strong> The ADO Data Service AJAX Client Library enables you to consume an ADO.NET Data Service from client script in an ASP.NET AJAX Web page. </li>
-</ul>
-</blockquote>
-
-
-<p>Read more <a href="http://www.codeplex.com/aspnet">on the codeplex page</a>.</p>
-
-
-<p>I&#8217;m really wondering how I can keep up with all these new things to try. Well, I guess I will really need a pill to stop sleeping someday.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/11/">&larr; Older</a>
@@ -654,6 +649,10 @@ requestRepository.VerifyAllExpectations();</pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/learning-rails-assert-valid-keys/">Learning Rails : assert_valid_keys</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
       </li>
     
@@ -667,10 +666,6 @@ requestRepository.VerifyAllExpectations();</pre>
     
       <li class="post">
         <a href="/blog/iterate-over-each-line-of-a-string-in-c-sharp/">Iterate over each line of a string in C#</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/asp-dot-net-mvc-actionlink-with-image/">ASP.NET MVC ActionLink with image</a>
       </li>
     
   </ul>
@@ -751,6 +746,15 @@ requestRepository.VerifyAllExpectations();</pre>
 </script>
 
 
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
 

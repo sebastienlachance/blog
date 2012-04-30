@@ -4,7 +4,7 @@
   <title><![CDATA[Category: rails | Sebastien Lachance]]></title>
   <link href="http://sebastienlachance.com/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://sebastienlachance.com/"/>
-  <updated>2012-04-27T08:28:12-04:00</updated>
+  <updated>2012-04-30T05:17:06-04:00</updated>
   <id>http://sebastienlachance.com/</id>
   <author>
     <name><![CDATA[Sebastien Lachance]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Learning Rails : assert_valid_keys]]></title>
+    <link href="http://sebastienlachance.com/blog/learning-rails-assert-valid-keys/"/>
+    <updated>2012-04-30T06:00:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/learning-rails-assert-valid-keys</id>
+    <content type="html"><![CDATA[<p>While reading the source code of <a href="https://github.com/thoughtbot/factory_girl">FactoryGirl</a>, I came accross this method and tried to find where in FactoryGirl it was defined.
+Turns out it's in Rails since version 3.0 (more specifically in active_support/core_ext/hash/keys).</p>
+
+<p>It's an instance method of the Hash class, and what it allows you to do is to throw an ArgumentError when an unknown key is found on the hash instance.</p>
+
+<p><code>ruby valid keys
+{ :name =&gt; "joe", :phone =&gt; '555-5555' }.assert_valid_keys(:name, :phone)
+ =&gt; {:name=&gt;"joe",:phone=&gt;'555-5555'}  # no ArgumentError
+</code></p>
+
+<p><code>ruby missing key in hash
+{ :name =&gt; "joe" }.assert_valid_keys(:name, :phone)
+ =&gt; {:name=&gt;"joe"}  # no ArgumentError
+</code></p>
+
+<p><code>ruby unknown key in hash
+{ :name =&gt; "joe", :phone =&gt; '555-5555' }.assert_valid_keys(:name)
+ArgumentError: Unknown key: phone
+</code></p>
+
+<p><a href="http://api.rubyonrails.org/classes/Hash.html#method-i-assert_valid_keys">assert_valid_keys</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[My starting Gemfile]]></title>

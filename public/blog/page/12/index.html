@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Cannot have multiple items selected in a DropDownList. Description: An unhandled exception occurred during the execution of the current web request. &hellip;">
+  <meta name="description" content="2-3 months ago, I have deployed the application I was working on the client. Since then a lot of changes have been made and I did not work on this &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,71 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/the-importance-of-database-versioning/">The importance of database versioning</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-03-12T07:08:00-04:00" pubdate data-updated="true">Mar 12<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>2-3 months ago, I have deployed the application I was working on the client. Since then a lot of changes have been made and I did not work on this project. The database changed significantly but the sql script have not been updated with the latest changes. Now, I have to get back on the project to make an update to the client. I can generate a new set of scripts to create a new database, but how am I suppose to update the production database &#8230;</p>
+
+
+<p>Before I left, I gave instruction on how to version every changes to the database. I wanted to have scripts with every changes that have been made and then run them on the client on future update.</p>
+
+
+<p>Let&#8217;s see the pros and cons of not doing so :</p>
+
+
+<p>PROS :</p>
+
+
+<ul>
+<li>Save time when developing</li>
+</ul>
+
+
+<p>CONS :</p>
+
+
+<ul>
+<li>No way to easily update an existing database </li>
+<li>Loose time trying to figure out what is changed </li>
+<li>No confidence that you will update the existing database correctly </li>
+<li>No way to get back in time if needed</li>
+</ul>
+
+
+<p>Please, version your sql script! It will be much easier for those doing the futur work.</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -783,46 +848,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/nhibernate-saveorupdate-does-nothing/">NHibernate - SaveOrUpdate does nothing?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-01-23T05:39:00-05:00" pubdate data-updated="true">Jan 23<span>rd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Of course it does something, just make sure you call the Flush method on your session&#8230;</p>
-
-
-<p>I have just started playing around with NHibernate for a personal project (the one I use for the <a href="http://sebastienlachance.com/building-a-new-application-series/" target="_blank">Building a new application series</a>) and I&#8217;m liking it. This make all the data access seems so easy. Maybe I will change my point of view after dealing with some collections and relationships.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/13/">&larr; Older</a>
@@ -854,6 +879,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/learning-rails-assert-valid-keys/">Learning Rails : assert_valid_keys</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
       </li>
     
@@ -867,10 +896,6 @@
     
       <li class="post">
         <a href="/blog/iterate-over-each-line-of-a-string-in-c-sharp/">Iterate over each line of a string in C#</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/asp-dot-net-mvc-actionlink-with-image/">ASP.NET MVC ActionLink with image</a>
       </li>
     
   </ul>
@@ -951,6 +976,15 @@
 </script>
 
 
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
 

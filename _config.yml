@@ -66,6 +66,9 @@ twitter_tweet_button: true
 google_plus_one: true
 google_plus_one_size: medium
 
+# Facebook Like
+facebook_like: true
+
 # Pinboard
 pinboard_user:
 pinboard_count: 3

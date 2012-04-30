@@ -9,7 +9,8 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Sometime, great stuff just fall from sky. And this presentation is just what I needed. Addy Osmani (AOL) has made a presentation about large-scale &hellip;">
+  <meta name="description" content="While reading the source code of FactoryGirl, I came accross this method and tried to find where in FactoryGirl it was defined.
+Turns out it&#8217;s &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +76,72 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/learning-rails-assert-valid-keys/">Learning Rails : assert_valid_keys</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-30T06:00:00-04:00" pubdate data-updated="true">Apr 30<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>While reading the source code of <a href="https://github.com/thoughtbot/factory_girl">FactoryGirl</a>, I came accross this method and tried to find where in FactoryGirl it was defined.
+Turns out it&#8217;s in Rails since version 3.0 (more specifically in active_support/core_ext/hash/keys).</p>
+
+<p>It&#8217;s an instance method of the Hash class, and what it allows you to do is to throw an ArgumentError when an unknown key is found on the hash instance.</p>
+
+<figure class='code'><figcaption><span>valid keys</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span> <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">&quot;joe&quot;</span><span class="p">,</span> <span class="ss">:phone</span> <span class="o">=&gt;</span> <span class="s1">&#39;555-5555&#39;</span> <span class="p">}</span><span class="o">.</span><span class="n">assert_valid_keys</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">:phone</span><span class="p">)</span>
+</span><span class='line'> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:name</span><span class="o">=&gt;</span><span class="s2">&quot;joe&quot;</span><span class="p">,</span><span class="ss">:phone</span><span class="o">=&gt;</span><span class="s1">&#39;555-5555&#39;</span><span class="p">}</span>  <span class="c1"># no ArgumentError</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>missing key in hash</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span> <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">&quot;joe&quot;</span> <span class="p">}</span><span class="o">.</span><span class="n">assert_valid_keys</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">:phone</span><span class="p">)</span>
+</span><span class='line'> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:name</span><span class="o">=&gt;</span><span class="s2">&quot;joe&quot;</span><span class="p">}</span>  <span class="c1"># no ArgumentError</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>unknown key in hash</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span> <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">&quot;joe&quot;</span><span class="p">,</span> <span class="ss">:phone</span> <span class="o">=&gt;</span> <span class="s1">&#39;555-5555&#39;</span> <span class="p">}</span><span class="o">.</span><span class="n">assert_valid_keys</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span>
+</span><span class='line'><span class="no">ArgumentError</span><span class="p">:</span> <span class="no">Unknown</span> <span class="n">key</span><span class="p">:</span> <span class="n">phone</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="http://api.rubyonrails.org/classes/Hash.html#method-i-assert_valid_keys">assert_valid_keys</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -534,50 +601,6 @@ You can see it as (((10 + 1) + 2) + 3).
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/rerun-all-guards/">Rerun all Guards</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-03-30T15:16:00-04:00" pubdate data-updated="true">Mar 30<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I have been searching this feature for a while and never realized it was built-in into Guard. Whenever I tried to rerun all with pressing enter, nothing happened. I didn&#8217;t realized I was because of an old gem version.</p>
-
-<pre><code>Ctrl-r if you are on Guard version &lt; 7
-</code></pre>
-
-<p>and</p>
-
-<pre><code>enter if you are on a more recent version
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -607,6 +630,10 @@ You can see it as (((10 + 1) + 2) + 3).
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/learning-rails-assert-valid-keys/">Learning Rails : assert_valid_keys</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
       </li>
     
@@ -620,10 +647,6 @@ You can see it as (((10 + 1) + 2) + 3).
     
       <li class="post">
         <a href="/blog/iterate-over-each-line-of-a-string-in-c-sharp/">Iterate over each line of a string in C#</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/asp-dot-net-mvc-actionlink-with-image/">ASP.NET MVC ActionLink with image</a>
       </li>
     
   </ul>
@@ -704,6 +727,15 @@ You can see it as (((10 + 1) + 2) + 3).
 </script>
 
 
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
 

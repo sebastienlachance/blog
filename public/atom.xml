@@ -4,7 +4,7 @@
   <title><![CDATA[Sebastien Lachance]]></title>
   <link href="http://sebastienlachance.com/atom.xml" rel="self"/>
   <link href="http://sebastienlachance.com/"/>
-  <updated>2012-04-27T08:28:12-04:00</updated>
+  <updated>2012-04-30T05:17:06-04:00</updated>
   <id>http://sebastienlachance.com/</id>
   <author>
     <name><![CDATA[Sebastien Lachance]]></name>
@@ -12,6 +12,45 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Learning Rails : assert_valid_keys]]></title>
+    <link href="http://sebastienlachance.com/blog/learning-rails-assert-valid-keys/"/>
+    <updated>2012-04-30T06:00:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/learning-rails-assert-valid-keys</id>
+    <content type="html"><![CDATA[<p>While reading the source code of <a href="https://github.com/thoughtbot/factory_girl">FactoryGirl</a>, I came accross this method and tried to find where in FactoryGirl it was defined.
+Turns out it&#8217;s in Rails since version 3.0 (more specifically in active_support/core_ext/hash/keys).</p>
+
+<p>It&#8217;s an instance method of the Hash class, and what it allows you to do is to throw an ArgumentError when an unknown key is found on the hash instance.</p>
+
+<figure class='code'><figcaption><span>valid keys</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span> <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">&quot;joe&quot;</span><span class="p">,</span> <span class="ss">:phone</span> <span class="o">=&gt;</span> <span class="s1">&#39;555-5555&#39;</span> <span class="p">}</span><span class="o">.</span><span class="n">assert_valid_keys</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">:phone</span><span class="p">)</span>
+</span><span class='line'> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:name</span><span class="o">=&gt;</span><span class="s2">&quot;joe&quot;</span><span class="p">,</span><span class="ss">:phone</span><span class="o">=&gt;</span><span class="s1">&#39;555-5555&#39;</span><span class="p">}</span>  <span class="c1"># no ArgumentError</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>missing key in hash</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span> <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">&quot;joe&quot;</span> <span class="p">}</span><span class="o">.</span><span class="n">assert_valid_keys</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">:phone</span><span class="p">)</span>
+</span><span class='line'> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:name</span><span class="o">=&gt;</span><span class="s2">&quot;joe&quot;</span><span class="p">}</span>  <span class="c1"># no ArgumentError</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>unknown key in hash</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span> <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">&quot;joe&quot;</span><span class="p">,</span> <span class="ss">:phone</span> <span class="o">=&gt;</span> <span class="s1">&#39;555-5555&#39;</span> <span class="p">}</span><span class="o">.</span><span class="n">assert_valid_keys</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span>
+</span><span class='line'><span class="no">ArgumentError</span><span class="p">:</span> <span class="no">Unknown</span> <span class="n">key</span><span class="p">:</span> <span class="n">phone</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="http://api.rubyonrails.org/classes/Hash.html#method-i-assert_valid_keys">assert_valid_keys</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Large-scale Javascript Application Architecture by Addy Osmani]]></title>
@@ -697,39 +736,6 @@ YAML::ENGINE.yamler= 'syck'
 <p>at the beginning of the boot.rb file should take care of this issue.</p>
 
 <p><a href="https://rails.lighthouseapp.com/projects/8994/tickets/6354-psych-does-not-handle-symbols-in-yaml-used-in-activesupport">More info here</a> <a href="http://stackoverflow.com/questions/4980877/rails-error-couldnt-parse-yaml">and here</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[A Circular Reference Was Detected While Serializing an Object to Type Code.Models.Category]]></title>
-    <link href="http://sebastienlachance.com/blog/a-circular-reference-was-detected-while-serializing-an-object-to-type-code-dot-models-dot-category/"/>
-    <updated>2011-09-12T10:38:00-04:00</updated>
-    <id>http://sebastienlachance.com/blog/a-circular-reference-was-detected-while-serializing-an-object-to-type-code-dot-models-dot-category</id>
-    <content type="html"><![CDATA[<p>I have an NHibernate class with the following properties :</p>
-
-<pre><code>public class Category
-{
-    public virtual int Id { get; set; }
-    public virtual string Name { get;set; }
-    public virtual Category Parent { get;set; }
-    public virtual IList&lt;Category&gt; Childs { get;set; }
-}
-</code></pre>
-
-<p>And an action that return a list of categories as JSON :</p>
-
-<pre><code>public JsonResult Categories 
-{
-    return Json(GetCategories(), JsonRequestBehavior.AllowGet);
-}
-</code></pre>
-
-<p>I know that it&#8217;s not pefect to use an NHibernate class instead of a view model, but it&#8217;s a very very small application and I&#8217;m trying to keep things clean.</p>
-
-<p><strong>Solution : </strong></p>
-
-<pre><code>return Json(GetCategories().Select(c =&gt; new { c.Id, c.Name }), JsonRequestBehavior.AllowGet);
-</code></pre>
 ]]></content>
   </entry>
   
