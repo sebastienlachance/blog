@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="This cover everything needed to get a windows service up and running.Step 1 : Add code to the OnStart, OnStop, OnContinue and OnPause (or, write your &hellip;">
+  <meta name="description" content="Today, I have tried FxCop from GotDotNet, and the first warning was about the assembly not marked with the ComVisible attribute. What this attribute &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,6 +81,43 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/setting-comvisible/">Setting ComVisible</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-01-19T09:46:00-05:00" pubdate data-updated="true">Jan 19<span>th</span>, 2005</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Today, I have tried FxCop from <a href="http://www.gotdotnet.com/">GotDotNet</a>, and the first warning was about the assembly not marked with the ComVisible attribute. What this attribute does in fact is to limit access to components from Vb6. Here is how you can do that:<br /><br />Step 1: Open AssemblyInfo (cs or vb extension) file.<br />Step 2: Add this [assembly: ComVisible(false)] or remove it if needed.)<br /><br />So it&#8217;s all. I hope this is a worthy advice.</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/everything-you-need-to-start-writing-windows-services/">Everything you need to start writing Windows Services</a></h1>
     
     
@@ -142,6 +179,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/method-decorators-in-ruby/">Method decorators in Ruby</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/learning-rails-assert-valid-keys/">Learning Rails : assert_valid_keys</a>
       </li>
     
@@ -155,10 +196,6 @@
     
       <li class="post">
         <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/iterate-over-each-line-of-a-string-in-c-sharp/">Iterate over each line of a string in C#</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[Sebastien Lachance]]></title>
   <link href="http://sebastienlachance.com/atom.xml" rel="self"/>
   <link href="http://sebastienlachance.com/"/>
-  <updated>2012-04-30T05:17:06-04:00</updated>
+  <updated>2012-05-01T07:55:49-04:00</updated>
   <id>http://sebastienlachance.com/</id>
   <author>
     <name><![CDATA[Sebastien Lachance]]></name>
@@ -12,6 +12,151 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Method decorators in Ruby]]></title>
+    <link href="http://sebastienlachance.com/blog/method-decorators-in-ruby/"/>
+    <updated>2012-05-01T08:00:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/method-decorators-in-ruby</id>
+    <content type="html"><![CDATA[<p>While I was following the <a href="http://twitter.com/#!/search/%23railsconf">#railsconf</a> thread on Twitter, I heard some talking about method decorators with Ruby. I&#8217;ve always wondered if there was a way to emulate the <a href="http://www.codeguru.com/csharp/.net/article.php/c18741/Understanding-and-Using-NET-Attributes.htm">Attribute</a> we have in .NET.</p>
+
+<p>Turns out it is possible (and with added value!). Using the <a href="https://github.com/michaelfairley/method_decorators">method_decorators gem</a> allow precisely that functionnality with some extras.</p>
+
+<h2>Defining a decorator</h2>
+
+<figure class='code'><figcaption><span>Defining a decorator</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">ADecorator</span> <span class="o">&lt;</span> <span class="no">MethodDecorator</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">blk</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">orig</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">blk</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This decorator actually does nothing, since we call the original method with supplied arguments and block (if provided).</p>
+
+<h2>Using the decorator</h2>
+
+<figure class='code'><figcaption><span>Using the decorator</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">AClass</span>
+</span><span class='line'>  <span class="n">extends</span> <span class="no">MethodDecorators</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="o">+</span><span class="no">ADecorator</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">do_something</span><span class="p">()</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We can now do something before and after the call to  <strong>do_something</strong> and even modify the return value.</p>
+
+<h2>A practical example</h2>
+
+<p>I&#8217;ve had this little problem in .NET where I wanted to profile different method calls to see how much time they took to execute and send back the result via <a href="http://miniprofiler.com/">MiniProfiler</a>. For this, I wanted only to add an attribute to those methods. The only way I have found that possible without the use of an advanced profiling tool was to use <a href="http://www.sharpcrafters.com/postsharp/features">PostSharp</a> and it&#8217;s injecting code feature. The Attribute functionnality does not offer any kind of before and after hook on execution.</p>
+
+<p>A custom implementation would look like this.</p>
+
+<figure class='code'><figcaption><span>MiniProfiler Attribute with PostSharp and C#</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="na">[Serializable]</span>
+</span><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">ProfilingAspectAttribute</span> <span class="p">:</span> <span class="n">OnMethodBoundaryAspect</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="k">private</span> <span class="n">IDisposable</span> <span class="n">_profiler</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">public</span> <span class="n">ProfilingAspectAttribute</span>
+</span><span class='line'>  <span class="n">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">public</span> <span class="k">override</span> <span class="nf">OnEntry</span><span class="p">(</span><span class="n">MethodExecutionArgs</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">_profiler</span> <span class="p">=</span> <span class="n">MiniProfiler</span><span class="p">.</span><span class="n">Current</span><span class="p">.</span><span class="n">Step</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;{0}.{1}&quot;</span><span class="p">,</span>
+</span><span class='line'>       <span class="n">args</span><span class="p">.</span><span class="n">Method</span><span class="p">.</span><span class="n">DeclaringType</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">args</span><span class="p">.</span><span class="n">Method</span><span class="p">.</span><span class="n">Name</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">public</span> <span class="k">override</span> <span class="nf">OnExit</span><span class="p">(</span><span class="n">MethodExecutionArgs</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="n">_profiler</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="n">_profiler</span><span class="p">.</span><span class="n">Dispose</span><span class="p">();</span>
+</span><span class='line'>      <span class="n">_profiler</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>PostSharp will inject the OnEntry and OnExit code at the start and at the end of the &#8220;decorated&#8221; method. By default, <strong>there is no way to achieve that easily</strong>.</p>
+
+<p>With Ruby, the method_decorators gem and a custom profiler, it would look like this.</p>
+
+<figure class='code'><figcaption><span>A custom profiling decorator</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Profiling</span> <span class="o">&lt;</span> <span class="no">MethodDecorator</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">blk</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">profiler</span><span class="o">.</span><span class="n">start</span>
+</span><span class='line'>    <span class="n">orig</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">blk</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">profiler</span><span class="o">.</span><span class="n">stop</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">SomeClass</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="o">+</span><span class="no">Profiling</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">some_method_to_be_profiled</span>
+</span><span class='line'>    <span class="c1">#some complex calculations</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>How nice is that?</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Learning Rails : assert_valid_keys]]></title>
@@ -712,30 +857,6 @@ it("should render an h2 title', function() {
 <p>I am almost 5 hours in now, and I&#8217;ve struggled a little but the result is amazing. And I frankly don&#8217;t regret the framework choice at all.</p>
 
 <p>Stay tuned for more&#8230;</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Couldn't Parse YAML at Line X Column X (Psych::SyntaxError)]]></title>
-    <link href="http://sebastienlachance.com/blog/couldnt-parse-yaml-at-line-x-column-x-psych-syntaxerror/"/>
-    <updated>2011-09-14T07:50:00-04:00</updated>
-    <id>http://sebastienlachance.com/blog/couldnt-parse-yaml-at-line-x-column-x-psych-syntaxerror</id>
-    <content type="html"><![CDATA[<p>I am using Rails 3.0.3 and got this error :</p>
-
-<pre><code>couldn't parse YAML at line 182 column 9 (Psych::SyntaxError)
-</code></pre>
-
-<p>As I understand it, there is an issue with the locale file (locale/en.yml) of ActiveSupport.</p>
-
-<p>Just by adding</p>
-
-<pre><code>require 'yaml'
-YAML::ENGINE.yamler= 'syck'
-</code></pre>
-
-<p>at the beginning of the boot.rb file should take care of this issue.</p>
-
-<p><a href="https://rails.lighthouseapp.com/projects/8994/tickets/6354-psych-does-not-handle-symbols-in-yaml-used-in-activesupport">More info here</a> <a href="http://stackoverflow.com/questions/4980877/rails-error-couldnt-parse-yaml">and here</a></p>
 ]]></content>
   </entry>
   

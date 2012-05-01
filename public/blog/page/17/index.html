@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Since I&#8217;m pretty new to Windows Forms I learned a lot this weel (I have a lot more experience in ASP.NET development). I came across this &hellip;">
+  <meta name="description" content="Here is the second part of the Getting Start with Selenium IDE series. This part mainly cover the start of the test. The next part will feature the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,115 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/getting-started-with-selenium-ide-part-2/">Getting started with Selenium IDE - Part 2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-08-02T11:25:00-04:00" pubdate data-updated="true">Aug 2<span>nd</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Here is the second part of the Getting Start with Selenium IDE series. This part mainly cover the start of the test. The next part will feature the fun part, testing everything! Enjoy!!!</p>
+
+
+<p><strong><span style="text-decoration: underline;">Structure of an html test</span></strong> An html test is basically an html table. Each row is a command and each column has a specific purpose.</p>
+
+
+<table style="width: 400px;" border="1" cellspacing="0" cellpadding="2">
+<tbody>
+<tr>
+<td width="133" valign="top">Command</td>
+<td width="133" valign="top">Target</td>
+<td width="133" valign="top">Value</td>
+</tr>
+<tr>
+<td width="133" valign="top">clickAndWait</td>
+<td width="133" valign="top">link=Open</td>
+<td width="133" valign="top">&nbsp;</td>
+</tr>
+<tr>
+<td width="133" valign="top">type</td>
+<td width="133" valign="top">txtUser</td>
+<td width="133" valign="top">MyUsername</td>
+</tr>
+<tr>
+<td width="133" valign="top">type</td>
+<td width="133" valign="top">txtPassword</td>
+<td width="133" valign="top">MyPassword</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>The <strong>Command</strong> <strong>column</strong> contains the command to be executed. Nothing more.</p>
+
+
+<p>The <strong>Target</strong> <strong>column</strong> is the element on the page on which the command will be executed, but sometime it can have an other purpose like the pause command.</p>
+
+
+<p>And finally the <strong>Value column </strong>contains the value on which something will be tested. By example, you can have the assertNotText command and the value column will be the text that should not be there.</p>
+
+
+<p><strong><span style="text-decoration: underline;">First command of the test</span></strong></p>
+
+
+<p>With that being said, let&#8217;s start with some concrete stuff. First of all, you will want to open your website. I recommend to use the Base URL text field, in case the root of your web site change. Enter your URL in the base URL text field. Then, add the first command of your test, which will be open, the target will be <em>/startpage.html</em> (replace startpage.html by your start page or leave it empty). Execute the test to verify that you are on the wanted page.</p>
+
+
+<p><span style="text-decoration: underline;"><strong>Command explanation</strong></span></p>
+
+
+<p>A command is a JavaScript function. Another way to see at the Target and Value column is that each one is a parameter of the function.  Use the reference tab in your Selenium IDE to see which parameters are needed.</p>
+
+
+<p><a title="selenium-reference" href="http://www.flickr.com/photos/63483657@N00/997429466/"><img src="http://static.flickr.com/1428/997429466_0e81cd5773.jpg" border="0" alt="selenium-reference" /></a> <strong><span style="text-decoration: underline;"><br /></span></strong></p>
+
+
+<p><strong><span style="text-decoration: underline;">Command <em>action</em> and <em>Action</em>AndWait</span></strong></p>
+
+
+<p>There is various command available and much of the action have an equivalent with the AndWait suffix. The action without the AndWait suffix will be executed by the test runner and go directly to the next. However, there is scenario where a postback will occur after a command and the page will no longer be available for seconds. This is where you need to use the command ending with AndWait. Then the action will be executed and when the page has returned from the server the next command will be executed.  Selenium IDE Getting Started Series</p>
+
+
+<ul>
+<li><a href="http://sebastienlachance.com/post/Getting-started-with-Selenium-IDE-Part-1.aspx">Part 1 : Installation and first test</a></li>
+</ul>
+
+
+<p>Great resource</p>
+
+
+<ul>
+<li><a href="http://www.stevetrefethen.com/blog/AutomatedTestingOfASPNETWebApplicationsUsingSelenium.aspx">Automated Testing Of ASPNET Web Applications Using Selenium</a></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -465,46 +574,6 @@ childForm.Owner = <span style="color:#0000ff;">this</span>; <span style="color:#
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/i-will-use-windows-live-writer/">I will use Windows Live Writer</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-07-15T11:14:00-04:00" pubdate data-updated="true">Jul 15<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Some months ago (when I was blogging on WDevs) I was using Windows Live Writer a lot. The only problem I had, was to configure it to actually see my blog. And today I have decided to give it a second try. And, wow, no problem at all. Everything is working perfectly. There is also some interesting plug-in that will enhance my experience (ex : Syntax Highlighting and Flicker4Writer).</p>
-
-
-<p>This, has made my day. :)  <a href="http://windowslivewriter.spaces.live.com/" title="Windows Live writer" target="_blank">Windows Live Writer</a></p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/18/">&larr; Older</a>
@@ -536,6 +605,10 @@ childForm.Owner = <span style="color:#0000ff;">this</span>; <span style="color:#
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/method-decorators-in-ruby/">Method decorators in Ruby</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/learning-rails-assert-valid-keys/">Learning Rails : assert_valid_keys</a>
       </li>
     
@@ -549,10 +622,6 @@ childForm.Owner = <span style="color:#0000ff;">this</span>; <span style="color:#
     
       <li class="post">
         <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/iterate-over-each-line-of-a-string-in-c-sharp/">Iterate over each line of a string in C#</a>
       </li>
     
   </ul>

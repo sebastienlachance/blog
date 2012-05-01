@@ -9,8 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="I have an NHibernate class with the following properties : public class Category
-{ public virtual int Id { get; set; } public virtual string Name { &hellip;">
+  <meta name="description" content="I am using Rails 3.0.3 and got this error : couldn't parse YAML at line 182 column 9 (Psych::SyntaxError) As I understand it, there is an issue with &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +75,57 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/couldnt-parse-yaml-at-line-x-column-x-psych-syntaxerror/">Couldn&#8217;t Parse YAML at Line X Column X (Psych::SyntaxError)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-14T07:50:00-04:00" pubdate data-updated="true">Sep 14<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I am using Rails 3.0.3 and got this error :</p>
+
+<pre><code>couldn't parse YAML at line 182 column 9 (Psych::SyntaxError)
+</code></pre>
+
+<p>As I understand it, there is an issue with the locale file (locale/en.yml) of ActiveSupport.</p>
+
+<p>Just by adding</p>
+
+<pre><code>require 'yaml'
+YAML::ENGINE.yamler= 'syck'
+</code></pre>
+
+<p>at the beginning of the boot.rb file should take care of this issue.</p>
+
+<p><a href="https://rails.lighthouseapp.com/projects/8994/tickets/6354-psych-does-not-handle-symbols-in-yaml-used-in-activesupport">More info here</a> <a href="http://stackoverflow.com/questions/4980877/rails-error-couldnt-parse-yaml">and here</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -561,43 +611,6 @@ pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's W
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/my-clojure-tutorial-failure/">My Clojure tutorial failure</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-11-10T06:26:00-05:00" pubdate data-updated="true">Nov 10<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I intended to write a full series of posts to help learn Clojure. While I was really enthusiasm about this, my recent change of plans has left me no choice but to abandon the idea of mastering this language. I didn&#8217;t knew at that time that I&#8217;ll had to learn Ruby for my new project and I have no more time to learn anything else right now. <strong>So, goodbye Clojure!</strong></p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -629,6 +642,10 @@ pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's W
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/method-decorators-in-ruby/">Method decorators in Ruby</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/learning-rails-assert-valid-keys/">Learning Rails : assert_valid_keys</a>
       </li>
     
@@ -642,10 +659,6 @@ pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's W
     
       <li class="post">
         <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/iterate-over-each-line-of-a-string-in-c-sharp/">Iterate over each line of a string in C#</a>
       </li>
     
   </ul>

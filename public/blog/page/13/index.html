@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Of course it does something, just make sure you call the Flush method on your session&#8230; I have just started playing around with NHibernate for a &hellip;">
+  <meta name="description" content="I have always been told that TypeMock was too powerful, not strongly typed and for that, It shouldn&#8217;t be used. I believed that. The problem is &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,52 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/screencast-and-my-opinion-about-typemock/">Screencast and my opinion about TypeMock</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-24T05:45:00-05:00" pubdate data-updated="true">Jan 24<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I have always been told that TypeMock was too powerful, not strongly typed and for that, It shouldn&#8217;t be used. I believed that. The problem is : I should have given it a try before taking that for granted.</p>
+
+
+<p>I have watched the <a href="http://weblogs.asp.net/rosherove/archive/2008/01/21/video-typemock-basics-lesson-1-dependency-breaking-101.aspx" target="_blank">Roy Osherove screencast</a> and was impressed! I am currently working on an existing code base that was done before we went Agile and even before we were doing object-oriented development. When I need to refactor certain features I usually start writing tests and then using dependency injection to be able to mock some object. The minimum to be testable with Rhino Mocks. But with TypeMock you can mock object and don&#8217;t even need to inject them. You can also make expectation on static methods. Isn&#8217;t that just great! I believe so.</p>
+
+
+<p>However, I will stick with Rhino Mocks for now. I like the way It force me to decouple my code and in some sense, it provide me with guidance to make my work testable.</p>
+
+
+<p>P.S. : This is just my opinion and not the absolute truth.</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -489,66 +535,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/screencast-goodness-monorail-extjs-and-net-35/">Screencast goodness : Monorail, ExtJS and .NET 3.5</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-12-23T10:35:00-05:00" pubdate data-updated="true">Dec 23<span>rd</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Here is the bests screencasts I have watched this week :</p>
-
-
-<p><a href="http://joeydotnet.com/blog/archive/2007/12/08/monorail-quickly---screencast.aspx" target="_blank">Monorail Quickly</a>: A screencast made by Joey Beninghove (joeyDotNet). I have quite enjoyed this one. He has done a template project for quickly starting up a solution for Monorail.</p>
-
-
-<p>A series of screencasts from <a href="http://colinramsay.co.uk/" target="_blank">colinramsay.co.uk</a> :</p>
-
-
-<ul>
-<li><a href="http://colinramsay.co.uk/2007/04/17/getting-started-with-monorail-screencast-one/" target="_blank">Getting Started With Monorail - Part 1</a></li>
-<li><a href="http://colinramsay.co.uk/2007/04/18/using-monorail-screencast-two/" target="_blank">Getting Started With Monorail - Part 2</a></li>
-<li><a href="http://colinramsay.co.uk/2007/04/19/databinding-and-activerecord-screencast-three/" target="_blank">Getting Started With Monorail - Part 3</a></li>
-<li><a href="http://colinramsay.co.uk/2007/04/20/validation-and-much-more-screencast-four/" target="_blank">Getting Started With Monorail - Part 4</a></li>
-<li><a href="http://colinramsay.co.uk/2007/04/23/castle-contrib-screencast-five/" target="_blank">Getting Started With Monorail - Part 5</a></li>
-<li><a href="http://colinramsay.co.uk/2007/09/23/hotswap-for-monorail-in-action/" target="_blank">HotSwap for Monorail in action</a></li>
-<li><a href="http://colinramsay.co.uk/2007/10/08/i-love-it-when-a-plan-comes-together-a-tale-of-monorail-activerecord-and-extjs/" target="_blank">ExtJS (a grid)</a></li>
-</ul>
-
-
-<p>A ton of new screencasts about <a href="http://www.hanselman.com/blog/HowToNewASPNET35ExtensionsVideoScreencasts.aspx" target="_blank">ASP.NET 3.5 Extensions</a>.</p>
-
-
-<p>And I wish you a merry Christmas!</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/14/">&larr; Older</a>
@@ -580,6 +566,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/method-decorators-in-ruby/">Method decorators in Ruby</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/learning-rails-assert-valid-keys/">Learning Rails : assert_valid_keys</a>
       </li>
     
@@ -593,10 +583,6 @@
     
       <li class="post">
         <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/iterate-over-each-line-of-a-string-in-c-sharp/">Iterate over each line of a string in C#</a>
       </li>
     
   </ul>

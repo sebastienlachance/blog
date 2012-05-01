@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | Sebastien Lachance]]></title>
   <link href="http://sebastienlachance.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://sebastienlachance.com/"/>
-  <updated>2012-04-30T05:17:06-04:00</updated>
+  <updated>2012-05-01T07:55:49-04:00</updated>
   <id>http://sebastienlachance.com/</id>
   <author>
     <name><![CDATA[Sebastien Lachance]]></name>
@@ -12,6 +12,113 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Method decorators in Ruby]]></title>
+    <link href="http://sebastienlachance.com/blog/method-decorators-in-ruby/"/>
+    <updated>2012-05-01T08:00:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/method-decorators-in-ruby</id>
+    <content type="html"><![CDATA[<p>While I was following the <a href="http://twitter.com/#!/search/%23railsconf">#railsconf</a> thread on Twitter, I heard some talking about method decorators with Ruby. I've always wondered if there was a way to emulate the <a href="http://www.codeguru.com/csharp/.net/article.php/c18741/Understanding-and-Using-NET-Attributes.htm">Attribute</a> we have in .NET.</p>
+
+<p>Turns out it is possible (and with added value!). Using the <a href="https://github.com/michaelfairley/method_decorators">method_decorators gem</a> allow precisely that functionnality with some extras.</p>
+
+<h2>Defining a decorator</h2>
+
+<p>``` ruby Defining a decorator
+class ADecorator &lt; MethodDecorator
+  def call(orig, *args, &amp;blk)</p>
+
+<pre><code>orig.call(*args, &amp;blk)
+</code></pre>
+
+<p>  end
+end
+```</p>
+
+<p>This decorator actually does nothing, since we call the original method with supplied arguments and block (if provided).</p>
+
+<h2>Using the decorator</h2>
+
+<p>```ruby Using the decorator
+class AClass
+  extends MethodDecorators</p>
+
+<p>  +ADecorator
+  def do_something()
+  end</p>
+
+<p>end
+```
+We can now do something before and after the call to  <strong>do_something</strong> and even modify the return value.</p>
+
+<h2>A practical example</h2>
+
+<p>I've had this little problem in .NET where I wanted to profile different method calls to see how much time they took to execute and send back the result via <a href="http://miniprofiler.com/">MiniProfiler</a>. For this, I wanted only to add an attribute to those methods. The only way I have found that possible without the use of an advanced profiling tool was to use <a href="http://www.sharpcrafters.com/postsharp/features">PostSharp</a> and it's injecting code feature. The Attribute functionnality does not offer any kind of before and after hook on execution.</p>
+
+<p>A custom implementation would look like this.</p>
+
+<p>```c# MiniProfiler Attribute with PostSharp and C#
+[Serializable]
+public class ProfilingAspectAttribute : OnMethodBoundaryAspect
+{
+  private IDisposable _profiler;</p>
+
+<p>  public ProfilingAspectAttribute
+  end</p>
+
+<p>  public override OnEntry(MethodExecutionArgs args) {</p>
+
+<pre><code>_profiler = MiniProfiler.Current.Step(string.Format("{0}.{1}",
+   args.Method.DeclaringType.Name, args.Method.Name);
+</code></pre>
+
+<p>  }</p>
+
+<p>  public override OnExit(MethodExecutionArgs args) {</p>
+
+<pre><code>if (_profiler != null) {
+  _profiler.Dispose();
+  _profiler = null;
+}
+</code></pre>
+
+<p>  }
+}
+```
+PostSharp will inject the OnEntry and OnExit code at the start and at the end of the "decorated" method. By default, <strong>there is no way to achieve that easily</strong>.</p>
+
+<p>With Ruby, the method_decorators gem and a custom profiler, it would look like this.</p>
+
+<p>```ruby A custom profiling decorator
+class Profiling &lt; MethodDecorator</p>
+
+<p>  def call(orig, *args, &amp;blk)</p>
+
+<pre><code>profiler.start
+orig.call(*args, &amp;blk)
+profiler.stop
+</code></pre>
+
+<p>  end</p>
+
+<p>end</p>
+
+<p>class SomeClass</p>
+
+<p>  +Profiling
+  def some_method_to_be_profiled</p>
+
+<pre><code>#some complex calculations
+</code></pre>
+
+<p>  end</p>
+
+<p>end
+```</p>
+
+<p>How nice is that?</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ruby and nested classes]]></title>
