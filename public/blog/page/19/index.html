@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Every time I set the SelectedValue of a DropdownList in ASP.NET, I was checking if the value existed in the control and if it doesn&#8217;t, I &hellip;">
+  <meta name="description" content="Today I was trying to select a predetermined number of rows in a table using a parameter&#8230; Syntax Error. SELECT TOP @n ID FROM TableName After a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,227 +75,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/how-to-remove-the-need-to-check-if-an-item-is-present-in-the-list-of-items-on-a-listcontrol/">Easier check if an item is in the list of items on a ListControl</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2006-10-12T01:50:00-04:00" pubdate data-updated="true">Oct 12<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Every time I set the SelectedValue of a DropdownList in ASP.NET, I was checking if the value existed in the control and if it doesn&#8217;t, I usually set a default one (creating a new item with a SelectedIndex of -1). I realized that if you set the FormattingEnabled to true, the SelectedIndex will be set to -1. Thus removing the need for the this check.</p>
-
-
-<p>This property is found on the ListControl class, with the Dropdownlist inherit.</p>
-
-
-<p>Happy coding !</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/strong-naming-an-assembly-in-net/">Strong naming an assembly in .NET</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2005-05-24T01:44:00-04:00" pubdate data-updated="true">May 24<span>th</span>, 2005</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>All about Strong Naming in .NET.</p>
-
-
-<p><br />This is my attempt to explain Strong Name to myself. All the stuff here come from Patterns &amp; Practices : Improving Web Application Security from Microsoft.</p>
-
-
-<h3>What is a strong named assembly and why you should use it?</h3>
-
-
-<p><br />A strong name consist of a text name, version number, maybe a culture, public key, and a digital signature.     <br />There are some reasons why you would want to add a strong name to an assembly.</p>
-
-
-<p><br />1. To protect your code from partial trust assembly.     <br />2. To share your assembly with others applications.     <br />3. Uniquely identify the assembly. Giving cryptographically strong evidence for code access security.</p>
-
-
-<p><br />And some security benefits, some of which are:</p>
-
-
-<p><br />1. Digital signature. This, protect your assembly from any modification. Any tampering cause the application to fail.     <br />2. Cannot be called form partially trusted code.     <br />3. Allows administrators to grant specific permission to assembly.</p>
-
-
-<p>&nbsp;</p>
-
-
-<h3>To strong name an assembly, here is how you can do it.</h3>
-
-
-<p><br />1. Generate a key file.</p>
-
-
-<p><br /><strong>sn.exe &ndash;k keypair.snk</strong></p>
-
-
-<p><strong></strong></p>
-
-
-<p><br />2. Add the AssemblyKeyFile attribute to the Assembly.vb or Assembly.cs file of your project. Reference the key file.</p>
-
-
-<p><br /><strong>[AssemblyKeyFile(&#8220;@..&#46;.\keypair.snk&#8221;)]</strong></p>
-
-
-<p><strong></strong></p>
-
-
-<p><br />You now have a strong named assembly.</p>
-
-
-<p>&nbsp;</p>
-
-
-<h3>Delay signing in development.</h3>
-
-
-<p><br />You might want to delay sign your assembly in development version. It means that your assembly is available for code security, but it is not yet temper proof. You can still modify your assembly without re-signing.</p>
-
-
-<p><br />Your private key at this moment could be kept safe until development is complete. If you wish you can us it for all your organisation&rsquo;s assemblies. To implements delay signing, you must first create the key.</p>
-
-
-<p><br /><strong>sn.exe &ndash;k keypair.snk</strong></p>
-
-
-<p><strong></strong></p>
-
-
-<p><br />Then you extract the public key.     <br /><strong>sn.exe &ndash;p keypair.snk publickey.snk</strong></p>
-
-
-<p><strong></strong></p>
-
-
-<p><br />You can now take keypair.snk and put it in a safe location, then distribute the public key to the development teams.     <br />This is not all. You must now delay sign your assembly. To do this, you first add the AssemblyKeyFile attribute to your Assembly file.     <br /><strong>[assembly: AssemblyKeyFile(&ldquo;@..&#46;.\publickey.snk&rdquo;)]</strong> <br />Then add the AssemblyDelaySign attribute to true.     <br /><strong>[assembly: AssemblyDelaySign(true)]</strong></p>
-
-
-<p><strong></strong></p>
-
-
-<p><br />You will remark that your assembly will fail verification at load time. You will need to disable verification.</p>
-
-
-<p><br />1. For a specific assembl :     <br />&nbsp;&nbsp;&nbsp; sn &ndash;Vr assembly.dll     <br />2. For all application who use the key:</p>
-
-
-<p><br /><strong>sn &ndash;Vr *,publickeytoken</strong></p>
-
-
-<p><strong></strong></p>
-
-
-<p><br />To extract the public key and key token, you can do that this way:</p>
-
-
-<p><br /><strong>sn &ndash;Tp assembly.dll</strong></p>
-
-
-<p><strong></strong></p>
-
-
-<p><br />Now your assembly has a delayed signing. If you want to complete the process and render your assembly tamper proof. You will now need the private key.</p>
-
-
-<p><br /><strong>sn &ndash;r assembly.dll keypair.snk </strong></p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/studying-for-70-310/">Studying for 70-310</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2005-03-23T05:06:00-05:00" pubdate data-updated="true">Mar 23<span>rd</span>, 2005</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The big difference between the <a href="http://www.microsoft.com/learning/exams/70-305.asp">70-305</a> (ASP.NET) and <a href="http://www.microsoft.com/learning/exams/70-310.asp"><strong>70-310</strong></a> (XML Web Service) is the lack of interest. I liked to study the ASP.NET certification because I was using it everyday. I&#8217;ve learned so much in so little time that I (I think) became very efficient with web development. When I say web development I do not talk about design and stuff, because this is where I lack some interest in these times. Generally, I try to learn as much as I can, in my spare time, but this domain I try to stay out at this time. I really enjoy writing object-oriented code and since I’m just beginning I’m learning almost all of the time. Maybe some days, I will be interested more with HTML and XHTML and CSS.</p>
-
-
-<p>  <p></p>  <p>So for the<strong> </strong><a href="http://www.microsoft.com/learning/exams/70-310.asp"><strong>70-310</strong></a>, my current advice is to get through every aspect of XML files. How to query SQL Server to return XML, W3C specifications, synchronizing XMLDataDocument with DataSet, navigating through node. And almost as important of knowing how to write the code, know the xml terms! There is so much term for everything, it can be a pain to read documentation and still don&#8217;t understand anything.</p>  <p>Oh, and I just got Gran Turismo 4 on Playstation 2. Really great game. But it stills not a subject I will get into.</p></p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -482,11 +261,11 @@
       </li>
     
       <li class="post">
-        <a href="/blog/backbone-and-page-transition/">Backbone and page transition</a>
+        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
       </li>
     
       <li class="post">
-        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
+        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Like everyone else, I tried the new browser from Google. So far so good. As of today, I had no problem at all, except for some site that I could not &hellip;">
+  <meta name="description" content="Listening to the last screencast of Rob Conery (MVC Storefront) made me realize something that I haven&#8217;t really understood before. Suppose you &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,174 +75,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/thoughts-about-google-chrome/">Thoughts about Google Chrome</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-09-05T01:43:00-04:00" pubdate data-updated="true">Sep 5<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Like everyone else, I tried the new browser from Google. So far so good. As of today, I had no problem at all, except for some site that I could not log into. The major improvement I can see out of the box is the maximization of all the possible space and added an integrated html inspector. </p>
-
-
-<p>  <p>They also added the search functionality right into the address bar. It makes only one shortcut to reminder. For a non-official version, it really is amazing. I expect a great future for Google Chrome.</p></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/systemdatalinqchangeconflictexception-row-not-found-or-changed/">ChangeConflictException: Row not found or changed</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-07-08T08:01:00-04:00" pubdate data-updated="true">Jul 8<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Hummm, I love this unclear exception message. I just can&#8217;t believe there is not a condition somewhere to return whether the row was not found or just changed. It would be a lot easier to diagnose problems.</p>
-
-
-<p>Anyway, after reading several article on concurrency regarding Linq to SQL and making sure the date field was sent correctly (like suggested everywhere), I finally pin-pointed the problem when I remembered that I had changed a NOT NULL column to a NULL column. Et voila. Problem solved!</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/visual-studio-2008-wcf-templates/">Visual Studio 2008 - WCF Templates</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-05-21T08:19:00-04:00" pubdate data-updated="true">May 21<span>st</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>When you want to create a new WCF project, you are presented with 4 different templates to use :</p>
-
-
-<ul>
-<li>Sequential Workflow Service Library </li>
-<li>Syndication Service Library </li>
-<li>State Machine Workflow Service Library </li>
-<li>WCF Service Library</li>
-</ul>
-
-
-<p>Each one has it&#8217;s own particularities. It&#8217;s important to know which one to choose but you should know that the template only generate things you need to get started. You can always start from an empty WCF Service Library and build on top of it. Anyway, here is an explanation for each one.</p>
-
-
-<h3>Sequential Workflow Service Library</h3>
-
-
-<p>You basically create a sequential workflow project that made operations available by WCF. I have no experience with Workflow Foundation so I will not go further into details.</p>
-
-
-<h3>Syndication Service Library</h3>
-
-
-<p>This template is great. It present you a way to expose an RSS or Atom feed via a WCF Service contract. This is built-in stuff already present in the framework.</p>
-
-
-<p>To expose a feed, you need an operation that return a&nbsp; <strong>SyndicationFeedFormatter</strong> (in the System.ServiceModel.Syndication namespace). Then create a <strong>SyndicationFeed</strong> and add <strong>SyndicationItem</strong> to it. Finally, create a <strong>Atom10FeedFormatter</strong> or <strong>Rss20FeedFormatter</strong> and return it.</p>
-
-
-<div>
-<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">SyndicationFeed feed = <span style="color: #0000ff;">new</span> SyndicationFeed(<span style="color: #006080;">"Feed Title"</span>, <span style="color: #006080;">"A WCF Syndication Feed"</span>, <span style="color: #0000ff;">null</span>);<br />List&lt;SyndicationItem&gt; items = <span style="color: #0000ff;">new</span> List&lt;SyndicationItem&gt;();<br /><br /><span style="color: #008000;">// Create a new Syndication Item.</span><br />SyndicationItem item = <span style="color: #0000ff;">new</span> SyndicationItem(<span style="color: #006080;">"An item"</span>, <span style="color: #006080;">"Item content"</span>, <span style="color: #0000ff;">null</span>);<br />items.Add(item);<br />feed.Items = items;<br /><br /><span style="color: #008000;">// Return ATOM or RSS based on query string</span><br /><span style="color: #008000;">// rss -&gt; http://localhost:8731/Design_Time_Addresses/SyndicationServiceLibrary1/Feed1/</span><br /><span style="color: #008000;">// atom -&gt; http://localhost:8731/Design_Time_Addresses/SyndicationServiceLibrary1/Feed1/?format=atom</span><br /><span style="color: #0000ff;">string</span> query = WebOperationContext.Current.IncomingRequest.UriTemplateMatch.QueryParameters[<span style="color: #006080;">"format"</span>];<br />SyndicationFeedFormatter formatter = <span style="color: #0000ff;">null</span>;<br /><span style="color: #0000ff;">if</span> (query == <span style="color: #006080;">"atom"</span>)<br />{<br />   formatter = <span style="color: #0000ff;">new</span> Atom10FeedFormatter(feed);<br />}<br /><span style="color: #0000ff;">else</span><br />{<br />   formatter = <span style="color: #0000ff;">new</span> Rss20FeedFormatter(feed);<br />}<br /><br /><span style="color: #0000ff;">return</span> formatter;</pre>
-</div>
-
-
-<h2>&nbsp;</h2>
-
-
-<h3>State Machine Workflow Service Library</h3>
-
-
-<p>Another template that expose a Windows Workflow as a Service. This time the type of Workflow is a State Machine. A state machine workflow contrary to a sequential workflow is driven by external events. Transition between states are based on certain events until it reach the final state.</p>
-
-
-<p>&nbsp;</p>
-
-
-<h3>WCF Service Library</h3>
-
-
-<p>The most basic project to create a WCF service. You can use it to do everything you want with the most control.</p>
-
-
-<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:30a47706-c5e7-4cb1-ac8e-cb066919747b" class="wlWriterSmartContent" style="display: inline; margin: 0; padding: 0;">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/WCF">WCF</a></div>
-
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -589,6 +421,280 @@
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/top-5-most-influential-peoples-on-my-career/">Top 5 most influential peoples on my career</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-04-30T07:41:00-04:00" pubdate data-updated="true">Apr 30<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I was thinking about this for a while. If I have to choose five peoples who have influenced me the most concerning my career, who would that be?</p>
+
+
+<p><strong>1. My first supervisor when I was a wielder.</strong></p>
+
+
+<p><em>This guy once said to me that I would never do anything more than wielding in my life and if it wasn&#8217;t for my father, he would have fired me for nothing. I promised him that It will not happen. Four years later, I was the leader of a small team in the company. Take that&#8230;</em></p>
+
+
+<p><strong>2. <a href="http://www.bernard-voyer.com/index_en.html">Bernard Voyer.</a></strong></p>
+
+
+<p><em>A famous explorator that I met when I was in school. He believed in his dream and have conquered the Everest, South Pole, North Pole and a lot of hard to reach places. He his just a normal person who gave everything he had to make his dream true.</em></p>
+
+
+<p><strong>3. The ASP.NET guy.</strong></p>
+
+
+<p><em>I don&#8217;t remember his name , but it&#8217;s shortly after I finished school. He had just completed a Microsoft Certification in ASP.NET. This is where I first heard the term MCSD and I promised myself I would be one (even though I had no idea what it was at that time). 2 years later, February 7 2006 at almost 9:00 PM, I was one. I learned all by myself with the help of some books and the requirement list on MSDN. It just felt incredible. Even if I&#8217;m no longer in the world of certification, I&#8217;m still very proud of it.</em></p>
+
+
+<p><strong>4. <a href="http://www.hanselman.com/blog/">Scott Hanselman</a>.</strong></p>
+
+
+<p><em>First blog ever that I have put in my RSS aggregator. I&#8217;m following him since a long time and he inspired me a lot. It&#8217;s because of him that I am a blogger. He&#8217;s coming to the .NET User Group of Qu&eacute;bec next week and I can&#8217;t wait to meet him.</em></p>
+
+
+<p><strong>5. <a href="http://www.jpboodhoo.com/blog/">Jean-Paul Boodhoo</a></strong></p>
+
+
+<p><em>Never met the man. I first heard of him in an episode on DnrTv about design patterns. It seem he has a lot passion&#8230; If you have never heard of him, head here. I wish I was as passionate as him. I am, but he his more :).</em></p>
+
+
+<p>This was my top 5 of the peoples who had the most impact on me. But I want to talk about a 6th person. He probably don&#8217;t want me to talk about him so I will not give any name. Before meeting him, I was already into Agile development. But he taught me a lot about other aspect of the methodology. Everything that can&#8217;t be learn in a book to be more precise. But thing haven&#8217;t got very well at some point and after a lot of different events we lost touch. Anyway, I am very recognizing to have worked with him.</p>
+
+
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:1bf27263-ce38-4b0e-88e6-5e9d6a2dcf00" class="wlWriterSmartContent" style="display: inline; margin: 0; padding: 0;">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/Scott%20Hanselman">Scott Hanselman</a>,<a rel="tag" href="http://technorati.com/tags/JP%20Boodhoo">JP Boodhoo</a>,<a rel="tag" href="http://technorati.com/tags/Bernard%20Voyer">Bernard Voyer</a>,<a rel="tag" href="http://technorati.com/tags/Top%205">Top 5</a></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/var-keyword-%28or-implicitly-typed-local-variables%29/">var keyword (or Implicitly Typed Local Variables)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-04-17T07:14:00-04:00" pubdate data-updated="true">Apr 17<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you are like me and installed the nightly build of Resharper 4, you might have seen the recommendation it made to use the keyword &#8220;var&#8221; almost everywhere. But why?</p>
+
+
+<p>Here is my answer :</p>
+
+
+<p>First of all, you must know that the keyword var is not like &#8220;Variant&#8221;. It is not late-bound or loosely typed. The compiler will be able to infer the type from the right side of the expression. In many case, it&#8217;s optional, but sometime you don&#8217;t have a choice. It&#8217;s the case with Anonymous Types :</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">var customer = <span style="color: #0000ff;">new</span> {ID = 1, Name = <span style="color: #006080;">"Sebastien"</span>, CreditCardNumber = <span style="color: #006080;">"You can dream!"</span>};</pre>
+</div>
+
+
+<div>&nbsp;</div>
+
+
+<div>It is also often seen with LINQ.</div>
+
+
+<div>&nbsp;</div>
+
+
+<div>Should you use it everywhere you can? Well, it&#8217;s a matter of preferences. Mine is to use it only when necessary. If the code is harder to understand when using var, then declare the variable explicitly.</div>
+
+
+<div>&nbsp;</div>
+
+
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:b7c2d5ae-e385-40c6-8caf-548521011400" class="wlWriterSmartContent" style="display: inline; margin: 0; padding: 0;"><a rel="tag" href="http://technorati.com/tags/Resharper"></a></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/exploring-anonymous-methods/">Exploring Anonymous Methods</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-04-16T07:13:00-04:00" pubdate data-updated="true">Apr 16<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>My desire to explore Delegates and Anonymous Methods came from my next exploration, which will be the the Lambda feature. So, I will probably do an article on it in a near future.</p>
+
+
+<p>So, what exactly is an anonymous method? It&#8217;s a C# 2.0 feature. Whenever you encounter the need to pass something as a delegate parameter, you can use an anonymous method.</p>
+
+
+<p><strong>Example : </strong></p>
+
+
+<p>This class has a method that expect a delegate that has no parameter and no return value.</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> Action<br />{<br />    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">delegate</span> <span style="color: #0000ff;">void</span> MyActionDelegate();<br /><br />    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> Execute(MyActionDelegate myActionDelegate)<br />    {<br />        myActionDelegate.Invoke();<br />    }<br />}</pre>
+</div>
+
+
+<p>Previously, you would have declared a method that has no parameter and no return value and passed it to the Execute method. Like this :</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> DoSomething()<br />{<br />    Console.WriteLine(<span style="color: #006080;">"This is not an anonymous method."</span>);<br />}<br /><br /><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> Main(<span style="color: #0000ff;">string</span>[] args)<br />{<br />    Action action = <span style="color: #0000ff;">new</span> Action();<br /><br />    action.Execute(DoSomething);<br />}</pre>
+</div>
+
+
+<p>An the output would be :</p>
+
+
+<p><a title="DelegateOutput" href="http://www.flickr.com/photos/63483657@N00/2417530780/"><img src="http://static.flickr.com/3155/2417530780_d7395030f0.jpg" border="0" alt="DelegateOutput" /></a></p>
+
+
+<p>With an anonymous method, we reduce the code and by the same occasion, augment code readability.</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> Main(<span style="color: #0000ff;">string</span>[] args)<br />{<br />    Action action = <span style="color: #0000ff;">new</span> Action();<br />    action.Execute(<span style="color: #0000ff;">delegate</span>() { Console.WriteLine(<span style="color: #006080;">"This is inside an anonymous method."</span>); });<br />}</pre>
+</div>
+
+
+<p><a title="AnonymousOutput" href="http://www.flickr.com/photos/63483657@N00/2417538708/"><img src="http://static.flickr.com/3188/2417538708_0e339a00d8.jpg" border="0" alt="AnonymousOutput" /></a></p>
+
+
+<p>If the delegate has expected a parameter you could have done it like :</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">action.Execute(<span style="color: #0000ff;">delegate</span>(<span style="color: #0000ff;">string</span> s) { Console.WriteLine(s); });</pre>
+</div>
+
+
+<p>And if the delegate have an return value, make sure you return one of the correct type :</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">action.Execute(<span style="color: #0000ff;">delegate</span>(<span style="color: #0000ff;">string</span> s) { <span style="color: #0000ff;">return</span> s; });</pre>
+</div>
+
+
+<p>&nbsp;</p>
+
+
+<p><strong>Accessing variables located outside the anonymous block :</strong></p>
+
+
+<p>A feature of an anonymous method is the ability to access variables located outside the anonymous scope (anonymous-method-block). Those variables called <strong>&#8220;outer variables&#8221;.</strong> It is better explained by an example :</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"><span style="color: #0000ff;">string</span> myString = <span style="color: #006080;">"Outside the anonymous method."</span>;<br />action.Execute(<span style="color: #0000ff;">delegate</span>(<span style="color: #0000ff;">string</span> s) { Console.WriteLine(myString); });</pre>
+</div>
+
+
+<p><a title="AnonymousScope" href="http://www.flickr.com/photos/63483657@N00/2416747123/"><img src="http://static.flickr.com/3228/2416747123_db158829a6.jpg" border="0" alt="AnonymousScope" /></a></p>
+
+
+<p>The exception to this rule are the ref and out parameters, which cannot be accessed by the anonymous method. You also can&#8217;t put unsafe code in the anonymous method.</p>
+
+
+<p><strong>Real life example </strong></p>
+
+
+<p>Maybe not (it&#8217;s always hard to come with great example), but it illustrate how you can use an anonymous method to find all string matching &#8220;String5&#8221; inside a collection of string. Just imagine doing the same thing in your collection of orders or products.</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">List&lt;<span style="color: #0000ff;">string</span>&gt; myListOfString = <span style="color: #0000ff;">new</span> List&lt;<span style="color: #0000ff;">string</span>&gt;();<br /><br /><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> x = 0; x &lt; 10; x++)<br />{<br />    myListOfString.Add(<span style="color: #006080;">"String"</span> + x);<br />}<br /><br />List&lt;String&gt; returnedStrings = myListOfString.FindAll(<span style="color: #0000ff;">delegate</span>(<span style="color: #0000ff;">string</span> s) { <span style="color: #0000ff;">return</span> s == <span style="color: #006080;">"String5"</span>; });</pre>
+</div>
+
+
+<p>&nbsp;</p>
+
+
+<p><strong>Conclusion</strong></p>
+
+
+<p>Mastering Anonymous Methods is a great skill to have in you toolbox. But be careful, if you need to reuse the same code again and again, you better have to create a method and put the code in it. Don&#8217;t try to impress your friends too much. :)</p>
+
+
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:4f5732e1-da9d-4fc1-8e6b-806baab699a2" class="wlWriterSmartContent" style="display: inline; margin: 0; padding: 0;">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/C#%202.0">C# 2.0</a>,<a rel="tag" href="http://technorati.com/tags/dotnet">dotnet</a>,<a rel="tag" href="http://technorati.com/tags/anonymous%20methods">anonymous methods</a>,<a rel="tag" href="http://technorati.com/tags/lambda">lambda</a></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/12/">&larr; Older</a>
@@ -632,11 +738,11 @@
       </li>
     
       <li class="post">
-        <a href="/blog/backbone-and-page-transition/">Backbone and page transition</a>
+        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
       </li>
     
       <li class="post">
-        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
+        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
       </li>
     
   </ul>

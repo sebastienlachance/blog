@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Very common scenario. There is probably a better way to do this, but this one get the job done. var mockedView = MockRepository.GenerateMock&lt; &hellip;">
+  <meta name="description" content="When using LinqToSql and unit testing in your application, you can benefit from two handy method calls that will make your life a lot easier. var db &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,142 +75,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/how-to-test-if-someone-subscribed-to-an-event-with-rhino-mocks/">How to test if someone subscribed to an event with Rhino Mocks</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-11-10T04:26:00-05:00" pubdate data-updated="true">Nov 10<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Very common scenario. There is probably a better way to do this, but this one get the job done.</p>
-
-
-<div>
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas, 'Courier New', courier, monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">var mockedView = MockRepository.GenerateMock&lt;ICustomerView&gt;();
-mockedView.Expect(v=&gt;v.Save += <span style="color: #0000ff">null</span>).IgnoreArguments();
-mockedView.Expect(v=&gt;v.Delete += <span style="color: #0000ff">null</span>).IgnoreArguments();
-mockedView.Expect(v=&gt;v.Load += <span style="color: #0000ff">null</span>).IgnoreArguments();
-<span style="color: #0000ff">new</span> CustomerPresenter(mockedView); <span style="color: #008000">//Subscribtion to events </span>
-mockedView.VerifyAllExpectations();</pre>
-</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/webconfig-to-appconfig-and-resharpers-testrunner/">Web.Config to App.Config and Resharper&#8217;s TestRunner</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-11-07T08:20:00-05:00" pubdate data-updated="true">Nov 7<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>If you are using the Resharper&#8217;s TestRunner and have put your tests directly inside your web application assembly, you may ran across the configuration file issue. That is, that you create a test that, in a way or another, will try to access your application configuration file. The problem is that the Web.Config file is not copied to the bin folder and is not renamed following the configuration file convention of anything else that is not a web application. To ensure that you will have access, you can add a post-build event in Visual Studio that will copy the Web.Config to the bin folder with an appropriate name (applicationname.dll.config).</p>
-
-
-<p>Right-Click on the project =&gt; Properties =&gt; Build Events and paste this :</p>
-
-
-<p>copy /Y &#8220;$(ProjectDir)Web.config&#8221; &#8220;$(TargetDir)$(TargetFileName).config</p>
-
-
-<p><a title="BuildEvents" href="http://www.flickr.com/photos/63483657@N00/3005104353/"><img src="http://static.flickr.com/3170/3005104353_0f13ee0f47.jpg" border="0" alt="BuildEvents" /></a></p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/my-teamcity-testimonial/">My TeamCity testimonial</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-10-29T01:42:00-04:00" pubdate data-updated="true">Oct 29<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Some months ago, someone from Jetbrains asked me if they could use a comment I made on my <a href="http://sebastienlachance.com/post/Setting-up-a-basic-continuous-integration-server-with-TeamCity.aspx" target="_blank">TeamCity blog post</a> (the one I demonstrate how to get TeamCity up and running) on their testimonials page.</p>
-
-
-<p><a href="http://www.jetbrains.com/company/customers/testimonials.html#tc" target="_blank">My testimonial</a>. However, I am not working anymore for bxsystems but for a great local company where I currently live. I think there is a lot of potential there.</p>
-
-
-<p>I still believe TeamCity is an impressive product and I am waiting for <a href="http://blogs.jetbrains.com/teamcity/2008/10/28/grab-yourself-one-of-the-last-eap-builds-before-the-teamcity-40-release/" target="_blank">version 4</a> that will be out soon.</p>
-
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -628,6 +492,174 @@ requestRepository.VerifyAllExpectations();</pre>
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/thoughts-about-google-chrome/">Thoughts about Google Chrome</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-05T01:43:00-04:00" pubdate data-updated="true">Sep 5<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Like everyone else, I tried the new browser from Google. So far so good. As of today, I had no problem at all, except for some site that I could not log into. The major improvement I can see out of the box is the maximization of all the possible space and added an integrated html inspector. </p>
+
+
+<p>  <p>They also added the search functionality right into the address bar. It makes only one shortcut to reminder. For a non-official version, it really is amazing. I expect a great future for Google Chrome.</p></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/systemdatalinqchangeconflictexception-row-not-found-or-changed/">ChangeConflictException: Row not found or changed</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-07-08T08:01:00-04:00" pubdate data-updated="true">Jul 8<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Hummm, I love this unclear exception message. I just can&#8217;t believe there is not a condition somewhere to return whether the row was not found or just changed. It would be a lot easier to diagnose problems.</p>
+
+
+<p>Anyway, after reading several article on concurrency regarding Linq to SQL and making sure the date field was sent correctly (like suggested everywhere), I finally pin-pointed the problem when I remembered that I had changed a NOT NULL column to a NULL column. Et voila. Problem solved!</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/visual-studio-2008-wcf-templates/">Visual Studio 2008 - WCF Templates</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-21T08:19:00-04:00" pubdate data-updated="true">May 21<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When you want to create a new WCF project, you are presented with 4 different templates to use :</p>
+
+
+<ul>
+<li>Sequential Workflow Service Library </li>
+<li>Syndication Service Library </li>
+<li>State Machine Workflow Service Library </li>
+<li>WCF Service Library</li>
+</ul>
+
+
+<p>Each one has it&#8217;s own particularities. It&#8217;s important to know which one to choose but you should know that the template only generate things you need to get started. You can always start from an empty WCF Service Library and build on top of it. Anyway, here is an explanation for each one.</p>
+
+
+<h3>Sequential Workflow Service Library</h3>
+
+
+<p>You basically create a sequential workflow project that made operations available by WCF. I have no experience with Workflow Foundation so I will not go further into details.</p>
+
+
+<h3>Syndication Service Library</h3>
+
+
+<p>This template is great. It present you a way to expose an RSS or Atom feed via a WCF Service contract. This is built-in stuff already present in the framework.</p>
+
+
+<p>To expose a feed, you need an operation that return a&nbsp; <strong>SyndicationFeedFormatter</strong> (in the System.ServiceModel.Syndication namespace). Then create a <strong>SyndicationFeed</strong> and add <strong>SyndicationItem</strong> to it. Finally, create a <strong>Atom10FeedFormatter</strong> or <strong>Rss20FeedFormatter</strong> and return it.</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">SyndicationFeed feed = <span style="color: #0000ff;">new</span> SyndicationFeed(<span style="color: #006080;">"Feed Title"</span>, <span style="color: #006080;">"A WCF Syndication Feed"</span>, <span style="color: #0000ff;">null</span>);<br />List&lt;SyndicationItem&gt; items = <span style="color: #0000ff;">new</span> List&lt;SyndicationItem&gt;();<br /><br /><span style="color: #008000;">// Create a new Syndication Item.</span><br />SyndicationItem item = <span style="color: #0000ff;">new</span> SyndicationItem(<span style="color: #006080;">"An item"</span>, <span style="color: #006080;">"Item content"</span>, <span style="color: #0000ff;">null</span>);<br />items.Add(item);<br />feed.Items = items;<br /><br /><span style="color: #008000;">// Return ATOM or RSS based on query string</span><br /><span style="color: #008000;">// rss -&gt; http://localhost:8731/Design_Time_Addresses/SyndicationServiceLibrary1/Feed1/</span><br /><span style="color: #008000;">// atom -&gt; http://localhost:8731/Design_Time_Addresses/SyndicationServiceLibrary1/Feed1/?format=atom</span><br /><span style="color: #0000ff;">string</span> query = WebOperationContext.Current.IncomingRequest.UriTemplateMatch.QueryParameters[<span style="color: #006080;">"format"</span>];<br />SyndicationFeedFormatter formatter = <span style="color: #0000ff;">null</span>;<br /><span style="color: #0000ff;">if</span> (query == <span style="color: #006080;">"atom"</span>)<br />{<br />   formatter = <span style="color: #0000ff;">new</span> Atom10FeedFormatter(feed);<br />}<br /><span style="color: #0000ff;">else</span><br />{<br />   formatter = <span style="color: #0000ff;">new</span> Rss20FeedFormatter(feed);<br />}<br /><br /><span style="color: #0000ff;">return</span> formatter;</pre>
+</div>
+
+
+<h2>&nbsp;</h2>
+
+
+<h3>State Machine Workflow Service Library</h3>
+
+
+<p>Another template that expose a Windows Workflow as a Service. This time the type of Workflow is a State Machine. A state machine workflow contrary to a sequential workflow is driven by external events. Transition between states are based on certain events until it reach the final state.</p>
+
+
+<p>&nbsp;</p>
+
+
+<h3>WCF Service Library</h3>
+
+
+<p>The most basic project to create a WCF service. You can use it to do everything you want with the most control.</p>
+
+
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:30a47706-c5e7-4cb1-ac8e-cb066919747b" class="wlWriterSmartContent" style="display: inline; margin: 0; padding: 0;">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/WCF">WCF</a></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/11/">&larr; Older</a>
@@ -671,11 +703,11 @@ requestRepository.VerifyAllExpectations();</pre>
       </li>
     
       <li class="post">
-        <a href="/blog/backbone-and-page-transition/">Backbone and page transition</a>
+        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
       </li>
     
       <li class="post">
-        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
+        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
       </li>
     
   </ul>

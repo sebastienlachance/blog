@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="[No text] ">
+  <meta name="description" content="In case you don&#8217;t know APPSUMO, subscribe to their notifications. They offers deals that are pretty hard to beat&#8230; Look at this one :&#160 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,212 +75,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/sql-server-error-failed-to-retrieve-text-for-this-error-reason-1815/">SQL Server Error : failed to retrieve text for this error. Reason 1815</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-05-02T03:15:00-04:00" pubdate data-updated="true">May 2<span>nd</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>[No text]</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learning-rails-sanitizehelper/">Learning Rails : SanitizeHelper</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-05-02T01:36:00-04:00" pubdate data-updated="true">May 2<span>nd</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>SanitizeHelper&nbsp;</h2>
-
-
-<p>I need to start somewhere and while it may not be the most informative post ever, I&#8217;ll try to cover this feature as much as I can. Everything here is already described in the Rails Api so it should be a great idea to keep it as a reference. I&#8217;ll also try to add what I have learned&nbsp;</p>
-
-
-<p>There are 4 methods in the sanitize helper.</p>
-
-
-<h3>strip_tags</h3>
-
-
-<p>Remove any html tags from your the input provided. If you truncate, you may see &lt;a. strip_tags before you truncate.</p>
-
-
-<h3>strip_links</h3>
-
-
-<p>Remove any links from your markup and return only the text of the link</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/problem-downloading-files-using-geckofx-and-xulrunner/">Problem Downloading files using GeckoFX and XULRunner</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-12-06T02:50:04-05:00" pubdate data-updated="true">Dec 6<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a title="GeckoFX Homepage" href="http://geckofx.org/">GeckoFX</a> is a component to reduce the complexity of embedding Firefox (XULRunner)onto a Windows Forms application to replace the default WebBrowser control.</p>
-
-
-<p>  <p>But while trying to download a file though it, I have encountered this error : </p>  <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E6:9f3b8763-e6ca-4e78-81bd-7da63413577c" class="wlWriterEditableSmartContent"><pre style="background-color:White;overflow: auto;"><span style="color: #000000;">XML Parsing Error: undefined entity
-Location: chrome://mozapps/content/downloads/unknownContentType.xul
-Line Number </span><span style="color: #000000;">30</span><span style="color: #000000;">,</span><span style="color: #000000;"> Column </span><span style="color: #000000;">18</span><span style="color: #000000;">:    &lt;description&gt;&amp;intro.label</span><span style="color: #008000;">;</span><span style="color: #008000;">&lt;/description</span></pre><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div></p>
-
-<p>After a lot of googling I have managed to resolve this issue. This is what I have done : </p>
-
-
-
-
-<h3>1. Use XULRunner 1.9.0.4 or newer</h3>
-
-
-
-
-<p>If you’ve followed some tutorials you may have ended up using 1.9.0.0. Use <a title="XULRunner 1.9.0.4 download location" href="ftp://ftp.mozilla.org/pub/xulrunner/releases/1.9.0.4/runtimes/xulrunner-1.9.0.4.en-US.win32.zip">1.9.0.4</a></p>
-
-
-
-
-<h3>2. Use the Profile Directory</h3>
-
-
-
-
-<div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E6:eab0600a-7232-4ad0-afbf-b7e03b970933" class="wlWriterEditableSmartContent"><pre style="background-color:#FFFFFF;overflow: auto;"><span style="color: #000000;">var profileDirectory </span><span style="color: #000000;">=</span><span style="color: #000000;"> Application.StartupPath </span><span style="color: #000000;">+</span><span style="color: #000000;"> </span><span style="color: #800000;">@"</span><span style="color: #800000;">\EmbeddedFirefoxProfile</span><span style="color: #800000;">"</span><span style="color: #000000;">;
-</span><span style="color: #0000FF;">if</span><span style="color: #000000;"> (</span><span style="color: #000000;">!</span><span style="color: #000000;">Directory.Exists(profileDirectory))
-{
-    Directory.CreateDirectory(profileDirectory);
-}
-Skybound.Gecko.Xpcom.ProfileDirectory </span><span style="color: #000000;">=</span><span style="color: #000000;"> profileDirectory;</span></pre><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
-
-
-
-
-<h3>3. Copy the chrome folder from the GeckoFX package into the chrome directory of XULRunner.</h3>
-
-
-
-
-<p>This will add 2 files to the existing chrome folder.</p>
-
-
-
-
-<h3>4. Add a bunch of preferences to greprefs/all.js</h3>
-
-
-
-
-<div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:DFDE9937-D816-47f4-A306-7B60D5CE5AC0:b65e1539-3745-4255-a994-a429d654c4ee" class="wlWriterEditableSmartContent"><pre class="brush: jscript; gutter: false; first-line: 1; tab-size: 4;  toolbar: true; ">pref(&quot;browser.download.useDownloadDir&quot;, true);
-pref(&quot;browser.download.folderList&quot;, 0);
-pref(&quot;browser.download.manager.showAlertOnComplete&quot;, true);
-pref(&quot;browser.download.manager.showAlertInterval&quot;, 2000);
-pref(&quot;browser.download.manager.retention&quot;, 2);
-pref(&quot;browser.download.manager.showWhenStarting&quot;, true);
-pref(&quot;browser.download.manager.useWindow&quot;, true);
-pref(&quot;browser.download.manager.closeWhenDone&quot;, true);
-pref(&quot;browser.download.manager.openDelay&quot;, 0);
-pref(&quot;browser.download.manager.focusWhenStarting&quot;, false);
-pref(&quot;browser.download.manager.flashCount&quot;, 2);
-//
-pref(&quot;alerts.slideIncrement&quot;, 1);
-pref(&quot;alerts.slideIncrementTime&quot;, 10);
-pref(&quot;alerts.totalOpenTime&quot;, 4000);
-pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
-
-
-
-
-<h3>Conclusion</h3>
-
-
-
-
-<p>I hope it works for you. Happy GeckoFX programming!</p>
-
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -612,6 +406,192 @@ pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's W
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/the-surprising-science-of-motivation-by-dan-pink/">The surprising science of motivation by Dan Pink</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-07-28T05:26:40-04:00" pubdate data-updated="true">Jul 28<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Motivation can be hard to understand. Someday you are and the next day you’re not. While cleaning my bookmarks, I came across this talk by Dan Pink on <strong>The surprising science of motivation </strong>on TED.</p>
+
+
+<p>  <p>It applies to us (Knowledge worker) and he demonstrate why it can be so hard to motivate us and how everyone knows how to, but it’s never applied. </p>  <p>&#160;</p>  <p style="text-align: center"><object width="446" height="326"><param name="movie" value="http://video.ted.com/assets/player/swf/EmbedPlayer.swf"></param><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="wmode" value="transparent"></param><param name="bgColor" value="#ffffff"></param> <param name="flashvars" value="vu=http://video.ted.com/talks/dynamic/DanielPink_2009G-medium.flv&amp;su=http://images.ted.com/images/ted/tedindex/embed-posters/DanielPink-2009G.embed_thumbnail.jpg&amp;vw=432&amp;vh=240&amp;ap=0&amp;ti=618&amp;introDuration=15330&amp;adDuration=4000&amp;postAdDuration=830&amp;adKeys=talk=dan_pink_on_motivation;year=2009;theme=not_business_as_usual;theme=speaking_at_tedglobal2009;theme=the_creative_spark;event=TEDGlobal+2009;&amp;preAdTag=tconf.ted/embed;tile=1;sz=512x288;" /><embed src="http://video.ted.com/assets/player/swf/EmbedPlayer.swf" pluginspace="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" wmode="transparent" bgColor="#ffffff" width="446" height="326" allowFullScreen="true" allowScriptAccess="always" flashvars="vu=http://video.ted.com/talks/dynamic/DanielPink_2009G-medium.flv&su=http://images.ted.com/images/ted/tedindex/embed-posters/DanielPink-2009G.embed_thumbnail.jpg&vw=432&vh=240&ap=0&ti=618&introDuration=15330&adDuration=4000&postAdDuration=830&adKeys=talk=dan_pink_on_motivation;year=2009;theme=not_business_as_usual;theme=speaking_at_tedglobal2009;theme=the_creative_spark;event=TEDGlobal+2009;"></embed></object></p>  <p>&#160;</p>  <p>There is also an animate version of this talk done by <a title="The RSA youtube channel" href="http://www.youtube.com/user/theRSAorg" target="_blank">RSA</a>. If you are more visual check this one out. </p>  <p style="text-align: center; width: 100%"><embed src="http://www.youtube.com/v/u6XAPnuFjJc&amp;hl=en_US&amp;fs=1" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed> </p>  <p><a title="Dan Pink&#39;s website" href="http://www.danpink.com/" target="_blank">Daniel H. Pink</a>&#160; is a writer, blogger and speaker with 4 books under his belt.</p>  <p>&#160;</p>  <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:41822afe-66a4-4b70-ae1c-e2aaff72821a" class="wlWriterEditableSmartContent">Technorati Tags: <a href="http://technorati.com/tags/motivation" rel="tag">motivation</a>,<a href="http://technorati.com/tags/talk" rel="tag">talk</a>,<a href="http://technorati.com/tags/ted" rel="tag">ted</a></div></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/functional-programming-starting-to-learn-clojure/">Functional programming : Starting to learn Clojure</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-07-23T01:15:21-04:00" pubdate data-updated="true">Jul 23<span>rd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>&#160;</p>
+
+
+<p>  <p>The time has come for me to add another language into my toolbox and I decided to look at a functional language : <strong><a title="Clojure&#39;s website" href="http://clojure.org/" target="_blank">Clojure</a></strong>. I have the <a title="Programming Clojure book" href="http://pragprog.com/titles/shcloj/programming-clojure" target="_blank">Programming Clojure</a> book, so why not?</p>  <h3>Clojure is a modern Lisp language.</h3>  <p> Yes, Lisp (LISt Processing). I never thought I would have been near or around it. I heard so many bad things about his complexity and how it would not useful in real life scenarios. But I have heard sometime about programmers who expended their mind to new programming concept with it. The following comment seems to be universal from programmers who knows it well.</p>  <blockquote>   <p>     <br />I struggled to learn it, but once I finally get a grasp on it, it made me a better developer. </p> </blockquote>  <h3>Why?</h3>  <p>In our imperative language (Java, C#, Ruby, etc.) there is really no support for multi-core processing. That is, your program will only run on one core. Clojure is designed to support multi-core in mind and had support for dealing with concurrency really well.</p>  <h3>What is Lisp?</h3>  <p>   <br />From Wikipedia : </p>  <blockquote>   <p>Lisp was originally created as a practical mathematical notation for computer programs, influenced by the notation of Alonzo Church&#8217;s lambda calculus. It quickly became the favoured programming language for artificial intelligence (AI) research. As one of the earliest programming languages, Lisp pioneered many ideas in computer science, including tree data structures, automatic storage management, dynamic typing, and the self-hosting&#160; compiler.</p> </blockquote>  <p>Just that. And I would like to add that it had a lot of parentheses. A lot.</p>  <h3>Clojure is emitting JVM bytecode and goes hand in hand with Java but maybe not.</h3>  <p>   <br />I was afraid of that. I know Java, but not the whole library. Since Clojure can and will use the library, you better know where you are heading. But again, if you want to learn fast, just jump in the shark pool. But, Java is absolutely not required to program with it if you don’t want to.</p>  <h3>Clojure Code</h3>  <p>   <br />Let&#8217;s look at an example :     <br /></p>  <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E6:a41312cd-13d0-4502-b5a3-9079603e6e25" class="wlWriterEditableSmartContent"><pre style="background-color:#FFFFFF;white-space:-moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; white-space: pre-wrap; word-wrap: break-word;overflow: auto;"><span style="color: #000000;">(loop [result [] x </span><span style="color: #800080;">5</span><span style="color: #000000;">]</p>
+
+<pre><code>(&lt;/span&gt;&lt;span style="color: #0000FF;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (zero&lt;/span&gt;&lt;span style="color: #000000;"&gt;?&lt;/span&gt;&lt;span style="color: #000000;"&gt; x)
+    result
+    (recur (conj result x) (dec x))))&lt;/span&gt;&lt;/pre&gt;&lt;!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --&gt;&lt;/div&gt;
+</code></pre>
+
+<p>
+  <br />Output : [5 4 3 2 1] </p>
+
+
+
+
+<p>This snippet of code is actually a loop from 5 to 1 and appending each time the current index to an array</p>
+
+
+
+
+<p>This is not a tutorial but let’s dig deeper at (zero? x). In Clojure, a function that evaluate a condition have the name of it appended of an ?. So zero? is the function name and x is the argument. Yes, you read right, you don’t supply function’s argument like other programming language where it would look like : </p>
+
+
+
+
+<div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:DFDE9937-D816-47f4-A306-7B60D5CE5AC0:bcaad55b-8b3b-4d8c-8d5d-17419d286f29" class="wlWriterEditableSmartContent"><pre class="brush: csharp; gutter: false; first-line: 1; tab-size: 4;  toolbar: false; ">bool isZero = IsZero(x);</pre><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
+
+
+
+
+<h3>Conclusion</h3>
+
+
+
+
+<p>I tried to present a little introduction to Clojure without going into too much details. I am not yet comfortable with every concept and what would be the advantages in real life. But, It will be an interesting trip. After a little more than three weeks now, and almost 10 hours of playing around and I can already say that I will need to see things differently.Very differently.</p>
+
+
+
+
+<p>&#160;</p>
+
+
+
+
+<div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:a9e9955f-ab4c-44e5-bdb5-a9c57a7a8f3e" class="wlWriterEditableSmartContent">Technorati Tags: <a href="http://technorati.com/tags/clojure" rel="tag">clojure</a>,<a href="http://technorati.com/tags/programming" rel="tag">programming</a></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/i-was-a-gamer/">I was a gamer</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-06-01T05:35:00-04:00" pubdate data-updated="true">Jun 1<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Back when I was young (I&rsquo;m 28), I was a gamer. I could play for hours and get almost no sleep just to play games. Every games and only good rated games. I could complete several ones in just one week. I was at one point a really big fan of the Warcraft series (not WoW by the way) and got ranked really high on Battle.Net. But life goes on and I reduced my average playing time to the minimum (and I am a new father, so it&rsquo;s really not that much). Now I only play games that fit into the kind I love and that I know will not be crappy.</p>
+
+
+<p>I could say the same thing to the time I now spend learning new programming stuff. I&rsquo;m more picky at what I choose and tend to ignore a lot of thing that I would have found interesting if I had time to read them. So I need to choose really carefully what I decide to involve myself into, and spend the less possible time on learning anything that I could find easily with some googling.. I also ignore stuff that come and go quickly (Cardspace?). I understand the inner plumbing, but the implementation details are not so important unless it&rsquo;s something I really need to (example : I needed to create a secure WCF service, but It&rsquo;s not something I use daily and will probably not use it again in the next year, so why should I choose to learn everything about securing a wcf services?).</p>
+
+
+<p>But in my early years of programming I would have done it. I mean, learn all that I can and purchase new books every weeks. But the reality kick-in quickly and it&rsquo;s just not possible anymore.</p>
+
+
+<h2>How do I keep up to date and not become crazy trying to learn everything ?</h2>
+
+
+<p>1. I read blog. No, I read blog title and choose only what I think will be interesting for me.</p>
+
+
+<p>2. I read books. But only great books. Other people already done the job of finding good ones. So I am not loosing my time on less than average book.</p>
+
+
+<p>3. I work on my own project on my own time. I find it to be great to feel involved in all the stage of creating an application. UI, architecture, design, deployment, redaction, marketing, etc&hellip;</p>
+
+
+<p>4. Watch screencasts. <a title="Dime Casts.Net -- Inform and Educate in ~10 Minutes or Less" href="http://dimecasts.net/">Dime Casts.Net</a> and <a title="TekPub - High-quality screencasts for programmers." href="http://tekpub.com/">TekPub</a> (maybe someday, I will buy a subscription).</p>
+
+
+<p>So the question is: what do you do to keep up to date with everything and not let yourself become a programming zombie?</p>
+
+
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:adf0ce80-838c-4caf-8845-0cecce804467" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/blogging">blogging</a>,<a rel="tag" href="http://technorati.com/tags/career">career</a>,<a rel="tag" href="http://technorati.com/tags/time">time</a></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -655,11 +635,11 @@ pref(&quot;alerts.height&quot;, 50);</pre><!-- Code inserted with Steve Dunn's W
       </li>
     
       <li class="post">
-        <a href="/blog/backbone-and-page-transition/">Backbone and page transition</a>
+        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
       </li>
     
       <li class="post">
-        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
+        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
       </li>
     
   </ul>

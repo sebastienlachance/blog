@@ -4,7 +4,7 @@
   <title><![CDATA[Category: backbone | Sebastien Lachance]]></title>
   <link href="http://sebastienlachance.com/blog/categories/backbone/atom.xml" rel="self"/>
   <link href="http://sebastienlachance.com/"/>
-  <updated>2012-05-10T09:39:35-04:00</updated>
+  <updated>2012-05-10T10:04:37-04:00</updated>
   <id>http://sebastienlachance.com/</id>
   <author>
     <name><![CDATA[Sebastien Lachance]]></name>
@@ -12,15 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Backbone and page transition]]></title>
-    <link href="http://sebastienlachance.com/blog/backbone-and-page-transition/"/>
-    <updated>2012-04-27T17:02:00-04:00</updated>
-    <id>http://sebastienlachance.com/blog/backbone-and-page-transition</id>
-    <content type="html"><![CDATA[
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Completely unrealistic example - A Backbone Blog]]></title>
@@ -57,42 +48,6 @@
     <content type="html"><![CDATA[<p>I'm currently doing my best to learn Backbone and his best practices. I have set up a demo blog application on GitHub (<a href="https://github.com/sebastienlachance/backbone-rails-blog">Backbone-rails-blog</a>).</p>
 
 <p>So, if you are interested to give me some feedback, tips or check out the development progress, just watch the project to see where things are going and I'll blog the important parts as I move forward.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Backbone - Fetching a single model]]></title>
-    <link href="http://sebastienlachance.com/blog/backbone-fetching-a-single-model/"/>
-    <updated>2012-03-19T07:50:00-04:00</updated>
-    <id>http://sebastienlachance.com/blog/backbone-fetching-a-single-model</id>
-    <content type="html"><![CDATA[<p>I'm working on a Backbone driven blog engine (<a href="https://github.com/sebastienlachance/backbone-rails-blog]">Backbone-rails-blog</a>) and had some serious issues with a single functionnality. Retrieving a blog post and displaying it.</p>
-
-<p>First, I'm still learning Backbone, so don't be so harsh on this basic problem.</p>
-
-<p>To retrieve a single model, on your model, you define the url property like this</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Post Model - post.js </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">url</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="k">return</span> <span class="s2">&quot;/posts/&quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;permalink&#39;</span><span class="p">);</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 ]]></content>
   </entry>
   

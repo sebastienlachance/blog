@@ -388,42 +388,6 @@ Turns out it&#8217;s in Rails since version 3.0 (more specifically in active_sup
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/backbone-and-page-transition/">Backbone and page transition</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-04-27T17:02:00-04:00" pubdate data-updated="true">Apr 27<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content">
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
       <h1 class="entry-title"><a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a></h1>
     
     
@@ -731,6 +695,60 @@ You can see it as (((10 + 1) + 2) + 3).
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-10T06:00:00-04:00" pubdate data-updated="true">Apr 10<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Last week, while I was playing and coding on my Backbone blog project (<a href="https://github.com/sebastienlachance/backbone-rails-blog">backbone-rails-blog</a>), I started wondering if it was something I could use to replace this blog, since I put so much time on it lately. But at the same time I kept telling myself, <strong>is Google going to index the content?</strong> The short answer is: <strong>NO</strong>, not now anyway.</p>
+
+<p>The long answer goes like this: Facebook comments are indexed. So there should be a way to provide this content to GoogleBot. I have done my homework and this document, <a href="https://developers.google.com/webmasters/ajax-crawling/docs/getting-started">Making Ajax Applications Crawlable</a>) provides some answers. Basically, we need the <a href="http://en.wikipedia.org/wiki/Shebang_(Unix">hashbang</a>) url format. This is achieved with Backbone when we are not using pushstate.</p>
+
+<p>Hashbang url:</p>
+
+<pre><code>http://sebastienlachance.com#!blog-post
+</code></pre>
+
+<p>My urls:</p>
+
+<pre><code>http://sebastienlachacne.com/blog-post
+</code></pre>
+
+<p>And frankly, I will not pursue this path. In my case anyway, it provides no real advantages to have an Ajax-powered blog.</p>
+
+<p>In fact, I could have left Backbone and only use it on the admin backend, but as a learning tool, I didn&#8217;t want to revert back (and there is so much great blogging platform now anyway).</p>
+
+<p>Do you have any other web apps ideas (other than a todo list or blog)? In my next iteration (that is, the next app), I will be using Backbone with NodeJs and MongoDB. Sounds fun.</p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -772,11 +790,11 @@ You can see it as (((10 + 1) + 2) + 3).
       </li>
     
       <li class="post">
-        <a href="/blog/backbone-and-page-transition/">Backbone and page transition</a>
+        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
       </li>
     
       <li class="post">
-        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
+        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
       </li>
     
   </ul>
