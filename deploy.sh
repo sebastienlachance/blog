@@ -6,5 +6,5 @@ echo "Committing"
 git commit -am "new post"
 echo "Pushing to github"
 git push github
-echo "Pushing to Heroku
+echo "Pushing to Heroku"
 git push heroku
