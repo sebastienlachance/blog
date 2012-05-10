@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Last week, I have left my job at bxsystems. I had an opportunity that I could not refuse. I have worked for 3 years and 8 months with the most &hellip;">
+  <meta name="description" content="I was thinking about this for a while. If I have to choose five peoples who have influenced me the most concerning my career, who would that be? 1. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,380 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/top-5-most-influential-peoples-on-my-career/">Top 5 most influential peoples on my career</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-04-30T07:41:00-04:00" pubdate data-updated="true">Apr 30<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I was thinking about this for a while. If I have to choose five peoples who have influenced me the most concerning my career, who would that be?</p>
+
+
+<p><strong>1. My first supervisor when I was a wielder.</strong></p>
+
+
+<p><em>This guy once said to me that I would never do anything more than wielding in my life and if it wasn&#8217;t for my father, he would have fired me for nothing. I promised him that It will not happen. Four years later, I was the leader of a small team in the company. Take that&#8230;</em></p>
+
+
+<p><strong>2. <a href="http://www.bernard-voyer.com/index_en.html">Bernard Voyer.</a></strong></p>
+
+
+<p><em>A famous explorator that I met when I was in school. He believed in his dream and have conquered the Everest, South Pole, North Pole and a lot of hard to reach places. He his just a normal person who gave everything he had to make his dream true.</em></p>
+
+
+<p><strong>3. The ASP.NET guy.</strong></p>
+
+
+<p><em>I don&#8217;t remember his name , but it&#8217;s shortly after I finished school. He had just completed a Microsoft Certification in ASP.NET. This is where I first heard the term MCSD and I promised myself I would be one (even though I had no idea what it was at that time). 2 years later, February 7 2006 at almost 9:00 PM, I was one. I learned all by myself with the help of some books and the requirement list on MSDN. It just felt incredible. Even if I&#8217;m no longer in the world of certification, I&#8217;m still very proud of it.</em></p>
+
+
+<p><strong>4. <a href="http://www.hanselman.com/blog/">Scott Hanselman</a>.</strong></p>
+
+
+<p><em>First blog ever that I have put in my RSS aggregator. I&#8217;m following him since a long time and he inspired me a lot. It&#8217;s because of him that I am a blogger. He&#8217;s coming to the .NET User Group of Qu&eacute;bec next week and I can&#8217;t wait to meet him.</em></p>
+
+
+<p><strong>5. <a href="http://www.jpboodhoo.com/blog/">Jean-Paul Boodhoo</a></strong></p>
+
+
+<p><em>Never met the man. I first heard of him in an episode on DnrTv about design patterns. It seem he has a lot passion&#8230; If you have never heard of him, head here. I wish I was as passionate as him. I am, but he his more :).</em></p>
+
+
+<p>This was my top 5 of the peoples who had the most impact on me. But I want to talk about a 6th person. He probably don&#8217;t want me to talk about him so I will not give any name. Before meeting him, I was already into Agile development. But he taught me a lot about other aspect of the methodology. Everything that can&#8217;t be learn in a book to be more precise. But thing haven&#8217;t got very well at some point and after a lot of different events we lost touch. Anyway, I am very recognizing to have worked with him.</p>
+
+
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:1bf27263-ce38-4b0e-88e6-5e9d6a2dcf00" class="wlWriterSmartContent" style="display: inline; margin: 0; padding: 0;">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/Scott%20Hanselman">Scott Hanselman</a>,<a rel="tag" href="http://technorati.com/tags/JP%20Boodhoo">JP Boodhoo</a>,<a rel="tag" href="http://technorati.com/tags/Bernard%20Voyer">Bernard Voyer</a>,<a rel="tag" href="http://technorati.com/tags/Top%205">Top 5</a></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/var-keyword-%28or-implicitly-typed-local-variables%29/">var keyword (or Implicitly Typed Local Variables)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-04-17T07:14:00-04:00" pubdate data-updated="true">Apr 17<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you are like me and installed the nightly build of Resharper 4, you might have seen the recommendation it made to use the keyword &#8220;var&#8221; almost everywhere. But why?</p>
+
+
+<p>Here is my answer :</p>
+
+
+<p>First of all, you must know that the keyword var is not like &#8220;Variant&#8221;. It is not late-bound or loosely typed. The compiler will be able to infer the type from the right side of the expression. In many case, it&#8217;s optional, but sometime you don&#8217;t have a choice. It&#8217;s the case with Anonymous Types :</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">var customer = <span style="color: #0000ff;">new</span> {ID = 1, Name = <span style="color: #006080;">"Sebastien"</span>, CreditCardNumber = <span style="color: #006080;">"You can dream!"</span>};</pre>
+</div>
+
+
+<div>&nbsp;</div>
+
+
+<div>It is also often seen with LINQ.</div>
+
+
+<div>&nbsp;</div>
+
+
+<div>Should you use it everywhere you can? Well, it&#8217;s a matter of preferences. Mine is to use it only when necessary. If the code is harder to understand when using var, then declare the variable explicitly.</div>
+
+
+<div>&nbsp;</div>
+
+
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:b7c2d5ae-e385-40c6-8caf-548521011400" class="wlWriterSmartContent" style="display: inline; margin: 0; padding: 0;"><a rel="tag" href="http://technorati.com/tags/Resharper"></a></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/exploring-anonymous-methods/">Exploring Anonymous Methods</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-04-16T07:13:00-04:00" pubdate data-updated="true">Apr 16<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>My desire to explore Delegates and Anonymous Methods came from my next exploration, which will be the the Lambda feature. So, I will probably do an article on it in a near future.</p>
+
+
+<p>So, what exactly is an anonymous method? It&#8217;s a C# 2.0 feature. Whenever you encounter the need to pass something as a delegate parameter, you can use an anonymous method.</p>
+
+
+<p><strong>Example : </strong></p>
+
+
+<p>This class has a method that expect a delegate that has no parameter and no return value.</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> Action<br />{<br />    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">delegate</span> <span style="color: #0000ff;">void</span> MyActionDelegate();<br /><br />    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> Execute(MyActionDelegate myActionDelegate)<br />    {<br />        myActionDelegate.Invoke();<br />    }<br />}</pre>
+</div>
+
+
+<p>Previously, you would have declared a method that has no parameter and no return value and passed it to the Execute method. Like this :</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> DoSomething()<br />{<br />    Console.WriteLine(<span style="color: #006080;">"This is not an anonymous method."</span>);<br />}<br /><br /><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> Main(<span style="color: #0000ff;">string</span>[] args)<br />{<br />    Action action = <span style="color: #0000ff;">new</span> Action();<br /><br />    action.Execute(DoSomething);<br />}</pre>
+</div>
+
+
+<p>An the output would be :</p>
+
+
+<p><a title="DelegateOutput" href="http://www.flickr.com/photos/63483657@N00/2417530780/"><img src="http://static.flickr.com/3155/2417530780_d7395030f0.jpg" border="0" alt="DelegateOutput" /></a></p>
+
+
+<p>With an anonymous method, we reduce the code and by the same occasion, augment code readability.</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> Main(<span style="color: #0000ff;">string</span>[] args)<br />{<br />    Action action = <span style="color: #0000ff;">new</span> Action();<br />    action.Execute(<span style="color: #0000ff;">delegate</span>() { Console.WriteLine(<span style="color: #006080;">"This is inside an anonymous method."</span>); });<br />}</pre>
+</div>
+
+
+<p><a title="AnonymousOutput" href="http://www.flickr.com/photos/63483657@N00/2417538708/"><img src="http://static.flickr.com/3188/2417538708_0e339a00d8.jpg" border="0" alt="AnonymousOutput" /></a></p>
+
+
+<p>If the delegate has expected a parameter you could have done it like :</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">action.Execute(<span style="color: #0000ff;">delegate</span>(<span style="color: #0000ff;">string</span> s) { Console.WriteLine(s); });</pre>
+</div>
+
+
+<p>And if the delegate have an return value, make sure you return one of the correct type :</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">action.Execute(<span style="color: #0000ff;">delegate</span>(<span style="color: #0000ff;">string</span> s) { <span style="color: #0000ff;">return</span> s; });</pre>
+</div>
+
+
+<p>&nbsp;</p>
+
+
+<p><strong>Accessing variables located outside the anonymous block :</strong></p>
+
+
+<p>A feature of an anonymous method is the ability to access variables located outside the anonymous scope (anonymous-method-block). Those variables called <strong>&#8220;outer variables&#8221;.</strong> It is better explained by an example :</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"><span style="color: #0000ff;">string</span> myString = <span style="color: #006080;">"Outside the anonymous method."</span>;<br />action.Execute(<span style="color: #0000ff;">delegate</span>(<span style="color: #0000ff;">string</span> s) { Console.WriteLine(myString); });</pre>
+</div>
+
+
+<p><a title="AnonymousScope" href="http://www.flickr.com/photos/63483657@N00/2416747123/"><img src="http://static.flickr.com/3228/2416747123_db158829a6.jpg" border="0" alt="AnonymousScope" /></a></p>
+
+
+<p>The exception to this rule are the ref and out parameters, which cannot be accessed by the anonymous method. You also can&#8217;t put unsafe code in the anonymous method.</p>
+
+
+<p><strong>Real life example </strong></p>
+
+
+<p>Maybe not (it&#8217;s always hard to come with great example), but it illustrate how you can use an anonymous method to find all string matching &#8220;String5&#8221; inside a collection of string. Just imagine doing the same thing in your collection of orders or products.</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">List&lt;<span style="color: #0000ff;">string</span>&gt; myListOfString = <span style="color: #0000ff;">new</span> List&lt;<span style="color: #0000ff;">string</span>&gt;();<br /><br /><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> x = 0; x &lt; 10; x++)<br />{<br />    myListOfString.Add(<span style="color: #006080;">"String"</span> + x);<br />}<br /><br />List&lt;String&gt; returnedStrings = myListOfString.FindAll(<span style="color: #0000ff;">delegate</span>(<span style="color: #0000ff;">string</span> s) { <span style="color: #0000ff;">return</span> s == <span style="color: #006080;">"String5"</span>; });</pre>
+</div>
+
+
+<p>&nbsp;</p>
+
+
+<p><strong>Conclusion</strong></p>
+
+
+<p>Mastering Anonymous Methods is a great skill to have in you toolbox. But be careful, if you need to reuse the same code again and again, you better have to create a method and put the code in it. Don&#8217;t try to impress your friends too much. :)</p>
+
+
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:4f5732e1-da9d-4fc1-8e6b-806baab699a2" class="wlWriterSmartContent" style="display: inline; margin: 0; padding: 0;">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/C#%202.0">C# 2.0</a>,<a rel="tag" href="http://technorati.com/tags/dotnet">dotnet</a>,<a rel="tag" href="http://technorati.com/tags/anonymous%20methods">anonymous methods</a>,<a rel="tag" href="http://technorati.com/tags/lambda">lambda</a></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/refreshing-my-memory-delegates-in-c/">Refreshing my memory : Delegates in C#</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-04-09T07:12:00-04:00" pubdate data-updated="true">Apr 9<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I haven&#8217;t really used delegates since I was programming with the .NET Framework 1.0. Since I have some spare time left, I decided to &#8216;&#8220;refresh my memory&#8221;. I have prepared a little cheat-sheet that you can use as a reminder for the delegates functionalities in the .NET Framework 3.0.</p>
+
+
+<p><strong>1. What is a delegate?</strong></p>
+
+
+<p>A delegate is a data structure that refers to one or multiples static methods and/or instance methods. You can use this when you have a dynamic list of methods to be called that you don&#8217;t know ahead of time.</p>
+
+
+<p><strong>2. How to create a delegate?</strong></p>
+
+
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> TestClass<br />{<br />    <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">delegate</span> <span style="color: #0000ff;">void</span> myDelegate(<span style="color: #0000ff;">string</span> name);<br />}</pre>
+
+
+<p>The signature of the declaration is very important! The methods that will be contained in the delegate must perfectly match the declaration. In this case, the methods that will be allowed must be void and take a single string as a parameter.</p>
+
+
+<p>When using the delegate keyword, you are actually creating a <strong>System.MulticastDelegate</strong>.</p>
+
+
+<p>&nbsp;</p>
+
+
+<p><strong>3. How do I instantiate a delegate?</strong></p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> TestMethod()<br />{<br />    ClassTest test = <span style="color: #0000ff;">new</span> ClassTest();<br /><br />    <span style="color: #008000;">//Instantiating a delegate with an instance method</span><br />    var del1 = <span style="color: #0000ff;">new</span> myDelegate(test.InstanceMethod);<br /><br />    <span style="color: #008000;">//Instantiating a delegate with a static method</span><br />    var del2 = <span style="color: #0000ff;">new</span> myDelegate(ClassTest.StaticMethod)<br />}</pre>
+</div>
+
+
+<p>&nbsp;</p>
+
+
+<p><strong>4. How do I call the method contained in the delegate?</strong></p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">del1.Invoke(<span style="color: #006080;">"This is a test."</span>);</pre>
+</div>
+
+
+<p>The <strong>Invoke method</strong> will actually have the same signature as your delegate signature. So you benefit of a strongly-typed way to use the delegate feature. There is also a BeginInvoke and an EndInvoke method to program asynchronously.</p>
+
+
+<p><strong>5. But you said that you can have more than one method in the delegate?</strong></p>
+
+
+<p>Actually yes. There is several ways to add more methods, but the easiest way is :</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">del1 += ClassTest.StaticMethod;</pre>
+</div>
+
+
+<p>When calling Invoke (or BeginInvoke) each one will be executed in the order that they were added to the delegate. If an exception occurs at any point, the execution is canceled and the remaining methods will not be called. And you will get an exception of course.</p>
+
+
+<p><strong>5. Anything else?</strong></p>
+
+
+<p>Yes, a delegate is immutable. Each time you add a method entry point, a new delegate is created for you.</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -419,429 +793,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/readonlycollection3ct3e/">Create a read-only collection with ReadOnlyCollection<T></a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-02-26T04:18:00-05:00" pubdate data-updated="true">Feb 26<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><span style="text-decoration: underline;"><strong>Problem :</strong> </span></p>
-
-
-<p>I have a collection of entities in my repository. Those entities are not supposed to be visible to the outside world. But, In a test I am supposed to see if all objects are still there and I can&#8217;t use the GetAll method because it goes to the database and return everything, not just the collection of entities in my repository.</p>
-
-
-<p><span style="text-decoration: underline;"><strong>Solution :</strong></span></p>
-
-
-<p>I could expose the collection but how can I be sure that nothing will be changed. I could create a copy of the collection but that would not reflect the &#8220;Entity&#8221; concept. I know that Java has support for returning a read-only collection. A little bit of search and I found the class <strong>ReadOnlyCollection&lt;T&gt;.</strong> This is thread-safe and any changes to the original collection will be reflected in it since it is only a wrapper.</p>
-
-
-<div>
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas, 'Courier New', courier, monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> IList&lt;IRecipe&gt; _identityMap = <span style="color: #0000ff">new</span> List&lt;IRecipe&gt;();
-
-  <span style="color: #0000ff">public</span> IList&lt;IRecipe&gt; IdentityMap
-  {
-      get { <span style="color: #0000ff">return</span> <span style="color: #0000ff">new</span> ReadOnlyCollection&lt;IRecipe&gt;(_identityMap); }
-  }</pre>
-</div>
-
-
-<p>Could not be easier!</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/unit-of-work/">Unit Of Work</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-02-22T05:47:00-05:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This is an interesting pattern. I was using it without giving it a name. I encountered this pattern while reading the <a class="v1" target="_new">Jimmy&nbsp;Nilsson</a>&#8217;s book : Applying Domain-Driven Design and Patterns - With Examples in C# and .NET. The Unit Of Work is a way to create a logical group of object. The most basic example I can think of is the example of an Order. An order contains OrderLines. The Order and the OrderLines are part of the same logical group. We say that this is an Unit Of Work. I tend to think of it at the way I&#8217;ll save the Order. Do I call a service to insert the Order and another to save the OrderLines? Or do I call a single service that will persist it all at the same time (maybe using a transaction)? I will use a single service that will save the Order, the OrderLines and all other related information. Everything that must be persisted at the same time is said to be an Unit Of Work.</p>
-
-
-<p>In the RecipeHelper project (the personnal project I am working on), I have a single Unit Or Work (at the moment). The Recipe is the root and contains a list of steps to follow and a list of ingredients. When I persist a recipe, I persist everything in the object graph.</p>
-
-
-<p>Here is some resources from experts that can help you more with applying this pattern :</p>
-
-
-<ul>
-<li><a title="http://www.martinfowler.com/eaaCatalog/unitOfWork.html" href="http://www.martinfowler.com/eaaCatalog/unitOfWork.html">P of EAA: Unit of Work</a></li>
-<li><a href="http://www.hibernate.org/42.html">NHibernate and Unit Of Work</a></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/setting_up_a_basic_continuous_integration_server_with_teamcity/">Setting up a basic continuous integration server with TeamCity</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-02-08T12:00:00-05:00" pubdate data-updated="true">Feb 8<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p> <p>What is TeamCity? It&#8217;s a software that you would use to do <a href="http://martinfowler.com/articles/continuousIntegration.html" target="_blank">continuous integration</a>. Continuous integration is very important and it should never be an option on a serious project (that&#8217;s is my opinion and I strongly believe in the values it provide).</p></p>
-
-<p>If you have followed the <a href="http://sebastienlachance.com/building-a-new-application-series/" target="_blank">Building A New Application Series</a>, you may be wondering why I would want to do that after setting up a complete integration server with CruiseControl.NET. Well, I was skeptical when I first heard about all the fuss surrounding this <a href="http://www.jetbrains.com/" target="_blank">JetBrains</a> project. After all, CruiseControl.NET was doing everything I wanted and more.</p>
-
-
-<p>So the reason I made the switch is because of the time it take to set it up : 20 minutes. Everything was fully functional in under 20 minutes. I absolutely got no error at all. I just got through all the step of the wizard and then : done. Unit testing, code coverage, build, reports, etc&#8230; And it&#8217;s absolutely free for small team.</p>
-
-
-<p>The big downside for me was the lack of support out of the box for other unit testing framework (other than NUnit and MSTest). My project is using MbUnit so I will need to do some more research to integrate it in my build process. But it is possible if you want to invest time in doing so.</p>
-
-
-<p>So let&#8217;s get started with this little tutorial :</p>
-
-
-<p>1. Download <a href="http://www.jetbrains.com/teamcity/" target="_blank">TeamCity</a>.</p>
-
-
-<p>2. Start the installation.</p>
-
-
-<p>Just follow all the steps. I encountered a slight problem due to something already on port 80, so I used the port 8080.</p>
-
-
-<p><a title="TeamCity_001" href="http://www.flickr.com/photos/63483657@N00/2246121387/"><img src="http://static.flickr.com/2295/2246121387_bf1eaae094.jpg" border="0" alt="TeamCity_001"></a></p>
-
-
-<p><a title="TeamCity_002" href="http://www.flickr.com/photos/63483657@N00/2246121389/"><img src="http://static.flickr.com/2366/2246121389_06f17f5d5e.jpg" border="0" alt="TeamCity_002"></a></p>
-
-
-<p><a title="TeamCity_003" href="http://www.flickr.com/photos/63483657@N00/2246121395/"><img src="http://static.flickr.com/2391/2246121395_a81b1d955c.jpg" border="0" alt="TeamCity_003"></a></p>
-
-
-<p><a title="TeamCity_004" href="http://www.flickr.com/photos/63483657@N00/2246121397/"><img src="http://static.flickr.com/2266/2246121397_d27ffa9754.jpg" border="0" alt="TeamCity_004"></a></p>
-
-
-<p><a title="TeamCity_005" href="http://www.flickr.com/photos/63483657@N00/2246121399/"><img src="http://static.flickr.com/2164/2246121399_a18dd1cc62.jpg" border="0" alt="TeamCity_005"></a></p>
-
-
-<p><a title="TeamCity_006" href="http://www.flickr.com/photos/63483657@N00/2246121401/"><img src="http://static.flickr.com/2345/2246121401_5db16b8ce5.jpg" border="0" alt="TeamCity_006"></a></p>
-
-
-<p><a title="TeamCity_007" href="http://www.flickr.com/photos/63483657@N00/2246123377/"><img src="http://static.flickr.com/2175/2246123377_676d0d312b.jpg" border="0" alt="TeamCity_007"></a></p>
-
-
-<p>I left everything intact in this screen, but this is where you specify some default folder used bu the build agents. The <strong>tempDir </strong>and<strong> workDir</strong> will be used to store your application artifacts and even your source file before the compilation if you don&#8217;t give it one in the configuration (later).</p>
-
-
-<p><a title="TeamCity_008" href="http://www.flickr.com/photos/63483657@N00/2246123379/"><img src="http://static.flickr.com/2064/2246123379_b4b8438c38.jpg" border="0" alt="TeamCity_008"></a></p>
-
-
-<p><a title="TeamCity_009" href="http://www.flickr.com/photos/63483657@N00/2246123381/"><img src="http://static.flickr.com/2389/2246123381_34aa922d4a.jpg" border="0" alt="TeamCity_009"></a></p>
-
-
-<p><a title="TeamCity_010" href="http://www.flickr.com/photos/63483657@N00/2246123385/"><img src="http://static.flickr.com/2295/2246123385_74a8416c54.jpg" border="0" alt="TeamCity_010"></a></p>
-
-
-<p>That&#8217;s it, you have installed TeamCity. Now let&#8217;s add our project to it.</p>
-
-
-<p>3. Open TeamCity !!!</p>
-
-
-<p><a title="TeamCity_011" href="http://www.flickr.com/photos/63483657@N00/2246123387/"><img src="http://static.flickr.com/2410/2246123387_81dfdba0b9.jpg" border="0" alt="TeamCity_011"></a></p>
-
-
-<p><a title="TeamCity_012" href="http://www.flickr.com/photos/63483657@N00/2246123391/"><img src="http://static.flickr.com/2087/2246123391_e1d68c0e3f.jpg" border="0" alt="TeamCity_012"></a></p>
-
-
-<p>Nothing too complicated here, just enter the username/password you want for the administrator account. The email will be used to sent important information the build server would want you to know..</p>
-
-
-<p><a title="TeamCity_013" href="http://www.flickr.com/photos/63483657@N00/2246920958/"><img src="http://static.flickr.com/2136/2246920958_abb96960eb.jpg" border="0" alt="TeamCity_013"></a></p>
-
-
-<p>What I like is that you will be taken by the hannd for the rest of the steps. Click on the <strong>Create Project</strong> link.</p>
-
-
-<p><a title="TeamCity_014" href="http://www.flickr.com/photos/63483657@N00/2246920960/"><img src="http://static.flickr.com/2070/2246920960_202f0716f0.jpg" border="0" alt="TeamCity_014"></a></p>
-
-
-<p>Name of the project and a description. It will be useful if several projects are on the same build server.</p>
-
-
-<p><a title="TeamCity_016" href="http://www.flickr.com/photos/63483657@N00/2246920966/"><img src="http://static.flickr.com/2098/2246920966_e3a40f81d3.jpg" border="0" alt="TeamCity_016"></a></p>
-
-
-<p>Now click the <strong>Create build configuration</strong> link. You can have multiple build configuration by project.</p>
-
-
-<p><a title="TeamCity_019" href="http://www.flickr.com/photos/63483657@N00/2246989440/"><img src="http://static.flickr.com/2191/2246989440_434968e2cb.jpg" border="0" alt="TeamCity_019"></a></p>
-
-
-<p>In the build configuration window, you can change the way the build number are generated and the default behavior when the build fail. You can also specify that you want to start with a clean project.</p>
-
-
-<p><a title="TeamCity_020" href="http://www.flickr.com/photos/63483657@N00/2246989444/"><img src="http://static.flickr.com/2210/2246989444_fdf5ddc886.jpg" border="0" alt="TeamCity_020"></a></p>
-
-
-<p>There, you can decide how you want the project to be retrieved from the source control repository and where to put him. You can also decide when to label your build. If you do not want a label on a failed build, you can do so. Next, click on <strong>Choose build runner.</strong></p>
-
-
-<p><a title="TeamCity_021" href="http://www.flickr.com/photos/63483657@N00/2246989450/"><img src="http://static.flickr.com/2062/2246989450_83d90c26fc.jpg" border="0" alt="TeamCity_021"></a></p>
-
-
-<p>TeamCity is not only for .NET project. Several build runner are included such as MSBuild, NAnt, sln2003, sln2005, sln2008, Ant, Maven2, etc&#8230; Because I am using MbUnit as a testing framework I have decided to stick with MSBuild. But if you are using NUnit or MSTest you may want to use sln2003, sln2005, sln2008 as they can run your unit tests and tell the coverage of your assemblies. You need to fill in the <strong>Solution File Path</strong> field with the name of your .sln, it&#8217;s relative to your project structure (if it&#8217;s in the root, enter only the name of your solution file. Fill the rest of the field if you are using NUnit or MSTest.</p>
-
-
-<p><a title="TeamCity_022" href="http://www.flickr.com/photos/63483657@N00/2246989456/"><img src="http://static.flickr.com/2237/2246989456_ca5e393444.jpg" border="0" alt="TeamCity_022"></a></p>
-
-
-<p>Last step! Go to the <strong>Version Control Settings</strong> tab and click <strong>Create and attach new VCS root</strong>. Give it a name and choose the version control system (VCS) you want to use. Fill in the required field.</p>
-
-
-<p>Save, and you&#8217;re done!</p>
-
-
-<p>This is the most basic setup you can have. Of course, there is a lot of other things to configure to your specific needs. You can even have integration inside Visual Studio or Eclipse. As I said before the only downside I found is the lack of support for MbUnit, but I will work something to bypass that.</p>
-
-
-<p>I may do another post going more in depth if I have time. Or maybe a screencast, that would be a lot of fun. If you&#8217;re interested, just leave a comment and I will consider it.</p>
-
-
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/setting-up-a-basic-continuous-integration-server-with-teamcity/">Setting up a basic continuous integration server with TeamCity</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-02-08T06:21:00-05:00" pubdate data-updated="true">Feb 8<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>What is TeamCity? It&#8217;s a software that you would use to do <a href="http://martinfowler.com/articles/continuousIntegration.html" target="_blank">continuous integration</a>. Continuous integration is very important and it should never be an option on a serious project (that&#8217;s is my opinion and I strongly believe in the values it provide).</p>
-
-
-<p>If you have followed the <a href="http://sebastienlachance.com/building-a-new-application-series/" target="_blank">Building A New Application Series</a>, you may be wondering why I would want to do that after setting up a complete integration server with CruiseControl.NET. Well, I was skeptical when I first heard about all the fuss surrounding this <a href="http://www.jetbrains.com/" target="_blank">JetBrains</a> project. After all, CruiseControl.NET was doing everything I wanted and more.</p>
-
-
-<p>So the reason I made the switch is because of the time it take to set it up : 20 minutes. Everything was fully functional in under 20 minutes. I absolutely got no error at all. I just got through all the step of the wizard and then : done. Unit testing, code coverage, build, reports, etc&#8230; And it&#8217;s absolutely free for small team.</p>
-
-
-<p>The big downside for me was the lack of support out of the box for other unit testing framework (other than NUnit and MSTest). My project is using MbUnit so I will need to do some more research to integrate it in my build process. But it is possible if you want to invest time in doing so.</p>
-
-
-<p>So let&#8217;s get started with this little tutorial :</p>
-
-
-<p>1. Download <a href="http://www.jetbrains.com/teamcity/" target="_blank">TeamCity</a>.</p>
-
-
-<p>2. Start the installation.</p>
-
-
-<p>Just follow all the steps. I encountered a slight problem due to something already on port 80, so I used the port 8080.</p>
-
-
-<p><a title="TeamCity_001" href="http://www.flickr.com/photos/63483657@N00/2246121387/"><img src="http://static.flickr.com/2295/2246121387_bf1eaae094.jpg" border="0" alt="TeamCity_001" /></a></p>
-
-
-<p><a title="TeamCity_002" href="http://www.flickr.com/photos/63483657@N00/2246121389/"><img src="http://static.flickr.com/2366/2246121389_06f17f5d5e.jpg" border="0" alt="TeamCity_002" /></a></p>
-
-
-<p><a title="TeamCity_003" href="http://www.flickr.com/photos/63483657@N00/2246121395/"><img src="http://static.flickr.com/2391/2246121395_a81b1d955c.jpg" border="0" alt="TeamCity_003" /></a></p>
-
-
-<p><a title="TeamCity_004" href="http://www.flickr.com/photos/63483657@N00/2246121397/"><img src="http://static.flickr.com/2266/2246121397_d27ffa9754.jpg" border="0" alt="TeamCity_004" /></a></p>
-
-
-<p><a title="TeamCity_005" href="http://www.flickr.com/photos/63483657@N00/2246121399/"><img src="http://static.flickr.com/2164/2246121399_a18dd1cc62.jpg" border="0" alt="TeamCity_005" /></a></p>
-
-
-<p><a title="TeamCity_006" href="http://www.flickr.com/photos/63483657@N00/2246121401/"><img src="http://static.flickr.com/2345/2246121401_5db16b8ce5.jpg" border="0" alt="TeamCity_006" /></a></p>
-
-
-<p><a title="TeamCity_007" href="http://www.flickr.com/photos/63483657@N00/2246123377/"><img src="http://static.flickr.com/2175/2246123377_676d0d312b.jpg" border="0" alt="TeamCity_007" /></a></p>
-
-
-<p>I left everything intact in this screen, but this is where you specify some default folder used bu the build agents. The <strong>tempDir </strong>and<strong> workDir</strong> will be used to store your application artifacts and even your source file before the compilation if you don&#8217;t give it one in the configuration (later).</p>
-
-
-<p><a title="TeamCity_008" href="http://www.flickr.com/photos/63483657@N00/2246123379/"><img src="http://static.flickr.com/2064/2246123379_b4b8438c38.jpg" border="0" alt="TeamCity_008" /></a></p>
-
-
-<p><a title="TeamCity_009" href="http://www.flickr.com/photos/63483657@N00/2246123381/"><img src="http://static.flickr.com/2389/2246123381_34aa922d4a.jpg" border="0" alt="TeamCity_009" /></a></p>
-
-
-<p><a title="TeamCity_010" href="http://www.flickr.com/photos/63483657@N00/2246123385/"><img src="http://static.flickr.com/2295/2246123385_74a8416c54.jpg" border="0" alt="TeamCity_010" /></a></p>
-
-
-<p>That&#8217;s it, you have installed TeamCity. Now let&#8217;s add our project to it.</p>
-
-
-<p>3. Open TeamCity !!!</p>
-
-
-<p><a title="TeamCity_011" href="http://www.flickr.com/photos/63483657@N00/2246123387/"><img src="http://static.flickr.com/2410/2246123387_81dfdba0b9.jpg" border="0" alt="TeamCity_011" /></a></p>
-
-
-<p><a title="TeamCity_012" href="http://www.flickr.com/photos/63483657@N00/2246123391/"><img src="http://static.flickr.com/2087/2246123391_e1d68c0e3f.jpg" border="0" alt="TeamCity_012" /></a></p>
-
-
-<p>Nothing too complicated here, just enter the username/password you want for the administrator account. The email will be used to sent important information the build server would want you to know..</p>
-
-
-<p><a title="TeamCity_013" href="http://www.flickr.com/photos/63483657@N00/2246920958/"><img src="http://static.flickr.com/2136/2246920958_abb96960eb.jpg" border="0" alt="TeamCity_013" /></a></p>
-
-
-<p>What I like is that you will be taken by the hannd for the rest of the steps. Click on the <strong>Create Project</strong> link.</p>
-
-
-<p><a title="TeamCity_014" href="http://www.flickr.com/photos/63483657@N00/2246920960/"><img src="http://static.flickr.com/2070/2246920960_202f0716f0.jpg" border="0" alt="TeamCity_014" /></a></p>
-
-
-<p>Name of the project and a description. It will be useful if several projects are on the same build server.</p>
-
-
-<p><a title="TeamCity_016" href="http://www.flickr.com/photos/63483657@N00/2246920966/"><img src="http://static.flickr.com/2098/2246920966_e3a40f81d3.jpg" border="0" alt="TeamCity_016" /></a></p>
-
-
-<p>Now click the <strong>Create build configuration</strong> link. You can have multiple build configuration by project.</p>
-
-
-<p><a title="TeamCity_019" href="http://www.flickr.com/photos/63483657@N00/2246989440/"><img src="http://static.flickr.com/2191/2246989440_434968e2cb.jpg" border="0" alt="TeamCity_019" /></a></p>
-
-
-<p>In the build configuration window, you can change the way the build number are generated and the default behavior when the build fail. You can also specify that you want to start with a clean project.</p>
-
-
-<p><a title="TeamCity_020" href="http://www.flickr.com/photos/63483657@N00/2246989444/"><img src="http://static.flickr.com/2210/2246989444_fdf5ddc886.jpg" border="0" alt="TeamCity_020" /></a></p>
-
-
-<p>There, you can decide how you want the project to be retrieved from the source control repository and where to put him. You can also decide when to label your build. If you do not want a label on a failed build, you can do so. Next, click on <strong>Choose build runner.</strong></p>
-
-
-<p><a title="TeamCity_021" href="http://www.flickr.com/photos/63483657@N00/2246989450/"><img src="http://static.flickr.com/2062/2246989450_83d90c26fc.jpg" border="0" alt="TeamCity_021" /></a></p>
-
-
-<p>TeamCity is not only for .NET project. Several build runner are included such as MSBuild, NAnt, sln2003, sln2005, sln2008, Ant, Maven2, etc&#8230; Because I am using MbUnit as a testing framework I have decided to stick with MSBuild. But if you are using NUnit or MSTest you may want to use sln2003, sln2005, sln2008 as they can run your unit tests and tell the coverage of your assemblies. You need to fill in the <strong>Solution File Path</strong> field with the name of your .sln, it&#8217;s relative to your project structure (if it&#8217;s in the root, enter only the name of your solution file. Fill the rest of the field if you are using NUnit or MSTest.</p>
-
-
-<p><a title="TeamCity_022" href="http://www.flickr.com/photos/63483657@N00/2246989456/"><img src="http://static.flickr.com/2237/2246989456_ca5e393444.jpg" border="0" alt="TeamCity_022" /></a></p>
-
-
-<p>Last step! Go to the <strong>Version Control Settings</strong> tab and click <strong>Create and attach new VCS root</strong>. Give it a name and choose the version control system (VCS) you want to use. Fill in the required field.</p>
-
-
-<p>Save, and you&#8217;re done!</p>
-
-
-<p>This is the most basic setup you can have. Of course, there is a lot of other things to configure to your specific needs. You can even have integration inside Visual Studio or Eclipse. As I said before the only downside I found is the lack of support for MbUnit, but I will work something to bypass that.</p>
-
-
-<p>I may do another post going more in depth if I have time. Or maybe a screencast, that would be a lot of fun. If you&#8217;re interested, just leave a comment and I will consider it.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/13/">&larr; Older</a>
@@ -873,6 +824,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/rails-assets-pipeline-and-missing-assets/">Rails Assets Pipeline and missing assets</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/method-decorators-in-ruby/">Method decorators in Ruby</a>
       </li>
     
@@ -881,15 +836,11 @@
       </li>
     
       <li class="post">
+        <a href="/blog/backbone-and-page-transition/">Backbone and page transition</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
       </li>
     
   </ul>

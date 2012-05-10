@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Here is the bests screencasts I have watched this week : Monorail Quickly: A screencast made by Joey Beninghove (joeyDotNet). I have quite enjoyed &hellip;">
+  <meta name="description" content="&lt;p&gt;I was wondering when this day would come. When I&#8217;d start thinking in term of object. This change in paradigm was not easy. I started &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,192 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/mind-shift/">Mind shift</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-14T04:13:00-05:00" pubdate data-updated="true">Jan 14<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>&lt;p&gt;I was wondering when this day would come. When I&#8217;d start thinking in term of object. This change in paradigm was not easy. I started programming using the data-centric way and was submerged by it. I was struggling to get rid on this kind of thinking. I&#8217;ve read multiple book before : Agile Software Development, Object Thinking, Refactoring, etc. But this was hard to me. However, 6 months ago, I finally landed on an Agile team. I got a hard time changing the way I was thinking because I was sure that I was understanding object-oriented development.&lt;/p&gt;<br /><br />&lt;p&gt;For me, the revelation occurred in this team. There I was introduced to my first test-driven project. One of the team members and a consultant for the company was previously working for Object Mentor. I needed to be up to the task, and immerged myself completely into it. I was reading the code of the project regularly and tried to do the same thing. I made mistakes, lots of mistakes, but I learned from them (even if I was not being directed in the right way after making them, but this is another story). Unfortunately the project was put to an halt and I had to get back to the old project, the one that became so complicated that I had abandoned all hope of doing something right with it. I was wrong, this was a wonderful opportunity and this is where the mind shift occurred. I started doing some unit tests and when I was comfortable with the coverage of a certain part, refactor to reflect a more object-oriented and easier to understand ways. I learned about Inversion Of Control (IoC), Dependency Injection, Mocking, Domain-Driven Design and Design Pattern. I also started to read my books back. I re-read Code Complete, Refactor and Object-Design Heuristics, and I am planning to read a lot more. I also adopted many of the Agile practices. This was not hard, since I had worked on project that had big upfront design, and after every release, we were deploying every week a new versions because of the bugs we had found or enhancements the clients wanted. This was just the natural thing to do and I firmly believe this is a good road to follow.&lt;/p&gt;<br /><br />&lt;p&gt;Now, If I could only get a new challenge to push my limits and learn more!&lt;/p&gt;</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/thank-you%21/">Thank you!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-08T03:22:00-05:00" pubdate data-updated="true">Jan 8<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I want to thank everybody who has been visiting my blog. I have now reach 6000 hits with an average of 60 hits per day. I will keep raising my bar to deliver you some great content over the next few months. Thank you very much!!!</p>
+
+
+<p>P.S. I&#8217;ll keep working on my writing skills, don&#8217;t worry!</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/setting-expectations-on-properties-with-rhino-mocks/">Setting expectations on properties with Rhino Mocks</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-08T03:12:00-05:00" pubdate data-updated="true">Jan 8<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>For the getter, it&#8217;s exactly as you would do with a method :</p>
+
+
+<p>&nbsp;</p>
+
+
+<pre><span style="color: #0000ff;">Expect</span><span style="color: #2b91af;">.Call(mockedConnection.CompanyConnectionString).Return(</span><span style="color: #00ff00;">"testconnectionstring"</span><span style="color: #2b91af;">);</span></pre>
+
+
+<p>For the setter, only assign the value you want to the property of the mocked object :</p>
+
+
+<p>&nbsp;</p>
+
+
+<pre>mockedConnection.ConnectionString = <span style="color: #a31515;">"testconnectionstring"</span><span style="color: #000000;">;&lt;/PRE<p><br /><br />&nbsp;<br /></p></span></pre>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/nightmare-platform/">Nightmare platform</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-07T03:09:00-05:00" pubdate data-updated="true">Jan 7<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Following the <a href="http://www.ayende.com/Blog/archive/2007/11/11/A-definition-of-a-nightmare-platform.aspx" target="_blank">definition of a nightmare platform</a>, I officially declare Microsoft Dynamics GP to be one of them. Sorry Dynamics GP guys, but I need an explanation for why I have spent half a day trying to figure out how this can be possible.</p>
+
+
+<p>Consider this example :</p>
+
+
+<p>&nbsp;</p>
+
+
+<pre>salesItem.StandardCost = <span style="color: #2b91af;">new</span><span style="color: #000000;"> </span><span style="color: #a31515;">MoneyAmount</span><span style="color: #000000;">();<br />salesItem.StandardCost.Value = 1;<br /></span><span style="color: #000000;">salesItem.StandardCost.DecimalDigits = 2;<br /><br /></span><span style="color: #000000;">salesItem.UofMScheduleKey = </span><span style="color: #2b91af;">new</span><span style="color: #000000;"> </span><span style="color: #a31515;">UofMScheduleKey</span><span style="color: #000000;">();<br />salesItem.UofMScheduleKey.Id = </span><span style="color: #a31515;">"EACH"</span><span style="color: #000000;">;<br /></span><span style="color: #000000;"><br /></span><span style="color: #a31515;">Policy</span><span style="color: #000000;"> policy = DynamicsWebService.GetPolicyByOperation(</span><span style="color: #a31515;">"CreateSalesItem"</span><span style="color: #000000;">, DynamicsWebServiceContext);<br />DynamicsWebService.CreateSalesItem(salesItem, DynamicsWebServiceContext, policy);<p>&nbsp;</p></span></pre>
+
+
+<p>And here is the error message :</p>
+
+
+<blockquote>
+<p>A validation exception has occurred.<br />Validation Errors:<br />- StandardCost cannot be less than 0.</p>
+</blockquote>
+
+
+<p>I&#8217;m still trying to figure out what amount should I put when the item has a cost&#8230;</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -923,309 +1109,6 @@ This is what the NAnt section look like:
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/setting-up-a-subversion-server-%28using-svnserve%29/">Setting up a Subversion server (using svnserve)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-11-29T07:44:00-05:00" pubdate data-updated="true">Nov 29<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://sebastienlachance.com/building-a-new-application-series/">(Index of the whole series)</a></p>
-
-
-<p>I got hold of an old computer that I will be able to use as a continuous integration server and Subversion repository. This weekend, I got some free time and decided to set-up Subversion on it. I was surprised on how much it was easy. The documentation is all but superfluous and it was very instructive. So here is how you can do it.</p>
-
-
-<p><strong>Downloading and installing subversion</strong></p>
-
-
-<p>You can find the latest version <a href="http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91">on this page</a>. I used the <a href="http://subversion.tigris.org/files/documents/15/39559/svn-1.4.5-setup.exe">svn-1.4.5-setup.exe</a> one. Just install it like any other program, there is no additional things to modify in the setup.</p>
-
-
-<p><strong>Setting up a repository</strong></p>
-
-
-<p>You may want to create a repository right now to make sure that you can make some test later. I recommend using <a href="http://tortoisesvn.tigris.org/">TortoiseSVN</a> for that, unless you want to learn all the command to use Subversion (not so hard to do). To do that, you simply need to create a folder that you want as a repository (this folder will hold all your files and every change made to them), and right click on it. Select the <strong>TortoiseSVN\Create repository here</strong> menu items and select the Native File System (FSFS) radio button. You now have fully working repository. For a comparison of Native File System versus Berkeley Database, take a look at this : <a href="http://svn.apache.org/repos/asf/subversion/trunk/notes/fsfs">Native File System versus Berkeley Database</a>.</p>
-
-
-<p><a title="createrepository" href="http://www.flickr.com/photos/63483657@N00/2066565635/"><img src="http://static.flickr.com/2218/2066565635_122648ef83.jpg" border="0" alt="createrepository" /></a></p>
-
-
-<p><strong>svnserve</strong></p>
-
-
-<p>You then have two choices to use Subversion remotely. First one is to use the Apache HTTP server and the second one is to use svnserve. I have decided to use svnserve because it&#8217;s a lightweight server program and I don&#8217;t need encryption and logging. Also svnserve is a lot faster and it&#8217;s the best options for small teams. You may want to make sure you are able to access it. Open a command prompt and type svnserve. You should see the following :</p>
-
-
-<p><a title="svnserve-commandprompt" href="http://www.flickr.com/photos/63483657@N00/2065650429/"><img src="http://static.flickr.com/2152/2065650429_5fcea341c8.jpg" border="0" alt="svnserve-commandprompt" /></a></p>
-
-
-<p>If you still planning to use svnserve right now, you have two choices : install it as a service or open it each time you want to access a repository.</p>
-
-
-<p>If you are planning to open it each time you want to access your repository, launch a command prompt and type <strong>svnserve -d</strong>. You have access to all the repositories you may have created on the server.</p>
-
-
-<p>If, however, you decide to use it as a Windows Service (it will reopen automatically each time you start the server), Use this at a command prompt :</p>
-
-
-<p><strong>C:\&gt; sc create svn binpath= &#8220;&#34;C:\program files\svn\bin\svnserve.exe&#34; &#8211;service -r C:\nameofyourrepository&#8221; displayname= &#8220;Subversion Server&#8221; depend= Tcpip start= auto</strong></p>
-
-
-<p><strong>Controlling access</strong></p>
-
-
-<p>If you attempted to use this right now to make a check-in, you will find that you don&#8217;t have Write access. This can be changed by editing the svnserve.conf found in your repository folder. You need to find the <strong># anon-access = read</strong> and change it to <strong>anon-access = write </strong>(don&#8217;t forget to remove #)<strong>. </strong>This will grant write access to all anonymous users. This is not the ideal, but in a single programmer scenario it works perfectly. However, note that if you need a more robust authentication solution, it&#8217;s totally possible. I will not cover it right now, but the full procedure is described in the TortoiseSVN documentation (Section 3.2.4).</p>
-
-
-<p><a title="svnservedotconf" href="http://www.flickr.com/photos/63483657@N00/2066587611/"><img src="http://static.flickr.com/2232/2066587611_f8b0676611.jpg" border="0" alt="svnservedotconf" /></a></p>
-
-
-<p>&nbsp;</p>
-
-
-<p><strong>Accessing the repository remotely</strong></p>
-
-
-<p>Open the repository browser (shown below) and type <strong>svn://nameofyourserver/nameofyourrepository</strong>. Can it be more easy?</p>
-
-
-<p><a title="access" href="http://www.flickr.com/photos/63483657@N00/2067411144/"><img src="http://static.flickr.com/2126/2067411144_580c22ef46.jpg" border="0" alt="access" /></a></p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/building-a-new-application-introduction/">Building a new application - Introduction</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-11-27T07:43:00-05:00" pubdate data-updated="true">Nov 27<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://sebastienlachance.com/building-a-new-application-series/">(Index of the whole series)</a> </p>
-
-
-
-
-<p>I want to build an application and release it to the community. This is an application I had in mind for a long time. Basically, it’s a logging application. Not the one you would use to track requirements and time spent on a project. I’m talking about a logging application to log your weight, track your goals, what you’ve eat, do reports , etc. I know it’s something people want. I’m not doing it for money. I want to learn as much as possible and I think that writing code and solving new problems is a great way to learn. I have to take some basic decision at the beginning of the project and I must admit it will be a good excuse to make a list of all the new things (for me) that I want to use in the project and blog about them. This is an opportunity for me to take the time of using object-oriented techniques and becoming more agile. I will also blog a lot about that, because I find that blogging an interesting tool to learn and explaining to others help reinforce knowledge and being more confident. Also, posting about your goals, makes it a little harder to abandon too early.  </p>
-
-
-
-
-<p>My requirements are the the following : </p>
-
-
-<p></p>
-
-<ul> 
-<li>Test-Driven development. I want a coverage of 95% at least.  </li>
-<li>Building an continuous integration server.  </li>
-<li>Applying at the best of my knowledge Object-Oriented principle.  </li>
-<li>User stories.  </li>
-<li>Identify mistakes as soon as possible and learn from them.  </li>
-<li>Use a source control software and learn some of the best practices of source control management. </li>
-</ul>
-
-
-<p></p>
-
-<p>Technologies I want to use : </p>
-
-
-<p></p>
-
-<ul> 
-<li>It&#8217;s a windows forms application in C#. </li>  
-<li>Windows Presentation Foundation.  </li>
-<li>.NET 3.5.  </li>
-<li><a href="http://www.microsoft.com/sql/editions/sqlmobile/sqlmobileresources.mspx">SqlCe</a> or <a href="http://www.sqlite.org/">SQLite.</a>  </li>
-<li><a href="http://www.microsoft.com/express/product/default.aspx">Visual Studio 2008</a>.  </li>
-<li><a href="http://subversion.tigris.org/">Subversion</a>.  <li><a href="http://nant.sourceforge.net/">NAnt</a>.  </li>
-<li><a href="http://ncover.org/">NCover and NCover explorer</a>. </li> 
-<li><a href="http://confluence.public.thoughtworks.org/display/CCNET/Welcome+to+CruiseControl.NET">CruiseControl.NET</a>.  </li>
-<li><a href="http://www.mbunit.com/">MBUnit</a>.  <li><a href="http://www.hibernate.org/343.html">NHibernate</a>.  </li>
-<li><a href="http://ayende.com/projects/rhino-mocks.aspx">Rhino Mocks</a>.</li>
-</ul>
-
-
-<p></p>
-
-<p>So I want It to be Agile as most as possible. First step, print the <a href="http://agilemanifesto.org/">Agile Manifesto</a>!</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/setting-up-cruisecontrolnet-screencast/">Setting up CruiseControl.Net screencast</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-11-15T07:42:00-05:00" pubdate data-updated="true">Nov 15<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I am a long time reader of the CodeBetter.com blogs and usually read all their posts. But last year, I missed one that I consider a gem. If you ever struggled with building a continuous integration with CruiseControl.Net, you will find that screencast very instructive. Excellent job Jean-Paul S. Boodhoo&#8217;s!!</p>
-
-
-
-
-<p>
-<a href="http://www.jpboodhoo.com/blog/AutomatingYourBuildsWithNAntPart8EnterCruiseControl.aspx" title="Automating Your Builds With NAnt - Part 8 (Enter CruiseControl)">Automating Your Builds With NAnt - Part 8 (Enter CruiseControl)</a>
-</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/reality-of-type-sharing-in-wcf/">Reality of type sharing in WCF</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-11-13T07:40:00-05:00" pubdate data-updated="true">Nov 13<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I am working a lot right now with WCF (Windows Communication Foundation). I am doing the service side of the architecture. The problem we faced this week was with type sharing. Suppose you have a customer class and an address class as data contract. The customer have an address list. Then we have two services who use those types, CustomerService and AddressService. One of the service do operation with the customer and the second on the address. All this one one assembly. On a real world scenario we had to take the address of the customer we just got with the customer&#8217;s service and provide it to the address&#8217;s services.</p>
-
-
-
-
-<p>We used Visual Studio to generate the proxies for those services. Since CustomerService and AddressService are each one aware of the 2 data contracts (Address and Customer) the call made to svcutil from Visual Studio does not generate proxies with type sharing. You have yourself two times the address class and then can&#8217;t be passed from one service to another.</p>
-
-
-
-
-<p>
-But fortunately, a solution exist!
-</p>
-
-
-
-
-<p>
-1. I had to separate the data contracts from the services contracts and puts them in a new assembly.
-</p>
-
-
-
-
-<p>
-2. Do not ever use Visual Studio to add service reference (this is what will get you 2 times the same class in 2 different namespaces ).
-</p>
-
-
-
-
-<p>
-3. Learn to use svcutil. Then learn about the /r: switch. When using this switch, you can specify which assembly to use when resolving reference.
-</p>
-
-
-
-
-<p>
-The 2 downside I see, is that you can&#8217;t use Visual Studio anymore to generate proxies and that you need to control both side (service and client). Or at least the service side and provide the data contracts assembly to your client.
-</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/15/">&larr; Older</a>
@@ -1257,6 +1140,10 @@ The 2 downside I see, is that you can&#8217;t use Visual Studio anymore to gener
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/rails-assets-pipeline-and-missing-assets/">Rails Assets Pipeline and missing assets</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/method-decorators-in-ruby/">Method decorators in Ruby</a>
       </li>
     
@@ -1265,15 +1152,11 @@ The 2 downside I see, is that you can&#8217;t use Visual Studio anymore to gener
       </li>
     
       <li class="post">
+        <a href="/blog/backbone-and-page-transition/">Backbone and page transition</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
       </li>
     
   </ul>

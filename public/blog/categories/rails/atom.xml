@@ -4,7 +4,7 @@
   <title><![CDATA[Category: rails | Sebastien Lachance]]></title>
   <link href="http://sebastienlachance.com/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://sebastienlachance.com/"/>
-  <updated>2012-05-01T07:56:30-04:00</updated>
+  <updated>2012-05-10T09:39:35-04:00</updated>
   <id>http://sebastienlachance.com/</id>
   <author>
     <name><![CDATA[Sebastien Lachance]]></name>
@@ -12,6 +12,43 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rails Assets Pipeline and missing assets]]></title>
+    <link href="http://sebastienlachance.com/blog/rails-assets-pipeline-and-missing-assets/"/>
+    <updated>2012-05-10T10:00:00-04:00</updated>
+    <id>http://sebastienlachance.com/blog/rails-assets-pipeline-and-missing-assets</id>
+    <content type="html"><![CDATA[<p>I moved the entire <a href="http://www.guidedescommercesdebeauce.com">Guide des Commerces</a> from Rails 3.0.10 to Rails 3.2.3. I have to admit it, I was afraid of the assets pipeline and my first deployment attempt resulted in a lost afternoon and a bad case of stress. I had to revert back and lose some customer data (just my associate data).</p>
+
+<p>The problem was that I tried to use the assets pipeline for half the application and let everything in the public folder for the second half (admin part). I'm pretty sure it is possible.</p>
+
+<p>Now everything is moved and I am actually quite happy. One css and one js per page is finally a dream came true.</p>
+
+<p>Anyway, what I really wanted to talk here is about one of the problems I had. When calling the assets precompile rake task, one compiled css file was missing. Like one of the manifest wasn't read or executed.</p>
+
+<p>When you have multiple manifest files (not called application.css or application.js), you actually have to tell which additionnal one to precompile.</p>
+
+<p><code>ruby config/application.rb
+config.assets.precompile += ['administration.js', 'administration.css' ]
+</code></p>
+
+<h2>One gotcha with scss manifest:</h2>
+
+<p><strong>If you are using scss files as manifests</strong>, you need to use the compiled version.</p>
+
+<p>Like this:</p>
+
+<p><code>ruby config/application.rb
+config.assets.precompile += ['application.css' ]  # this will not work, but no error will be thrown
+</code></p>
+
+<p>Instead of:</p>
+
+<p><code>ruby config/application.rb
+ config.assets.precompile += ['application.css.scss' ]  # this will not work, but no error will be thrown
+</code></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Learning Rails : assert_valid_keys]]></title>

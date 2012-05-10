@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Je suis maintenant disponible pour des mandats de développement Web à la pige. Contrat ou sur place. J&#8217;ai de l&#8217;expérience en ASP.NET (MVC &hellip;">
+  <meta name="description" content="Last week, while I was playing and coding on my Backbone blog project (backbone-rails-blog), I started wondering if it was something I could use to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,106 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-10T06:00:00-04:00" pubdate data-updated="true">Apr 10<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Last week, while I was playing and coding on my Backbone blog project (<a href="https://github.com/sebastienlachance/backbone-rails-blog">backbone-rails-blog</a>), I started wondering if it was something I could use to replace this blog, since I put so much time on it lately. But at the same time I kept telling myself, <strong>is Google going to index the content?</strong> The short answer is: <strong>NO</strong>, not now anyway.</p>
+
+<p>The long answer goes like this: Facebook comments are indexed. So there should be a way to provide this content to GoogleBot. I have done my homework and this document, <a href="https://developers.google.com/webmasters/ajax-crawling/docs/getting-started">Making Ajax Applications Crawlable</a>) provides some answers. Basically, we need the <a href="http://en.wikipedia.org/wiki/Shebang_(Unix">hashbang</a>) url format. This is achieved with Backbone when we are not using pushstate.</p>
+
+<p>Hashbang url:</p>
+
+<pre><code>http://sebastienlachance.com#!blog-post
+</code></pre>
+
+<p>My urls:</p>
+
+<pre><code>http://sebastienlachacne.com/blog-post
+</code></pre>
+
+<p>And frankly, I will not pursue this path. In my case anyway, it provides no real advantages to have an Ajax-powered blog.</p>
+
+<p>In fact, I could have left Backbone and only use it on the admin backend, but as a learning tool, I didn&#8217;t want to revert back (and there is so much great blogging platform now anyway).</p>
+
+<p>Do you have any other web apps ideas (other than a todo list or blog)? In my next iteration (that is, the next app), I will be using Backbone with NodeJs and MongoDB. Sounds fun.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/available/">Available</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-06T15:12:00-04:00" pubdate data-updated="true">Apr 6<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I am now available to do freelance web development. Contract or on site.</p>
+
+<p>I have experience in ASP.NET (MVC or WebForms) and Ruby On Rails. HTML, Javascript and CSS, no problem.</p>
+
+<p>You can see my CV here (<a href="/resume">CV</a>).</p>
+
+<p>I can be on site if you are in the area or work remotely (I also have experience in that).</p>
+
+<p>I am looking forward to accept new challenges and deliver WORKING solutions!</p>
+
+<p>You can contact me here (<a href="http://twitter.com/slachance">Twitter</a>), (<a href="http://www.linkedin.com/in/sebastienlachance">LinkedIn</a>) or here (at sebastien.lachance creatiom.com).</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -209,6 +309,58 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/backbone-fetching-a-single-model/">Backbone - Fetching a single model</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-19T07:50:00-04:00" pubdate data-updated="true">Mar 19<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;m working on a Backbone driven blog engine (<a href="https://github.com/sebastienlachance/backbone-rails-blog]">Backbone-rails-blog</a>) and had some serious issues with a single functionnality. Retrieving a blog post and displaying it.</p>
+
+<p>First, I&#8217;m still learning Backbone, so don&#8217;t be so harsh on this basic problem.</p>
+
+<p>To retrieve a single model, on your model, you define the url property like this</p>
+
+<figure class='code'><figcaption><span>Post Model - post.js </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">url</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="s2">&quot;/posts/&quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;permalink&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/filling-a-select-from-an-array-on-javascript-object/">Filling a select from an array on javascript object</a></h1>
     
     
@@ -236,6 +388,494 @@
 
 <iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/z9Q4R/embedded/js,resources,html,css,result/light/"></iframe>
 
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/backbone-going-through-the-todo-dot-js-example/">Backbone - Going through the todo.js example</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-02T08:52:00-05:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Over the past days, I have been struggling a lot to understand Backbone and how to apply it in other situations than a todo list.</p>
+
+<p>I read and reread and even rewrite the Todo demo application for Backbone. But, If I wanted to redo it, I was lost. No idea where to go after models are created.</p>
+
+<p>So here it is, I wanted to mimic the way I would recreate the way this application would have been created from scratch by a Backbone apprentice like me, one functionnality at a time.</p>
+
+<p>The demo application is using a local storage mechanism, but I provide the way it would have been if it was a rails application.</p>
+
+<p>rails new backbone_todo
+rails g scaffold todo text:string done:boolean</p>
+
+<p>Go to Backbone doc site, place backbone.js and underscore.js in app/assets/javascripts</p>
+
+<p>Open application.js and make the following modifications</p>
+
+<p>  //= require underscore
+  //= require backbone
+  //= require todo</p>
+
+<p>Remove todo.js.coffee if you will not use CoffeeScript.</p>
+
+<p>Open app/views/todos/index.html and put the following html:</p>
+
+<p>  <div id="todoapp"></p>
+
+<pre><code>  &lt;div class="title"&gt;
+    &lt;h1&gt;Todos&lt;/h1&gt;
+  &lt;/div&gt;
+
+  &lt;div class="content"&gt;
+
+    &lt;div id="create-todo"&gt;
+      &lt;input id="new-todo" placeholder="What needs to be done?" type="text" /&gt;
+      &lt;span class="ui-tooltip-top" style="display:none;"&gt;Press Enter to save this task&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;div id="todos"&gt;
+      &lt;ul id="todo-list"&gt;&lt;/ul&gt;
+    &lt;/div&gt;
+
+    &lt;div id="todo-stats"&gt;&lt;/div&gt;
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;ul id="instructions"&gt;
+  &lt;li&gt;Double-click to edit a todo.&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://documentcloud.github.com/backbone/docs/todos.html"&gt;View the annotated source.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div id="credits"&gt;
+  Created by
+  &lt;br /&gt;
+  &lt;a href="http://jgn.me/"&gt;J&amp;eacute;r&amp;ocirc;me Gravel-Niquet&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;!-- Templates --&gt;
+
+&lt;script type="text/template" id="item-template"&gt;
+  &lt;div class="todo {{= done ? 'done' : '' }}"&gt;
+    &lt;div class="display"&gt;
+      &lt;input class="check" type="checkbox" {{= done ? 'checked="checked"' : '' }} /&gt;
+      &lt;div class="todo-text"&gt;&lt;/div&gt;
+      &lt;span class="todo-destroy"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="edit"&gt;
+      &lt;input class="todo-input" type="text" value="" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+
+&lt;script type="text/template" id="stats-template"&gt;
+  {{ if (total) { }}
+    &lt;span class="todo-count"&gt;
+      &lt;span class="number"&gt;{{= remaining }}&lt;/span&gt;
+      &lt;span class="word"&gt;{{= remaining == 1 ? 'item' : 'items' }}&lt;/span&gt; left.
+    &lt;/span&gt;
+  {{ } }}
+  {{ if (done) { }}
+    &lt;span class="todo-clear"&gt;
+      &lt;a href="#"&gt;
+        Clear &lt;span class="number-done"&gt;{{= done }}&lt;/span&gt;
+        completed &lt;span class="word-done"&gt;{{= done == 1 ? 'item' : 'items' }}&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/span&gt;
+  {{ } }}
+&lt;/script&gt;
+</code></pre>
+
+<p>Now let&#8217;s get to the core of backbone.</p>
+
+<ol>
+<li>Create a todo</li>
+</ol>
+
+
+<p>In document ready</p>
+
+<p>  $(function() {</p>
+
+<pre><code>//Needed if you use erb with rails
+_.templateSettings = {
+  interpolate: /\{\{\=(.+?)\}\}/g,
+  evaluate: /\{\{(.+?)\}\}/g
+};
+
+
+//code here
+</code></pre>
+
+<p>  });</p>
+
+<p>Create a view that represent the application.</p>
+
+<p>  window.AppView = Backbone.View.extend({});</p>
+
+<p>Then we want to react when the user press enter after entering a todo.</p>
+
+<p>  window.AppView = Backbone.View.extend({</p>
+
+<pre><code>el: '#todoapp',
+
+events: function() {
+  "keypress #new-todo" : "createOnEnter"
+},
+
+createOnEnter: function() {
+
+}
+</code></pre>
+
+<p>  });</p>
+
+<p>What we have just done is to create a view that will listen to the keypress event on the element with the id new-todo, and call the function createOnEnter when pressing a key.</p>
+
+<p>The el property (element) will tell the view to which element in the DOM it is binded to. In that case, without the</p>
+
+<p>Creating the elemnt</p>
+
+<p>Add the following method that will be called when creating the view and setting the input property to the correct element.</p>
+
+<p>In window.AppView:</p>
+
+<p>initialize: function() {
+  this.input = this.$(&#8216;#new-todo);
+}</p>
+
+<p>And then we create the Todos (again in window.AppView)</p>
+
+<p>  createOnEnter : function(e) {</p>
+
+<pre><code>var text = this.input.val();
+if (!text || e.keyCode != 13) return;
+Todos.create({text: text});
+this.input.val();
+</code></pre>
+
+<p>  }</p>
+
+<p>Running the code now and trying to enter an item will result in : Uncaught ReferenceError: Todos is not defined</p>
+
+<p>It&#8217;s because we are calling the create method on something that does not yet exists.</p>
+
+<p>Todos is actually a collection of Todo model.</p>
+
+<p>Let&#8217;s define them both in the document ready function</p>
+
+<p>  window.Todo = Backbone.Model.extend({});</p>
+
+<p>There we have created the Todo model.</p>
+
+<p>  window.TodoList = Backbone.Collection.extend({</p>
+
+<pre><code>model: Todo
+</code></pre>
+
+<p>  });</p>
+
+<p>  window.Todos = new TodoList();</p>
+
+<p>And now we have create the collection that will hold the Todo models. We started by extending Backbone.Collection and provide Todo as the model of the collection.</p>
+
+<p>Let&#8217;s run the example again:</p>
+
+<p>Now we have : Uncaught Error: A &#8220;url&#8221; property or function must be specified</p>
+
+<p>Ahh, let&#8217;s fix this easily.</p>
+
+<p>  window.TodoList = Backbone.Collection.extend({</p>
+
+<pre><code>model: Todo,
+url: '/todos'
+</code></pre>
+
+<p>  });</p>
+
+<p>Now it would be great to display the added item in the list.</p>
+
+<p>For this we need to react to the add, reset and all event</p>
+
+<p>In window.AppView the initialize function change for:</p>
+
+<p>  initialize: function() {</p>
+
+<pre><code>this.input = this.$('#new-todo');
+
+Todos.bind('add', this.addOne, this);
+Todos.bind('reset', this.addAll, this);
+Todos.bind('all', this.render, this);
+</code></pre>
+
+<p>  }</p>
+
+<p>In details :</p>
+
+<p>Todos.bind : It is currently deprecated in favor of &#8220;on&#8221; to follow the jQuery direction but still supported for backward compatibility:</p>
+
+<p>{% blockquote
+  onobject.on(event, callback, [context]) Alias: bind
+%}</p>
+
+<p>The first argument is the event we want to listen, the second is the callback method to be called and the third optional parameters is the context.</p>
+
+<p>We listen to three events:</p>
+
+<ol>
+<li>add : Is called when a model is added to the collection</li>
+<li>reset : When the whole collection or more than one model is changed (like reloading the collection)</li>
+<li>all : Any event</li>
+</ol>
+
+
+<p>Reacting to the add event on collection:</p>
+
+<p>In window.AppView</p>
+
+<p>  addOne: function(todo) {</p>
+
+<pre><code>var view = new TodoView({model: todo});
+$('#todo-list').append(view.render().el);
+</code></pre>
+
+<p>  },</p>
+
+<p>  addAll: function() {</p>
+
+<pre><code>Todos.each(this.addOne);
+</code></pre>
+
+<p>  }</p>
+
+<p>So the addOne callback is going to create a TodoView and add it to #todo-list.</p>
+
+<p>The TodoView:</p>
+
+<p>  window.TodoView = Backbone.View.extend({</p>
+
+<pre><code>tagName: 'li',
+
+template: _.template($('#item-template').html()),
+
+render: function() {
+  $(this.el).html(this.template(this.model.toJSON()));
+  this.setText();
+  return this;
+},
+
+setText: function() {
+  var text = this.model.get('text');
+  this.$('.todo-text').text(text);
+  this.input = this.$('.todo-input');
+  this.input.val(text);
+} 
+</code></pre>
+
+<p>  });</p>
+
+<p>First, we extend Backbone.View to create a view. The tagName represent the top element that we will add the Todo content to. In this case it&#8217;s a list element so we use an li tag. Second, the template. Remember in our html, we were having a &lt;script type=&#8221;text/template&#8221;&gt; tag. This is actually a template that we will fill using underscore and our model converted to JSON.</p>
+
+<p>And finally we have the render method, that will use the rendered template and add it to our li element. The model property is automatically assigned when creating the view. The setText method, add the todo text to the display element and the edit element, (more on this later);</p>
+
+<p>Let&#8217;s run it and see for ourselves how it&#8217;s working so far.</p>
+
+<p>ohoh:  Uncaught ReferenceError: done is not defined</p>
+
+<p>We don&#8217;t have any done property on our model.</p>
+
+<p>Open up the Todo model and add some defaults :</p>
+
+<p>window.Todo = Backbone.Model.extend({
+  defaults: function() {</p>
+
+<pre><code>return {
+  done: false
+}
+</code></pre>
+
+<p>  }
+});</p>
+
+<p>Everythings run fine now.</p>
+
+<p>Let&#8217;s handle the done checkbox.</p>
+
+<p>Add an event to our TodoView to react on the click on checkbox.</p>
+
+<p>  events: {</p>
+
+<pre><code>"click .check": "toggleDone"
+</code></pre>
+
+<p>  },</p>
+
+<p>  toggleDone: function() {</p>
+
+<pre><code>this.model.toggle();
+</code></pre>
+
+<p>  },</p>
+
+<p>  initialize: function() {</p>
+
+<pre><code>this.model.bind('change', this.render, this);
+</code></pre>
+
+<p>  }</p>
+
+<p>And in our Todo model:</p>
+
+<p>  toggle: function() {</p>
+
+<pre><code>this.save({done: !this.get("done")});
+</code></pre>
+
+<p>  }</p>
+
+<p>Since we have added code to react to the change event with the render callback, the view will be automatically be rerenderd with the new content. And the template show correctly the done item.</p>
+
+<p>Run it. Warning. : With Rails, you will get Can&#8217;t mass-assign protected attributes: id</p>
+
+<p>One thing that would be great is to actually reload saved todo when we refresh the page.</p>
+
+<p>Easy:</p>
+
+<p>In the initialize function of the AppView ask the Todo collection to fetch itself.</p>
+
+<p>window.AppView = Backbone.View.extend({</p>
+
+<p>  //code</p>
+
+<p>  initialize: function() {</p>
+
+<pre><code>//more code
+
+Todos.fetch();
+</code></pre>
+
+<p>  }</p>
+
+<p>  //code</p>
+
+<p>});</p>
+
+<p>Deleting</p>
+
+<p>Add an event to detect the delete button click.</p>
+
+<p>In window.AppView</p>
+
+<p>window.TodoView = Backbone.View.extend({</p>
+
+<p>  //code</p>
+
+<p>  events: {</p>
+
+<pre><code>//code
+"click span.todo-destroy", "clear"
+</code></pre>
+
+<p>  },</p>
+
+<p>  //code</p>
+
+<p>  intialize: function() {</p>
+
+<pre><code>//code
+
+this.model.bind('destroy', this.remove, this);
+</code></pre>
+
+<p>  },</p>
+
+<p>  clear: function() {</p>
+
+<pre><code>this.model.destroy();
+</code></pre>
+
+<p>  },</p>
+
+<p>  remove: function() {</p>
+
+<pre><code>$(this.el).remove();
+</code></pre>
+
+<p>  }</p>
+
+<p>});</p>
+
+<p>Editing</p>
+
+<p>window.TodoView = Backbone.View.extend({</p>
+
+<p>  //code</p>
+
+<p>  events {</p>
+
+<pre><code>//code    
+
+"dblclick div.todo-text" : "edit",
+"keypress .todo-input"   : "updateOnEnter"
+</code></pre>
+
+<p>  },</p>
+
+<p>  //code</p>
+
+<p>  edit: function() {</p>
+
+<pre><code>$(this.el).addClass("editing");
+this.input.focus();
+</code></pre>
+
+<p>  },</p>
+
+<p>  updateOnEnter: function(e) {</p>
+
+<pre><code>if (e.keyCode == 13) this.close();
+</code></pre>
+
+<p>  },</p>
+
+<p>  close: function() {</p>
+
+<pre><code>this.model.save({text: this.input.val()});
+$(this.el).removeClass("editing");
+</code></pre>
+
+<p>  }</p>
+
+<p>});</p>
+
+<p>Adding the class editing, hides the div containing the todo text and show a div containing an text field with the content already been filled (via the template).</p>
 </div>
   
   
@@ -403,416 +1043,6 @@ gem 'bcrypt-ruby', '~&gt; 3.0.0'</code></pre></noscript></div>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/startup-camp-quebec/">Startup Camp Quebec</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-02-13T12:11:00-05:00" pubdate data-updated="true">Feb 13<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img class="left" src="/images/startupcampquebec.jpg" title="Startup Camp Québec" ></p>
-
-<p>Jeudi dernier, avait lieu l&#8217;événement <a href="http://www.startupcampquebec.com">Startup Camp Québec</a>.</p>
-
-<p>Je ne suis pas un habitué de ces événements même si j&#8217;ai <a href="http://www.guidedescommercesdebeauce.com">ma propre compagnie</a> et ait participé à quelques coktails et diners aux homards (j&#8217;aime pas le homard). C&#8217;était quand un monde nouveau avec de nouvelles personnes.</p>
-
-<p>Il y avait 8 startups qui présentaient leur produits. J&#8217;ai bien aimé les présentations, et j&#8217;ai beaucoup accroché sur quelques projets. Particulièrement le projet Trapèze École de <a href="http://mx4.yolasite.com/">MX4</a>. Ils ont créer une manière de gérer les horaires dans les écoles, et ca, c&#8217;est ce que j&#8217;appelle trouver des solutions à un problème.</p>
-
-<p>Mais le grand gagnant de cette édition est <a href="http://theriansaga.fatecraft.com/">FateCraft</a>, qui développe des jeux sociaux.</p>
-
-<p>Je n&#8217;ai malheureusement pu rester jusqu&#8217;à la fin et voir la remise des prix. Mais je souhaite quand même bonne chance à toutes ces jeunes entreprises et puissent-elles continuer malgré toutes les embuches qui peuvent se présenter devant elles.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/mastering-backbone-day-1-impressions/">Mastering Backbone - Day 1 impressions and basic concepts</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-02-03T10:24:00-05:00" pubdate data-updated="true">Feb 3<span>rd</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="/images/backbone.png" title="backbone.js" ></p>
-
-<h2>Basics</h2>
-
-<p>Previous experience:</p>
-
-<p>I have no real hands-on experience. Only watched some screencasts.</p>
-
-<p>I decided to create a little Todo app with Rails to make sure I understand the basics concepts correctly.</p>
-
-<pre><code>gem 'rails-backbone'
-gem 'jasminerice'
-
-bundle install
-
-rails g backbone:install
-</code></pre>
-
-<p>In the spec/javascripts/spec.js.coffee, add the following:</p>
-
-<pre><code>#= require jquery
-#= require underscore
-#= require backbone
-#= require backbone_rails_sync
-#= require backbone_datalink
-</code></pre>
-
-<h2>Creating a model</h2>
-
-<p>I created a todo.js file in the app/assets/javascript/backbone/models directory.</p>
-
-<pre><code>window.Todo = Backbone.Model.extend({});
-</code></pre>
-
-<p>Pretty straightforward.</p>
-
-<h2>Creating a collection</h2>
-
-<pre><code>window.TodoList = Backbone.Collection.extend({
-    model: Todo 
-});
-</code></pre>
-
-<h2>Testing to ensure everything is fine</h2>
-
-<p>To use <strong>jasminerice</strong>, start the rails server.</p>
-
-<pre><code>rails s
-</code></pre>
-
-<p>Go to localhost:3000/jasmine.</p>
-
-<div><script src='https://gist.github.com/1751477.js?file='></script>
-<noscript><pre><code>describe(&quot;Todo Model&quot;, function() {
-  it(&quot;can be instantiated&quot;, function() {
-    var todo = new Todo();
-    expect(todo).toBeTruthy();
-  });
-
-  it(&quot;has the description property&quot;, function() {
-    var todo = new Todo();
-    todo.set({ description: &quot;this is a description&quot;});
-    expect(todo.get('description')).toEqual(&quot;this is a description&quot;);
-  });
-
-  it(&quot;has the done property&quot;,function() {
-    var todo = new Todo();
-    todo.set({ done: true});
-    expect(todo.get('done')).toBeTruthy();
-  })
-});
-
-describe(&quot;Todo List&quot;, function() {
-  it(&quot;starts out empty&quot;, function() {
-    var todoList = new TodoList();
-    var todo = new Todo();
-    expect(todoList.length).toEqual(0);
-  });
-  it(&quot;add elements as expected&quot;, function() {
-    var todoList = new TodoList();
-    var todo = new Todo();
-    todoList.add(todo);
-    expect(todoList.length).toEqual(1);
-  });
-  it(&quot;should be able to retrieve elements by index&quot;, function() {
-    var todoList = new TodoList();
-    var todo = new Todo();
-    todoList.add(todo);
-    var retrievedTodo = todoList.at(0);
-    expect(retrievedTodo).toBe(todo);
-  });
-  it(&quot;should be able to remove elements&quot;, function() {
-    var todoList = new TodoList();
-    var todo = new Todo();
-    todoList.add(todo);
-    todoList.remove(todo);
-    expect(todoList.length).toEqual(0);
-  });
-
-});</code></pre></noscript></div>
-
-
-<h2>Creating a view</h2>
-
-<p>To define a view, you call the extend method on Backbone.View.</p>
-
-<pre><code>window.TodoList = Backbone.View.extend({});
-</code></pre>
-
-<p>A view is used ot render a model so we need to override the <strong>render</strong> method.</p>
-
-<pre><code>window.TodoList = Backbone.View.extend({
-    render: function() {
-      //the interesting part happens here.
-    }
-});
-</code></pre>
-
-<p>The view is represented by an html element, I believe it&#8217;s a div you don&#8217;t specify it explicitely like this:</p>
-
-<pre><code>window.TodoList = Backbone.View.extend({
-    tagName: "section" //use a &lt;section&gt; tag
-});
-</code></pre>
-
-<p>And a test to make sure it behave like I want:</p>
-
-<pre><code>it("should be a section tag", function() {
-  var view = new TodoListView();
-  expect(view.el.nodeName).toEqual("SECTION");
-});
-</code></pre>
-
-<p><strong>el</strong> represent the current view element.</p>
-
-<p>In the render method, this is where you build the view markup, by appending one or more elements to the <strong>el</strong>.</p>
-
-<pre><code>render: function() {
-  $(el).html('&lt;h2&gt;Todos&lt;/h2&gt;');
-}
-
-//test
-
-it("should render an h2 title', function() {
-  var view = new TodoListView();
-  view.render(); 
-  expect(view.el.innerHTML).toEqual('&lt;h2&gt;Todos&lt;/h2&gt;');
-}); 
-</code></pre>
-
-<p>But this is not really doing anything really exciting. I would like to display each todo in this view. We will need a view for individual Todo model.</p>
-
-<pre><code>window.TodoView = Backbone.View.extend({
-  tagName: 'li',
-  render: function() {
-
-  }
-});
-</code></pre>
-
-<p>But how do we get a model into this view?</p>
-
-<p>When you create an instance of the view you can pass a the model you will want to display. It will automagically added to the model property on the view.</p>
-
-<pre><code>describe("TodoView", function() {
-  it("initialization accept a model", function() {
-    var todo = new Todo();
-    var view = new TodoView({ model: todo });
-    expect(view.model).toEqual(todo);
-  });
-});
-</code></pre>
-
-<p>Now I&#8217;m pretty sure I can render something in my TodoView render method.</p>
-
-<pre><code>window.TodoView = Backbone.View.extend({ 
-  tagName: 'li',
-  render: function() {
-    $(this.el).append(this.model.get('description'));
-    return this;
-  }
-});
-</code></pre>
-
-<p>Now in my TodoListView I will loop through each Todo, render a view for each and appending them to the root element.</p>
-
-<pre><code>window.TodoListView = Backbone.View.extend({
-  tagName: 'section',
-  render: function() {
-    $(this.el).html('&lt;h2&gt;Todos&lt;/h2&gt;&lt;ul class="todo-items"&gt;&lt;/ul&gt;');
-    var listContainer = $(this.el).find('.todo-items'); 
-    this.collection.each(function(todo) {
-      var view = new TodoView({model:todo}); 
-      listContainer.append(view.render().el);
-    });
-    return this;
-  }
-});
-</code></pre>
-
-<p>Next post: Adding and removing todos.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/mastering-backbone-day-0/">Mastering Backbone - Day 0</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-02-02T19:42:00-05:00" pubdate data-updated="true">Feb 2<span>nd</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="/images/backbone.png" title="backbone.js" ></p>
-
-<p>I have now officially started the development for my new web application. I will not go into details right now, since everything is to be made, and a lot of very important decisions are to be made.</p>
-
-<p>What I can say is that it will be a Web Application running on Rails. I&#8217;m still struggling on whether to use PostgresSQL, MySQL or MongoDB.</p>
-
-<p>One of the big design decision was the choice of the client-side framework. I know I wanted a rich and fast user experience and to use Javascript heavily. So, I decided to go with <a href="http://documentcloud.github.com/backbone/" title="Backbone.js">Backbone</a>. And I have no experience with it apart from the <a href="http://peepcode.com/products/backbone-js" title="Backbone.js on Peepcode">Peepcode screencasts</a>.</p>
-
-<p>I have no idea how to apply it to my application domain. It will be hard, but worth it.</p>
-
-<h2>What is Backbone?</h2>
-
-<p><strong>Backbone is a framework to create data-driven application in Javascript.</strong></p>
-
-<p>As much as I love CoffeeScript, I will not use it to learn Backbone.</p>
-
-<p>I will use Jasmine for testing.</p>
-
-<h2>Why Backbone and not Knockout or any other javascript framework?</h2>
-
-<p>From what I heard, Backbone is hard to learn, but from those who use it, it&#8217;s totally worth a try. And I heard so much great things from a lot of different developers. They couldn&#8217;t be all wrong.</p>
-
-<p>So let&#8217;s get coding. Expect another blog post later for the first impressions.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/reponsive-and-mobile-friendly-design/">Reponsive and Mobile-Friendly Design with Skeleton</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-01-13T10:16:00-05:00" pubdate data-updated="true">Jan 13<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img class="left" src="/images/skeleton.jpg" title="skeleton" ></p>
-
-<p>When we first made the <a href="http://www.guidedescommercesdebeauce.com" title="Guide des Commerces">Guide des Commerces</a>, we didn&#8217;t anticipated we would need to adapt to other devices so soon. In fact, it we know it was for this year but we though it would be a completely different application for iPhone, Android or a new website.</p>
-
-<p>A month ago we had a discussion with a Facebook expert and talked about adding the Guide to our existing <a href="http://www.facebook.com/pages/Guide-des-Commerces-de-Beauce/190606624290004">page</a> (just an iframe with the app). The problem is that we use fixed width everywhere and Facebook iframe has only 520px. It would not be wise to develop another site only for Facebook and another one only for mobile device. We needed another solution.</p>
-
-<p>It occured to me that we could hit three birds with one stone (a lot more actually). We only have to use a responsive desig&lt;</p>
-
-<p>I tried various css framework and settled down for <a href="getskeleton.com" title="Skeleton framework">Skeleton</a>. It provided me with everything I needed and I can almost use it as-is without any modification. It use Media Queries (link here) to adapt to various screen size (tablet, mobile, iOS, etc.).</p>
-
-<p>If you don&#8217;t know Skeleton, it&#8217;s basically a grid framework with sixteen column totally a width of 960 pixel.</p>
-
-<p>Suppose you have a div that you want to take 100% of the page.</p>
-
-<pre><code>&lt;div class="sixteen columns"&gt;
-&lt;/div&gt;
-</code></pre>
-
-<p>You can also have a three column layout very easily:</p>
-
-<pre><code>&lt;div class="one-third column"&gt;
-&lt;/div&gt;
-
-&lt;div class="one-third column"&gt;
-&lt;/div&gt;
-
-&lt;div class="one-third column"&gt;
-&lt;/div&gt;
-</code></pre>
-
-<p>When you resize your browser, everything just resize nicely.</p>
-
-<p>I am almost 5 hours in now, and I&#8217;ve struggled a little but the result is amazing. And I frankly don&#8217;t regret the framework choice at all.</p>
-
-<p>Stay tuned for more&#8230;</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -844,6 +1074,10 @@ it("should render an h2 title', function() {
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/rails-assets-pipeline-and-missing-assets/">Rails Assets Pipeline and missing assets</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/method-decorators-in-ruby/">Method decorators in Ruby</a>
       </li>
     
@@ -852,15 +1086,11 @@ it("should render an h2 title', function() {
       </li>
     
       <li class="post">
+        <a href="/blog/backbone-and-page-transition/">Backbone and page transition</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
       </li>
     
   </ul>

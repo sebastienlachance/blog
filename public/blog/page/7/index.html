@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="As everyone else, I have been following the discussion about the Duct Tape Programmer post that Joel Spolsky has written. If you haven&rsquo;t read &hellip;">
+  <meta name="description" content="HTTP Error 404.3 - Not Found The page you are requesting cannot be served because of the extension configuration. If the page is a script, add a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,366 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/adding-a-mime-map-in-iis/">Adding a MIME map in IIS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-01-13T05:16:00-05:00" pubdate data-updated="true">Jan 13<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>HTTP Error 404.3 - Not Found</strong></p>
+
+
+<p><em>The page you are requesting cannot be served because of the extension configuration. If the page is a script, add a handler. If the file should be downloaded, add a MIME map.</em></p>
+
+
+<p>I got this error when trying to let user download .dwg files in IIS 7.5 but a MIME map was not created. Any uncommon files will get you this error. Fortunately, it&rsquo;s very easy to do.</p>
+
+
+<p>Open IIS and navigate to your site. Now click on <strong>MIME Type</strong> (shown below).</p>
+
+
+<p><a href="http://sebastienlachance.com/image.axd?picture=finding-mime-type-in-iis.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="finding mime type in iis" src="http://sebastienlachance.com/image.axd?picture=finding-mime-type-in-iis_thumb.png" border="0" alt="finding mime type in iis" width="505" height="484" /></a></p>
+
+
+<p>Right click and select <strong>Add </strong>(or click Add&hellip; in the right-side menu). You are now presented with a dialog requesting you to enter your filename extension and the MIME type (<a title="A list of possible MIME types" href="http://www.webmaster-toolkit.com/mime-types.shtml" target="_blank">list of possible MIME types</a>). This will enable you to associate a file extension with a type of content.</p>
+
+
+<p><a href="http://sebastienlachance.com/image.axd?picture=adding-a-mime-type.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="adding a mime type" src="http://sebastienlachance.com/image.axd?picture=adding-a-mime-type_thumb.png" border="0" alt="adding a mime type" width="644" height="376" /></a></p>
+
+
+<p><span style="color: #222222; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; line-height: 17px;">H2R77MC2M35K&nbsp;</span></p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/revisited-going-back-to-aspnet-webforms-and-a-lot-of-pain-with-the-checkboxlist/">Back to ASP.NET WebForms and a lot of pain with the CheckBoxList</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-05T05:24:00-05:00" pubdate data-updated="true">Nov 5<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>Edit : This is an old post back from november 2008 on my old blog. Since I had this problem today, I though it would be a good idea to share it again with all my readers.</strong></p>
+
+
+<p>Going back to standard ASP.NET Web Forms was ridiculously hard. In the last months, I have been completely blown away by the limitless (almost) possibilities of the ASP.NET MVC framework and now I find myself struggling very hard to make a single dropdownlist works the way I wanted to. The scenario was simple, in the client page, I used the value supplied by the drowdown list item to make an AJAX query and display the incoming results somewhere else in the page. That should be very easy right? Well, no. You may not know this but the value attribute of the ASP.NET CheckBoxList&#8217;s items is not rendered at all.</p>
+
+
+<p>I know that there is multiple solutions to render it, but that&#8217;s not the point. I can&#8217;t find a single reason to not let the developer decide if he want to display it or not. I even heard on some forum (I did not test it myself) that you cannot add a custom attribute named &#8220;value&#8221; (you can add custom attributes to any controls that will be rendered in the final html) without it to be stripped by the ASP.NET WebForms engine.</p>
+
+
+<p>Anyway, let&#8217;s see the solution to this problem.</p>
+
+
+<p>First of all, we need to create a custom control that will inherit from the <strong>System.Web.UI.WebControls.CheckBoxList</strong> and that will implement the <strong>System.Web.UI.WebControls.IRepeatInfoUser</strong>. We use the base class <strong>CheckBoxList </strong>as we want to reuse existing behavior without implementing it ourselves. As for the IRepeatInfoUser interface, we use it because we are implementing a control that has list items.</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0px; padding: 0px; overflow: visible; line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt;"><span style="color: #0000ff">public</span> <span style="color: #0000ff">class</span> CheckBoxListFixed : CheckBoxList, IRepeatInfoUser
+{
+    <span style="color: #0000ff">void</span> IRepeatInfoUser.RenderItem(ListItemType itemType, <span style="color: #0000ff">int</span> repeatIndex, RepeatInfo repeatInfo, HtmlTextWriter writer)
+    {
+
+    }
+}</pre>
+</div>
+
+
+<p>&nbsp;</p>
+
+
+<p>Inside the RenderItem method we will use the HtmlTextWriter to output all the wanted html.&nbsp; So we want to create an input of type checkbox:</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0px; padding: 0px; overflow: visible; line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt;">writer.WriteBeginTag(<span style="color: #006080">"input"</span>);
+writer.WriteAttribute(<span style="color: #006080">"type"</span>, <span style="color: #006080">"checkbox"</span>);
+writer.Write(<span style="color: #006080">"&gt;"</span>);
+writer.Write(Items[repeatIndex].Text);
+writer.WriteEndTag(<span style="color: #006080">"input"</span>);</pre>
+</div>
+
+
+<p>&nbsp;</p>
+
+
+<p>This will render only basic checkboxes.</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0px; padding: 0px; overflow: visible; line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt;"><span style="color: #0000ff">&lt;</span><span style="color: #800000">table</span> <span style="color: #ff0000">id</span><span style="color: #0000ff">="checkboxList"</span> <span style="color: #ff0000">border</span><span style="color: #0000ff">="0"</span><span style="color: #0000ff">&gt;</span>
+    <span style="color: #0000ff">&lt;</span><span style="color: #800000">tr</span><span style="color: #0000ff">&gt;</span>
+        <span style="color: #0000ff">&lt;</span><span style="color: #800000">td</span><span style="color: #0000ff">&gt;&lt;</span><span style="color: #800000">input</span> <span style="color: #ff0000">type</span><span style="color: #0000ff">="checkbox"</span><span style="color: #0000ff">&gt;</span>1<span style="color: #0000ff">&lt;/</span><span style="color: #800000">input</span><span style="color: #0000ff">&gt;&lt;/</span><span style="color: #800000">td</span><span style="color: #0000ff">&gt;</span>
+    <span style="color: #0000ff">&lt;/</span><span style="color: #800000">tr</span><span style="color: #0000ff">&gt;</span>
+    <span style="color: #0000ff">&lt;</span><span style="color: #800000">tr</span><span style="color: #0000ff">&gt;</span>
+        <span style="color: #0000ff">&lt;</span><span style="color: #800000">td</span><span style="color: #0000ff">&gt;&lt;</span><span style="color: #800000">input</span> <span style="color: #ff0000">type</span><span style="color: #0000ff">="checkbox"</span><span style="color: #0000ff">&gt;</span>2<span style="color: #0000ff">&lt;/</span><span style="color: #800000">input</span><span style="color: #0000ff">&gt;&lt;/</span><span style="color: #800000">td</span><span style="color: #0000ff">&gt;</span>
+    <span style="color: #0000ff">&lt;/</span><span style="color: #800000">tr</span><span style="color: #0000ff">&gt;</span>
+    <span style="color: #0000ff">&lt;</span><span style="color: #800000">tr</span><span style="color: #0000ff">&gt;</span>
+        <span style="color: #0000ff">&lt;</span><span style="color: #800000">td</span><span style="color: #0000ff">&gt;&lt;</span><span style="color: #800000">input</span> <span style="color: #ff0000">type</span><span style="color: #0000ff">="checkbox"</span><span style="color: #0000ff">&gt;</span>3<span style="color: #0000ff">&lt;/</span><span style="color: #800000">input</span><span style="color: #0000ff">&gt;&lt;/</span><span style="color: #800000">td</span><span style="color: #0000ff">&gt;</span>
+    <span style="color: #0000ff">&lt;/</span><span style="color: #800000">tr</span><span style="color: #0000ff">&gt;</span>
+    <span style="color: #0000ff">&lt;</span><span style="color: #800000">tr</span><span style="color: #0000ff">&gt;</span>
+        <span style="color: #0000ff">&lt;</span><span style="color: #800000">td</span><span style="color: #0000ff">&gt;&lt;</span><span style="color: #800000">input</span> <span style="color: #ff0000">type</span><span style="color: #0000ff">="checkbox"</span><span style="color: #0000ff">&gt;</span>4<span style="color: #0000ff">&lt;/</span><span style="color: #800000">input</span><span style="color: #0000ff">&gt;&lt;/</span><span style="color: #800000">td</span><span style="color: #0000ff">&gt;</span>
+    <span style="color: #0000ff">&lt;/</span><span style="color: #800000">tr</span><span style="color: #0000ff">&gt;</span>
+    <span style="color: #0000ff">&lt;</span><span style="color: #800000">tr</span><span style="color: #0000ff">&gt;</span>
+        <span style="color: #0000ff">&lt;</span><span style="color: #800000">td</span><span style="color: #0000ff">&gt;&lt;</span><span style="color: #800000">input</span> <span style="color: #ff0000">type</span><span style="color: #0000ff">="checkbox"</span><span style="color: #0000ff">&gt;</span>5<span style="color: #0000ff">&lt;/</span><span style="color: #800000">input</span><span style="color: #0000ff">&gt;&lt;/</span><span style="color: #800000">td</span><span style="color: #0000ff">&gt;</span>
+    <span style="color: #0000ff">&lt;/</span><span style="color: #800000">tr</span><span style="color: #0000ff">&gt;</span>
+<span style="color: #0000ff">&lt;</span><span style="color: #800000">table</span><span style="color: #0000ff">&gt;</span></pre>
+</div>
+
+
+<p>&nbsp;</p>
+
+
+<p>With no IDs or attributes. Let&#8217;s add those to each checkbox.</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0px; padding: 0px; overflow: visible; line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt;">writer.WriteBeginTag("input");
+writer.WriteAttribute("type", "checkbox");
+writer.WriteAttribute("name", UniqueID + this.IdSeparator + repeatIndex.ToString(NumberFormatInfo.InvariantInfo));
+writer.WriteAttribute("id", ClientID + this.ClientIDSeparator + repeatIndex.ToString(NumberFormatInfo.InvariantInfo));
+           
+if (Items[repeatIndex].Selected)
+    writer.WriteAttribute("checked", "checked");
+
+System.Web.UI.AttributeCollection attrs = Items[repeatIndex].Attributes;
+foreach (string key in attrs.Keys)
+{
+    writer.WriteAttribute(key, attrs[key]);
+}
+writer.Write("<span style="color: #0000ff">&gt;</span>");
+writer.Write(Items[repeatIndex].Text);
+writer.WriteEndTag("input");</pre>
+</div>
+
+
+<div>&nbsp;</div>
+
+
+<p>We have also added the &#8220;checked&#8221; to each checkbox. Now we are ready to insert the &#8220;missing&#8221; value attribute. Adding the following line will resolve the problem.</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0px; padding: 0px; overflow: visible; line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt;">writer.WriteAttribute("value", Items[repeatIndex].Value);</pre>
+</div>
+
+
+<div>&nbsp;</div>
+
+
+<p>Complete control code :</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0px; padding: 0px; overflow: visible; line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt;">namespace yourNamespace
+{
+    public class CheckBoxListFixed : CheckBoxList, IRepeatInfoUser
+    {
+        void IRepeatInfoUser.RenderItem(ListItemType itemType, int repeatIndex, RepeatInfo repeatInfo, HtmlTextWriter writer)
+        {
+            writer.WriteBeginTag("input");
+            writer.WriteAttribute("type", "checkbox");
+            writer.WriteAttribute("name", UniqueID + this.IdSeparator + repeatIndex.ToString(NumberFormatInfo.InvariantInfo));
+            writer.WriteAttribute("id", ClientID + this.ClientIDSeparator + repeatIndex.ToString(NumberFormatInfo.InvariantInfo));
+            writer.WriteAttribute("value", Items[repeatIndex].Value);
+            if (Items[repeatIndex].Selected)
+                writer.WriteAttribute("checked", "checked");
+            System.Web.UI.AttributeCollection attrs = Items[repeatIndex].Attributes;
+            foreach (string key in attrs.Keys)
+            {
+                writer.WriteAttribute(key, attrs[key]);
+            }
+            writer.Write("<span style="color: #0000ff">&gt;</span>");
+            writer.Write(Items[repeatIndex].Text);
+            writer.WriteEndTag("input");
+        }
+    }
+}</pre>
+</div>
+
+
+<p>&nbsp;</p>
+
+
+<p>And here is a bonus : <strong>How to use this control in my code?</strong></p>
+
+
+<p>Supposing the control isn&#8217;t in another library and that you cannot add it to your toolbox, you can always use the Register directive inside your aspx file.</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0px; padding: 0px; overflow: visible; line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt;"><span style="background-color: #ffff00">&lt;%@ Register TagPrefix="yourPrefix" Namespace="yourNamespace" %&gt;</span></pre>
+</div>
+
+
+<p>Next, you can declare your control with the format</p>
+
+
+<p><strong>&lt;<em>tagprefix:</em>CheckboxListFixed runat=&#8221;server&#8221; id=&#8221;yourID&#8221; /&gt;</strong></p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/pragmatic-thinking-learning-book-review/">Pragmatic Thinking & Learning – Book review</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-05T05:16:00-05:00" pubdate data-updated="true">Nov 5<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div style="padding-left: 30px; float: right"></div>
+
+
+<p>I have enjoyed it so much that I had to sent an email to Andy Hunt (the author) to tell him how much I appreciated his effort to write this wonderful book.</p>
+
+
+<blockquote>
+<blockquote>I have just finished reading Pragmatic Thinking and Learning a few moments ago and I believe it&#8217;s a wonderful book.</blockquote>
+<p>Thank you!</p>
+<blockquote>I haven&#8217;t had much interest in reading computer related book so much as this one for a long time. I have a strong interest in the content you provided and will begin to apply what I can right now. Starting by re-reading the book and doing a Mind Map to be sure I picked all the interesting stuff.</blockquote>
+<p>Excellent!&nbsp; If you have a chance, please post some happy comments like these on <a href="http://amazon.com">amazon.com</a>.&nbsp; It really helps.       <br />Good luck, and all the best!       <br />/\ndy</p>
+</blockquote>
+
+
+<p>&nbsp;</p>
+
+
+<p>&nbsp;</p>
+
+
+<p>This book is about the process of learning and thinking. How the brain works. But with an programmer point of view.&nbsp; Andy Hunt start by showing the Dreyfus model of skill acquisition which is describing the different type of skill level and how you go between them. Just for the info, the Dreyfus model has 5 levels : Novice, Advanced Beginner, Competent, Proficient, Expert. He describe each level in detail and how to recognize it. And most importantly, how to act accordingly.</p>
+
+
+<p>He also describe the R and L mode (left brain and right brain) and how to improve the flow between them. This is how you can remember think without thinking.</p>
+
+
+<p>There is also a lot of the content dedicated to various method to &ldquo;refactor&rdquo; your brain. Each one is focused on being a better learner or to think more efficiently. Morning pages, mind map, SQ3R, etc.</p>
+
+
+<p>I even had to apply some techniques described right away. Doing a mind map of what I&rsquo;m trying to figure out or when I&rsquo;m trying to absorb knowledge has helped me tremendously. It&rsquo;s been almost a month now and I see some improvements.</p>
+
+
+<p>I like to learn something new everyday and care a lot of the quality of what I am learning. So, it&rsquo;s the reason I must give 4.9 star out of 5 (and yes, I will post a review on Amazon Mister Hunt).</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/aspnet-mvc-request-handling-poster/">ASP.NET MVC Request Handling Poster</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-10-08T00:30:00-04:00" pubdate data-updated="true">Oct 8<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://sebastienlachance.com/image.axd?picture=niceposter.jpg"><img style="border-bottom: 0px; border-left: 0px; margin: 0px 10px 0px 0px; display: inline; border-top: 0px; border-right: 0px" title="niceposter" src="http://sebastienlachance.com/image.axd?picture=niceposter_thumb.jpg" border="0" alt="niceposter" width="85" height="119" align="left" /></a> If you need to visually look at what happens on an ASP.NET MVC request, look no further. Steve Sanderson has created a poster that will help me better understand the request pipeline. I have been looking for a long time for a resource like this, I&rsquo;m a visual learner (I think) and seeing the plumbing visually is just great.</p>
+
+
+<p>Thanks for <a title="Steve Sanderson's blog" href="http://blog.codeville.net/" target="_blank">Steve Sanderson</a> for sharing his <a title="Steve Sanderson's blog : ASP.NET MVC Learning resouce: Request-Handling Pipiline Poster" href="http://blog.codeville.net/2009/10/08/aspnet-mvc-learning-resource-request-handling-pipeline-poster/" target="_blank">Request-Handling Pipeline Poster</a>.</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -423,252 +783,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/resetting-teamcity-password/">Resetting TeamCity Password</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-08-12T08:24:00-04:00" pubdate data-updated="true">Aug 12<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&rsquo;m using TeamCity Version 4.5.3 (build 9035) and today I really couldn&rsquo;t remember my password. After searching for a while and trying various solutions, I have found this one working perfectly.</p>
-
-
-<p><strong>Solution : </strong></p>
-
-
-<p>Open a command prompt and go to &lt;installation folder&gt;\webapps\ROOT\WEB-INF\lib folder. Now type the following :</p>
-
-
-<div id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E6:12750c8b-b266-435c-9f6b-a799905b3ac9" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">
-<pre style="background-color:#FFFFFF;white-space:-moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; white-space: pre-wrap; word-wrap: break-word;overflow: auto;"><span style="color: #000000;">..\..\..\..\</span><span style="color: #000000;">jre</span><span style="color: #000000;">\</span><span style="color: #000000;">bin</span><span style="color: #000000;">\</span><span style="color: #000000;">java</span><span style="color: #000000;">.</span><span style="color: #000000;">exe -cp server</span><span style="color: #000000;">.</span><span style="color: #000000;">jar</span><span style="color: #000000;">;</span><span style="color: #000000;"> common-api</span><span style="color: #000000;">.</span><span style="color: #000000;">jar</span><span style="color: #000000;">;</span><span style="color: #000000;">commons-codec-</span><span style="color: #000000;">1.3</span><span style="color: #000000;">.</span><span style="color: #000000;">jar</span><span style="color: #000000;">;</span><span style="color: #000000;">util</span><span style="color: #000000;">.</span><span style="color: #000000;">jar</span><span style="color: #000000;">;</span><span style="color: #000000;">hsqldb</span><span style="color: #000000;">.</span><span style="color: #000000;">jar ChangePassword username newpassword
-
-</span></pre>
-<!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
-
-
-<p>Notes : Change your Java.exe path accordingly. In this case I use the one located in the TeamCity folder.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/another-metablogging-post/">Another meta-blogging post</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-08-12T01:22:00-04:00" pubdate data-updated="true">Aug 12<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Yes, it&#8217;s another meta-blogging post (see Jeff Atwood post on <a href="http://www.codinghorror.com/blog/archives/000297.html" target="_blank">meta-blogging</a>). But I think it&#8217;s a relevant one. I finally made the big move and decided to use an hosting provider to host my blog. And more importantly, I switched from <a href="http://wordpress.com/" target="_blank">WordPress</a> to <a href="http://www.dotnetblogengine.net/" target="_blank">BlogEngine.Net</a>.</p>
-
-
-<p><strong>How I made the choice to go with BlogEngine.NET?</strong></p>
-
-
-<p>Back in July, I decided to create my own blog engine. So I began the development with exactly what I had in mind for the most fantastical blog ever. After a week and really slow progress (I was sure to finish development by the beginning of August, 1 month later), I decided to look at other blog engines to gather idea on architecture and what is needed to be implemented. I looked at Oxite and BlogEngine.NET (since they are in .NET). I had a big surprise. I haven&#8217;t realized coding your own blog was so much work. In fact, BlogEngine.NET was already doing everything that I wanted (except for extension-less url).&nbsp;</p>
-
-
-<p>And the ability to write your own theme is so easy! The BlogEngine.NET really did done a good job.</p>
-
-
-<p><strong>How was the migration?</strong></p>
-
-
-<p>Horrific. WordPress use a proprietary format and can&#8217;t be imported directly into BlogEngine.NET. But it was no big deal since I wanted to reread all post and correct spelling and bad grammar, I decided to recreate them all. I used the WordPress statistics to know which post were the most read and done them first.</p>
-
-
-<p><strong>Uploading to GoDaddy.</strong></p>
-
-
-<p>I&rsquo;m not an expert in hosting server. I guess the experience was relatively easy, if it wasn&rsquo;t for the fact that I abandoned after 2 hours and when getting back, everything was working as expected. The important thing is that it worked and it&rsquo;s fast.</p>
-
-
-<p><strong>My apologies to Wordpress.</strong></p>
-
-
-<p>I have nothing against you, really. You are a great service and a wonderful blogging platform. For 2 years you made blogging a unique experience. But my world is in .NET and you are not written in it. But again, thank you!</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/ndepend-small-review/">NDepend - Small review</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-08-10T09:07:00-04:00" pubdate data-updated="true">Aug 10<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I have been using <a href="http://www.ndepend.com/">NDepend</a> on various project I am working on and there is so much to say that I can&rsquo;t wait to do a full review because I will make you wait too long. I got a free license and wanted you to know what the tool can do and what were my impression.</p>
-
-
-<p>First of all NDepend is a tool that analyse your code. It&rsquo;s huge! Definitely not a tool you can learn in an hour or two. Simply give the tool a solution or project file and start analyzing. You are first presented with a a complete map of your application. By default it shows all your code sorted by the number of lines but you can quickly switch by different kinds of metrics (LOC, Cyclomatic Complexity, IL instructions, Efferent coupling, etc.).</p>
-
-
-<p><a title="ndependcomplete" href="http://www.flickr.com/photos/63483657@N00/3724199730/"><img src="http://static.flickr.com/3439/3724199730_0127dffd0b.jpg" border="0" alt="ndependcomplete" width="680" height="516" /></a></p>
-
-
-<p>The best part is that you can write query against your code. This feature is called CQL (custom query language). Need to know which method have more than 200 lines of code? No problem. Really. It looks like SQL and is easy to write (I haven&rsquo;t written any yet, but I&rsquo;m sure it will prove useful later).</p>
-
-
-<p>Take a look at this :</p>
-
-
-<div id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E6:42d5c7d5-dae6-4381-bb88-43e02dd5509e" class="wlWriterSmartContent" style="display:inline;float:none;margin:0;padding:0;">
-<pre style="background-color:White;white-space:-moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; white-space: pre-wrap; word-wrap: break-word;overflow: auto;"><span style="color: #008000;">//</span><span style="color: #008000;"> &lt;Name&gt;Methods with too many local variables (NbVariables)&lt;/Name&gt;</span><span style="color: #008000;">
-</span><span style="color: #000000;">WARN IF Count </span><span style="color: #000000;">&gt;</span><span style="color: #000000;"> </span><span style="color: #800080;">0</span><span style="color: #000000;"> IN SELECT TOP </span><span style="color: #800080;">10</span><span style="color: #000000;"> METHODS WHERE NbVariables </span><span style="color: #000000;">&gt;</span><span style="color: #000000;"> </span><span style="color: #800080;">15</span><span style="color: #000000;"> ORDER BY NbVariables DESC</span></pre>
-<!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
-
-
-<p>Out of the box, NDepend provide around 200 CQL queries. It has queries to find unused or dead code, find which method are not test covered, naming convention not respected, types with too many methods, ect. Each rules has a short description on what it does and even provide links to more complete documentation if needed. It also has intellisence as if this wasn&rsquo;t enough.</p>
-
-
-<p>A cool feature is the dependency matrix. It&rsquo;s easy to see where is your dependencies.</p>
-
-
-<p><a title="ndependmatrix" href="http://www.flickr.com/photos/63483657@N00/3723410225/"><img src="http://static.flickr.com/3420/3723410225_31dfb32f18.jpg" border="0" alt="ndependmatrix" /></a></p>
-
-
-<p>The tools itself is beautiful, it make us want to play more with it (it does not use WPF, but it appears to).</p>
-
-
-<p>A lot of features that I haven&rsquo;t used yet are :</p>
-
-
-<ul>
-<li>Compare assemblies</li>
-<li>Code Coverage</li>
-<li>Writing complex&nbsp; custom rules</li>
-</ul>
-
-
-<p>I recently came across this post entry by <a href="http://codebetter.com/blogs/patricksmacchia/">Patrick Smacchia</a> (creator of NDepend) that used the tools to spot bugs in an existing code base (<a href="http://codebetter.com/blogs/patricksmacchia/archive/2009/06/21/agile-behavior-nurture-knowledge-database.aspx">http://codebetter.com/blogs/patricksmacchia/archive/2009/06/21/agile-behavior-nurture-knowledge-database.aspx</a>). I don&rsquo;t know why but this has really struck me and kept it in my favourites. I could write custom query to spot bad practices and potential bugs.</p>
-
-
-<p>But there is a downside. On a project I worked last year. Every query that has been executed had a warning on it, almost every single one. That&rsquo;s sad. I almost cried. But I&rsquo;m fine now. NDepend will help me.</p>
-
-
-<p>There is so much to say, that it&rsquo;s almost impossible to cover it all in one single post. I&rsquo;ll continue to use it and post any relevant information and features that I really enjoyed in the next couple of weeks.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/vivim-30-days-conclusion/">Conclusion of my Vim 30 days trial</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-07-15T09:04:00-04:00" pubdate data-updated="true">Jul 15<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&rsquo;m way too late to post the conclusion of the trial, but for all of you who wanted to know here are the results.</p>
-
-
-<p>Will I continue to use vi/Vim in my everyday life? Probably. But not for a little while. The experience was fun but I did not find that my productivity increased a lot. I can&rsquo;t really say for sure. The problem I had was that I did not have a proper typing technique. So I found myself distracted because I was hitting the wrong key and caused side effects. So, I came to the conclusion that I needed to learn how to type properly.</p>
-
-
-<p>I have already started to follow the lessons provided by <a href="http://www.typeonline.co.uk/">typeonline.co.uk</a>. And while typing with the proper skill in Visual Studio, I found myself missing <a href="http://www.viemu.com/">viEmu</a> real bad. I did not wanted to remove my hand from the keyboard to move around. Having seen what vi/vim was capable of, it&rsquo;s a huge way back.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/8/">&larr; Older</a>
@@ -700,6 +814,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/rails-assets-pipeline-and-missing-assets/">Rails Assets Pipeline and missing assets</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/method-decorators-in-ruby/">Method decorators in Ruby</a>
       </li>
     
@@ -708,15 +826,11 @@
       </li>
     
       <li class="post">
+        <a href="/blog/backbone-and-page-transition/">Backbone and page transition</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="While I was following the #railsconf thread on Twitter, I heard some talking about method decorators with Ruby. I&#8217;ve always wondered if there &hellip;">
+  <meta name="description" content="I moved the entire Guide des Commerces from Rails 3.0.10 to Rails 3.2.3. I have to admit it, I was afraid of the assets pipeline and my first &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,75 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/rails-assets-pipeline-and-missing-assets/">Rails Assets Pipeline and missing assets</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-10T10:00:00-04:00" pubdate data-updated="true">May 10<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I moved the entire <a href="http://www.guidedescommercesdebeauce.com">Guide des Commerces</a> from Rails 3.0.10 to Rails 3.2.3. I have to admit it, I was afraid of the assets pipeline and my first deployment attempt resulted in a lost afternoon and a bad case of stress. I had to revert back and lose some customer data (just my associate data).</p>
+
+<p>The problem was that I tried to use the assets pipeline for half the application and let everything in the public folder for the second half (admin part). I&#8217;m pretty sure it is possible.</p>
+
+<p>Now everything is moved and I am actually quite happy. One css and one js per page is finally a dream came true.</p>
+
+<p>Anyway, what I really wanted to talk here is about one of the problems I had. When calling the assets precompile rake task, one compiled css file was missing. Like one of the manifest wasn&#8217;t read or executed.</p>
+
+<p>When you have multiple manifest files (not called application.css or application.js), you actually have to tell which additionnal one to precompile.</p>
+
+<figure class='code'><figcaption><span>config/application.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">assets</span><span class="o">.</span><span class="n">precompile</span> <span class="o">+=</span> <span class="o">[</span><span class="s1">&#39;administration.js&#39;</span><span class="p">,</span> <span class="s1">&#39;administration.css&#39;</span> <span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>One gotcha with scss manifest:</h2>
+
+<p><strong>If you are using scss files as manifests</strong>, you need to use the compiled version.</p>
+
+<p>Like this:</p>
+
+<figure class='code'><figcaption><span>config/application.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">assets</span><span class="o">.</span><span class="n">precompile</span> <span class="o">+=</span> <span class="o">[</span><span class="s1">&#39;application.css&#39;</span> <span class="o">]</span>  <span class="c1"># this will not work, but no error will be thrown</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Instead of:</p>
+
+<figure class='code'><figcaption><span>config/application.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="n">config</span><span class="o">.</span><span class="n">assets</span><span class="o">.</span><span class="n">precompile</span> <span class="o">+=</span> <span class="o">[</span><span class="s1">&#39;application.css.scss&#39;</span> <span class="o">]</span>  <span class="c1"># this will not work, but no error will be thrown</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -307,6 +376,42 @@ Turns out it&#8217;s in Rails since version 3.0 (more specifically in active_sup
 
 
 <p><a href="http://api.rubyonrails.org/classes/Hash.html#method-i-assert_valid_keys">assert_valid_keys</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/backbone-and-page-transition/">Backbone and page transition</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-27T17:02:00-04:00" pubdate data-updated="true">Apr 27<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
 </div>
   
   
@@ -626,106 +731,6 @@ You can see it as (((10 + 1) + 2) + 3).
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-04-10T06:00:00-04:00" pubdate data-updated="true">Apr 10<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Last week, while I was playing and coding on my Backbone blog project (<a href="https://github.com/sebastienlachance/backbone-rails-blog">backbone-rails-blog</a>), I started wondering if it was something I could use to replace this blog, since I put so much time on it lately. But at the same time I kept telling myself, <strong>is Google going to index the content?</strong> The short answer is: <strong>NO</strong>, not now anyway.</p>
-
-<p>The long answer goes like this: Facebook comments are indexed. So there should be a way to provide this content to GoogleBot. I have done my homework and this document, <a href="https://developers.google.com/webmasters/ajax-crawling/docs/getting-started">Making Ajax Applications Crawlable</a>) provides some answers. Basically, we need the <a href="http://en.wikipedia.org/wiki/Shebang_(Unix">hashbang</a>) url format. This is achieved with Backbone when we are not using pushstate.</p>
-
-<p>Hashbang url:</p>
-
-<pre><code>http://sebastienlachance.com#!blog-post
-</code></pre>
-
-<p>My urls:</p>
-
-<pre><code>http://sebastienlachacne.com/blog-post
-</code></pre>
-
-<p>And frankly, I will not pursue this path. In my case anyway, it provides no real advantages to have an Ajax-powered blog.</p>
-
-<p>In fact, I could have left Backbone and only use it on the admin backend, but as a learning tool, I didn&#8217;t want to revert back (and there is so much great blogging platform now anyway).</p>
-
-<p>Do you have any other web apps ideas (other than a todo list or blog)? In my next iteration (that is, the next app), I will be using Backbone with NodeJs and MongoDB. Sounds fun.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/available/">Available</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-04-06T15:12:00-04:00" pubdate data-updated="true">Apr 6<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I am now available to do freelance web development. Contract or on site.</p>
-
-<p>I have experience in ASP.NET (MVC or WebForms) and Ruby On Rails. HTML, Javascript and CSS, no problem.</p>
-
-<p>You can see my CV here (<a href="/resume">CV</a>).</p>
-
-<p>I can be on site if you are in the area or work remotely (I also have experience in that).</p>
-
-<p>I am looking forward to accept new challenges and deliver WORKING solutions!</p>
-
-<p>You can contact me here (<a href="http://twitter.com/slachance">Twitter</a>), (<a href="http://www.linkedin.com/in/sebastienlachance">LinkedIn</a>) or here (at sebastien.lachance creatiom.com).</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -755,6 +760,10 @@ You can see it as (((10 + 1) + 2) + 3).
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/rails-assets-pipeline-and-missing-assets/">Rails Assets Pipeline and missing assets</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/method-decorators-in-ruby/">Method decorators in Ruby</a>
       </li>
     
@@ -763,15 +772,11 @@ You can see it as (((10 + 1) + 2) + 3).
       </li>
     
       <li class="post">
+        <a href="/blog/backbone-and-page-transition/">Backbone and page transition</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
       </li>
     
   </ul>

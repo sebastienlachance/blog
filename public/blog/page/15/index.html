@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Things are finally getting smoothly. I have been really busy with the construction of the new house and haven&#8217;t been able to get up to speed &hellip;">
+  <meta name="description" content="(Index of the whole series) I got hold of an old computer that I will be able to use as a continuous integration server and Subversion repository. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,309 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/setting-up-a-subversion-server-%28using-svnserve%29/">Setting up a Subversion server (using svnserve)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-29T07:44:00-05:00" pubdate data-updated="true">Nov 29<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://sebastienlachance.com/building-a-new-application-series/">(Index of the whole series)</a></p>
+
+
+<p>I got hold of an old computer that I will be able to use as a continuous integration server and Subversion repository. This weekend, I got some free time and decided to set-up Subversion on it. I was surprised on how much it was easy. The documentation is all but superfluous and it was very instructive. So here is how you can do it.</p>
+
+
+<p><strong>Downloading and installing subversion</strong></p>
+
+
+<p>You can find the latest version <a href="http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91">on this page</a>. I used the <a href="http://subversion.tigris.org/files/documents/15/39559/svn-1.4.5-setup.exe">svn-1.4.5-setup.exe</a> one. Just install it like any other program, there is no additional things to modify in the setup.</p>
+
+
+<p><strong>Setting up a repository</strong></p>
+
+
+<p>You may want to create a repository right now to make sure that you can make some test later. I recommend using <a href="http://tortoisesvn.tigris.org/">TortoiseSVN</a> for that, unless you want to learn all the command to use Subversion (not so hard to do). To do that, you simply need to create a folder that you want as a repository (this folder will hold all your files and every change made to them), and right click on it. Select the <strong>TortoiseSVN\Create repository here</strong> menu items and select the Native File System (FSFS) radio button. You now have fully working repository. For a comparison of Native File System versus Berkeley Database, take a look at this : <a href="http://svn.apache.org/repos/asf/subversion/trunk/notes/fsfs">Native File System versus Berkeley Database</a>.</p>
+
+
+<p><a title="createrepository" href="http://www.flickr.com/photos/63483657@N00/2066565635/"><img src="http://static.flickr.com/2218/2066565635_122648ef83.jpg" border="0" alt="createrepository" /></a></p>
+
+
+<p><strong>svnserve</strong></p>
+
+
+<p>You then have two choices to use Subversion remotely. First one is to use the Apache HTTP server and the second one is to use svnserve. I have decided to use svnserve because it&#8217;s a lightweight server program and I don&#8217;t need encryption and logging. Also svnserve is a lot faster and it&#8217;s the best options for small teams. You may want to make sure you are able to access it. Open a command prompt and type svnserve. You should see the following :</p>
+
+
+<p><a title="svnserve-commandprompt" href="http://www.flickr.com/photos/63483657@N00/2065650429/"><img src="http://static.flickr.com/2152/2065650429_5fcea341c8.jpg" border="0" alt="svnserve-commandprompt" /></a></p>
+
+
+<p>If you still planning to use svnserve right now, you have two choices : install it as a service or open it each time you want to access a repository.</p>
+
+
+<p>If you are planning to open it each time you want to access your repository, launch a command prompt and type <strong>svnserve -d</strong>. You have access to all the repositories you may have created on the server.</p>
+
+
+<p>If, however, you decide to use it as a Windows Service (it will reopen automatically each time you start the server), Use this at a command prompt :</p>
+
+
+<p><strong>C:\&gt; sc create svn binpath= &#8220;&#34;C:\program files\svn\bin\svnserve.exe&#34; &#8211;service -r C:\nameofyourrepository&#8221; displayname= &#8220;Subversion Server&#8221; depend= Tcpip start= auto</strong></p>
+
+
+<p><strong>Controlling access</strong></p>
+
+
+<p>If you attempted to use this right now to make a check-in, you will find that you don&#8217;t have Write access. This can be changed by editing the svnserve.conf found in your repository folder. You need to find the <strong># anon-access = read</strong> and change it to <strong>anon-access = write </strong>(don&#8217;t forget to remove #)<strong>. </strong>This will grant write access to all anonymous users. This is not the ideal, but in a single programmer scenario it works perfectly. However, note that if you need a more robust authentication solution, it&#8217;s totally possible. I will not cover it right now, but the full procedure is described in the TortoiseSVN documentation (Section 3.2.4).</p>
+
+
+<p><a title="svnservedotconf" href="http://www.flickr.com/photos/63483657@N00/2066587611/"><img src="http://static.flickr.com/2232/2066587611_f8b0676611.jpg" border="0" alt="svnservedotconf" /></a></p>
+
+
+<p>&nbsp;</p>
+
+
+<p><strong>Accessing the repository remotely</strong></p>
+
+
+<p>Open the repository browser (shown below) and type <strong>svn://nameofyourserver/nameofyourrepository</strong>. Can it be more easy?</p>
+
+
+<p><a title="access" href="http://www.flickr.com/photos/63483657@N00/2067411144/"><img src="http://static.flickr.com/2126/2067411144_580c22ef46.jpg" border="0" alt="access" /></a></p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/building-a-new-application-introduction/">Building a new application - Introduction</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-27T07:43:00-05:00" pubdate data-updated="true">Nov 27<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://sebastienlachance.com/building-a-new-application-series/">(Index of the whole series)</a> </p>
+
+
+
+
+<p>I want to build an application and release it to the community. This is an application I had in mind for a long time. Basically, it’s a logging application. Not the one you would use to track requirements and time spent on a project. I’m talking about a logging application to log your weight, track your goals, what you’ve eat, do reports , etc. I know it’s something people want. I’m not doing it for money. I want to learn as much as possible and I think that writing code and solving new problems is a great way to learn. I have to take some basic decision at the beginning of the project and I must admit it will be a good excuse to make a list of all the new things (for me) that I want to use in the project and blog about them. This is an opportunity for me to take the time of using object-oriented techniques and becoming more agile. I will also blog a lot about that, because I find that blogging an interesting tool to learn and explaining to others help reinforce knowledge and being more confident. Also, posting about your goals, makes it a little harder to abandon too early.  </p>
+
+
+
+
+<p>My requirements are the the following : </p>
+
+
+<p></p>
+
+<ul> 
+<li>Test-Driven development. I want a coverage of 95% at least.  </li>
+<li>Building an continuous integration server.  </li>
+<li>Applying at the best of my knowledge Object-Oriented principle.  </li>
+<li>User stories.  </li>
+<li>Identify mistakes as soon as possible and learn from them.  </li>
+<li>Use a source control software and learn some of the best practices of source control management. </li>
+</ul>
+
+
+<p></p>
+
+<p>Technologies I want to use : </p>
+
+
+<p></p>
+
+<ul> 
+<li>It&#8217;s a windows forms application in C#. </li>  
+<li>Windows Presentation Foundation.  </li>
+<li>.NET 3.5.  </li>
+<li><a href="http://www.microsoft.com/sql/editions/sqlmobile/sqlmobileresources.mspx">SqlCe</a> or <a href="http://www.sqlite.org/">SQLite.</a>  </li>
+<li><a href="http://www.microsoft.com/express/product/default.aspx">Visual Studio 2008</a>.  </li>
+<li><a href="http://subversion.tigris.org/">Subversion</a>.  <li><a href="http://nant.sourceforge.net/">NAnt</a>.  </li>
+<li><a href="http://ncover.org/">NCover and NCover explorer</a>. </li> 
+<li><a href="http://confluence.public.thoughtworks.org/display/CCNET/Welcome+to+CruiseControl.NET">CruiseControl.NET</a>.  </li>
+<li><a href="http://www.mbunit.com/">MBUnit</a>.  <li><a href="http://www.hibernate.org/343.html">NHibernate</a>.  </li>
+<li><a href="http://ayende.com/projects/rhino-mocks.aspx">Rhino Mocks</a>.</li>
+</ul>
+
+
+<p></p>
+
+<p>So I want It to be Agile as most as possible. First step, print the <a href="http://agilemanifesto.org/">Agile Manifesto</a>!</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/setting-up-cruisecontrolnet-screencast/">Setting up CruiseControl.Net screencast</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-15T07:42:00-05:00" pubdate data-updated="true">Nov 15<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I am a long time reader of the CodeBetter.com blogs and usually read all their posts. But last year, I missed one that I consider a gem. If you ever struggled with building a continuous integration with CruiseControl.Net, you will find that screencast very instructive. Excellent job Jean-Paul S. Boodhoo&#8217;s!!</p>
+
+
+
+
+<p>
+<a href="http://www.jpboodhoo.com/blog/AutomatingYourBuildsWithNAntPart8EnterCruiseControl.aspx" title="Automating Your Builds With NAnt - Part 8 (Enter CruiseControl)">Automating Your Builds With NAnt - Part 8 (Enter CruiseControl)</a>
+</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/reality-of-type-sharing-in-wcf/">Reality of type sharing in WCF</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-13T07:40:00-05:00" pubdate data-updated="true">Nov 13<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I am working a lot right now with WCF (Windows Communication Foundation). I am doing the service side of the architecture. The problem we faced this week was with type sharing. Suppose you have a customer class and an address class as data contract. The customer have an address list. Then we have two services who use those types, CustomerService and AddressService. One of the service do operation with the customer and the second on the address. All this one one assembly. On a real world scenario we had to take the address of the customer we just got with the customer&#8217;s service and provide it to the address&#8217;s services.</p>
+
+
+
+
+<p>We used Visual Studio to generate the proxies for those services. Since CustomerService and AddressService are each one aware of the 2 data contracts (Address and Customer) the call made to svcutil from Visual Studio does not generate proxies with type sharing. You have yourself two times the address class and then can&#8217;t be passed from one service to another.</p>
+
+
+
+
+<p>
+But fortunately, a solution exist!
+</p>
+
+
+
+
+<p>
+1. I had to separate the data contracts from the services contracts and puts them in a new assembly.
+</p>
+
+
+
+
+<p>
+2. Do not ever use Visual Studio to add service reference (this is what will get you 2 times the same class in 2 different namespaces ).
+</p>
+
+
+
+
+<p>
+3. Learn to use svcutil. Then learn about the /r: switch. When using this switch, you can specify which assembly to use when resolving reference.
+</p>
+
+
+
+
+<p>
+The 2 downside I see, is that you can&#8217;t use Visual Studio anymore to generate proxies and that you need to control both side (service and client). Or at least the service side and provide the data contracts assembly to your client.
+</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -583,415 +886,6 @@ I strongly suggest that you apply this law. You&#8217;ll thank me later.
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/visual-studio-20052008-adding-projects-to-your-solution/">Visual Studio 2005/2008 : Adding projects to your solution</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-10-10T22:58:00-04:00" pubdate data-updated="true">Oct 10<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>There is 2 ways :</p>
-
-
-<p>1. Begin by opening the New Project dialog box : File/New/Project&#8230; (or Ctrl-Shift-N). Navigate to the type of project you want. In the solution dropdown, choose Add to Solution. Failure to do that will result in the creation of a new solution. Enter the name of our project and click the OK button.</p>
-
-
-<p><a href="http://www.flickr.com/photos/63483657@N00/1533536847/"><img src="http://static.flickr.com/2358/1533536847_f3d22c1d55.jpg" border="0" alt="AddToSolution" /></a></p>
-
-
-<p>2. In the Solution Explorer (Ctrl-Alt-L), right-click on the solution node and choose Add/New Project&#8230;</p>
-
-
-<p><a href="http://www.flickr.com/photos/63483657@N00/1533566953/"><img src="http://static.flickr.com/2322/1533566953_416de0abd2.jpg" border="0" alt="AddNewProject2" /></a></p>
-
-
-<p>This time you don&#8217;t need to choose anything in the dropdown. Enter the name of the project and click the OK button.</p>
-
-
-<p>Each one of those 2 methods will a a new folder with the name you entered. Inside the folder you will find a project file (.csproj or .vbproj) and a .cs (or .vb). By default Visual Studio will generate a default file for the type of project you choose).</p>
-
-
-<p>Let&#8217;s look at the project file.</p>
-
-
-<p style="line-height: 12pt; background-color: #f4f4f4; margin: 20px 0px 10px; width: 97.5%; font-family: consolas,'Courier New',courier,monospace; max-height: 200px; font-size: 8pt; overflow: auto; cursor: text; border: gray 1px solid; padding: 4px;">&nbsp;</p>
-
-
-<p style="line-height: 12pt; background-color: #f4f4f4; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">&nbsp;</p>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span style="color: #0000ff">&lt;</span><span style="color: #800000">Project</span> <span style="color: #ff0000">DefaultTargets</span><span style="color: #0000ff">="Build"</span> <span style="color: #ff0000">xmlns</span><span style="color: #0000ff">="http://schemas.microsoft.com/developer/msbuild/2003"</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #0000ff">&lt;</span><span style="color: #800000">PropertyGroup</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">Configuration</span> <span style="color: #ff0000">Condition</span><span style="color: #0000ff">=" '$(Configuration)' == '' "</span><span style="color: #0000ff">&gt;</span>Debug<span style="color: #0000ff">&lt;/</span><span style="color: #800000">Configuration</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">Platform</span> <span style="color: #ff0000">Condition</span><span style="color: #0000ff">=" '$(Platform)' == '' "</span><span style="color: #0000ff">&gt;</span>AnyCPU<span style="color: #0000ff">&lt;/</span><span style="color: #800000">Platform</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">ProductVersion</span><span style="color: #0000ff">&gt;</span>8.0.50727<span style="color: #0000ff">&lt;/</span><span style="color: #800000">ProductVersion</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">SchemaVersion</span><span style="color: #0000ff">&gt;</span>2.0<span style="color: #0000ff">&lt;/</span><span style="color: #800000">SchemaVersion</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">ProjectGuid</span><span style="color: #0000ff">&gt;</span>c50693b9-547b-49f0-8850-e3c0a3b0325c<span style="color: #0000ff">&lt;/</span><span style="color: #800000">ProjectGuid</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">OutputType</span><span style="color: #0000ff">&gt;</span>Library<span style="color: #0000ff">&lt;/</span><span style="color: #800000">OutputType</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">AppDesignerFolder</span><span style="color: #0000ff">&gt;</span>Properties<span style="color: #0000ff">&lt;/</span><span style="color: #800000">AppDesignerFolder</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">RootNamespace</span><span style="color: #0000ff">&gt;</span>ClassLibrary1<span style="color: #0000ff">&lt;/</span><span style="color: #800000">RootNamespace</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">AssemblyName</span><span style="color: #0000ff">&gt;</span>ClassLibrary1<span style="color: #0000ff">&lt;/</span><span style="color: #800000">AssemblyName</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #0000ff">&lt;/</span><span style="color: #800000">PropertyGroup</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #0000ff">&lt;</span><span style="color: #800000">PropertyGroup</span> <span style="color: #ff0000">Condition</span><span style="color: #0000ff">=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' "</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">DebugSymbols</span><span style="color: #0000ff">&gt;</span>true<span style="color: #0000ff">&lt;/</span><span style="color: #800000">DebugSymbols</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">DebugType</span><span style="color: #0000ff">&gt;</span>full<span style="color: #0000ff">&lt;/</span><span style="color: #800000">DebugType</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">Optimize</span><span style="color: #0000ff">&gt;</span>false<span style="color: #0000ff">&lt;/</span><span style="color: #800000">Optimize</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">OutputPath</span><span style="color: #0000ff">&gt;</span>bin\Debug\<span style="color: #0000ff">&lt;/</span><span style="color: #800000">OutputPath</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">DefineConstants</span><span style="color: #0000ff">&gt;</span>DEBUG;TRACE<span style="color: #0000ff">&lt;/</span><span style="color: #800000">DefineConstants</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">ErrorReport</span><span style="color: #0000ff">&gt;</span>prompt<span style="color: #0000ff">&lt;/</span><span style="color: #800000">ErrorReport</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">WarningLevel</span><span style="color: #0000ff">&gt;</span>4<span style="color: #0000ff">&lt;/</span><span style="color: #800000">WarningLevel</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #0000ff">&lt;/</span><span style="color: #800000">PropertyGroup</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #0000ff">&lt;</span><span style="color: #800000">PropertyGroup</span> <span style="color: #ff0000">Condition</span><span style="color: #0000ff">=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' "</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">DebugType</span><span style="color: #0000ff">&gt;</span>pdbonly<span style="color: #0000ff">&lt;/</span><span style="color: #800000">DebugType</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">Optimize</span><span style="color: #0000ff">&gt;</span>true<span style="color: #0000ff">&lt;/</span><span style="color: #800000">Optimize</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">OutputPath</span><span style="color: #0000ff">&gt;</span>bin\Release\<span style="color: #0000ff">&lt;/</span><span style="color: #800000">OutputPath</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">DefineConstants</span><span style="color: #0000ff">&gt;</span>TRACE<span style="color: #0000ff">&lt;/</span><span style="color: #800000">DefineConstants</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">ErrorReport</span><span style="color: #0000ff">&gt;</span>prompt<span style="color: #0000ff">&lt;/</span><span style="color: #800000">ErrorReport</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">WarningLevel</span><span style="color: #0000ff">&gt;</span>4<span style="color: #0000ff">&lt;/</span><span style="color: #800000">WarningLevel</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #0000ff">&lt;/</span><span style="color: #800000">PropertyGroup</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #0000ff">&lt;</span><span style="color: #800000">ItemGroup</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">Reference</span> <span style="color: #ff0000">Include</span><span style="color: #0000ff">="System"</span> <span style="color: #0000ff">/&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">Reference</span> <span style="color: #ff0000">Include</span><span style="color: #0000ff">="System.Data"</span> <span style="color: #0000ff">/&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">Reference</span> <span style="color: #ff0000">Include</span><span style="color: #0000ff">="System.Xml"</span> <span style="color: #0000ff">/&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #0000ff">&lt;/</span><span style="color: #800000">ItemGroup</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #0000ff">&lt;</span><span style="color: #800000">ItemGroup</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">Compile</span> <span style="color: #ff0000">Include</span><span style="color: #0000ff">="Class1.cs"</span> <span style="color: #0000ff">/&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">Compile</span> <span style="color: #ff0000">Include</span><span style="color: #0000ff">="Properties\AssemblyInfo.cs"</span> <span style="color: #0000ff">/&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #0000ff">&lt;/</span><span style="color: #800000">ItemGroup</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #0000ff">&lt;</span><span style="color: #800000">Import</span> <span style="color: #ff0000">Project</span><span style="color: #0000ff">="$(MSBuildBinPath)\Microsoft.CSharp.targets"</span> <span style="color: #0000ff">/&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;">  <span style="color: #008000">&lt;!-- To modify your build process, add your task inside one of the targets below and uncomment it. </span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span style="color: #008000">       Other similar extension points exist, see Microsoft.Common.targets.</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span style="color: #008000">  &lt;Target Name="BeforeBuild"&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span style="color: #008000">  &lt;/Target&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span style="color: #008000">  &lt;Target Name="AfterBuild"&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span style="color: #008000">  &lt;/Target&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: #f4f4f4; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span style="color: #008000">  --&gt;</span></pre>
-
-
-<pre style="line-height: 12pt; background-color: white; margin: 0px; width: 100%; font-family: consolas,'Courier New',courier,monospace; color: black; font-size: 8pt; overflow: visible; border-style: none; padding: 0px;"><span style="color: #0000ff">&lt;/</span><span style="color: #800000">Project</span><span style="color: #0000ff">&gt;</span></pre>
-
-
-<p>As you can see, it&#8217;s an xml file. It contains informations about the assembly name, the output type, namespace, version of Visual Studio used to create the project, etc. And it also contains the information used to compile. This is a whole topic so we will not cover it now. Right under we have the reference used by the project and the files it contains . You do not need to remember all that, the important thing is to know what is the purpose of the file. And finally, if you decide to use SourceSafe, all binding information will be added to this file.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/nant-086-beta-1-is-out-%21%21/">NAnt 0.86 beta 1 is out !!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-10-10T10:59:00-04:00" pubdate data-updated="true">Oct 10<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://nant.sourceforge.net/" target="_blank">NAnt 0.86 beta 1 is out!</a> Now with support for .NET 3.5.</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/visual-studio-20052008-starting-a-solution-correctly/">Visual Studio 2005/2008 : Starting a solution correctly</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-10-10T08:30:00-04:00" pubdate data-updated="true">Oct 10<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&#8217;m always wondering about what should I be blogging today. But not today. I want to give back some of the stuff I&#8217;ve learned in the past years. The question was : I&#8217;m starting with what? After some time, it struck me right in the face. I know that some people would prefer using notepad over Visual Studio, but I&#8217;m not there to discuss that. I found that mastering an editor is a great to get started and will allow you more time to code and less time to wonder where is the option that will highlight the file you are in. So the first posts will be about Visual Studio 2005. And the very first is about how to start a solution correctly.</p>
-
-
-
-
-<h2>Why?</h2>
-
-
-
-
-<p>
-Given the number of people I helped with that, I think this is something you should know. You should not start be creating a project. Doing that will lead you to a messy folder hierarchy and a wrong solution name.
-</p>
-
-
-
-
-<h2>When?</h2>
-
-
-
-
-<p>
-Everytime you start a solution.
-</p>
-
-
-
-
-<h2>How?</h2>
-
-
-
-
-<p>
-You start by clicking File\New\Project&#8230; or Ctrl-Shift-N.
-</p>
-
-
-
-
-<p>
-<a href="http://www.flickr.com/photos/63483657@N00/1534280146/" title="FileNewProject"><img src="http://static.flickr.com/2107/1534280146_35c54906fc.jpg" alt="FileNewProject" border="0" /></a>
-</p>
-
-
-
-
-<p>
-In tree on the left you need to go to the Other Project Types node and select Visual Studio Solutions. You now have the choice of selecting the Blank Solution item. You should notice that the checkbox for the Create directory for solution is grayed out, this means that a directory will be created for the solution. In our case, it will be : C:\dev\dotnet\Solution1. This folder will also contains a Solution1.sln and Solution1.suo. This is exactly what we want, every project you will add will be placed in this folder. The hierarchy you see in the Solution Explorer will be the same as your solution.
-</p>
-
-
-
-
-<p>
-<a href="http://www.flickr.com/photos/63483657@N00/1534280372/" title="BlankSolution"><img src="http://static.flickr.com/2026/1534280372_70567c2cf9.jpg" alt="BlankSolution" border="0" /></a>
-</p>
-
-
-
-
-<p>
-<u><strong>.sln file</strong></u>
-</p>
-
-
-
-
-<p>
-This is the solution file that Visual Studio will use to load all project associated with the solution. As well as other options that does not need to be covered now.
-</p>
-
-
-
-
-<p>
-<strong><u>.suo file</u></strong>
-</p>
-
-
-
-
-<p>
-This binary file contains information about what files were currently in edition, collapsed nodes, etc. When you close and reopen Visual Studio 2005, it will read this file to replace it the way it was before.
-</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/the-last-lecture-by-randy-pausch/">The Last Lecture by Randy Pausch</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-09-26T08:26:00-04:00" pubdate data-updated="true">Sep 26<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Watch and cry (of course I&#8217;m not crying for real).</p>
-
-
-
-
-<p><a title="The Last Lecture by Randy Pausch" href="http://link.brightcove.com/services/link/bcpid452319854/bctid1199157902" title="http://link.brightcove.com/services/link/bcpid452319854/bctid1199157902">The Last Lecture | Randy Pausch</a></p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/16/">&larr; Older</a>
@@ -1023,6 +917,10 @@ This binary file contains information about what files were currently in edition
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/rails-assets-pipeline-and-missing-assets/">Rails Assets Pipeline and missing assets</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/method-decorators-in-ruby/">Method decorators in Ruby</a>
       </li>
     
@@ -1031,15 +929,11 @@ This binary file contains information about what files were currently in edition
       </li>
     
       <li class="post">
+        <a href="/blog/backbone-and-page-transition/">Backbone and page transition</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/what-can-we-do-with-array-dot-inject/">What can we do with Enumerable#Inject?</a>
       </li>
     
   </ul>
