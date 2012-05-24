@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Listening to the last screencast of Rob Conery (MVC Storefront) made me realize something that I haven&#8217;t really understood before. Suppose you &hellip;">
+  <meta name="description" content="When you want to create a new WCF project, you are presented with 4 different templates to use : Sequential Workflow Service Library Syndication &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,95 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/visual-studio-2008-wcf-templates/">Visual Studio 2008 - WCF Templates</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-05-21T08:19:00-04:00" pubdate data-updated="true">May 21<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When you want to create a new WCF project, you are presented with 4 different templates to use :</p>
+
+
+<ul>
+<li>Sequential Workflow Service Library </li>
+<li>Syndication Service Library </li>
+<li>State Machine Workflow Service Library </li>
+<li>WCF Service Library</li>
+</ul>
+
+
+<p>Each one has it&#8217;s own particularities. It&#8217;s important to know which one to choose but you should know that the template only generate things you need to get started. You can always start from an empty WCF Service Library and build on top of it. Anyway, here is an explanation for each one.</p>
+
+
+<h3>Sequential Workflow Service Library</h3>
+
+
+<p>You basically create a sequential workflow project that made operations available by WCF. I have no experience with Workflow Foundation so I will not go further into details.</p>
+
+
+<h3>Syndication Service Library</h3>
+
+
+<p>This template is great. It present you a way to expose an RSS or Atom feed via a WCF Service contract. This is built-in stuff already present in the framework.</p>
+
+
+<p>To expose a feed, you need an operation that return a&nbsp; <strong>SyndicationFeedFormatter</strong> (in the System.ServiceModel.Syndication namespace). Then create a <strong>SyndicationFeed</strong> and add <strong>SyndicationItem</strong> to it. Finally, create a <strong>Atom10FeedFormatter</strong> or <strong>Rss20FeedFormatter</strong> and return it.</p>
+
+
+<div>
+<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">SyndicationFeed feed = <span style="color: #0000ff;">new</span> SyndicationFeed(<span style="color: #006080;">"Feed Title"</span>, <span style="color: #006080;">"A WCF Syndication Feed"</span>, <span style="color: #0000ff;">null</span>);<br />List&lt;SyndicationItem&gt; items = <span style="color: #0000ff;">new</span> List&lt;SyndicationItem&gt;();<br /><br /><span style="color: #008000;">// Create a new Syndication Item.</span><br />SyndicationItem item = <span style="color: #0000ff;">new</span> SyndicationItem(<span style="color: #006080;">"An item"</span>, <span style="color: #006080;">"Item content"</span>, <span style="color: #0000ff;">null</span>);<br />items.Add(item);<br />feed.Items = items;<br /><br /><span style="color: #008000;">// Return ATOM or RSS based on query string</span><br /><span style="color: #008000;">// rss -&gt; http://localhost:8731/Design_Time_Addresses/SyndicationServiceLibrary1/Feed1/</span><br /><span style="color: #008000;">// atom -&gt; http://localhost:8731/Design_Time_Addresses/SyndicationServiceLibrary1/Feed1/?format=atom</span><br /><span style="color: #0000ff;">string</span> query = WebOperationContext.Current.IncomingRequest.UriTemplateMatch.QueryParameters[<span style="color: #006080;">"format"</span>];<br />SyndicationFeedFormatter formatter = <span style="color: #0000ff;">null</span>;<br /><span style="color: #0000ff;">if</span> (query == <span style="color: #006080;">"atom"</span>)<br />{<br />   formatter = <span style="color: #0000ff;">new</span> Atom10FeedFormatter(feed);<br />}<br /><span style="color: #0000ff;">else</span><br />{<br />   formatter = <span style="color: #0000ff;">new</span> Rss20FeedFormatter(feed);<br />}<br /><br /><span style="color: #0000ff;">return</span> formatter;</pre>
+</div>
+
+
+<h2>&nbsp;</h2>
+
+
+<h3>State Machine Workflow Service Library</h3>
+
+
+<p>Another template that expose a Windows Workflow as a Service. This time the type of Workflow is a State Machine. A state machine workflow contrary to a sequential workflow is driven by external events. Transition between states are based on certain events until it reach the final state.</p>
+
+
+<p>&nbsp;</p>
+
+
+<h3>WCF Service Library</h3>
+
+
+<p>The most basic project to create a WCF service. You can use it to do everything you want with the most control.</p>
+
+
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:30a47706-c5e7-4cb1-ac8e-cb066919747b" class="wlWriterSmartContent" style="display: inline; margin: 0; padding: 0;">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/WCF">WCF</a></div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -560,141 +649,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/exploring-anonymous-methods/">Exploring Anonymous Methods</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-04-16T07:13:00-04:00" pubdate data-updated="true">Apr 16<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>My desire to explore Delegates and Anonymous Methods came from my next exploration, which will be the the Lambda feature. So, I will probably do an article on it in a near future.</p>
-
-
-<p>So, what exactly is an anonymous method? It&#8217;s a C# 2.0 feature. Whenever you encounter the need to pass something as a delegate parameter, you can use an anonymous method.</p>
-
-
-<p><strong>Example : </strong></p>
-
-
-<p>This class has a method that expect a delegate that has no parameter and no return value.</p>
-
-
-<div>
-<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> Action<br />{<br />    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">delegate</span> <span style="color: #0000ff;">void</span> MyActionDelegate();<br /><br />    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> Execute(MyActionDelegate myActionDelegate)<br />    {<br />        myActionDelegate.Invoke();<br />    }<br />}</pre>
-</div>
-
-
-<p>Previously, you would have declared a method that has no parameter and no return value and passed it to the Execute method. Like this :</p>
-
-
-<div>
-<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> DoSomething()<br />{<br />    Console.WriteLine(<span style="color: #006080;">"This is not an anonymous method."</span>);<br />}<br /><br /><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> Main(<span style="color: #0000ff;">string</span>[] args)<br />{<br />    Action action = <span style="color: #0000ff;">new</span> Action();<br /><br />    action.Execute(DoSomething);<br />}</pre>
-</div>
-
-
-<p>An the output would be :</p>
-
-
-<p><a title="DelegateOutput" href="http://www.flickr.com/photos/63483657@N00/2417530780/"><img src="http://static.flickr.com/3155/2417530780_d7395030f0.jpg" border="0" alt="DelegateOutput" /></a></p>
-
-
-<p>With an anonymous method, we reduce the code and by the same occasion, augment code readability.</p>
-
-
-<div>
-<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> Main(<span style="color: #0000ff;">string</span>[] args)<br />{<br />    Action action = <span style="color: #0000ff;">new</span> Action();<br />    action.Execute(<span style="color: #0000ff;">delegate</span>() { Console.WriteLine(<span style="color: #006080;">"This is inside an anonymous method."</span>); });<br />}</pre>
-</div>
-
-
-<p><a title="AnonymousOutput" href="http://www.flickr.com/photos/63483657@N00/2417538708/"><img src="http://static.flickr.com/3188/2417538708_0e339a00d8.jpg" border="0" alt="AnonymousOutput" /></a></p>
-
-
-<p>If the delegate has expected a parameter you could have done it like :</p>
-
-
-<div>
-<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">action.Execute(<span style="color: #0000ff;">delegate</span>(<span style="color: #0000ff;">string</span> s) { Console.WriteLine(s); });</pre>
-</div>
-
-
-<p>And if the delegate have an return value, make sure you return one of the correct type :</p>
-
-
-<div>
-<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">action.Execute(<span style="color: #0000ff;">delegate</span>(<span style="color: #0000ff;">string</span> s) { <span style="color: #0000ff;">return</span> s; });</pre>
-</div>
-
-
-<p>&nbsp;</p>
-
-
-<p><strong>Accessing variables located outside the anonymous block :</strong></p>
-
-
-<p>A feature of an anonymous method is the ability to access variables located outside the anonymous scope (anonymous-method-block). Those variables called <strong>&#8220;outer variables&#8221;.</strong> It is better explained by an example :</p>
-
-
-<div>
-<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"><span style="color: #0000ff;">string</span> myString = <span style="color: #006080;">"Outside the anonymous method."</span>;<br />action.Execute(<span style="color: #0000ff;">delegate</span>(<span style="color: #0000ff;">string</span> s) { Console.WriteLine(myString); });</pre>
-</div>
-
-
-<p><a title="AnonymousScope" href="http://www.flickr.com/photos/63483657@N00/2416747123/"><img src="http://static.flickr.com/3228/2416747123_db158829a6.jpg" border="0" alt="AnonymousScope" /></a></p>
-
-
-<p>The exception to this rule are the ref and out parameters, which cannot be accessed by the anonymous method. You also can&#8217;t put unsafe code in the anonymous method.</p>
-
-
-<p><strong>Real life example </strong></p>
-
-
-<p>Maybe not (it&#8217;s always hard to come with great example), but it illustrate how you can use an anonymous method to find all string matching &#8220;String5&#8221; inside a collection of string. Just imagine doing the same thing in your collection of orders or products.</p>
-
-
-<div>
-<pre style="border-style: none; margin: 0pt; padding: 0pt; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">List&lt;<span style="color: #0000ff;">string</span>&gt; myListOfString = <span style="color: #0000ff;">new</span> List&lt;<span style="color: #0000ff;">string</span>&gt;();<br /><br /><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> x = 0; x &lt; 10; x++)<br />{<br />    myListOfString.Add(<span style="color: #006080;">"String"</span> + x);<br />}<br /><br />List&lt;String&gt; returnedStrings = myListOfString.FindAll(<span style="color: #0000ff;">delegate</span>(<span style="color: #0000ff;">string</span> s) { <span style="color: #0000ff;">return</span> s == <span style="color: #006080;">"String5"</span>; });</pre>
-</div>
-
-
-<p>&nbsp;</p>
-
-
-<p><strong>Conclusion</strong></p>
-
-
-<p>Mastering Anonymous Methods is a great skill to have in you toolbox. But be careful, if you need to reuse the same code again and again, you better have to create a method and put the code in it. Don&#8217;t try to impress your friends too much. :)</p>
-
-
-<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:4f5732e1-da9d-4fc1-8e6b-806baab699a2" class="wlWriterSmartContent" style="display: inline; margin: 0; padding: 0;">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/C#%202.0">C# 2.0</a>,<a rel="tag" href="http://technorati.com/tags/dotnet">dotnet</a>,<a rel="tag" href="http://technorati.com/tags/anonymous%20methods">anonymous methods</a>,<a rel="tag" href="http://technorati.com/tags/lambda">lambda</a></div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/12/">&larr; Older</a>
@@ -726,6 +680,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/an-real-world-application-with-backbone-my-story/">An real world application with Backbone and Rails - My story &#8230; so far</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/rails-assets-pipeline-and-missing-assets/">Rails Assets Pipeline and missing assets</a>
       </li>
     
@@ -739,10 +697,6 @@
     
       <li class="post">
         <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
       </li>
     
   </ul>

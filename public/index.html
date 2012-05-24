@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="I moved the entire Guide des Commerces from Rails 3.0.10 to Rails 3.2.3. I have to admit it, I was afraid of the assets pipeline and my first &hellip;">
+  <meta name="description" content="This is a post about the technology stack I use for my new project (available in the next few weeks). I can&#8217;t tell you right now what it is&# &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,6 +81,86 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/an-real-world-application-with-backbone-my-story/">An real world application with Backbone and Rails - My story &#8230; so far</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-24T09:20:00-04:00" pubdate data-updated="true">May 24<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This is a post about the technology stack I use for my new project (available in the next few weeks).</p>
+
+<p>I can&#8217;t tell you right now what it is&#8230; (I&#8217;m a little paranoid that my idea will be stolen :) ). But really soon I promise.</p>
+
+<h2>tl;dr</h2>
+
+<p>I used Rails, PostgreSql, Backbone and Twitter Bootstrap.</p>
+
+<h2>This is how I decided of the technology stack.</h2>
+
+<h2>Web framework</h2>
+
+<p>Most of my real-world experience was with Rails and .NET. I have done a lot of work in ASP.NET, MVC, Winforms, services, etc. Since I have a lot more experience in the Microsoft world, it would have been logical to use ASP.NET MVC, but Rails is part of my life for the last 2-3 years and it&#8217;s a lot more fun and the development process is reduced by a strong percentage. Don&#8217;t believe me? Try it yourself, you&#8217;ll see what I mean. I have nothing against Visual Studio, It&#8217;s a fantastic IDE and it&#8217;s becoming pretty fast. But, not fast enough. Waiting for Visual Studio to build and attach the debugger is too painful when you are in a hurry. NuGet is starting to be really great but &#8230;</p>
+
+<p>So I will use Rails latests version (3.2.3 at the moment) with Vim, all on my Macbook Pro. RVM included. I strongly belived that when you launch a startup you want to launch something as fast as possible and adjust to the need of your users. I can&#8217;t built every tools from scratch. So I will use existing tools instead of reinventing the wheel. Rails assets pipeline will help compress and manage assets easily, Sass and CoffeeScript support out of the box. You need something complicated that you don&#8217;t have time for? Gems! There is Gems for almost everything.</p>
+
+<p>I had considered and was almost sure that I would use Node. But I have realized that I couldn&#8217;t be proefficient soon enough.</p>
+
+<h2>Database</h2>
+
+<p>For the database, I made the mistake to use MySql on my last project when I needed fulltext search. I will not use PostgreSQL. With Rails however, I didn&#8217;t see any changes in my development process. Require the pg gem instead of MySql and it&#8217;s done. NoSql is tempting but I don&#8217;t see any real advantages for me, for now.</p>
+
+<h2>Client-side styling</h2>
+
+<p>For the css grid framework I wanted to use Skeleton but decided at the last moment to use Twitter Bootstrap (I know&#8230;). You need to know that I am not a designer and Twitter Bootstrap has some customization possible. And it has all this Javascript plugins that are just great <a href="http://twitter.github.com/bootstrap/index.html">Twitter Bootstrap</a></p>
+
+<h2>Backbone</h2>
+
+<p>An obvious choice was to use Backbone. I didn&#8217;t knew why at the time, but I am glad I didn&#8217;t threw this choice away. It was important for me to be a client-side application. As I previously read, Performance is a feature. And it is one of my key principle.</p>
+
+<p>Backbone has a big learning curve. Here is how I manage to use it effectively:</p>
+
+<p>I wanted to use TDD to develop the client-side, but gave away after the first week. It was getting in my way and for me I didn&#8217;t feel I was learning Backbone, I was learning how to test javascript. What I did instead was to only use the model part of Backbone and implement the rest using JQuery. It worked really well, until I finally saw a pattern emerging were I needed to reuse a certain part of the interface. So I created a view, listening to the change event of the model. After a while, I added another event listener to the blur event of an text input, and then listening to the reset event of a collection. And then another and another. I saw another case where a view could be appropriate and started implementing it. Created a sub view. Realized that a Router would be a welcome addition. And now I see where I could use it everywhere.</p>
+
+<p>I can now say that no more of the original JQuery code is left and everything is in either a view, model, router or collection.</p>
+
+<h2>Authentication</h2>
+
+<p>One of the other big challenge I faced was with authentication. It was a requirement to use a flexible authentication scheme.</p>
+
+<p>Twitter and Facebook were my two absolute must as well as the normal user/password combination. Thankfully, the Rails ecosystem has some great gems and OmniAuth was exactly what I was looking for.</p>
+
+<h2>A final note</h2>
+
+<p>I strongly believe in this project, not to generate a lot of revenue, but to help those in the same situation as WE were with our first baby&#8230; (ohoh a hint here).</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/rails-assets-pipeline-and-missing-assets/">Rails Assets Pipeline and missing assets</a></h1>
     
     
@@ -126,7 +206,7 @@
 <p>Like this:</p>
 
 <figure class='code'><figcaption><span>config/application.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">assets</span><span class="o">.</span><span class="n">precompile</span> <span class="o">+=</span> <span class="o">[</span><span class="s1">&#39;application.css&#39;</span> <span class="o">]</span>  <span class="c1"># this will not work, but no error will be thrown</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">assets</span><span class="o">.</span><span class="n">precompile</span> <span class="o">+=</span> <span class="o">[</span><span class="s1">&#39;application.css&#39;</span> <span class="o">]</span> <span class="c1"># this will work for application.css.scss </span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -695,60 +775,6 @@ You can see it as (((10 + 1) + 2) + 3).
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/completely-unrealistic-example-a-backbone-blog/">Completely unrealistic example - A Backbone Blog</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-04-10T06:00:00-04:00" pubdate data-updated="true">Apr 10<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Last week, while I was playing and coding on my Backbone blog project (<a href="https://github.com/sebastienlachance/backbone-rails-blog">backbone-rails-blog</a>), I started wondering if it was something I could use to replace this blog, since I put so much time on it lately. But at the same time I kept telling myself, <strong>is Google going to index the content?</strong> The short answer is: <strong>NO</strong>, not now anyway.</p>
-
-<p>The long answer goes like this: Facebook comments are indexed. So there should be a way to provide this content to GoogleBot. I have done my homework and this document, <a href="https://developers.google.com/webmasters/ajax-crawling/docs/getting-started">Making Ajax Applications Crawlable</a>) provides some answers. Basically, we need the <a href="http://en.wikipedia.org/wiki/Shebang_(Unix">hashbang</a>) url format. This is achieved with Backbone when we are not using pushstate.</p>
-
-<p>Hashbang url:</p>
-
-<pre><code>http://sebastienlachance.com#!blog-post
-</code></pre>
-
-<p>My urls:</p>
-
-<pre><code>http://sebastienlachacne.com/blog-post
-</code></pre>
-
-<p>And frankly, I will not pursue this path. In my case anyway, it provides no real advantages to have an Ajax-powered blog.</p>
-
-<p>In fact, I could have left Backbone and only use it on the admin backend, but as a learning tool, I didn&#8217;t want to revert back (and there is so much great blogging platform now anyway).</p>
-
-<p>Do you have any other web apps ideas (other than a todo list or blog)? In my next iteration (that is, the next app), I will be using Backbone with NodeJs and MongoDB. Sounds fun.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -778,6 +804,10 @@ You can see it as (((10 + 1) + 2) + 3).
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/an-real-world-application-with-backbone-my-story/">An real world application with Backbone and Rails - My story &#8230; so far</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/rails-assets-pipeline-and-missing-assets/">Rails Assets Pipeline and missing assets</a>
       </li>
     
@@ -791,10 +821,6 @@ You can see it as (((10 + 1) + 2) + 3).
     
       <li class="post">
         <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
       </li>
     
   </ul>

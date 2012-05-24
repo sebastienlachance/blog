@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Following the definition of a nightmare platform, I officially declare Microsoft Dynamics GP to be one of them. Sorry Dynamics GP guys, but I need an &hellip;">
+  <meta name="description" content="For the getter, it&#8217;s exactly as you would do with a method : &nbsp; Expect.Call(mockedConnection.CompanyConnectionString).Return(" &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,58 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/setting-expectations-on-properties-with-rhino-mocks/">Setting expectations on properties with Rhino Mocks</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-08T03:12:00-05:00" pubdate data-updated="true">Jan 8<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>For the getter, it&#8217;s exactly as you would do with a method :</p>
+
+
+<p>&nbsp;</p>
+
+
+<pre><span style="color: #0000ff;">Expect</span><span style="color: #2b91af;">.Call(mockedConnection.CompanyConnectionString).Return(</span><span style="color: #00ff00;">"testconnectionstring"</span><span style="color: #2b91af;">);</span></pre>
+
+
+<p>For the setter, only assign the value you want to the property of the mocked object :</p>
+
+
+<p>&nbsp;</p>
+
+
+<pre>mockedConnection.ConnectionString = <span style="color: #a31515;">"testconnectionstring"</span><span style="color: #000000;">;&lt;/PRE<p><br /><br />&nbsp;<br /></p></span></pre>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1162,50 +1214,6 @@ This is what the NAnt section look like:
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/setting-up-cruisecontrolnet-screencast/">Setting up CruiseControl.Net screencast</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-11-15T07:42:00-05:00" pubdate data-updated="true">Nov 15<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I am a long time reader of the CodeBetter.com blogs and usually read all their posts. But last year, I missed one that I consider a gem. If you ever struggled with building a continuous integration with CruiseControl.Net, you will find that screencast very instructive. Excellent job Jean-Paul S. Boodhoo&#8217;s!!</p>
-
-
-
-
-<p>
-<a href="http://www.jpboodhoo.com/blog/AutomatingYourBuildsWithNAntPart8EnterCruiseControl.aspx" title="Automating Your Builds With NAnt - Part 8 (Enter CruiseControl)">Automating Your Builds With NAnt - Part 8 (Enter CruiseControl)</a>
-</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/15/">&larr; Older</a>
@@ -1237,6 +1245,10 @@ This is what the NAnt section look like:
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/an-real-world-application-with-backbone-my-story/">An real world application with Backbone and Rails - My story &#8230; so far</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/rails-assets-pipeline-and-missing-assets/">Rails Assets Pipeline and missing assets</a>
       </li>
     
@@ -1250,10 +1262,6 @@ This is what the NAnt section look like:
     
       <li class="post">
         <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/ruby-and-nested-classes/">Ruby and nested classes</a>
       </li>
     
   </ul>

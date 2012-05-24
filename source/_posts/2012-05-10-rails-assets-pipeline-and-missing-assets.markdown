@@ -27,7 +27,7 @@ config.assets.precompile += ['administration.js', 'administration.css' ]
 Like this:
 
 ``` ruby config/application.rb
-config.assets.precompile += ['application.css' ]  # this will not work, but no error will be thrown
+config.assets.precompile += ['application.css' ] # this will work for application.css.scss 
 ```
 
 Instead of:
