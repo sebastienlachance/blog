@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "An real world application with Backbone and Rails - My story ... so far"
+title: "A real world application with Backbone and Rails - My story ... so far"
 date: 2012-05-24 9:20
 comments: true
 categories: startup, creatiom
