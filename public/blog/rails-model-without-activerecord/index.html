@@ -5,11 +5,26 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>A new job - Sebastien Lachance</title>
+  <title>Rails model without ActiveRecord - Sebastien Lachance</title>
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Last week, I have left my job at bxsystems. I had an opportunity that I could not refuse. I have worked for 3 years and 8 months with the most &hellip;">
+  <meta name="description" content="Common scenario for a contact form. Here is how I do it: Model without ActiveRecord in Rails1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+class Contact include &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +33,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sebastienlachance.com/blog/a-new-job">
+  <link rel="canonical" href="http://sebastienlachance.com/blog/rails-model-without-activerecord">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -78,7 +93,7 @@
   
   <header>
     
-      <h1 class="entry-title">A new job</h1>
+      <h1 class="entry-title">Rails model without ActiveRecord</h1>
     
     
       <p class="meta">
@@ -94,17 +109,48 @@
   
 
 
-<time datetime="2008-04-05T07:10:00-04:00" pubdate data-updated="true">Apr 5<span>th</span>, 2008</time>
+<time datetime="2012-05-29T11:01:00-04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Last week, I have left my job at bxsystems. I had an opportunity that I could not refuse. I have worked for 3 years and 8 months with the most talented peoples I ever encountered. They are great professionals and I am sure they will continue to be successful in their careers. This is where all started for me, where I started to get passionate about programming. I had a lot of freedom and a lot of learning opportunities.</p>
+<div class="entry-content"><p>Common scenario for a contact form.</p>
 
+<p>Here is how I do it:</p>
 
-<p>I am very grateful for everything. For a beginner, it could not be a better place. Thank you!</p>
+<figure class='code'><figcaption><span>Model without ActiveRecord in Rails</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Contact</span>
+</span><span class='line'>  <span class="kp">include</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Validations</span>
+</span><span class='line'>  <span class="kp">include</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Conversion</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">attributes</span> <span class="o">=</span> <span class="p">{})</span>
+</span><span class='line'>    <span class="n">attributes</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span>
+</span><span class='line'>      <span class="nb">send</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">=&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">persisted?</span>
+</span><span class='line'>    <span class="kp">false</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
 </div>
 
@@ -128,15 +174,21 @@
   
 
 
-<time datetime="2008-04-05T07:10:00-04:00" pubdate data-updated="true">Apr 5<span>th</span>, 2008</time>
+<time datetime="2012-05-29T11:01:00-04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/rails/'>rails</a>
+  
+</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sebastienlachance.com/blog/a-new-job/" data-via="slachance" data-counturl="http://sebastienlachance.com/blog/a-new-job/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sebastienlachance.com/blog/rails-model-without-activerecord/" data-via="slachance" data-counturl="http://sebastienlachance.com/blog/rails-model-without-activerecord/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -149,10 +201,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/the-importance-of-database-versioning/" title="Previous Post: The importance of database versioning">&laquo; The importance of database versioning</a>
+        <a class="basic-alignment left" href="/blog/an-real-world-application-with-backbone-my-story/" title="Previous Post: A real world application with Backbone and Rails - My story ... so far">&laquo; A real world application with Backbone and Rails - My story ... so far</a>
       
-      
-        <a class="basic-alignment right" href="/blog/refreshing-my-memory-delegates-in-c/" title="next Post: Refreshing my memory : Delegates in C#">Refreshing my memory : Delegates in C# &raquo;</a>
       
     </p>
   </footer>
@@ -276,8 +326,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://sebastienlachance.com/blog/a-new-job/';
-        var disqus_url = 'http://sebastienlachance.com/blog/a-new-job/';
+        var disqus_identifier = 'http://sebastienlachance.com/blog/rails-model-without-activerecord/';
+        var disqus_url = 'http://sebastienlachance.com/blog/rails-model-without-activerecord/';
         var disqus_script = 'embed.js';
       
     (function () {

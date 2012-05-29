@@ -851,12 +851,16 @@
         <lastmod>2012-05-27T16:57:23-04:00</lastmod>
     </url>
     <url>
+        <loc>http://sebastienlachance.com/blog/rails-model-without-activerecord/</loc>
+        <lastmod>2012-05-29T11:38:57-04:00</lastmod>
+    </url>
+    <url>
         <loc>http://sebastienlachance.com/blog/archives/</loc>
-        <lastmod>2012-05-27T16:57:23-04:00</lastmod>
+        <lastmod>2012-05-29T11:38:57-04:00</lastmod>
     </url>
     <url>
         <loc>http://sebastienlachance.com/</loc>
-        <lastmod>2012-05-27T16:57:23-04:00</lastmod>
+        <lastmod>2012-05-29T11:38:57-04:00</lastmod>
     </url>
     <url>
         <loc>http://sebastienlachance.com/new-page/</loc>

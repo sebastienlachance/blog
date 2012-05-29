@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="2 years ago, someone told me Ruby will be the &#8220;next big thing&#8221;. I told him &#8220;no way&#8221;. C# will gain more and more popularity &hellip;">
+  <meta name="description" content="In case you have not seen this very cool presentation done at the TED conference, check this out there : Photosynth. This is a project I would do &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,43 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/photosynth-and-seadragon/">Photosynth and Seadragon</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-07-18T11:10:00-04:00" pubdate data-updated="true">Jul 18<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In case you have not seen this very cool presentation done at the TED conference, check this out there : <a href="http://www.ted.com/talks/view/id/129" target="_blank">Photosynth</a>. This is a project I would do anything to work on it. They are reconstructing the Notre-Dame Cathedral with image from flicker. Can you imagine that! Unbelievable!  If you still have time to check another video, check the <a href="http://www.ted.com/index.php/talks/view/id/96" target="_blank">Tony Robbins presentation</a>. I have read his book some years ago (his name in the french book is Anthony Robbins, translator have this crazy idea that name can be translated, by example : Buster in the Mythbuster show is called Jimmy) and he had help me a lot finding what I wanted to do in life. He is very entertaining and motivating.</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -523,145 +560,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/strong-naming-an-assembly-in-net/">Strong naming an assembly in .NET</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2005-05-24T01:44:00-04:00" pubdate data-updated="true">May 24<span>th</span>, 2005</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>All about Strong Naming in .NET.</p>
-
-
-<p><br />This is my attempt to explain Strong Name to myself. All the stuff here come from Patterns &amp; Practices : Improving Web Application Security from Microsoft.</p>
-
-
-<h3>What is a strong named assembly and why you should use it?</h3>
-
-
-<p><br />A strong name consist of a text name, version number, maybe a culture, public key, and a digital signature.     <br />There are some reasons why you would want to add a strong name to an assembly.</p>
-
-
-<p><br />1. To protect your code from partial trust assembly.     <br />2. To share your assembly with others applications.     <br />3. Uniquely identify the assembly. Giving cryptographically strong evidence for code access security.</p>
-
-
-<p><br />And some security benefits, some of which are:</p>
-
-
-<p><br />1. Digital signature. This, protect your assembly from any modification. Any tampering cause the application to fail.     <br />2. Cannot be called form partially trusted code.     <br />3. Allows administrators to grant specific permission to assembly.</p>
-
-
-<p>&nbsp;</p>
-
-
-<h3>To strong name an assembly, here is how you can do it.</h3>
-
-
-<p><br />1. Generate a key file.</p>
-
-
-<p><br /><strong>sn.exe &ndash;k keypair.snk</strong></p>
-
-
-<p><strong></strong></p>
-
-
-<p><br />2. Add the AssemblyKeyFile attribute to the Assembly.vb or Assembly.cs file of your project. Reference the key file.</p>
-
-
-<p><br /><strong>[AssemblyKeyFile(&#8220;@..&#46;.\keypair.snk&#8221;)]</strong></p>
-
-
-<p><strong></strong></p>
-
-
-<p><br />You now have a strong named assembly.</p>
-
-
-<p>&nbsp;</p>
-
-
-<h3>Delay signing in development.</h3>
-
-
-<p><br />You might want to delay sign your assembly in development version. It means that your assembly is available for code security, but it is not yet temper proof. You can still modify your assembly without re-signing.</p>
-
-
-<p><br />Your private key at this moment could be kept safe until development is complete. If you wish you can us it for all your organisation&rsquo;s assemblies. To implements delay signing, you must first create the key.</p>
-
-
-<p><br /><strong>sn.exe &ndash;k keypair.snk</strong></p>
-
-
-<p><strong></strong></p>
-
-
-<p><br />Then you extract the public key.     <br /><strong>sn.exe &ndash;p keypair.snk publickey.snk</strong></p>
-
-
-<p><strong></strong></p>
-
-
-<p><br />You can now take keypair.snk and put it in a safe location, then distribute the public key to the development teams.     <br />This is not all. You must now delay sign your assembly. To do this, you first add the AssemblyKeyFile attribute to your Assembly file.     <br /><strong>[assembly: AssemblyKeyFile(&ldquo;@..&#46;.\publickey.snk&rdquo;)]</strong> <br />Then add the AssemblyDelaySign attribute to true.     <br /><strong>[assembly: AssemblyDelaySign(true)]</strong></p>
-
-
-<p><strong></strong></p>
-
-
-<p><br />You will remark that your assembly will fail verification at load time. You will need to disable verification.</p>
-
-
-<p><br />1. For a specific assembl :     <br />&nbsp;&nbsp;&nbsp; sn &ndash;Vr assembly.dll     <br />2. For all application who use the key:</p>
-
-
-<p><br /><strong>sn &ndash;Vr *,publickeytoken</strong></p>
-
-
-<p><strong></strong></p>
-
-
-<p><br />To extract the public key and key token, you can do that this way:</p>
-
-
-<p><br /><strong>sn &ndash;Tp assembly.dll</strong></p>
-
-
-<p><strong></strong></p>
-
-
-<p><br />Now your assembly has a delayed signing. If you want to complete the process and render your assembly tamper proof. You will now need the private key.</p>
-
-
-<p><br /><strong>sn &ndash;r assembly.dll keypair.snk </strong></p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/19/">&larr; Older</a>
@@ -693,6 +591,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/rails-model-without-activerecord/">Rails model without ActiveRecord</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/an-real-world-application-with-backbone-my-story/">A real world application with Backbone and Rails - My story &#8230; so far</a>
       </li>
     
@@ -706,10 +608,6 @@
     
       <li class="post">
         <a href="/blog/learning-rails-assert-valid-keys/">Learning Rails : assert_valid_keys</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
       </li>
     
   </ul>

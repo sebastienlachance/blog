@@ -9,7 +9,7 @@
   <meta name="author" content="Sebastien Lachance">
 
   
-  <meta name="description" content="Some months ago, someone from Jetbrains asked me if they could use a comment I made on my TeamCity blog post (the one I demonstrate how to get &hellip;">
+  <meta name="description" content="If you are using the Resharper&#8217;s TestRunner and have put your tests directly inside your web application assembly, you may ran across the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,52 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/webconfig-to-appconfig-and-resharpers-testrunner/">Web.Config to App.Config and Resharper&#8217;s TestRunner</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-11-07T08:20:00-05:00" pubdate data-updated="true">Nov 7<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you are using the Resharper&#8217;s TestRunner and have put your tests directly inside your web application assembly, you may ran across the configuration file issue. That is, that you create a test that, in a way or another, will try to access your application configuration file. The problem is that the Web.Config file is not copied to the bin folder and is not renamed following the configuration file convention of anything else that is not a web application. To ensure that you will have access, you can add a post-build event in Visual Studio that will copy the Web.Config to the bin folder with an appropriate name (applicationname.dll.config).</p>
+
+
+<p>Right-Click on the project =&gt; Properties =&gt; Build Events and paste this :</p>
+
+
+<p>copy /Y &#8220;$(ProjectDir)Web.config&#8221; &#8220;$(TargetDir)$(TargetFileName).config</p>
+
+
+<p><a title="BuildEvents" href="http://www.flickr.com/photos/63483657@N00/3005104353/"><img src="http://static.flickr.com/3170/3005104353_0f13ee0f47.jpg" border="0" alt="BuildEvents" /></a></p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -574,46 +620,6 @@ requestRepository.VerifyAllExpectations();</pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/systemdatalinqchangeconflictexception-row-not-found-or-changed/">ChangeConflictException: Row not found or changed</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-07-08T08:01:00-04:00" pubdate data-updated="true">Jul 8<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Hummm, I love this unclear exception message. I just can&#8217;t believe there is not a condition somewhere to return whether the row was not found or just changed. It would be a lot easier to diagnose problems.</p>
-
-
-<p>Anyway, after reading several article on concurrency regarding Linq to SQL and making sure the date field was sent correctly (like suggested everywhere), I finally pin-pointed the problem when I remembered that I had changed a NOT NULL column to a NULL column. Et voila. Problem solved!</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/11/">&larr; Older</a>
@@ -645,6 +651,10 @@ requestRepository.VerifyAllExpectations();</pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/rails-model-without-activerecord/">Rails model without ActiveRecord</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/an-real-world-application-with-backbone-my-story/">A real world application with Backbone and Rails - My story &#8230; so far</a>
       </li>
     
@@ -658,10 +668,6 @@ requestRepository.VerifyAllExpectations();</pre>
     
       <li class="post">
         <a href="/blog/learning-rails-assert-valid-keys/">Learning Rails : assert_valid_keys</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/large-scale-javascript-application-architecture-by-addy-osmani/">Large-scale Javascript Application Architecture by Addy Osmani</a>
       </li>
     
   </ul>
